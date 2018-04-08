@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Usi | BeTheMillionaire</title>
+
+    {% load staticfiles %}
+    <link rel="shortcut icon" type="image/png" href="{% static 'account/style/images/logo/favicon.png' %}" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'account/style/materialize.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'account/style/login.css' %}">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link href="https://fonts.googleapis.com/css?family=Sacramento" rel="stylesheet">
+
+    <style>
+        .container{
+            min-width: 100%;
+        }
+
+        .container > .row {
+            margin: 0;
+        }
+
+
+        .container > .row > .col {
+            padding: 0;
+        }
+
+        *{
+            padding: 0px;
+            margin: 0px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row" style="">
+            <div class="col s12 m12 l4 #b3e5fc light-blue lighten-4" id="left-section" style="">
+                <div class="col s12 m12 l12 valign-wrapper" style="height: 130px; margin-bottom: 20px;">
+                    <div class="center-align logo" style="width: 100%">
+                        Be theMillionaire
+                    </div>
+                </div>
+
+                <div class="col s12 m12 l12" style="margin-top: 20px;">
+                    <a target="_blank" href="https://profitwithvitaliy.usitech-int.com/enrollment.html"><div class="card blue" style="cursor: pointer;">
+                        <div class="card-content white-text">
+                            <h5 class="center-align">
+                                Step 1 - Click Here To Create A Free Account
+                            </h5>
+                        </div>
+                    </div></a>
+                </div>
+
+                <div class="col s12 m12 l12" style="margin-top: 20px;">
+                    <a target="_blank" href="{% url 'account:usi-tech-fast-start' %}?userid={{ request.GET.userid }}"><div class="card blue" style="cursor: pointer;">
+                        <div class="card-content white-text">
+                            <h5 class="center-align">
+                                Step 2 - Continue To Fast Start Training
+                            </h5>
+                        </div>
+                    </div></a>
+                </div>
+
+                <div class="col s12 m12 l12" style="margin-top: 20px;">
+                    <a target="_blank" href="{% url 'account:registration' %}?userid={{ request.GET.userid }}"><div class="card blue" style="cursor: pointer;">
+                        <div class="card-content white-text">
+                            <h5 class="center-align">
+                                Step 3 - BTC-Packages Calculator
+                            </h5>
+                        </div>
+                    </div></a>
+                </div>
+
+            </div>
+
+            <div class="col s12 m12 l8" id="right-section" style="">
+                <div class="col s10 offset-s1 m10 offset-m1 l10 offset-l1" style="">
+                    <h5 style="">Discover How This Secret Wealth Strategy Generates Me <span style="color: red;">Over $10,000+ Every Day</span>, How Regular People Multiply Their Money By 5X A Year Passively & 2 Strategies To <b style="text-decoration: underline;">Become A Millionaire In 2018!</b> </h5>
+                </div>
+
+                <div class="col s10 offset-s1 m10 offset-m1 l10 offset-l1 center-align" style="">
+                    <p>
+                        How To Get Paid 1-2+ Bitcoin A Day & Potentially Get Up 10,000% ROI On Your Money
+                    </p>
+                </div>
+
+                <div class="col s10 offset-s1 m10 offset-m1 l10 offset-l1" style="height: 350px;">
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/-2X4mB4hyLA" frameborder="0" gesture="media" allow="encrypted-media" autoplay="true" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div id="footer" class="valign-wrapper">
+                    <p style="margin-left: 50px;">All right reserverd by bethemillionaire @ 2017-2017</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script type="text/javascript" src="{% static 'home/js/jquery.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'home/js/materialize.min.js' %}"></script>
+<script>
+
+</script>

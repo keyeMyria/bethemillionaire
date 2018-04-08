@@ -1,0 +1,53 @@
+{% extends 'admin-base.html' %}
+
+{% block title %}Administration | BeTheMillionaire{% endblock %}
+
+{% block add-css %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home/style/index.css' %}">
+{% endblock %}
+
+{% block main %}
+    <div class="row">
+        <div class="col s12 m10 offset-m1 l8 offset-l2" style="">
+            <div class="col s12 m12 l12" style="margin-top: 20px; margin-bottom: 20px;">
+                <h5 class="">
+                    Featured Operation
+                </h5>
+            </div>
+
+            <div class="col s12 m12 l12" style="margin-top: 20px; margin-bottom: 10px;">
+                <a href="{% url 'administration:module-control' %}" class="waves-effect waves-light btn">Module Control</a>
+            </div>
+
+            <div class="col s12 m12 l12" style="margin-top: 10px; margin-bottom: 10px;">
+                <a href="{% url 'administration:lesson-control' %}" class="waves-effect waves-light btn">Lesson Control</a>
+            </div>
+
+            <div class="col s12 m12 l12" style="margin-top: 10px; margin-bottom: 20px;">
+                <a href="{% url 'administration:step-control' %}" class="waves-effect waves-light btn">Step Control</a>
+            </div>
+
+            <div class="col s12 m12 l12" style="margin-top: 20px; margin-bottom: 10px;">
+                <h5 class="">
+                    Affiliate Link Control
+                </h5>
+            </div>
+
+            <div class="col s12 m12 l12" style="margin-top: 20px; margin-bottom: 40px;">
+                <a href="{% url 'administration:affiliate-link-control' %}" class="waves-effect waves-light btn">Affiliate Link Control</a>
+            </div>
+
+
+            <div class="col s12 m12 l12" style="margin-top: 20px; margin-bottom: 10px;">
+                <h5 class="">
+                    Add or remove video lesson
+                </h5>
+            </div>
+
+            <div class="col s12 m12 l12" style="margin-top: 20px; margin-bottom: 40px;">
+                <a href="{% url 'administration:add-video' %}" class="waves-effect waves-light btn">Add Video</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

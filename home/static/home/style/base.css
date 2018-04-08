@@ -1,0 +1,79 @@
+*{
+    font-family: 'myFont';
+}
+
+@font-face {
+    font-family: 'myFont';
+    src: url('../fonts/myFont.ttf');
+}
+
+#nav-wrapper{
+    height: 80px;
+}
+
+#nav-bar{
+    height: 100%;
+}
+
+
+#site-logo{
+    font-size: 60px;
+    font-family: 'Sacramento', cursive;
+}
+
+
+#footer-wrapper{
+    min-height: 400px;
+}
+
+
+#footer-logo{
+    margin-top: 80px;
+}
+
+
+#footer-logo span{
+    font-size: 120px;
+    font-family: 'Sacramento', cursive;
+}
+
+
+#footer-copyright{
+    height: 40px;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+
+.preloader-background {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #eee;
+
+	position: fixed;
+	z-index: 100;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%
+}
+
+.sticky + .content {
+  padding-top: 60px;
+}
+
+
+
+.z-depth-0 {
+  -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 0 rgba(0, 0, 0, 0);
+  -moz-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 0 rgba(0, 0, 0, 0);
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 0 rgba(0, 0, 0);
+}

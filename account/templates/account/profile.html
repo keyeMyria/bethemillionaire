@@ -1,0 +1,293 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ request.user.username }} | Profile{% endblock %}
+
+{% block add-css %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home/style/index.css' %}">
+{% endblock %}
+
+{% block main %}
+    <div class="row">
+        <div class="col s12 m8 offset-m2 l18 offset-l2" style="margin-top: 20px;">
+            <div class="col s12 m12 l12">
+                <ul class="tabs">
+                    <li class="tab col s4"><a class="active black-text" href="#account-details">My Account Details</a></li>
+                    <li class="tab col s4"><a class="black-text" href="#other-affiliate-network">Other Affiliate Networks</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col s12 m8 offset-m2 l18 offset-l2" style="margin-top: 20px;">
+            <div id="account-details" class="col s12">
+                <div class="row">
+                    <div class="col s12 m8 offset-m2 l18 offset-l2" style="margin-top: 20px;">
+
+                    </div>
+
+                    <div class="col s12 m8 offset-m2 l18 offset-l2" style="margin-top: 20px;">
+                        <div id="account-info" class="col s12">
+                            <form method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+
+                                <div class="input-field col s12 m10 offset-m1 l10 offset-l1">
+                                    <i class="material-icons prefix">email</i>
+                                    {{ user_edit_form.email }}
+                                    <label for="icon_prefix white-text">Email</label>
+                                </div>
+
+                                <div class="input-field col s12 m10 offset-m1 l10 offset-l1">
+                                    <i class="material-icons prefix">call</i>
+                                    {{ user_edit_form.phone_number }}
+                                    <label for="icon_prefix white-text">Phone Number</label>
+                                </div>
+
+                                <div class="input-field col s12 m10 offset-m1 l10 offset-l1">
+                                    <i class="material-icons prefix">public</i>
+                                    {{ user_edit_form.website }}
+                                    <label for="icon_prefix white-text">Website</label>
+                                </div>
+
+                                <div class="input-field col s12 m10 offset-m1 l10 offset-l1">
+                                    <i class="material-icons prefix">group_add</i>
+                                    {{ user_edit_form.facebook }}
+                                    <label for="icon_prefix white-text">Facebook</label>
+                                </div>
+
+                                <div class="input-field col s12 m10 offset-m1 l10 offset-l1">
+                                    <i class="material-icons prefix">videocam</i>
+                                    {{ user_edit_form.skype }}
+                                    <label for="icon_prefix white-text">Skype</label>
+                                </div>
+
+                                {% for user_pro in user_profiles %}
+                                    <div class="row center-align">
+                                        <div class="col s10 offset-s1 m5 l4 center-align" style="margin-top: 20px;">
+                                            {% if user_pro.profile_picture %}
+                                                <img src="{{ user_pro.sponsor.profile_picture.url }}" width="100%" style="">
+                                            {% else %}
+                                                <img src="{% static 'account/style/images/no-img.jpg' %}"  width="100%" style="">
+                                            {% endif %}
+                                        </div>
+
+                                        <div class="input-field col s12 m6 l6">
+                                            <div class="file-field input-field">
+                                                <div class="btn">
+                                                    <span>Photo</span>
+                                                    {{ user_edit_form.profile_picture }}
+                                                </div>
+
+                                                <div class="file-path-wrapper">
+                                                    <input class="file-path validate" type="text">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                {% endfor %}
+
+                                <button type="submit" name="account_info" value="account_info" style="margin-bottom: 20px;" class="btn right">Update</button>
+
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+            <!--other affiliate network-->
+
+            <div id="other-affiliate-network" class="col s12" style="margin-bottom: 40px;">
+                <div class="row">
+                    <div class="col s12 m12 l12" style="margin-top: 10px;">
+                            <div class="card blue">
+                                <div class="card-content white-text">
+                                    <span class="card-title">Savings Your Affiliate Links With Other Affiliate Networks</span>
+                                    <p>
+                                        Please save ONLY THE USERNAMES of the affiliate networks below to get proper credit from your referrals to the system.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                    <div class="col s6">
+                        <p style="font-size: 16px; margin-top: 30px;">
+                            Essential Online Marketing Affiliate Accounts
+                        </p>
+
+
+                        <form class="col s12 m12 l12" method="post" style="margin-top: 20px;">
+                            {% csrf_token %}
+                            <div class="input-field col s6 m6 l6">
+                                <i class="material-icons prefix">group_add</i>
+                                {{ click_magic_form.clickmagic_username }}
+                                <label for="icon_prefix white-text">ClickMagic</label>
+                            </div>
+
+                            <button class="col s4 m3 l2 btn" type="submit" name="click_magic" value="click_magic" style="margin-top: 20px;">Save</button>
+                        </form>
+
+                        <form class="col s12 m12 l12" method="post" style="margin-top: 10px;">
+                            {% csrf_token %}
+                            <div class="input-field col s6 m6 l6">
+                                <i class="material-icons prefix">group_add</i>
+                                {{ click_funnels_form.clickfunnels_username }}
+                                <label for="icon_prefix white-text">ClickFunnels</label>
+                            </div>
+
+                            <button class="col s4 m3 l2 btn" type="submit" name="click_funnels" value="click_funnels" style="margin-top: 20px;">Save</button>
+                        </form>
+
+                        <form class="col s12 m12 l12" method="post" style="margin-top: 10px;">
+                            {% csrf_token %}
+                            <div class="input-field col s6 m6 l6">
+                                <i class="material-icons prefix">group_add</i>
+                                {{ getresponse_form.getresponse_username }}
+                                <label for="icon_prefix white-text">Getresponse</label>
+                            </div>
+
+                            <button class="col s4 m3 l2 btn" type="submit" name="getresponse" value="getresponse" style="margin-top: 20px;">Save</button>
+                        </form>
+
+                        <form class="col s12 m12 l12" method="post" style="margin-top: 10px;">
+                            {% csrf_token %}
+                            <div class="input-field col s6 m6 l6">
+                                <i class="material-icons prefix">group_add</i>
+                                {{ aweber_form.aweber_username }}
+                                <label for="icon_prefix white-text">Aweber</label>
+                            </div>
+
+                            <button class="col s4 m3 l2 btn" type="submit" name="aweber" value="aweber" style="margin-top: 20px;">Save</button>
+                        </form>
+                    </div>
+
+                    <!--right side-->
+                    <div class="col s6">
+                        <p style="font-size: 16px; margin-top: 30px;">
+                            Save Usernames Of Below Affiliate Networks To Earn Extra Bitcoins!
+                        </p>
+
+                        <form class="col s12 m12 l12" method="post" style="margin-top: 20px;">
+                            {% csrf_token %}
+                            <div class="input-field col s6 m6 l6">
+                                <i class="material-icons prefix">group_add</i>
+                                {{ ledger_nano_s_form.ledger_nano_s_username }}
+                                <label for="icon_prefix white-text">Ledger Nano S</label>
+                            </div>
+
+                            <button class="col s4 m3 l2 btn" type="submit" name="ledger_nano_s" value="ledger_nano_s" style="margin-top: 20px;">Save</button>
+                        </form>
+
+                        <form class="col s12 m12 l12" method="post" style="margin-top: 10px;">
+                            {% csrf_token %}
+                            <div class="input-field col s6 m6 l6">
+                                <i class="material-icons prefix">group_add</i>
+                                {{ trezor_s_form.trezor_username }}
+                                <label for="icon_prefix white-text">Trezor S</label>
+                            </div>
+
+                            <button class="col s4 m3 l2 btn" type="submit" name="trezor_s" value="trezor_s" style="margin-top: 20px;">Save</button>
+                        </form>
+
+                        <form class="col s12 m12 l12" method="post" style="margin-top: 10px;">
+                            {% csrf_token %}
+                            <div class="input-field col s6 m6 l6">
+                                <i class="material-icons prefix">group_add</i>
+                                {{ coin_base_form.coinbase_username }}
+                                <label for="icon_prefix white-text">CoinBase</label>
+                            </div>
+
+                            <button class="col s4 m3 l2 btn" type="submit" name="coin_base" value="coin_base" style="margin-top: 20px;">Save</button>
+                        </form>
+
+                        <form class="col s12 m12 l12" method="post" style="margin-top: 10px;">
+                            {% csrf_token %}
+                            <div class="input-field col s6 m6 l6">
+                                <i class="material-icons prefix">group_add</i>
+                                {{ spectrocoin_card_form.spectrocoin_card_username }}
+                                <label for="icon_prefix white-text">SpectroCoin Card</label>
+                            </div>
+
+                            <button class="col s4 m3 l2 btn" type="submit" name="spectro_coin_card" value="spectro_coin_card" style="margin-top: 20px;">Save</button>
+                        </form>
+
+
+
+                        <form class="col s12 m12 l12" method="post" style="margin-top: 10px;">
+                            {% csrf_token %}
+                            <div class="input-field col s6 m6 l6">
+                                <i class="material-icons prefix">group_add</i>
+                                {{ cryptopay_card_form.cryptopay_card_username }}
+                                <label for="icon_prefix white-text">CryptoPay Card</label>
+                            </div>
+
+                            <button class="col s4 m3 l2 btn" type="submit" name="cryptopay_card" value="cryptopay_card" style="margin-top: 20px;">Save</button>
+                        </form>
+
+                        <form class="col s12 m12 l12" method="post" style="margin-top: 10px;">
+                            {% csrf_token %}
+                            <div class="input-field col s6 m6 l6">
+                                <i class="material-icons prefix">group_add</i>
+                                {{ cex_io_form.cexio_username }}
+                                <label for="icon_prefix white-text">Cex.IO</label>
+                            </div>
+
+                            <button class="col s4 m3 l2 btn" type="submit" name="cex_io" value="cex_io" style="margin-top: 20px;">Save</button>
+                        </form>
+
+                        <form class="col s12 m12 l12" method="post" style="margin-top: 10px;">
+                            {% csrf_token %}
+                            <div class="input-field col s6 m6 l6">
+                                <i class="material-icons prefix">group_add</i>
+                                {{ bitpanda_form.bitpanda_username }}
+                                <label for="icon_prefix white-text">BitPanda</label>
+                            </div>
+
+                            <button class="col s4 m3 l2 btn" type="submit" name="bit_panda" value="bit_panda" style="margin-top: 20px;">Save</button>
+                        </form>
+
+                        <form class="col s12 m12 l12" method="post" style="margin-top: 10px;">
+                            {% csrf_token %}
+                            <div class="input-field col s6 m6 l6">
+                                <i class="material-icons prefix">group_add</i>
+                                {{ local_bitcoins_form.local_bitcoins_username }}
+                                <label for="icon_prefix white-text">LocalBitcoins</label>
+                            </div>
+
+                            <button class="col s4 m3 l2 btn" type="submit" name="local_bitcoins" value="local_bitcoins" style="margin-top: 20px;">Save</button>
+                        </form>
+
+                        <form class="col s12 m12 l12" method="post" style="margin-top: 10px;">
+                            {% csrf_token %}
+                            <div class="input-field col s6 m6 l6">
+                                <i class="material-icons prefix">group_add</i>
+                                {{ inda_coin_form.indacoin_username }}
+                                <label for="icon_prefix white-text">IndaCoin</label>
+                            </div>
+
+                            <button class="col s4 m3 l2 btn" type="submit" name="inda_coin" value="inda_coin" style="margin-top: 20px;">Save</button>
+                        </form>
+
+                        <form class="col s12 m12 l12" method="post" style="margin-top: 10px;">
+                            {% csrf_token %}
+                            <div class="input-field col s6 m6 l6">
+                                <i class="material-icons prefix">group_add</i>
+                                {{ coin_mama_form.coin_mama_username }}
+                                <label for="icon_prefix white-text">CoinMama</label>
+                            </div>
+
+                            <button class="col s4 m3 l2 btn" type="submit" name="coin_mama" value="coin_mama" style="margin-top: 20px;">Save</button>
+                        </form>
+
+
+
+                    </div>
+                </div>
+            </div>
+
+            <!--end other affiliate network-->
+        </div>
+    </div>
+{% endblock %}

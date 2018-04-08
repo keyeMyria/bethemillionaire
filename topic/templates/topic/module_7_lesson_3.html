@@ -1,0 +1,330 @@
+{% extends 'base.html' %}
+
+{% block title %}Top Bitcoin Resources | BeTheMillionaire{% endblock %}
+
+{% block add-css %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home/style/index.css' %}">
+{% endblock %}
+
+{% block main %}
+    <div class="row">
+        <div class="col s12 m12 l12" style="">
+            <div class="col s12 m12 l9 right main-content" style="">
+                <div class="col s12 m10 offset-m1 l10 offset-l1" style="margin-top: 20px;">
+                    <h4 class="center-align">
+                        Top Bitcoin Resources
+                    </h4>
+                </div>
+
+                <div class="col s12 m10 offset-m1 l10 offset-l1" style="margin-top: 20px;">
+                    <p class="">
+                        Step Progress ( 2/3 )
+                    </p>
+                </div>
+
+                <div class="col s12 m12 l10 offset-l1" style="margin-top: 20px; height: 400px;">
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/-2X4mB4hyLA" frameborder="0" gesture="media" allow="encrypted-media" autoplay="true" allowfullscreen></iframe>
+                </div>
+
+                <!--take notes-->
+                <div class="col s12 m10 offset-m1 l10 offset-l1 center-align" style="margin-top: 20px;">
+                    <a style="margin-bottom: 20px; margin-top: 20px;" class="waves-effect yellow black-text waves-light btn modal-trigger" href="#take_note">Take Notes</a>
+
+                    <!-- Modal Structure -->
+                    <div id="take_note" class="modal">
+                        <div class="modal-content">
+                            <div class="col s12 m12 l12">
+                                <h4>Write Your Note About This Lecture : </h4>
+                            </div>
+
+                           <form method="post">
+                                {% csrf_token %}
+
+                                <input type="hidden" name="commentid" value="{{ comment.id }}">
+
+                                <div style="" class="input-field col s12 m10 offset-m1 l10 offset-l1">
+                                    <i class="material-icons prefix">create</i>
+                                    {{ noteForm.note }}
+                                    <label for="icon_prefix white-text">Create Note</label>
+                                </div>
+
+                                {% if noteForm.non_field_errors %}
+                                    {% for error in noteForm.non_field_errors %}
+                                        <div class="col s12 m8 offset-m2 l8 offset-l2 collection teal lighten-2" style="border: 0px;">
+                                            <p href="#!" class="collection-item white-text teal lighten-2">{{ error }}</p>
+                                        </div>
+                                    {% endfor %}
+                                {% endif %}
+
+                                <div class="col s12 m12 l12 center-align" style="margin-bottom: 20px;">
+                                    <button class="btn waves-effect waves-light center-align" type="submit" value="note_form" name="note_form">Save Note
+                                        <i class="material-icons right">send</i>
+                                    </button>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!--end take note-->
+
+                <div class="col s12 m10 offset-m1 l10 offset-l1" style="margin-bottom: 20px; margin-top: 50px;">
+                    <a style="margin-right: 20px;" href="{% url 'topic:module-7-lesson-2' %}" class="waves-effect waves-light btn">Previous Lesson</a>
+                    <a href="{% url 'lessons:module_1' %}" class="waves-effect waves-light btn">Go To Module 1</a><br>
+                </div>
+
+                <!--comment section-->
+
+                <div class="col s12 m10 offset-m1 l10 offset-l1" style="margin-top: 20px;">
+                    <h5 class="">
+                        {{ total_comments }} Responses to "Top Bitcoin Resources"
+                    </h5>
+
+                    <div class="col s12 m12 l12">
+                        {% load staticfiles %}
+                        <!--main comment-->
+                        {% for comment in comments %}
+                            <div class="col s12 m12 l12" style="margin-top: 20px; padding: 0px;">
+                                {% if comment.user.profile_picture %}
+                                    <div class="col s4 m3 l2" style="padding: 0px;">
+                                        <img src="{{ comment.user.profile_picture.url }}" alt="" height="100%" width="100%">
+                                    </div>
+                                {% else %}
+                                    <div class="col s4 m3 l2" style="padding: 0px;">
+                                        <img src="{% static 'topic/style/images/no-img.jpg' %}" alt="" height="100%" width="100%">
+                                    </div>
+                                {% endif %}
+
+                                <div class="col s8 m9 l10">
+                                    <a href="{% url 'account:public-profile' %}?userid={{ comment.user.user.username }}">{{ comment.user.user.username | upper }}</a>
+                                </div>
+
+                                <div class="col s8 m9 l10" style="margin-top: 10px;">
+                                    <p>{{ comment.comment }}</p>
+                                </div>
+                            </div>
+
+                            <div class="col s12 m12 l12" style="margin: 5px; margin-bottom: 20px;">
+                                <!--subcomment-->
+
+
+                                {% for subcomment in subcomments %}
+                                    {% ifequal comment.id subcomment.comment.id %}
+                                        <div class="col s10 offset-s1 m10 offset-m1 l10 offset-l1" style="margin-top: 20px; padding: 0px;">
+                                            {% if subcomment.user.profile_picture %}
+                                                <div class="col s4 m3 l2" style="padding: 0px;">
+                                                    <img src="{{ subcomment.user.profile_picture.url }}" alt="" height="100%" width="100%">
+                                                </div>
+                                            {% else %}
+                                                <div class="col s4 m3 l2" style="padding: 0px;">
+                                                    <img src="{% static 'topic/style/images/no-img.jpg' %}" alt="" height="100%" width="100%">
+                                                </div>
+                                            {% endif %}
+
+                                            <div class="col s8 m9 l10">
+                                                <a href="{% url 'account:public-profile' %}?userid={{ subcomment.user.user.username }}">{{ subcomment.user.user.username | upper }}</a>
+                                            </div>
+
+                                            <div class="col s8 m9 l10" style="margin-top: 10px;">
+                                                <p>{{ subcomment.subcomment }}</p>
+                                            </div>
+                                        </div>
+                                    {% endifequal %}
+                                {% endfor %}
+
+                                <a style="margin-left: 60px; margin-bottom: 20px; margin-top: 10px;" class="waves-effect waves-light btn modal-trigger" href="#{{ comment.id }}">Reply</a>
+                                <!-- Modal Structure -->
+                                <div id="{{ comment.id }}" class="modal">
+                                    <div class="modal-content">
+                                        <div class="col s12 m12 l12">
+                                            <h4>Write Your Comment</h4>
+                                        </div>
+
+                                       <form method="post">
+                                            {% csrf_token %}
+
+                                            <input type="hidden" name="commentid" value="{{ comment.id }}">
+
+                                            <div style="" class="input-field col s12 m10 offset-m1 l10 offset-l1">
+                                                <i class="material-icons prefix">create</i>
+                                                {{ subcommentForm.subcomment }}
+                                                <label for="icon_prefix white-text">Comment</label>
+                                            </div>
+
+                                            {% if subcommentForm.non_field_errors %}
+                                                {% for error in subcommentForm.non_field_errors %}
+                                                    <div class="col s12 m8 offset-m2 l8 offset-l2 collection teal lighten-2" style="border: 0px;">
+                                                        <p href="#!" class="collection-item white-text teal lighten-2">{{ error }}</p>
+                                                    </div>
+                                                {% endfor %}
+                                            {% endif %}
+
+                                            <div class="col s12 m12 l12 center-align" style="margin-bottom: 20px;">
+                                                <button class="btn waves-effect waves-light center-align" type="submit" value="subcomment_form" name="subcomment_form">Reply
+                                                    <i class="material-icons right">send</i>
+                                                </button>
+                                            </div>
+
+                                        </form>
+                                    </div>
+                                </div>
+
+                                <!--end subcomment-->
+                            </div>
+                        {% endfor %}
+
+                        <!--end maincomment -->
+                    </div>
+                </div>
+
+                <div class="col s12 m10 offset-m1 l10 offset-l1" style="margin-top: 20px;">
+                    <h5 class="">
+                        Leave a Reply
+                    </h5>
+
+                    <p>
+                        Logged in as <a href="#">{{ request.user.username }}</a>. <a href="{% url 'account:logout' %}">Logout</a>
+                    </p>
+                </div>
+
+
+                <div class="col s12 m12 l12" style="margin-top: 20px;">
+                    <form method="post">
+                        {% csrf_token %}
+
+                        <div style="" class="input-field col s12 m10 offset-m1 l10 offset-l1">
+                            <i class="material-icons prefix">create</i>
+                            {{ commentForm.comment }}
+                            <label for="icon_prefix white-text">Comment</label>
+                        </div>
+
+                        {% if commentForm.non_field_errors %}
+                            {% for error in commentForm.non_field_errors %}
+                                <div class="col s12 m8 offset-m2 l8 offset-l2 collection teal lighten-2" style="border: 0px;">
+                                    <p href="#!" class="collection-item white-text teal lighten-2">{{ error }}</p>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+
+                        <div class="col s12 m12 l12 center-align" style="margin-bottom: 20px;">
+                            <button class="btn waves-effect waves-light center-align" value="comment_form" type="submit" name="comment_form">Comment
+                                <i class="material-icons right">send</i>
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+            <!--end main-content -->
+
+            <div class="col s12 m12 l3 left left-content" style="">
+                <div class="col s12 m12 l12">
+                    <div class="card white black-text">
+                        <div class="card-content black-text left-content-introduction">
+                            <div class="card-title valign-wrapper" style="background-color: blue; color: white">Quick Start Video</div>
+
+                            <div>
+                                <a href="#">
+                                    <p class="valign-wrapper">START HERE - 5 Steps To Set Up Bitcoins Wealth Club System!</p>
+                                </a>
+                            </div>
+
+                            <div>
+                                <a href="#">
+                                    <p class="valign-wrapper">Video Course: Secrets To Growing Your Wealth In Bitcoins</p>
+                                </a>
+                            </div>
+
+                            <div>
+                                <a href="#">
+                                    <p class="valign-wrapper">UPGRADE YOUR MEMBERSHIP</p>
+                                </a>
+                            </div>
+
+                            <div>
+                                <a href="#">
+                                    <p class="valign-wrapper">BTM Facebook Group</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col s12 m12 l12">
+                    <div class="collection">
+                        <a href="#!" class="collection-item black-text"><span class="badge red-text"><b>100300</b></span>Current Members</a>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col s12 m12 l12">
+                        <div class="card white">
+                            <div class="card-content black-text">
+                                <span class="card-title">Your BTM Sponsor</span>
+
+                                <div class="row">
+                                    <div class="col s12 m12 l12" style="width: 90%">
+                                        {% for user_pro in user_profile %}
+                                            {% if user_pro.sponsor.profile_picture %}
+                                                <img src="{{ user_pro.sponsor.profile_picture.url }}" width="100%" style="">
+                                            {% else %}
+                                                <img src="{% static 'account/style/images/no-img.jpg' %}"  width="100%" style="">
+                                            {% endif %}
+                                        {% endfor %}
+                                    </div>
+
+                                    <div class="col s12 m6 offset-m3 l6 offset-l3">
+                                        <h4 id="login_user_sponsor_left"></h4>
+                                    </div>
+
+                                    <div class="col s12 m12 l12">
+                                        <p>Email: <span id="login_user_sponsor_email"></span></p>
+                                    </div>
+
+                                    <div class="col s12 m12 l12">
+                                        <p>Phone: <span id="login_user_sponsor_phone"></span></p>
+                                    </div>
+
+                                    <div class="col s12 m12 l12">
+                                        <p>Skype: <span id="login_user_sponsor_skype"></span></p>
+                                    </div>
+
+                                    <a href="#">
+                                        <div class="col s12 m12 l12 valign-wrapper message_me_fb">
+                                            <p style="width: 100%" class="center-align">Message Me On Facebook</p>
+                                        </div>
+                                    </a>
+
+                                    <a href="#">
+                                        <div class="col s12 m12 l12 valign-wrapper message_me_fb">
+                                            <p style="width: 100%" class="center-align">Training By Your Sponsor</p>
+                                        </div>
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+            <!--end left-content -->
+        </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+
+    <script>
+        $(document).ready(function(){
+            $('.modal').modal();
+        });
+    </script>
+
+{% endblock %}

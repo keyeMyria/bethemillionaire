@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Confirmation | BeTheMillionaire</title>
+
+    {% load staticfiles %}
+    <link rel="shortcut icon" type="image/png" href="{% static 'account/style/images/logo/favicon.png' %}" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'account/style/materialize.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'account/style/login.css' %}">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link href="https://fonts.googleapis.com/css?family=Sacramento" rel="stylesheet">
+
+    <style>
+        .container{
+            min-width: 100%;
+        }
+
+        .container > .row {
+            margin: 0;
+        }
+
+
+        .container > .row > .col {
+            padding: 0;
+        }
+
+        *{
+            padding: 0px;
+            margin: 0px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row" style="">
+            <div class="col s12 m12 l5 #b3e5fc light-blue lighten-4" id="left-section" style="">
+                <div class="col s12 m12 l12 valign-wrapper" style="height: 110px; margin-bottom: 10px;">
+                    <div class="center-align logo" style="width: 100%">
+                        Be theMillionaire
+                    </div>
+                </div>
+
+                <div class="col s12 m12 l12 center-align">
+                    <a class="waves-effect waves-light btn modal-trigger" href="#modal1">REGISTER NOW</a>
+                </div>
+
+
+                <!--modal structure-->
+
+                    <div id="modal1" class="modal">
+                        <div class="modal-content">
+                            <h4>Modal Header</h4>
+                            <p>A bunch of text</p>
+                        </div>
+
+                        <div class="modal-footer">
+                            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+                        </div>
+                    </div>
+
+                <!--end modal structure-->
+
+
+                <div class="col s12 m12 l12 center-align">
+                    <h5>What You Will Learn On This Webinar:</h5>
+
+                    <p>
+                        <i class="material-icons">check</i>How To Multiply Your Money Passively By <span style="color: red;"><b>472% A Year</b></span> As A Minimum (Zero Work)
+                    </p>
+
+                    <p>
+                        <i class="material-icons">check</i>How To <span style="color: red;"><b>Earn MULTIPLE Streams Of PASSIVE INCOME</b></span> With Bitcoins DAILY
+                    </p>
+
+                    <p>
+                        <i class="material-icons">check</i>How You Can <b>Start Earning Money TODAY GUARANTEED</b> Even If You Have ZERO Experience & Never Made A Dime Online Before (Everyone wins)
+                    </p>
+
+                    <p>
+                        <i class="material-icons">check</i>How To Make 0.5% – 1%+ Per Day ROI Consistently While Diversifying Your Investment Portfolio
+                    </p>
+
+                    <p>
+                        <i class="material-icons">check</i>The Quickest Path To Making <b style="text-decoration: underline;">$1K – $2K</b> In Passive Income Daily WITHOUT changing what you are currently doing.
+                    </p>
+                </div>
+
+                <div class="col s12 m12 l12" style="margin-top: 5px;">
+                    <div class="card #ef9a9a red lighten-3">
+                        <div class="card-content #f44336 red-text">
+                            <span class="card-title"><b>Attention</b></span>
+                            <p>
+                                The information you're about to learn on this webinar for FREE is more valuable than if you were to spend $5,000 on investment advisor
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col s12 m12 l12 center-align">
+                    <a class="waves-effect waves-light btn modal-trigger" href="#modal1">REGISTER NOW</a>
+                </div>
+
+            </div>
+
+            <div class="col s12 m12 l7" id="right-section" style="">
+                <div class="col s10 offset-s1 m10 offset-m1 l10 offset-l1" style="">
+                    <h4 style="color: red;">FREE WEBCLASS REVEALS NEW CUTTING EDGE WEALTH BUILDING STRATEGIES...</h4>
+                </div>
+
+                <div class="col s10 offset-s1 m10 offset-m1 l10 offset-l1" style="">
+                    <h5>
+                        Discover How To Multiply Your Money By <span style="background-color: yellow;">Minimum 472% A Year Passively</span> Without Doing Any Work & Earn $1K – $2K Daily On Autopilot Leveraging 100% FREE System…
+                    </h5>
+                </div>
+
+                <div class="col s10 offset-s1 m10 offset-m1 l10 offset-l1" style="">
+                    <p>
+                        (Check your email for LOGIN info of BeThemillionaire System and register below for the LIVE webclass - choose the date and time that best for you)
+                    </p>
+                </div>
+
+                <div class="col s10 offset-s1 m10 offset-m1 l10 offset-l1" style="height: 350px;">
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/-2X4mB4hyLA" frameborder="0" gesture="media" allow="encrypted-media" autoplay="true" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div id="footer" class="valign-wrapper">
+                    <p style="margin-left: 50px;">All right reserverd by bethemillionaire @ 2017-2017</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script type="text/javascript" src="{% static 'home/js/jquery.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'home/js/materialize.min.js' %}"></script>
+
+<script>
+    $(document).ready(function(){
+        $('.modal').modal();
+  });
+</script>

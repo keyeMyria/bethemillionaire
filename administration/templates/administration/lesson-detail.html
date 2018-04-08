@@ -1,0 +1,115 @@
+{% extends 'admin-base.html' %}
+
+{% block title %}Lesson detail - Administration | BeTheMillionaire{% endblock %}
+
+{% block add-css %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home/style/index.css' %}">
+{% endblock %}
+
+{% block main %}
+    <div class="row">
+        {% for module in modules %}
+            <div class="col s12 m10 offset-m1 l8 offset-l2" style="">
+                <div class="col s12 m12 l12" style="margin-top: 20px; margin-bottom: 20px;">
+                    <h4 class="">
+                        {{ module.short_name | upper }}
+                    </h4>
+                </div>
+
+                <!--module 1-->
+                <div class="col s12 m12 l12">
+                    <div class="card blue">
+                        <div class="card-content white-text">
+                            <div class="row">
+                                <div class="white-text">
+                                    <span class="card-title">{{ module.name | upper }}</span>
+                                    <p style="font-size: 14px; margin-top: 20px;">
+                                        Here are the list of Lessons
+                                    </p>
+
+                                    <p>
+                                        Active Lesson On This Module :
+                                    </p>
+                                </div>
+
+                                <div class="col s12 m12 l12" style="margin-top: 10px;">
+                                    <div class="card white">
+                                        {% for lesson in lessons %}
+                                            {% if lesson.is_active %}
+                                                <div class="card-content black-text">
+                                                    <div class="black-text">
+                                                        <span class="card-title">{{ lesson.short_name | upper }}</span>
+                                                        <p style="font-size: 14px; margin-top: 20px;">
+                                                            {{ lesson.name }}
+                                                        </p>
+
+                                                        <p style="font-size: 14px; margin-top: 20px;">
+                                                            Lesson Status : <span style="color: red">Active</span>
+                                                        </p>
+
+                                                        <form method="post">
+                                                            {% csrf_token %}
+
+                                                            <input type="hidden" name="lesson_id" value="{{ lesson.id }}" />
+                                                            <input type="hidden" name="lesson_action" value="disable" />
+                                                            <button style="margin-top: 20px;" type="submit" class="waves-effect waves-light btn">Disable This Lesson</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+
+                                                <div class="divider #333">
+
+                                                </div>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </div>
+                                </div>
+
+                                <p>
+                                    Disabled Lesson On This Module :
+                                </p>
+
+                                <div class="col s12 m12 l12" style="margin-top: 10px;">
+                                    <div class="card white">
+                                        {% for lesson in lessons %}
+                                            {% if not lesson.is_active %}
+                                                <div class="card-content black-text">
+                                                    <div class="black-text">
+                                                        <span class="card-title">{{ lesson.short_name | upper }}</span>
+                                                        <p style="font-size: 14px; margin-top: 20px;">
+                                                            {{ lesson.name }}
+                                                        </p>
+
+                                                        <p style="font-size: 14px; margin-top: 20px;">
+                                                            Lesson Status : <span style="color: red">Disable</span>
+                                                        </p>
+
+                                                        <form method="post">
+                                                            {% csrf_token %}
+
+                                                            <input type="hidden" name="lesson_id" value="{{ lesson.id }}" />
+                                                            <input type="hidden" name="lesson_action" value="active" />
+                                                            <button style="margin-top: 20px;" type="submit" class="waves-effect waves-light btn">Active This Lesson</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+
+                                                <div class="divider #333">
+
+                                                </div>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end active module-->
+                </div>
+                <!--end module 1-->
+
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

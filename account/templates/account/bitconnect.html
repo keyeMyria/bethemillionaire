@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bitconnect | BeTheMillionaire</title>
+
+    {% load staticfiles %}
+    <link rel="shortcut icon" type="image/png" href="{% static 'account/style/images/logo/favicon.png' %}" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'account/style/materialize.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'account/style/login.css' %}">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link href="https://fonts.googleapis.com/css?family=Sacramento" rel="stylesheet">
+
+    <style>
+        .container{
+            min-width: 100%;
+        }
+
+        .container > .row {
+            margin: 0;
+        }
+
+
+        .container > .row > .col {
+            padding: 0;
+        }
+
+        *{
+            padding: 0px;
+            margin: 0px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row" style="">
+            <div class="col s12 m12 l4 #b3e5fc light-blue lighten-4" id="left-section" style="">
+                <div class="col s12 m12 l12 valign-wrapper" style="height: 130px; margin-bottom: 20px;">
+                    <div class="center-align logo" style="width: 100%">
+                        Be theMillionaire
+                    </div>
+                </div>
+
+                <div class="col s12 m12 l12" style="margin-top: 20px;">
+                    <a target="_blank" href="https://bitconnect.co/?ref=vdubinin"><div class="card blue" style="cursor: pointer;">
+                        <div class="card-content white-text">
+                            <h5 class="center-align">
+                                Step 1 - Click Here To Register Your Account
+                            </h5>
+                        </div>
+                    </div></a>
+                </div>
+
+                <div class="col s12 m12 l12" style="margin-top: 20px;">
+                    <a target="_blank" href="{% url 'account:bcc-fast-start' %}?userid={{ request.GET.userid }}"><div class="card blue" style="cursor: pointer;">
+                        <div class="card-content white-text">
+                            <h5 class="center-align">
+                                Step 2 - Continue To Fast Start Training
+                            </h5>
+                        </div>
+                    </div></a>
+                </div>
+            </div>
+
+            <div class="col s12 m12 l8" id="right-section" style="">
+                <div class="col s10 offset-s1 m10 offset-m1 l10 offset-l1" style="">
+                    <h5 style="">8 Figure Earner Shares How To Leverage <span style="background-color: yellow;">$1.4 Billion Dollar Cryptocurrency</span> To Generate Daily Passive Income Of <b>Up To 40% Monthly Interest</b> On Complete Autopilot & How Exactly How He Earned $100K In First 5 Weeks…</h5>
+                </div>
+
+                <div class="col s10 offset-s1 m10 offset-m1 l10 offset-l1 center-align" style="">
+                    <p>
+                        This cryptocurrency is #8 in the world with $15M daily trading volume and paying daily interest of 1%+ a day on average!
+                    </p>
+                </div>
+
+                <div class="col s10 offset-s1 m10 offset-m1 l10 offset-l1" style="height: 350px;">
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/-2X4mB4hyLA" frameborder="0" gesture="media" allow="encrypted-media" autoplay="true" allowfullscreen></iframe>
+                </div>
+
+                <div class="col s12 m12 l10 offset-l1" style="margin-top: 20px;">
+                    <h5>What You Will Learn On This Webinar:</h5>
+
+                    <p>
+                        <i class="material-icons">check</i>#9 Cryptocurrency on the marketplace with $1.5 BILLION DOLLARS market capitalization and $15,000,000 daily trade! (According to <a href="https://coinmarketcap.com">coinmarketcap.com</a>)
+                    </p>
+
+                    <p>
+                        <i class="material-icons">check</i>Earn Interest On Lending About 0.3% – 1.5%+ ROI A Day (Average 1% A Day), 7 Days A Week, Up To 40% A Month!
+                    </p>
+
+                    <p>
+                        <i class="material-icons">check</i>You Can Earn Money With Bitconnect In 4 Ways By Investing, Staking, Trading & Mining
+                    </p>
+
+                    <p>
+                        <i class="material-icons">check</i>Minimum Investment: $100
+                    </p>
+
+                    <p>
+                        <i class="material-icons">check</i>Ability to withdraw your Bitcoins daily!
+                    </p>
+
+                    <p>
+                        <i class="material-icons">check</i>You can compound DAILY with minimum just $10, so compounding adds up fast!
+                    </p>
+
+                    <p>
+                        <i class="material-icons">check</i>Earn Additional 13% in commissions 7 Levels Deep
+                    </p>
+
+                    <p>
+                        <i class="material-icons">check</i>No need to invest to start referring people and earn 7% on first level!
+                    </p>
+
+                    <p>
+                        <i class="material-icons">check</i>Additional 0.25% a day in interest for lending amounts of $10,010 and higher!
+                    </p>
+
+                    <p>
+                        <i class="material-icons">check</i>They have been paying out consistenly since March 2016!
+                    </p>
+
+                    <p>
+                        <i class="material-icons">check</i>BCC cryptocurrency attracts outside investors who want to diversify in cryptos!
+                    </p>
+
+                    <p>
+                        <i class="material-icons">check</i>BCC value is constantly rising so by earning more BCC coins your net worth grows! 1 Coin went from being worth $0.17 in February 2017 to $196 in October 2017!
+                    </p>
+
+                    <p>
+                        <i class="material-icons">check</i>BCC coin by itself can go to $1K+ in value so buying BCC coins as in of itself and holding them is a great investment!
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div id="footer" class="valign-wrapper">
+                    <p style="margin-left: 50px;">All right reserverd by bethemillionaire @ 2017-2017</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script type="text/javascript" src="{% static 'home/js/jquery.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'home/js/materialize.min.js' %}"></script>
+<script>
+
+</script>

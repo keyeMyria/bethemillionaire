@@ -1,0 +1,193 @@
+{% extends 'base.html' %}
+
+{% block title %}My-Referrals | BeTheMillionaire{% endblock %}
+
+{% block add-css %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home/style/index.css' %}">
+{% endblock %}
+
+{% block main %}
+    <div class="row">
+        <div class="col s12 m12 l12" style="">
+            <div class="col s12 m12 l9 right main-content" style="">
+
+                <div class="col s12 m12 l12" style="margin-bottom: 30px; margin-top: 20px;">
+                    <h4 class="col s12 m4 l4 left" style="">Referred Users - {{ total_referrals }}</h4>
+
+                    <form class="col m8 l8 left" method="post">
+                        {% csrf_token %}
+                        <div class="input-field col s12 m10 offset-m1 l10 offset-l1">
+                            <i class="material-icons prefix">search</i>
+                            {{ form.username }}
+                            <label for="icon_prefix white-text">User Name</label>
+                        </div>
+                    </form>
+                </div>
+
+                {% if request.GET.userid %}
+                    <div class="col s12 m12 l12" style="margin-top: 30px; margin-bottom: 30px; border: 1px solid #333;">
+                        <h5>Search Results: </h5>
+                        {% if user_exists %}
+                            <div class="col s12 m12 l12">
+                                <table class="centered responsive-table striped" style="margin-bottom: 20px;">
+                                    <thead>
+                                        <tr>
+                                            <th>Date</th>
+                                            <th>Username</th>
+                                            <th>Email</th>
+                                            <th>Membership-Status</th>
+                                            <th>Referred</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        {% for referral, referrals_referrals in s_lists %}
+
+                                        <tr>
+                                            <td><b>{{ forloop.counter }}. </b>{{ referral.date_joined.date }}</td>
+                                            <td>{{ referral.username }}</td>
+                                            <td>{{ referral.email }}</td>
+                                            <td>{{ referral.membership }}</td>
+                                            <td>{{ referrals_referrals }}</td>
+                                        </tr>
+
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        {% else %}
+                            <p>User not found!</p>
+                        {% endif %}
+                    </div>
+                {% endif %}
+
+                <div class="col s12 m12 l12">
+                    <table class="centered responsive-table striped">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Username</th>
+                                <th>Email</th>
+                                <th>Membership-Status</th>
+                                <th>Referred</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            {% for referral, referrals_referrals in lists %}
+
+                            <tr>
+                                <td><b>{{ forloop.counter }}. </b>{{ referral.date_joined.date }}</td>
+                                <td>{{ referral.username }}</td>
+                                <td>{{ referral.email }}</td>
+                                <td>{{ referral.membership }}</td>
+                                <td>{{ referrals_referrals }}</td>
+                            </tr>
+
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!--end main-content -->
+
+            <div class="col s12 m12 l3 left left-content" style="">
+                <div class="col s12 m12 l12">
+                    <div class="card white black-text">
+                        <div class="card-content black-text left-content-introduction">
+                            <div class="card-title valign-wrapper" style="background-color: blue; color: white">Quick Start Video</div>
+
+                            <div>
+                                <a href="#">
+                                    <p class="valign-wrapper">START HERE - 5 Steps To Set Up Bitcoins Wealth Club System!</p>
+                                </a>
+                            </div>
+
+                            <div>
+                                <a href="#">
+                                    <p class="valign-wrapper">Video Course: Secrets To Growing Your Wealth In Bitcoins</p>
+                                </a>
+                            </div>
+
+                            <div>
+                                <a href="#">
+                                    <p class="valign-wrapper">UPGRADE YOUR MEMBERSHIP</p>
+                                </a>
+                            </div>
+
+                            <div>
+                                <a href="#">
+                                    <p class="valign-wrapper">BWC Facebook Group</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col s12 m12 l12">
+                    <div class="collection">
+                        <a href="#!" class="collection-item black-text"><span class="badge red-text"><b>100300</b></span>Current Members</a>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col s12 m12 l12">
+                        <div class="card white">
+                            <div class="card-content black-text">
+                                <span class="card-title">Your BWC Sponsor</span>
+
+                                <div class="row">
+                                    <div class="col s12 m12 l12" style="border: 1px solid red; width: 90%">
+                                        {% for user_pro in user_profile %}
+                                            {% if user_pro.sponsor.profile_picture %}
+                                                <img src="{{ user_pro.sponsor.profile_picture.url }}" width="100%" style="">
+                                            {% else %}
+                                                <img src="{% static 'account/style/images/no-img.jpg' %}"  width="100%" style="">
+                                            {% endif %}
+                                        {% endfor %}
+                                    </div>
+
+                                    <div class="col s12 m6 offset-m3 l6 offset-l3">
+                                        <h4 id="login_user_sponsor_left"></h4>
+                                    </div>
+
+                                    <div class="col s12 m12 l12">
+                                        <p>Email: <span id="login_user_sponsor_email"></span></p>
+                                    </div>
+
+                                    <div class="col s12 m12 l12">
+                                        <p>Phone: <span id="login_user_sponsor_phone"></span></p>
+                                    </div>
+
+                                    <div class="col s12 m12 l12">
+                                        <p>Skype: <span id="login_user_sponsor_skype"></span></p>
+                                    </div>
+
+                                    <a href="#">
+                                        <div class="col s12 m12 l12 valign-wrapper message_me_fb">
+                                            <p style="width: 100%" class="center-align">Message Me On Facebook</p>
+                                        </div>
+                                    </a>
+
+                                    <a href="#">
+                                        <div class="col s12 m12 l12 valign-wrapper message_me_fb">
+                                            <p style="width: 100%" class="center-align">Training By Your Sponsor</p>
+                                        </div>
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+            <!--end left-content -->
+        </div>
+    </div>
+{% endblock %}

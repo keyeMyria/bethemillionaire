@@ -1,0 +1,166 @@
+{% extends 'base.html' %}
+
+{% block title %}Membership Checkout | BeTheMillionaire{% endblock %}
+
+{% block add-css %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home/style/index.css' %}">
+    <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+{% endblock %}
+
+{% block main %}
+    <div class="row">
+        <div class="col s12 m12 l12" style="">
+            <div class="col s12 m12 l8 offset-l2 main-content" style="">
+                {% if membership_levels %}
+                    <div class="collection">
+                        <p class="collection-item orange black-text"><span class="badge"><a class="white-text" href="{% url 'account:membership-levels' %}">Change</a></span>MEMBERSHIP LEVEL</p>
+                    </div><br><br>
+
+                    {% for membership in membership_levels %}
+
+                        <p style="font-size: 18px;">
+                            You have selected the <b>{{ membership.name | upper }}</b>
+                            {% if membership.package == 'bi_annually' %}
+                                <b>Bi-Annually</b>
+                            {% else %}
+                                <b>{{ membership.package | upper }}</b>
+                            {% endif %}
+                            membership level.
+                        </p><br><br>
+
+                        <input type="hidden" id="get_level" value="{{ membership.id }}" />
+                        <input type="hidden" id="get_userid" value="{{ request.user.username }}" />
+
+                        <p class="divider">
+
+                        </p><br><br>
+
+                        <p style="font-size: 18px;">
+                            The price for membership is <b>$<span id="membership_price">{{ membership.price }}</span>
+                            {% if membership.package == 'bi_annually' %}
+                                every 6 Months
+                            {% endif %}
+
+                            {% if membership.package == 'monthly' %}
+                                per Month
+                            {% endif %}
+
+                            {% if membership.package == 'yearly' %}
+                                per Year
+                            {% endif %}
+                            </b>.
+                        </p><br><br>
+
+                        <div class="collection">
+                            <p class="collection-item gray red-text">
+                                You are logged in as <b>{{ request.user.username }}</b>. If you would like to use a different account for this membership, <a href="{% url 'account:logout' %}">log out now</a>.
+                            </p>
+                        </div><br><br>
+
+                        <div class="collection">
+                            <p class="collection-item orange black-text">CHOOSE YOUR PAYMENT METHOD</p>
+                        </div><br>
+
+                        <div><!--start paypal checkout-->
+                            <div id="paypal-button-container"></div><br><br>
+
+                            <!--end paypal checkout-->
+                        </div>
+
+                    {% endfor %}
+
+                {% else %}
+                    not found
+                {% endif %}
+            </div>
+            <!--end main-content -->
+        </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+
+<script>
+        var payable = $("#membership_price").html();
+
+        paypal.Button.render({
+
+            env: 'sandbox', // sandbox | production
+
+            // PayPal Client IDs - replace with your own
+            // Create a PayPal app: https://developer.paypal.com/developer/applications/create
+            client: {
+                sandbox: 'AVQGHoCI9GsHqdA6do_4NgbwbNGv950WaHmikQRrqV0GrxcJUh-rjneZcyzcjzctXWSv_ftix6Ys7_wi',
+                production: ''
+            },
+
+            // Show the buyer a 'Pay Now' button in the checkout flow
+            commit: true,
+
+            // payment() is called when the button is clicked
+            payment: function(data, actions) {
+
+                // Make a call to the REST api to create the payment
+                return actions.payment.create({
+                    payment: {
+                        transactions: [
+                            {
+                                amount: { total: payable, currency: 'USD' }
+                            }
+                        ]
+                    }
+                });
+            },
+
+            // onAuthorize() is called when the buyer approves the payment
+            onAuthorize: function(data, actions) {
+
+                // Make a call to the REST api to execute the payment
+                return actions.payment.execute().then(function() {
+                    console.log(data);
+                    var intent = data.intent;
+                    var payerID = data.payerID;
+                    var paymentID = data.paymentID;
+                    var paymentToken = data.paymentToken;
+                    var level = $("#get_level").val();
+                    var userid = $("#get_userid").val();
+
+                    $.ajax({
+                        url: '/account/api/payment/',
+                        data: { "userid":userid, "intent":intent, "payerID":payerID, "paymentID":paymentID, "paymentToken":paymentToken, "memberhsiplevel":level },
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data);
+                        }
+                    });
+
+                    window.location.href="/account/membership-account/checkout-success/";
+                });
+            },
+
+
+            onCancel: function(data, actions) {
+                window.location.href="/account/membership-account/checkout-failure/";
+            },
+
+
+
+        }, '#paypal-button-container');
+
+
+        function makeid() {
+          var text = "";
+          var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+          for (var i = 0; i < 12; i++)
+            text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+          return text;
+        }
+
+        //console.log("number: " + makeid());
+
+    </script>
+
+{% endblock %}

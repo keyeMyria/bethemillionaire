@@ -1,0 +1,248 @@
+{% extends 'base.html' %}
+
+{% block title %}My Auto Responder Settings | BeTheMillionaire{% endblock %}
+
+{% block add-css %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home/style/index.css' %}">
+{% endblock %}
+
+{% block main %}
+    <div class="row">
+        <div class="col s12 m12 l12" style="">
+            <div class="col s12 m12 l9 right main-content" style="">
+                <div class="col s12 m12 l10 offset-l1" style="margin-top: 10px;">
+                    <div class="card blue">
+                        <div class="card-content white-text">
+                            <span class="card-title">Connect Your Autoresponder</span>
+                            <p>
+                                If you want to collect the email addresses of all of your referrals to BItcoins Wealth Club System on all the Pre-Registration pages so you can follow up with them then connect your Autoresponder below, I recommend either Aweber or Getresponse, please follow the tutorials. If you don't have your Autoresponder set up yet then you can create an account on this page.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col s12 m8 offset-m2 l18 offset-l2" style="margin-top: 20px;">
+                    <div class="col s12 m12 l12">
+                        <ul class="tabs">
+                            <li class="tab col s4"><a class="active black-text" href="#autoresponders-setup">My Autoresponders</a></li>
+                            <li class="tab col s4"><a class="black-text" href="#getresponsesetup">GetResponse Setup</a></li>
+                            <li class="tab col s4"><a class="black-text" href="#other">Other</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col s12 m8 offset-m2 l18 offset-l2" style="margin-top: 20px;">
+                    <!--autoresponders setup-->
+                    <div id="autoresponders-setup" class="col s12">
+                        <div class="col s12 m12 l12" style="margin-top: 20px;">
+                            <div class="col s12 m12 l12">
+                                <ul class="tabs">
+                                    <li class="tab col s4"><a class="active black-text" href="#getresponseautoresponders">GetResponse</a></li>
+                                    <li class="tab col s4"><a class="black-text" href="#aweberautoresponders">Aweber</a></li>
+                                    <li class="tab col s4"><a class="black-text" href="#others">Other</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!--getresponse form-->
+                        <div id="getresponseautoresponders" class="col s12" style="margin-top: 20px; margin-bottom: 20px;">
+                            <form method="post">
+                                {% csrf_token %}
+
+                                <div class="input-field col s12 m10 offset-m1 l10 offset-l1">
+                                    <i class="material-icons prefix">assistant_photo</i>
+                                    {{ getresponseform.campaignId }}
+                                    <label for="icon_prefix white-text">Campaign Id</label>
+                                </div>
+
+                                <div class="input-field col s12 m10 offset-m1 l10 offset-l1">
+                                    <i class="material-icons prefix">code</i>
+                                    {{ getresponseform.api_key }}
+                                    <label for="icon_prefix white-text">API KEY</label>
+                                </div>
+
+                                <div class="input-field col s12 m10 offset-m1 l10 offset-l1">
+                                    <i class="material-icons prefix">contacts</i>
+                                    {{ getresponseform.isEnable }}
+                                    <label for="icon_prefix white-text">System Follow Up Emails</label>
+                                    <p>You can Enable / Disable System Follow Up Email By Write enable/disable</p>
+                                </div>
+
+                                {% if getresponseform.non_field_errors %}
+                                    {% for error in getresponseform.non_field_errors %}
+                                        <div class="col s12 m8 offset-m2 l8 offset-l2 collection teal lighten-2" style="border: 0px;">
+                                            <p href="#!" class="collection-item white-text teal lighten-2">{{ error }}</p>
+                                        </div>
+                                    {% endfor %}
+                                {% endif %}
+
+                                <button name="getresponseform" value="getresponseform" class="col s6 offset-s6 btn waves-effect waves-light" type="submit" style="width: 140px; height: 50px;">Save
+                                    <i class="material-icons right">send</i>
+                                </button>
+                            </form>
+                        </div>
+
+                        <div id="aweberautoresponders" class="col s12" style="margin-top: 20px; margin-bottom: 20px;">
+                            get response
+                        </div>
+
+                        <div id="others" class="col s12">
+                            get response
+                        </div>
+                    </div>
+                    <!--end autoresponders setup-->
+
+                    <div id="getresponsesetup" class="col s12">
+                        <h5 class="center-align">How To Set Up Your GetResponse Autoresponder</h5>
+
+                        <div class="col s12 m12 l12" style="height: 350px; margin-top: 20px; margin-bottom: 20px;">
+                            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/-2X4mB4hyLA" frameborder="0" gesture="media" allow="encrypted-media" autoplay="true" allowfullscreen></iframe>
+                        </div>
+
+                        <div class="col s12 m12 l12" style="margin-top: 20px;">
+                            <a target="_blank" href="http://www.getresponse.com/index/mubarak"><div class="card blue" style="cursor: pointer;">
+                                <div class="card-content white-text">
+                                    <h5 class="center-align">
+                                        Click Here To Create Your GetResponse Account
+                                    </h5>
+                                </div>
+                            </div></a>
+                        </div>
+
+                        <div class="col s12 m12 l12" style="margin-top: 50px; margin-bottom: 30px;">
+                            <p>
+                                <b>1.</b> Create Your List By Logging Into GetResponse > Create Campaign > Name Campaign
+                            </p>
+
+                            <p>
+                                <b>2.</b> Uncheck the Enable confirmed opt-in optoins under Permission of Campaign Settings
+                            </p>
+
+                            <p>
+                                <b>3.</b> Change The "From Name" and "Email" to your name and email – For best deliver-ability use your own domain for “send from” email address.
+                            </p>
+
+                            <p>
+                                <b>4.</b> Click on PreLoad Messages -> Change source account -> campaign name for autoresponders is bitcoinswealthclubsubs
+                            </p>
+
+                            <p>
+                                <b>5.</b> Follow The Instructions in The “Edit Profile” above or Myaccount -> My Profile Settings To Connect GetResponse via API and Campaign name.
+                            </p>
+
+                            <p>
+                                <b>6.</b> Test Your Autoresponder is working by Opting Into Your Own Capture Page here: <a href="{% url 'account:preregistration' %}?userid={{ request.user.username }}">https://www.bitcoinswealthclub.com/?userid={{ request.user.username }}</a>
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div id="other" class="col s12">
+                        other affiliate
+                    </div>
+                </div>
+            </div>
+
+            <!--end main-content -->
+
+            <div class="col s12 m12 l3 left left-content" style="">
+                <div class="col s12 m12 l12">
+                    <div class="card white black-text">
+                        <div class="card-content black-text left-content-introduction">
+                            <div class="card-title valign-wrapper" style="background-color: blue; color: white">Quick Start Video</div>
+
+                            <div>
+                                <a href="#">
+                                    <p class="valign-wrapper">START HERE - 5 Steps To Set Up BeTheMillionaire System!</p>
+                                </a>
+                            </div>
+
+                            <div>
+                                <a href="#">
+                                    <p class="valign-wrapper">Video Course: Secrets To Growing Your Wealth In Bitcoins</p>
+                                </a>
+                            </div>
+
+                            <div>
+                                <a href="#">
+                                    <p class="valign-wrapper">UPGRADE YOUR MEMBERSHIP</p>
+                                </a>
+                            </div>
+
+                            <div>
+                                <a href="#">
+                                    <p class="valign-wrapper">BTM Facebook Group</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col s12 m12 l12">
+                    <div class="collection">
+                        <a href="#!" class="collection-item black-text"><span class="badge red-text"><b>100300</b></span>Current Members</a>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col s12 m12 l12">
+                        <div class="card white">
+                            <div class="card-content black-text">
+                                <span class="card-title">Your BWC Sponsor</span>
+
+                                <div class="row">
+                                    <div class="col s12 m12 l12" style="width: 90%">
+                                        {% for user_pro in user_profile %}
+                                            {% if user_pro.sponsor.profile_picture %}
+                                                <img src="{{ user_pro.sponsor.profile_picture.url }}" width="100%" style="">
+                                            {% else %}
+                                                <img src="{% static 'account/style/images/no-img.jpg' %}"  width="100%" style="">
+                                            {% endif %}
+                                        {% endfor %}
+                                    </div>
+
+                                    <div class="col s12 m6 offset-m3 l6 offset-l3">
+                                        <h4 id="login_user_sponsor_left"></h4>
+                                    </div>
+
+                                    <div class="col s12 m12 l12">
+                                        <p>Email: <span id="login_user_sponsor_email"></span></p>
+                                    </div>
+
+                                    <div class="col s12 m12 l12">
+                                        <p>Phone: <span id="login_user_sponsor_phone"></span></p>
+                                    </div>
+
+                                    <div class="col s12 m12 l12">
+                                        <p>Skype: <span id="login_user_sponsor_skype"></span></p>
+                                    </div>
+
+                                    <a href="#">
+                                        <div class="col s12 m12 l12 valign-wrapper message_me_fb">
+                                            <p style="width: 100%" class="center-align">Message Me On Facebook</p>
+                                        </div>
+                                    </a>
+
+                                    <a href="#">
+                                        <div class="col s12 m12 l12 valign-wrapper message_me_fb">
+                                            <p style="width: 100%" class="center-align">Training By Your Sponsor</p>
+                                        </div>
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+            <!--end left-content -->
+        </div>
+    </div>
+{% endblock %}

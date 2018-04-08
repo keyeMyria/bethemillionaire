@@ -1,0 +1,854 @@
+{% extends 'base.html' %}
+
+{% block title %}Secrets To Growing Your Wealth In Bitcoins | BeTheMillionaire{% endblock %}
+
+{% block add-css %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home/style/index.css' %}">
+{% endblock %}
+
+{% block main %}
+    <div class="row">
+        <div class="col s12 m12 l12" style="">
+            <div class="col s12 m12 l9 right main-content" style="">
+                <div class="col s12 m10 offset-m1 l10 offset-l1" style="margin-top: 20px;">
+                    <h4 class="center-align">
+                        Secrets To Growing Your Wealth In Bitcoins
+                    </h4>
+                </div>
+
+                <div class="col s12 m10 offset-m1 l10 offset-l1" style="margin-top: 20px;">
+                    <h5 class="">
+                        Course Content
+                    </h5>
+                </div>
+
+                <div class="col s12 m10 offset-m1 l10 offset-l1 collection blue white-text valign-wrapper" style="height: 80px;">
+                    <div class="col s12 m12 l12">
+                        <a href="#!" style="font-size: 25px;" class="collection-item blue white-text"><span class="badge white-text" style="font-size: 25px;">Status</span>Modules</a>
+                    </div>
+                </div>
+
+                {% for module in modules %}
+                    <div class="col s12 m10 offset-m1 l10 offset-l1" style="margin-top: 10px;">
+                        <!--module 1-->
+                        {% ifequal module.short_name 'module-1' %}
+                            {% if module.is_active %}
+                                <div class="card blue">
+                                    <div class="card-content white-text">
+                                        <div class="row">
+                                            <a href="{% url 'lessons:module_1' %}">
+                                                <div class="white-text">
+                                                    <span class="card-title">Module 1 – How Bitcoins Wealth Club Can Help You Massively Grow Your Wealth</span>
+                                                    <p style="font-size: 14px; margin-top: 20px;">
+                                                        In module 1 we'll dive into the foundation of BeTheMillionaire, how it works and how you can leverage it to massively grow your wealth
+                                                    </p>
+
+                                                    <div class="divider" style="margin-top: 20px; margin-bottom: 20px;">
+
+                                                    </div>
+
+                                                    <p style="font-size: 12px; margin-bottom: 20px;" class="valign-wrapper">
+                                                        <i style="font-size: 20px;" class="material-icons">access_time</i> &nbsp;39 min
+                                                    </p>
+                                                </div>
+                                            </a>
+
+
+                                            <div class="col s12 m12 l12" style="margin-top: 10px;">
+                                                <div class="card white">
+                                                    {% for lesson in lessons %}
+                                                        {% ifequal lesson.short_name 'module-1-lesson-1' %}
+                                                            {% if lesson.is_active %}
+                                                                <div class="card-content black-text">
+                                                                    <a href="{% url 'topic:module-1-lesson-1' %}">
+                                                                        <div class="black-text">
+                                                                            <span class="card-title">Lesson 1 - Welcome To BeTheMillionaire System</span>
+                                                                            <p style="font-size: 14px; margin-top: 20px;">
+                                                                                Congratulations! In this lesson I'll share with you why I created BeTheMillionaire system and what we stand for!
+                                                                            </p>
+
+                                                                            <div class="divider" style="margin-top: 20px; margin-bottom: 20px;">
+
+                                                                            </div>
+
+                                                                            <p style="font-size: 12px; margin-bottom: 20px;" class="valign-wrapper">
+                                                                                <i style="font-size: 20px;" class="material-icons">access_time</i> &nbsp;25 min
+                                                                            </p>
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+
+
+                                                                <div class="divider #333">
+
+                                                                </div>
+
+                                                            {% endif %}
+                                                        {% endifequal %}
+
+                                                        {% ifequal lesson.short_name 'module-1-lesson-2' %}
+                                                            {% if lesson.is_active %}
+                                                                <div class="card-content black-text">
+                                                                    <a href="{% url 'topic:module-1-lesson-2' %}">
+                                                                        <div class="black-text">
+                                                                            <span class="card-title">Lesson 2 - Foundation & Overview Of BeTheMillionaire System</span>
+                                                                            <p style="font-size: 14px; margin-top: 20px;">
+                                                                                Why you can benifit for the rest of your life by completing this course and plugging into BeTheMillionaire System
+                                                                            </p>
+
+                                                                            <div class="divider" style="margin-top: 20px; margin-bottom: 20px;">
+
+                                                                            </div>
+
+                                                                            <p style="font-size: 12px; margin-bottom: 20px;" class="valign-wrapper">
+                                                                                <i style="font-size: 20px;" class="material-icons">access_time</i> &nbsp10 min
+                                                                            </p>
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+                                                            {% endif %}
+                                                        {% endifequal %}
+                                                    {% endfor %}
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endifequal %}
+                        <!--end module 1-->
+
+                        <!--module 2-->
+                            {% ifequal module.short_name 'module-2' %}
+                                {% if module.is_active %}
+                                    <div class="card blue">
+                                        <div class="card-content white-text">
+                                            <div class="row">
+                                                <a href="{% url 'lessons:module_2' %}">
+                                                    <div class="white-text">
+                                                        <span class="card-title">Module 2 – What Is Bitcoin & Why It's Completely Revolutionizing Money</span>
+                                                        <p style="font-size: 14px; margin-top: 20px;">
+                                                            Learn the fundamentals of Bitcoins, best Bitcoin Wallet to use, where to get Bitcoins online, how to cash out Bitcoins & why it's most exciting investment vehicle on earth!
+                                                        </p>
+
+                                                        <div class="divider" style="margin-top: 20px; margin-bottom: 20px;">
+
+                                                        </div>
+
+                                                        <p style="font-size: 12px; margin-bottom: 20px;" class="valign-wrapper">
+                                                            <i style="font-size: 20px;" class="material-icons">access_time</i> &nbsp;15 min
+                                                        </p>
+                                                    </div>
+                                                </a>
+
+
+                                                <div class="col s12 m12 l12" style="margin-top: 10px;">
+                                                    <div class="card white">
+                                                        {% for lesson in lessons %}
+                                                        {% ifequal lesson.short_name 'module-2-lesson-1' %}
+                                                            {% if lesson.is_active %}
+                                                                <div class="card-content black-text">
+                                                                    <a href="{% url 'topic:module-2-lesson-1' %}">
+                                                                        <div class="black-text">
+                                                                            <span class="card-title">Lesson 1 - Why Bitcoins & Cryptocurrencies Are The Most Exciting Investment Vehicles To Grow Your Wealth On Earth Today</span>
+                                                                            <p style="font-size: 14px; margin-top: 20px;">
+                                                                                You'll Learn why Bitcoin & other cryptocurrencies are the most exciting Investment vehicle in the history of the world. Can Bitcoin go up to $500,000 per 1 bitcoin by 2030? Yes.
+                                                                            </p>
+
+                                                                            <div class="divider" style="margin-top: 20px; margin-bottom: 20px;">
+
+                                                                            </div>
+
+                                                                            <p style="font-size: 12px; margin-bottom: 20px;" class="valign-wrapper">
+                                                                                <i style="font-size: 20px;" class="material-icons">access_time</i> &nbsp;20 min
+                                                                            </p>
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+
+                                                                <div class="divider #333">
+
+                                                                </div>
+                                                            {% endif %}
+                                                        {% endifequal %}
+
+                                                        {% ifequal lesson.short_name 'module-2-lesson-2' %}
+                                                            {% if lesson.is_active %}
+                                                                <div class="card-content black-text">
+                                                                    <a href="{% url 'topic:module-2-lesson-2' %}">
+                                                                        <div class="black-text">
+                                                                            <span class="card-title">Lesson 2 - What Are The Best Bitcoin Wallets To Use To Store Your Bitcoins Safely?</span>
+                                                                            <p style="font-size: 14px; margin-top: 20px;">
+                                                                                Learn which best Bitcoin wallets to use
+                                                                            </p>
+
+                                                                            <div class="divider" style="margin-top: 20px; margin-bottom: 20px;">
+
+                                                                            </div>
+
+                                                                            <p style="font-size: 12px; margin-bottom: 20px;" class="valign-wrapper">
+                                                                                <i style="font-size: 20px;" class="material-icons">access_time</i> &nbsp10 min
+                                                                            </p>
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+
+                                                                <div class="divider #333">
+
+                                                                </div>
+                                                            {% endif %}
+                                                        {% endifequal %}
+
+                                                        {% ifequal lesson.short_name 'module-2-lesson-3' %}
+                                                            {% if lesson.is_active %}
+                                                                <div class="card-content black-text">
+                                                                    <a href="{% url 'topic:module-2-lesson-3' %}">
+                                                                        <div class="black-text">
+                                                                            <span class="card-title">Lesson 3 - The Complete Guide To Easily Buying Bitcoins Online & Offline</span>
+                                                                            <p style="font-size: 14px; margin-top: 20px;">
+                                                                                Learn how to buy Bitcoins with credit card/debit card, bank transfer, local ATM machine, Paypal and other ways in the marketplace
+                                                                            </p>
+
+                                                                            <div class="divider" style="margin-top: 20px; margin-bottom: 20px;">
+
+                                                                            </div>
+
+                                                                            <p style="font-size: 12px; margin-bottom: 20px;" class="valign-wrapper">
+                                                                                <i style="font-size: 20px;" class="material-icons">access_time</i> &nbsp10 min
+                                                                            </p>
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+
+                                                                <div class="divider #333">
+
+                                                                </div>
+                                                            {% endif %}
+                                                        {% endifequal %}
+
+                                                        {% ifequal lesson.short_name 'module-2-lesson-4' %}
+                                                            {% if lesson.is_active %}
+                                                                <div class="card-content black-text">
+                                                                    <a href="{% url 'topic:module-2-lesson-4' %}">
+                                                                        <div class="black-text">
+                                                                            <span class="card-title">Lesson 4 - How To Turn Bitcoins Into Cash & Buy Anything You Want With VISA Debit Cards</span>
+                                                                            <p style="font-size: 14px; margin-top: 20px;">
+                                                                                Learn how to cash out Bitcoins and buy anything you want with Bitcoins
+                                                                            </p>
+
+                                                                            <div class="divider" style="margin-top: 20px; margin-bottom: 20px;">
+
+                                                                            </div>
+
+                                                                            <p style="font-size: 12px; margin-bottom: 20px;" class="valign-wrapper">
+                                                                                <i style="font-size: 20px;" class="material-icons">access_time</i> &nbsp15 min
+                                                                            </p>
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+                                                            {% endif %}
+                                                        {% endifequal %}
+                                                    {% endfor %}
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endifequal %}
+                        <!--end module 2-->
+
+                        <!--module 3-->
+                        {% ifequal module.short_name 'module-3' %}
+                            {% if module.is_active %}
+                                <div class="card blue">
+                                    <div class="card-content white-text">
+                                        <div class="row">
+                                            <a href="{% url 'lessons:module_3' %}">
+                                                <div class="white-text">
+                                                    <span class="card-title">Module 3 – The Secret To Wealth Acceleration</span>
+                                                    <p style="font-size: 14px; margin-top: 20px;">
+                                                        In module 3 you'll learn how to become financially free, why all traditional investment vehicles SUCK, why banks rob all of us of money & how you can join the elite group of people who massively accelerate their wealth...
+                                                    </p>
+
+                                                    <div class="divider" style="margin-top: 20px; margin-bottom: 20px;">
+
+                                                    </div>
+
+                                                    <p style="font-size: 12px; margin-bottom: 20px;" class="valign-wrapper">
+                                                        <i style="font-size: 20px;" class="material-icons">access_time</i> &nbsp;30 min
+                                                    </p>
+                                                </div>
+                                            </a>
+
+
+                                            <div class="col s12 m12 l12" style="margin-top: 10px;">
+                                                <div class="card white">
+                                                    {% for lesson in lessons %}
+                                                        {% ifequal lesson.short_name 'module-3-lesson-1' %}
+                                                            {% if lesson.is_active %}
+                                                                <div class="card-content black-text">
+                                                                    <a href="{% url 'topic:module-3-lesson-1' %}">
+                                                                        <div class="black-text">
+                                                                            <span class="card-title">Lesson 1 - 4 Ways To Produce Income & How To Become Financially Free</span>
+                                                                            <p style="font-size: 14px; margin-top: 20px;">
+                                                                                Learn what only 5% of population knows about wealth building & how to become financially free
+                                                                            </p>
+
+                                                                            <div class="divider" style="margin-top: 20px; margin-bottom: 20px;">
+
+                                                                            </div>
+
+                                                                            <p style="font-size: 12px; margin-bottom: 20px;" class="valign-wrapper">
+                                                                                <i style="font-size: 20px;" class="material-icons">access_time</i> &nbsp;1 hour
+                                                                            </p>
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+
+                                                                <div class="divider #333">
+
+                                                                </div>
+                                                            {% endif %}
+                                                        {% endifequal %}
+
+                                                        {% ifequal lesson.short_name 'module-3-lesson-2' %}
+                                                            {% if lesson.is_active %}
+                                                                <div class="card-content black-text">
+                                                                    <a href="{% url 'topic:module-3-lesson-2' %}">
+                                                                        <div class="black-text">
+                                                                            <span class="card-title">Lesson 2 - Why Banks Are Biggest Scammers & Why Typical Investment Vehicles SUCK</span>
+                                                                            <p style="font-size: 14px; margin-top: 20px;">
+                                                                                Learn why Banks are biggest scammers and you don't want to settle for 0-10% a year returns...
+                                                                            </p>
+
+                                                                            <div class="divider" style="margin-top: 20px; margin-bottom: 20px;">
+
+                                                                            </div>
+
+                                                                            <p style="font-size: 12px; margin-bottom: 20px;" class="valign-wrapper">
+                                                                                <i style="font-size: 20px;" class="material-icons">access_time</i> &nbsp10 min
+                                                                            </p>
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+
+                                                                <div class="divider #333">
+
+                                                                </div>
+                                                            {% endif %}
+                                                        {% endifequal %}
+
+                                                        {% ifequal lesson.short_name 'module-3-lesson-3' %}
+                                                            {% if lesson.is_active %}
+                                                                <div class="card-content black-text">
+                                                                    <a href="{% url 'topic:module-3-lesson-3' %}">
+                                                                        <div class="black-text">
+                                                                            <span class="card-title">Lesson 3 - 5 Primary Ways To Grow Your Wealth In Bitcoins</span>
+                                                                            <p style="font-size: 14px; margin-top: 20px;">
+                                                                                Learn what are the best way to grow your wealth in Bitcoins
+                                                                            </p>
+
+                                                                            <div class="divider" style="margin-top: 20px; margin-bottom: 20px;">
+
+                                                                            </div>
+
+                                                                            <p style="font-size: 12px; margin-bottom: 20px;" class="valign-wrapper">
+                                                                                <i style="font-size: 20px;" class="material-icons">access_time</i> &nbsp10 min
+                                                                            </p>
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+                                                            {% endif %}
+                                                        {% endifequal %}
+                                                    {% endfor %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endifequal %}
+                        <!--end module 3-->
+
+
+                        <!--module 4-->
+                        {% ifequal module.short_name 'module-4' %}
+                            {% if module.is_active %}
+                                <div class="card blue">
+                                    <div class="card-content white-text">
+                                        <div class="row">
+                                            <a href="{% url 'lessons:module_4' %}">
+                                                <div class="white-text">
+                                                    <span class="card-title">Module 4 – How To Passively Multiply Your Money By 5X Over & Over Again & Earn Multiple Streams Of Residual Income</span>
+                                                    <p style="font-size: 14px; margin-top: 20px;">
+                                                        In Module 4 you'll learn new cutting edge insider secret wealth building strategies to grow your wealth in Bitcoins
+                                                    </p>
+
+                                                    <div class="divider" style="margin-top: 20px; margin-bottom: 20px;">
+
+                                                    </div>
+
+                                                    <p style="font-size: 12px; margin-bottom: 20px;" class="valign-wrapper">
+                                                        <i style="font-size: 20px;" class="material-icons">access_time</i> &nbsp;2 hours
+                                                    </p>
+                                                </div>
+                                            </a>
+
+
+                                            <div class="col s12 m12 l12" style="margin-top: 10px;">
+                                                <div class="card white">
+                                                    {% for lesson in lessons %}
+                                                        {% ifequal lesson.short_name 'module-4-lesson-1' %}
+                                                            {% if lesson.is_active %}
+                                                                <div class="card-content black-text">
+                                                                    <a href="{% url 'topic:module-4-lesson-1' %}">
+                                                                        <div class="black-text">
+                                                                            <span class="card-title">Lesson 1 - 3 Strategies To Hit $30K+ A Month In Bitcoins & How To Make Minimum 472% ROI A Year Totally Passively</span>
+                                                                            <p style="font-size: 14px; margin-top: 20px;">
+                                                                                Learn how to passively make 472% ROI per year as a minimum
+                                                                            </p>
+
+                                                                            <div class="divider" style="margin-top: 20px; margin-bottom: 20px;">
+
+                                                                            </div>
+
+                                                                            <p style="font-size: 12px; margin-bottom: 20px;" class="valign-wrapper">
+                                                                                <i style="font-size: 20px;" class="material-icons">access_time</i> &nbsp;1 hour
+                                                                            </p>
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+
+                                                                <div class="divider #333">
+
+                                                                </div>
+                                                            {% endif %}
+                                                        {% endifequal %}
+
+                                                        {% ifequal lesson.short_name 'module-4-lesson-2' %}
+                                                            {% if lesson.is_active %}
+                                                                <div class="card-content black-text">
+                                                                    <a href="{% url 'topic:module-4-lesson-2' %}">
+                                                                        <div class="black-text">
+                                                                            <span class="card-title">Lesson 2 - How To Leverage Billion Dollar Cryptocurrency To Passively Earn Up To 40% Monthly Returns On Autopilot</span>
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+
+                                                                <div class="divider #333">
+
+                                                                </div>
+                                                            {% endif %}
+                                                        {% endifequal %}
+
+                                                        {% ifequal lesson.short_name 'module-4-lesson-3' %}
+                                                            {% if lesson.is_active %}
+                                                                <div class="card-content black-text">
+                                                                    <a href="{% url 'topic:module-4-lesson-3' %}">
+                                                                        <div class="black-text">
+                                                                            <span class="card-title">Lesson 3 - How To Passively Multiply Your Money By 5X Over & Over Again & Earn Multiple Streams Of Residual Income</span>
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+                                                            {% endif %}
+                                                        {% endifequal %}
+                                                    {% endfor %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endifequal %}
+                        <!--end module 4-->
+
+                        <!--module 5-->
+                        {% ifequal module.short_name 'module-5' %}
+                            {% if module.is_active %}
+                                <div class="card blue">
+                                    <div class="card-content white-text">
+                                        <div class="row">
+                                            <a href="{% url 'lessons:module_5' %}">
+                                                <div class="white-text">
+                                                    <span class="card-title">Module 5 – How BeTheMillionaire System Works & How To Promote It To Accelerate Your Wealth</span>
+                                                    <p style="font-size: 14px; margin-top: 20px;">
+                                                        In Module 5 you'll learn exactly how to correctly set up BeTheMillionaire to accelerate your wealth building
+                                                    </p>
+
+                                                    <div class="divider" style="margin-top: 20px; margin-bottom: 20px;">
+
+                                                    </div>
+
+                                                    <p style="font-size: 12px; margin-bottom: 20px;" class="valign-wrapper">
+                                                        <i style="font-size: 20px;" class="material-icons">access_time</i> &nbsp;30 min
+                                                    </p>
+                                                </div>
+                                            </a>
+
+
+                                            <div class="col s12 m12 l12" style="margin-top: 10px;">
+                                                <div class="card white">
+                                                    {% for lesson in lessons %}
+                                                        {% ifequal lesson.short_name 'module-5-lesson-1' %}
+                                                            {% if lesson.is_active %}
+                                                                <div class="card-content black-text">
+                                                                    <a href="{% url 'topic:module-5-lesson-1' %}">
+                                                                        <div class="black-text">
+                                                                            <span class="card-title">Lesson 1 - Set Up BeTheMillionaire Correctly</span>
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+
+                                                                <div class="divider #333">
+
+                                                                </div>
+                                                            {% endif %}
+                                                        {% endifequal %}
+
+                                                        {% ifequal lesson.short_name 'module-5-lesson-2' %}
+                                                            {% if lesson.is_active %}
+                                                                <div class="card-content black-text">
+                                                                    <a href="{% url 'topic:module-5-lesson-2' %}">
+                                                                        <div class="black-text">
+                                                                            <span class="card-title">Lesson 2 - Connect Your Autoresponder To BeTheMillionaire To Build Your List (Optional)</span>
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+
+                                                                <div class="divider #333">
+
+                                                                </div>
+                                                            {% endif %}
+                                                        {% endifequal %}
+
+                                                        {% ifequal lesson.short_name 'module-5-lesson-3' %}
+                                                            {% if lesson.is_active %}
+                                                                <div class="card-content black-text">
+                                                                    <a href="{% url 'topic:module-5-lesson-3' %}">
+                                                                        <div class="black-text">
+                                                                            <span class="card-title">Lesson 3 - How To Promote Your Affiliate Links & Funnels</span>
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+
+                                                                <div class="divider #333">
+
+                                                                </div>
+                                                            {% endif %}
+                                                        {% endifequal %}
+
+                                                        {% ifequal lesson.short_name 'module-5-lesson-4' %}
+                                                            {% if lesson.is_active %}
+                                                                <div class="card-content black-text">
+                                                                    <a href="{% url 'topic:module-5-lesson-4' %}">
+                                                                        <div class="black-text">
+                                                                            <span class="card-title">Lesson 4 - How To Promote BeTheMillionaire On Facebook Groups</span>
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+
+                                                                <div class="divider #333">
+
+                                                                </div>
+                                                            {% endif %}
+                                                        {% endifequal %}
+
+                                                        {% ifequal lesson.short_name 'module-5-lesson-5' %}
+                                                            {% if lesson.is_active %}
+                                                                <div class="card-content black-text">
+                                                                    <a href="{% url 'topic:module-5-lesson-5' %}">
+                                                                        <div class="black-text">
+                                                                            <span class="card-title">Lesson 5 - How To Learn Advanced Marketing Strategies & Become Online Recruiting Master</span>
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+
+                                                                <div class="divider #333">
+
+                                                                </div>
+                                                            {% endif %}
+                                                        {% endifequal %}
+
+                                                        {% ifequal lesson.short_name 'module-5-lesson-6' %}
+                                                            {% if lesson.is_active %}
+                                                                <div class="card-content black-text">
+                                                                    <a href="{% url 'topic:module-5-lesson-6' %}">
+                                                                        <div class="black-text">
+                                                                            <span class="card-title">Lesson 6 - How To Get Premium & VIP Level Coaching & Own 20% of Profits Of BeTheMillionaire</span>
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+                                                            {% endif %}
+                                                        {% endifequal %}
+                                                    {% endfor %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endifequal %}
+                        <!--end module 5-->
+
+                        <!--module 6-->
+                        {% ifequal module.short_name 'module-6' %}
+                            {% if module.is_active %}
+                                <div class="card blue">
+                                    <div class="card-content white-text">
+                                        <div class="row">
+                                            <a href="{% url 'lessons:module_6' %}">
+                                                <div class="white-text">
+                                                    <span class="card-title">Module 6 – How To Trade Cryptocurrencies Yourself & Invest Intoo Altcoins</span>
+                                                    <p style="font-size: 14px; margin-top: 20px;">
+                                                        In Module 6 you'll learn how to invest in other altcoins on the market and gain skills of a trader to make fortune
+                                                    </p>
+
+                                                    <div class="divider" style="margin-top: 20px; margin-bottom: 20px;">
+
+                                                    </div>
+
+                                                    <p style="font-size: 12px; margin-bottom: 20px;" class="valign-wrapper">
+                                                        <i style="font-size: 20px;" class="material-icons">access_time</i> &nbsp;1 hour
+                                                    </p>
+                                                </div>
+                                            </a>
+
+
+                                            <div class="col s12 m12 l12" style="margin-top: 10px;">
+                                                <div class="card white">
+                                                    {% for lesson in lessons %}
+                                                        {% ifequal lesson.short_name 'module-6-lesson-1' %}
+                                                            {% if lesson.is_active %}
+                                                                <div class="card-content black-text">
+                                                                    <a href="{% url 'topic:module-6-lesson-1' %}">
+                                                                        <div class="black-text">
+                                                                            <span class="card-title">Lesson 1 - How To Leverage Micro-Profit System To Trade At Minimum 1% A Day</span>
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+
+                                                                <div class="divider #333">
+
+                                                                </div>
+                                                            {% endif %}
+                                                        {% endifequal %}
+
+                                                        {% ifequal lesson.short_name 'module-6-lesson-2' %}
+                                                            {% if lesson.is_active %}
+                                                                <div class="card-content black-text">
+                                                                    <a href="{% url 'topic:module-6-lesson-2' %}">
+                                                                        <div class="black-text">
+                                                                            <span class="card-title">How My Friend Caleb Earns Over $1,000,000 A Year Trading Cryptocurrencies</span>
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+                                                            {% endif %}
+                                                        {% endifequal %}
+                                                    {% endfor %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endifequal %}
+                        <!--end module 6-->
+
+                        <!--module 7-->
+                        {% ifequal module.short_name 'module-7' %}
+                            {% if module.is_active %}
+                                <div class="card blue">
+                                    <div class="card-content white-text">
+                                        <div class="row">
+                                            <a href="{% url 'lessons:module_7' %}">
+                                                <div class="white-text">
+                                                    <span class="card-title">Module 7 – How To Achieve Your Dreams With BeTheMillionaire System</span>
+                                                    <p style="font-size: 14px; margin-top: 20px;">
+                                                        In Module 7 you'll learn how to set goals and achieve them and what you need to focus on daily to produce results
+                                                    </p>
+
+                                                    <div class="divider" style="margin-top: 20px; margin-bottom: 20px;">
+
+                                                    </div>
+
+                                                    <p style="font-size: 12px; margin-bottom: 20px;" class="valign-wrapper">
+                                                        <i style="font-size: 20px;" class="material-icons">access_time</i> &nbsp;20 min
+                                                    </p>
+                                                </div>
+                                            </a>
+
+
+                                            <div class="col s12 m12 l12" style="margin-top: 10px;">
+                                                <div class="card white">
+                                                    {% for lesson in lessons %}
+                                                        {% ifequal lesson.short_name 'module-7-lesson-1' %}
+                                                            {% if lesson.is_active %}
+                                                                <div class="card-content black-text">
+                                                                    <a href="{% url 'topic:module-7-lesson-1' %}">
+                                                                        <div class="black-text">
+                                                                            <span class="card-title">How To Achieve Your Goals & Dreams</span>
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+
+                                                                <div class="divider #333">
+
+                                                                </div>
+                                                            {% endif %}
+                                                        {% endifequal %}
+
+                                                        {% ifequal lesson.short_name 'module-7-lesson-2' %}
+                                                            {% if lesson.is_active %}
+                                                                <div class="card-content black-text">
+                                                                    <a href="{% url 'topic:module-7-lesson-2' %}">
+                                                                        <div class="black-text">
+                                                                            <span class="card-title">Your Daily Method Of Operation</span>
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+
+                                                                <div class="divider #333">
+
+                                                                </div>
+                                                            {% endif %}
+                                                        {% endifequal %}
+
+                                                        {% ifequal lesson.short_name 'module-7-lesson-3' %}
+                                                            {% if lesson.is_active %}
+                                                                <div class="card-content black-text">
+                                                                    <a href="{% url 'topic:module-7-lesson-3' %}">
+                                                                        <div class="black-text">
+                                                                            <span class="card-title">Top Bitcoin Resources</span>
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+                                                            {% endif %}
+                                                        {% endifequal %}
+                                                    {% endfor %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endifequal %}
+                        <!--end module 7-->
+                    </div>
+                {% endfor %}
+
+            </div>
+            <!--end main-content -->
+
+            <div class="col s12 m12 l3 left left-content" style="">
+                <div class="col s12 m12 l12">
+                    <div class="card white black-text">
+                        <div class="card-content black-text left-content-introduction">
+                            <div class="card-title valign-wrapper" style="background-color: blue; color: white">Quick Start Video</div>
+
+                            <div>
+                                <a href="#">
+                                    <p class="valign-wrapper">START HERE - 5 Steps To Set Up Bitcoins Wealth Club System!</p>
+                                </a>
+                            </div>
+
+                            <div>
+                                <a href="#">
+                                    <p class="valign-wrapper">Video Course: Secrets To Growing Your Wealth In Bitcoins</p>
+                                </a>
+                            </div>
+
+                            <div>
+                                <a href="#">
+                                    <p class="valign-wrapper">UPGRADE YOUR MEMBERSHIP</p>
+                                </a>
+                            </div>
+
+                            <div>
+                                <a href="#">
+                                    <p class="valign-wrapper">BTM Facebook Group</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col s12 m12 l12">
+                    <div class="collection">
+                        <a href="#!" class="collection-item black-text"><span class="badge red-text"><b>100300</b></span>Current Members</a>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col s12 m12 l12">
+                        <div class="card white">
+                            <div class="card-content black-text">
+                                <span class="card-title">Your BTM Sponsor</span>
+
+                                <div class="row">
+                                    <div class="col s12 m12 l12" style="width: 90%">
+                                        {% for user_pro in user_profile %}
+                                            {% if user_pro.sponsor.profile_picture %}
+                                                <img src="{{ user_pro.sponsor.profile_picture.url }}" width="100%" style="">
+                                            {% else %}
+                                                <img src="{% static 'account/style/images/no-img.jpg' %}"  width="100%" style="">
+                                            {% endif %}
+                                        {% endfor %}
+                                    </div>
+
+                                    <div class="col s12 m6 offset-m3 l6 offset-l3">
+                                        <h4 id="login_user_sponsor_left"></h4>
+                                    </div>
+
+                                    <div class="col s12 m12 l12">
+                                        <p>Email: <span id="login_user_sponsor_email"></span></p>
+                                    </div>
+
+                                    <div class="col s12 m12 l12">
+                                        <p>Phone: <span id="login_user_sponsor_phone"></span></p>
+                                    </div>
+
+                                    <div class="col s12 m12 l12">
+                                        <p>Skype: <span id="login_user_sponsor_skype"></span></p>
+                                    </div>
+
+                                    <a href="#">
+                                        <div class="col s12 m12 l12 valign-wrapper message_me_fb">
+                                            <p style="width: 100%" class="center-align">Message Me On Facebook</p>
+                                        </div>
+                                    </a>
+
+                                    <a href="#">
+                                        <div class="col s12 m12 l12 valign-wrapper message_me_fb">
+                                            <p style="width: 100%" class="center-align">Training By Your Sponsor</p>
+                                        </div>
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+            <!--end left-content -->
+        </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+
+    <script>
+        $(document).ready(function(){
+            $('.modal').modal();
+        });
+    </script>
+
+{% endblock %}

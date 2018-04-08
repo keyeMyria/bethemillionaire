@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Preregistration | BeTheMillionaire</title>
+
+    {% load staticfiles %}
+    <link rel="shortcut icon" type="image/png" href="{% static 'account/style/images/logo/favicon.png' %}" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'account/style/materialize.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'account/style/login.css' %}">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link href="https://fonts.googleapis.com/css?family=Sacramento" rel="stylesheet">
+
+    <style>
+        .container{
+            min-width: 100%;
+        }
+
+        .container > .row {
+            margin: 0;
+        }
+
+
+        .container > .row > .col {
+            padding: 0;
+        }
+
+        *{
+            padding: 0px;
+            margin: 0px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row" style="">
+            <div class="col s12 m12 l4 #b3e5fc light-blue lighten-4" id="left-section" style="">
+                <div class="col s12 m12 l12 valign-wrapper" style="height: 130px; margin-bottom: 20px;">
+                    <div class="center-align logo" style="width: 100%">
+                        Be theMillionaire
+                    </div>
+                </div>
+
+                <form method="post">
+                    {% csrf_token %}
+
+                    <div class="col s12 m12 l12" style="margin-top: 10px;">
+                        <h5 class="center-align red-text">
+                            Enter Your Best Email Below To Get Free Access To Bitcoins Wealth Club!
+                        </h5>
+                    </div>
+
+                    <div class="input-field col s12 m10 offset-m1 l10 offset-l1">
+                        <i class="material-icons prefix">email</i>
+                        {{ form.email }}
+                        <label for="icon_prefix white-text">Email</label>
+                    </div>
+
+                    {% if form.non_field_errors %}
+                        {% for error in form.non_field_errors %}
+                            <div class="col s12 m8 offset-m2 l8 offset-l2 collection teal lighten-2" style="border: 0px;">
+                                <p href="#!" class="collection-item white-text teal lighten-2">{{ error }}</p>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+
+
+                    <button class="col s6 offset-s6 btn waves-effect waves-light" type="submit" name="action" style="width: 140px; height: 50px;">Next Step
+                        <i class="material-icons right">send</i>
+                    </button>
+
+                    <div class="col s12 m8 offset-m1 l8 offset-l1" style="margin-top: 40px; font-size: 12px; ">
+                        <a href="{% url 'password_reset' %}" class="gray-text">Forget password ?</a>
+                    </div>
+
+                    <div class="col s12 m8 offset-m1 l8 offset-l1" style="margin-top: 40px; font-size: 12px; ">
+                        Not registered, <a href="{% url 'account:registration' %}" class="gray-text">register</a> here!
+                    </div>
+                </form>
+            </div>
+
+            <div class="col s12 m12 l8" id="right-section" style="">
+                <div class="col s10 offset-s1 m10 offset-m1 l6 offset-l3" style="margin-top: 50px;">
+                    <h4 style="">Not A Member Yet?</h4>
+
+                    <p>Register today and get those benefits:</p><br>
+
+                    <p>
+                        <i class="material-icons">check</i> Get Access To Top Bitcoin Education & Resources
+                    </p>
+
+                    <p>
+                        <i class="material-icons">check</i> Earn Multiple Streams Of Passive Income Daily
+                    </p>
+
+                    <p>
+                        <i class="material-icons">check</i> Earn Minimum 0.4% – 2% a day returns
+                    </p>
+
+                    <p>
+                        <i class="material-icons">check</i> Multiple your money by minimum 470% a year
+                    </p>
+
+                    <p>
+                        <i class="material-icons">check</i> Easy To Follow Step-By-Step System
+                    </p>
+
+                    <p>
+                        <i class="material-icons">check</i>  100% Free To Join Bitcoins Wealth Club!
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div id="footer" class="valign-wrapper">
+                    <p style="margin-left: 50px;">All right reserverd by bethemillionaire @ 2017-2017</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script type="text/javascript" src="{% static 'home/js/jquery.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'home/js/materialize.min.js' %}"></script>

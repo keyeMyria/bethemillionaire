@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Payment Failed | BeTheMillionaire{% endblock %}
+
+{% block add-css %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home/style/index.css' %}">
+{% endblock %}
+
+{% block main %}
+    <div class="row">
+        <div class="col s12 m12 l12" style="">
+            <div class="col s12 m12 l8 offset-l2 main-content" style="">
+                <br><br>
+                <div class="collection">
+                    <h5 class="collection-item white red-text"><span class="badge"></span>Your payment successfully received.</h5>
+                </div><br><br>
+
+                <p>
+                    It need's 1-2 day's to review your payment, you will be notified when you account upgrade's! Thanks for your patients.
+                </p>
+
+                <br><br>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+
+{% endblock %}

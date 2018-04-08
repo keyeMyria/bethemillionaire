@@ -1,0 +1,122 @@
+{% extends 'admin-base.html' %}
+
+{% block title %}Affiliate Link Control - Administration | BeTheMillionaire{% endblock %}
+
+{% block add-css %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home/style/index.css' %}">
+{% endblock %}
+
+{% block main %}
+    <div class="row">
+        <div class="col s12 m10 offset-m1 l8 offset-l2" style="">
+            <div class="col s12 m12 l12" style="margin-top: 20px; margin-bottom: 20px;">
+                <h4 class="">
+                    Affiliate Links Control
+                </h4>
+            </div>
+
+            <!--module 1-->
+            <div class="col s12 m12 l12">
+                <div class="card blue">
+                    <div class="card-content white-text">
+                        <div class="row">
+                            <div class="white-text">
+                                <span class="card-title">Affiliate Links</span>
+                                <p style="font-size: 14px; margin-top: 20px;">
+                                    Here are the list of Affiliate Links
+                                </p>
+
+                                <p>
+                                    Active Affiliate Links :
+                                </p>
+                            </div>
+
+                            <div class="col s12 m12 l12" style="margin-top: 10px;">
+                                {% for affiliate in affiliates %}
+                                <div class="card white">
+                                    {% if affiliate.is_active %}
+                                        <div class="card-content black-text">
+                                            <div class="black-text">
+                                                <span class="card-title">{{ affiliate.short_name | upper }}</span>
+                                                <p style="font-size: 14px; margin-top: 20px;">
+                                                    {{ affiliate.name }}
+                                                </p>
+
+                                                <p style="font-size: 14px; margin-top: 20px;">
+                                                    Link Status : <span style="color: red">Active</span>
+                                                </p>
+
+                                                <form method="post">
+                                                    {% csrf_token %}
+
+                                                    <input type="hidden" name="link_id" value="{{ affiliate.id }}" />
+                                                    <input type="hidden" name="link_action" value="disable" />
+                                                    <button style="margin-top: 20px;" type="submit" class="waves-effect waves-light btn">Disable This Link</button>
+                                                </form>
+                                            </div>
+                                        </div>
+
+                                        <div class="divider #333">
+
+                                        </div>
+                                    {% endif %}
+                                </div>
+                                {% endfor %}
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!--end active module-->
+            </div>
+
+            <div class="col s12 m12 l12">
+                <div class="card blue">
+                    <div class="card-content white-text">
+                        <div class="row">
+                            <div class="white-text">
+                                <span class="card-title">Disabled Links</span>
+                            </div>
+
+                            <div class="col s12 m12 l12" style="margin-top: 10px;">
+                                {% for affiliate in affiliates %}
+                                    <div class="card white">
+                                        {% if not affiliate.is_active %}
+                                            <div class="card-content black-text">
+                                                <div class="black-text">
+                                                    <span class="card-title">{{ affiliate.short_name | upper }}</span>
+                                                    <p style="font-size: 14px; margin-top: 20px;">
+                                                        {{ affiliate.name }}
+                                                    </p>
+
+                                                    <p style="font-size: 14px; margin-top: 20px;">
+                                                        Link Status : <span style="color: red">Disable</span>
+                                                    </p>
+
+                                                    <form method="post">
+                                                        {% csrf_token %}
+
+                                                        <input type="hidden" name="link_id" value="{{ affiliate.id }}" />
+                                                        <input type="hidden" name="link_action" value="active" />
+                                                        <button style="margin-top: 20px;" type="submit" class="waves-effect waves-light btn">Active This Link</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+
+                                            <div class="divider #333">
+
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--end active module-->
+            </div>
+            <!--end module 1-->
+        </div>
+    </div>
+{% endblock %}

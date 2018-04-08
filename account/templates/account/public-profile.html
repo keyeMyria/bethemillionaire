@@ -1,0 +1,147 @@
+{% extends 'base.html' %}
+
+{% block title %}Public Profile | BeTheMillionaire{% endblock %}
+
+{% block add-css %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home/style/index.css' %}">
+{% endblock %}
+
+{% block main %}
+    <div class="row">
+        <div class="col s12 m12 l12" style="">
+            <div class="col s12 m12 l9 right main-content" style="">
+                {% if public_profiles %}
+                    {% for user_pro in public_profiles %}
+                        <div class="col s10 offset-s1 m5 l4 center-align" style="margin-top: 20px;">
+                            {% if user_pro.profile_picture %}
+                                <img src="{{ user_pro.sponsor.profile_picture.url }}" width="100%" style="">
+                            {% else %}
+                                <img src="{% static 'account/style/images/no-img.jpg' %}"  width="100%" style="">
+                            {% endif %}
+                        </div>
+
+                        <div class="col s10 offset-s1 m7 l8" style=" margin-top: 20px;">
+                            <h5>{{ user_pro.username | upper }}</h5>
+                            <div class="divider"></div>
+
+                            <p style="margin-top: 20px;">Email: {{ user_pro.email }}</p>
+                            <p>Phone: {{ user_pro.phone_number }}</p>
+                            <p>Skype: {{ user_pro.skype }}</p>
+
+                            <div class="col s12 m12 l12" style="margin-top: 40px;">
+                                <a href="{% url 'account:usi-tech-fast-start' %}?userid={{ request.GET.userid }}"><div class="card blue" style="cursor: pointer;">
+                                    <div class="card-content white-text">
+                                        <h5 class="center-align">
+                                            Message Me On Facebook
+                                        </h5>
+                                    </div>
+                                </div></a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <h5>User Not Found</h5>
+                {% endif %}
+            </div>
+            <!--end main-content -->
+
+            <div class="col s12 m12 l3 left left-content" style="">
+                <div class="col s12 m12 l12">
+                    <div class="card white black-text">
+                        <div class="card-content black-text left-content-introduction">
+                            <div class="card-title valign-wrapper" style="background-color: blue; color: white">Quick Start Video</div>
+
+                            <div>
+                                <a href="#">
+                                    <p class="valign-wrapper">START HERE - 5 Steps To Set Up Bitcoins Wealth Club System!</p>
+                                </a>
+                            </div>
+
+                            <div>
+                                <a href="#">
+                                    <p class="valign-wrapper">Video Course: Secrets To Growing Your Wealth In Bitcoins</p>
+                                </a>
+                            </div>
+
+                            <div>
+                                <a href="#">
+                                    <p class="valign-wrapper">UPGRADE YOUR MEMBERSHIP</p>
+                                </a>
+                            </div>
+
+                            <div>
+                                <a href="#">
+                                    <p class="valign-wrapper">BWC Facebook Group</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col s12 m12 l12">
+                    <div class="collection">
+                        <a href="#!" class="collection-item black-text"><span class="badge red-text"><b>100300</b></span>Current Members</a>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col s12 m12 l12">
+                        <div class="card white">
+                            <div class="card-content black-text">
+                                <span class="card-title">Your BWC Sponsor</span>
+
+                                <div class="row">
+                                    <div class="col s12 m12 l12" style="border: 1px solid red; width: 90%">
+                                        {% for user_pro in user_profile %}
+                                            {% if user_pro.sponsor.profile_picture %}
+                                                <img src="{{ user_pro.sponsor.profile_picture.url }}" width="100%" style="">
+                                            {% else %}
+                                                <img src="{% static 'account/style/images/no-img.jpg' %}"  width="100%" style="">
+                                            {% endif %}
+                                        {% endfor %}
+                                    </div>
+
+                                    <div class="col s12 m6 offset-m3 l6 offset-l3">
+                                        <h4 id="login_user_sponsor_left"></h4>
+                                    </div>
+
+                                    <div class="col s12 m12 l12">
+                                        <p>Email: <span id="login_user_sponsor_email"></span></p>
+                                    </div>
+
+                                    <div class="col s12 m12 l12">
+                                        <p>Phone: <span id="login_user_sponsor_phone"></span></p>
+                                    </div>
+
+                                    <div class="col s12 m12 l12">
+                                        <p>Skype: <span id="login_user_sponsor_skype"></span></p>
+                                    </div>
+
+                                    <a href="#">
+                                        <div class="col s12 m12 l12 valign-wrapper message_me_fb">
+                                            <p style="width: 100%" class="center-align">Message Me On Facebook</p>
+                                        </div>
+                                    </a>
+
+                                    <a href="#">
+                                        <div class="col s12 m12 l12 valign-wrapper message_me_fb">
+                                            <p style="width: 100%" class="center-align">Training By Your Sponsor</p>
+                                        </div>
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+            <!--end left-content -->
+        </div>
+    </div>
+{% endblock %}
