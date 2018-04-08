@@ -61,26 +61,25 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'bethemillionaire.wsgi.application'
 
-
+"""
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
-
 """
+
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'databasbethemillionaire',
+        'NAME': 'be_themillionaire',
         'USER': 'root',
-        'PASSWORD': 'root',
+        'PASSWORD': 'nstu12345678',
         'HOST': 'localhost',
     }
 }
-"""
 
 
 AUTH_PASSWORD_VALIDATORS = [

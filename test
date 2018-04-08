@@ -61,7 +61,7 @@ server {
     error_log /home/mubarak/logs/nginx-error.log;
 
     location /static/ {
-        alias /home/mubarak/bethemillionaire/bethemillionaire/static/;
+        alias /home/mubarak/bethemillionaire/static/;
     }
 
     # checks for static file, if not found proxy to app
