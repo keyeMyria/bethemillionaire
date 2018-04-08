@@ -70,7 +70,7 @@ DATABASES = {
 }
 """
 
-
+"""
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -78,6 +78,18 @@ DATABASES = {
         'USER': 'root',
         'PASSWORD': 'nstu12345678',
         'HOST': 'localhost',
+    }
+}"""
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'be_themillionaire',
+        'USER': 'mubarak',
+        'PASSWORD': 'nstu12345678',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
