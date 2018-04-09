@@ -70,18 +70,18 @@ DATABASES = {
 }
 """
 
-"""
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'be_themillionaire',
         'USER': 'root',
-        'PASSWORD': 'nstu12345678',
+        'PASSWORD': 'Nstu12345678~!',
         'HOST': 'localhost',
     }
-}"""
+}
 
 
+"""
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -91,7 +91,7 @@ DATABASES = {
         'HOST': 'localhost',
         'PORT': '5432',
     }
-}
+}"""
 
 
 AUTH_PASSWORD_VALIDATORS = [
