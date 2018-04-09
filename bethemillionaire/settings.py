@@ -220,3 +220,5 @@ REST_FRAMEWORK = {
 
 
 AUTH_USER_MODEL = 'account.UserProfile'
+
+SECURE_SSL_REDIRECT = True
