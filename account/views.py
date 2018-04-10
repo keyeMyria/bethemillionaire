@@ -1418,7 +1418,6 @@ def check_username(request):
 
 
 class PaymentAPI(APIView):
-    permission_classes = (AllowAny,)
 
     def get(self, request):
         if request.GET.get("payerID") and request.GET.get("paymentID") and request.GET.get("paymentToken") and request.GET.get("userid"):
