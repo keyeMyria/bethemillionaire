@@ -221,7 +221,7 @@ REST_FRAMEWORK = {
 
 AUTH_USER_MODEL = 'account.UserProfile'
 
-SECURE_SSL_REDIRECT = True
+#SECURE_SSL_REDIRECT = True
 
 CORS_REPLACE_HTTPS_REFERER      = True
 HOST_SCHEME                     = "https://"
