@@ -66,6 +66,11 @@ urlpatterns = [
     url(r'^membership-account/checkout-failure/$', views.CheckoutFailure.as_view(), name='checkout-failure'),
 
 
+    #welcome video for direct registration
+    url(r'^welcome/$', views.Welcome.as_view(), name='welcome'),
+    url(r'^thank-you/$', views.ThankYou.as_view(), name='thank-you'),
+
+
 
     url(r'^api/check-username/$', views.check_username, name='chech-username'),
     url(r'^api/user-profile/$', views.UserProfileAPI.as_view(), name='user-profile-api'),

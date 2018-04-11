@@ -190,6 +190,8 @@ LOGIN_EXEMPT_URLS = (
  r'^account/api/check-username/$',
 
  r'^account/access/$',
+ r'^account/welcome/$',
+ r'^account/thank-you/$',
 
  r'^account/recover-password/$',
  r'^account/recover-password/done/$',

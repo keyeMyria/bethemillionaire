@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponseRedirect, redirect
+from django.shortcuts import render, HttpResponseRedirect, redirect, get_object_or_404
 from django.contrib.auth.views import login, logout
 from django.views.generic import View
 from django.contrib.auth.models import User
@@ -88,12 +88,17 @@ class Login(View):
     def post(self, request):
         form = LoginForm(request.POST or None)
 
+        s = request.GET.get('s')
+
         if form.is_valid():
             user = form.login(request)
             if user:
                 login(request, user)
-                return HttpResponseRedirect("/")
 
+                if s == 'welcome':
+                    return redirect('topic:step_1')
+                else:
+                    return HttpResponseRedirect("/")
         variables = {
             'form': form,
         }
@@ -108,6 +113,10 @@ class Registration(View):
     def get(self, request):
         affiliate_name = request.GET.get("userid")
         step = request.GET.get("s")
+
+        if not affiliate_name:
+            return HttpResponseRedirect('/account/registration/?userid=admin')
+
 
         form = RegistrationForm()
 
@@ -136,7 +145,13 @@ class Registration(View):
 
         if form.is_valid():
             user = form.registration(affiliate_name, step)
-            return HttpResponseRedirect('/account/access/')
+
+            if step == None:
+                return redirect('account:welcome')
+            elif step == 'three':
+                return HttpResponseRedirect('/account/thank-you/?userid='+affiliate_name)
+            else:
+                return HttpResponseRedirect('/account/access/')
 
         variables = {
             'form': form,
@@ -1292,6 +1307,46 @@ class Access(View):
         return render(request, self.template_name)
     def post(self, request):
         pass
+
+
+
+
+
+#welcome page
+class Welcome(View):
+    template_name = 'account/welcome.html'
+
+    def get(self, request):
+
+        return render(request, self.template_name)
+
+
+
+#thank you page
+class ThankYou(View):
+    template_name = 'account/thank-you.html'
+
+    def get(self, request):
+        affiliate_name = request.GET.get("userid")
+
+        if not affiliate_name:
+            return HttpResponseRedirect('/account/thank-you/?userid=admin')
+
+        user = get_object_or_404(models.UserProfile, username=affiliate_name)
+
+        coin_mama_account = models.CoinMamaAccount.objects.get(user=user)
+
+        variables = {
+            'coin_mama_account': coin_mama_account,
+        }
+
+        return render(request, self.template_name, variables)
+
+
+
+
+
+
 
 
 #api view
