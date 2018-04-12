@@ -59,6 +59,8 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(max_length=255, unique=True)
 
     membership = models.ForeignKey('Membershiplevel', related_name='membership_level', default=1, null=True, blank=True)
+    package_buy_time = models.DateTimeField(null=True, blank=True)
+
     sponsor = models.ForeignKey('UserProfile', related_name='sponsors', null=True, blank=True)
     referrals = models.ManyToManyField('UserProfile', related_name='referral', blank=True)
     phone_number = models.CharField(max_length=18, null=True, blank=True)

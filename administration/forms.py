@@ -91,3 +91,14 @@ class ChangeUserPasswordForm(forms.Form):
         deploy = account_model.UserProfile.objects.filter(id=user_id).update(password=hash_pass)
 
 
+
+
+#change membership
+class ChangeMembershipForm(forms.ModelForm):
+    membership = forms.ModelChoiceField(queryset=account_model.Membershiplevel.objects.all(), required=False,widget=forms.Select(attrs={'class':'input-field browser-default'}))
+
+    class Meta:
+        model = account_model.UserProfile
+        fields = ('membership', )
+
+

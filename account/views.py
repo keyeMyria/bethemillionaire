@@ -7,6 +7,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from django.http import JsonResponse
 from django.db.models import Q
+import datetime
 
 from rest_framework.permissions import AllowAny
 
@@ -1498,7 +1499,7 @@ class PaymentAPI(APIView):
                 paymentObj = models.Payment.objects.filter(id=payment_obj_id)
 
                 #update user profile
-                update_user_profile = UserProfile.objects.filter(username=username).update(membership=membeshiplevelObj)
+                update_user_profile = UserProfile.objects.filter(username=username).update(membership=membeshiplevelObj, package_buy_time=datetime.datetime.now())
 
                 payment_confirm = 'confirmed'
 

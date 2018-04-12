@@ -1,0 +1,56 @@
+{% extends 'admin-base.html' %}
+
+{% block title %}Administration | BeTheMillionaire{% endblock %}
+
+{% block add-css %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home/style/index.css' %}">
+{% endblock %}
+
+{% block main %}
+    <div class="row">
+        <div class="col s12 m10 offset-m1 l8 offset-l2" style="">
+            <!--sign up form-->
+                <div class="col s12 m12 l12 white center-align" style="">
+                    <h4 class="col s12 m12 l12" style="margin-top: 40px;">Change Membership</h4>
+
+                    <p class="col s12 m12 l12 divider" style="margin-top: 30px;"></p>
+
+                    <form class="col s12 m10 offset-m1 l10 offset-l1" method="post" style="margin-top: 50px; margin-bottom: 50px;">
+                        {% csrf_token %}
+
+                        <p>User: {{ user.username | title }}</p>
+                        <p style="margin-bottom: 30px;">Email: {{ user.email }}</p>
+
+                        <p>
+                            Select Membership:
+                            {{ change_membership_form.membership }}
+                        </p>
+
+                        {% if change_membership_form.non_field_errors %}
+                            {% for error in change_membership_form.non_field_errors %}
+                                <div class="col s12 m10 offset-m1 l10 offset-l1 valign-wrapper" style="margin-top: 20px; background-color: red; height: 40px;">
+                                    <p style="color: white; font-size: 16px;">
+                                        {{ error }}
+                                    </p>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+
+                        <div class="col s12 m12 l12" style="margin-bottom: 20px; margin-top: 20px;">
+                            <button class="btn waves-effect waves-light black" type="submit" style="">Change
+                                <i class="material-icons right">send</i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <!--end sign up form-->
+
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block script %}
+
+{% endblock %}

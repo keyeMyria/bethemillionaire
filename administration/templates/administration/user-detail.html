@@ -9,76 +9,129 @@
 
 {% block main %}
     <div class="row">
-        <div class="col s12 m10 offset-m1 l8 offset-l2" style="">
-            {% if users %}
-                {% for user in users %}
-                <div class="col s12 m8 offset-m2 l8 offset-l2 white" style="">
-                    <div class="col s12 m12 l12" style="margin-top: 40px;">
-                        <div class="col m2">
-                            {% if user.profile_picture %}
-                            <img src="{{ user.profile_picture.url }}" width="100%" height="100%">
-                            {% else %}
-                            <img src="/media/no-img.jpg" width="100%" height="100%">
-                            {% endif %}
-                        </div>
-
-                        <div class="col m8" style="">
-                            <p style="font-size: 18px;">{{ user.username | title }}</p>
-                            <p style="font-size: 14px;">@mail : {{ user.email }}</p>
-
-                            {% if request.user.phone_number %}
-                                <p style="font-size: 14px;">@call : {{ user.phone_number }}</p>
-                            {% endif %}
-
-                            {% if user.is_staff or user.is_superuser %}
-                                <p style="font-size: 14px;">@status : <span style="color: blue;">Staff</span></p>
-                            {% endif %}
-
-                            {% if user.is_active %}
-                                <p style="font-size: 14px;">@profile : <span style="color: green;">Active</span></p>
-                            {% else %}
-                                <p style="font-size: 14px;">@profile : <span style="color: red;">Deactive</span></p>
-                            {% endif %}
-                        </div>
+        <div class="col s12 l12" style="">
+            <div class="col s12 m12 l12">
+                <div class="col s12 m12 l12" style="margin-top: 40px;">
+                    <div class="col m2">
+                        {% if user.profile_picture %}
+                        <img src="{{ user.profile_picture.url }}" width="100%" height="100%">
+                        {% else %}
+                        <img src="/media/no-img.jpg" width="100%" height="100%">
+                        {% endif %}
                     </div>
 
-                    <div class="col s12 m12 l12" style="margin-bottom: 50px; margin-top: 40px;">
-                        <p class="left" style="font-size: 22px;">Basic Information</p>
+                    <div class="col m8" style="">
+                        <p style="font-size: 18px;">{{ user.username | title }}</p>
+                        <p style="font-size: 14px;">@mail : {{ user.email }}</p>
 
-                        <a href="{% url 'administration:edit-user' user_id=user.id %}" class="right" style="font-size: 14px;">edit profile</a>
-                        <p class="col s12 m12 l12 divider" style="margin-top: 5px;"></p>
+                        {% if request.user.phone_number %}
+                            <p style="font-size: 14px;">@call : {{ user.phone_number }}</p>
+                        {% endif %}
 
-                        <div class="col s12 m12 l12" style="padding: 10px; margin-top: 5px;">
-                            <p>Username : {{ user.username | title }}</p>
-                            <p>Email : {{ user.email }}</p>
-                            {% if user.phone_number %}
-                                <p>Phone : {{ user.phone_number }}</p>
-                            {% endif %}
-                            <p>Facebook : {{ user.facebook }}</p>
-                            <p>Skype : {{ user.skype }}</p>
-                            <p>Website : {{ user.website }}</p>
-                            <p>Join Date : {{ user.join_date | date }}</p>
+                        {% if user.is_staff or user.is_superuser %}
+                            <p style="font-size: 14px;">@status : <span style="color: blue;">Staff</span></p>
+                        {% endif %}
 
-                            <a href="{% url 'administration:change-user-password' user_id=user.id %}" class="waves-effect waves-light btn green white-text" style="margin-top: 20px;">Change password</a>
-
-                            <br>
-
-                            {% if user.is_active %}
-                                <a href="{% url 'administration:active-deactive-user' profile_status='deactivate' user_id=user.id %}" class="waves-effect waves-light btn red white-text" style="margin-top: 20px;">Deactivate This Account</a><br>
-                            {% else %}
-                                <a href="{% url 'administration:active-deactive-user' profile_status='activate' user_id=user.id %}" class="waves-effect waves-light btn red white-text" style="margin-top: 20px;">Activate This Account</a><br>
-                            {% endif %}
-
-                            <a href="{% url 'administration:delete-user' user_id=user.id %}" class="waves-effect waves-light btn red white-text" style="margin-top: 20px;">Delete This Account</a>
-
-                        </div>
+                        {% if user.is_active %}
+                            <p style="font-size: 14px;">@profile : <span style="color: green;">Active</span></p>
+                        {% else %}
+                            <p style="font-size: 14px;">@profile : <span style="color: red;">Deactive</span></p>
+                        {% endif %}
                     </div>
                 </div>
-                {% endfor %}
-            {% else %}
-                <h5>No user found!</h5>
-            {% endif %}
+            </div>
 
+            <div class="col s12 l4 white" style="">
+
+                <div class="col s12 m12 l12" style="margin-bottom: 50px; margin-top: 40px;">
+                    <p class="left" style="font-size: 22px;">Basic Information</p>
+
+                    <a href="{% url 'administration:edit-user' user_id=user.id %}" class="right" style="font-size: 14px;">edit profile</a>
+                    <p class="col s12 m12 l12 divider" style="margin-top: 5px;"></p>
+
+                    <div class="col s12 m12 l12" style="padding: 10px; margin-top: 5px;">
+                        <p>Username : {{ user.username | title }}</p>
+                        <p>Email : {{ user.email }}</p>
+                        {% if user.phone_number %}
+                            <p>Phone : {{ user.phone_number }}</p>
+                        {% endif %}
+                        <p>Facebook : {{ user.facebook }}</p>
+                        <p>Skype : {{ user.skype }}</p>
+                        <p>Website : {{ user.website }}</p>
+                        <p>Join Date : {{ user.join_date | date }}</p>
+
+                        <a href="{% url 'administration:change-user-password' user_id=user.id %}" class="waves-effect waves-light btn green white-text" style="margin-top: 20px;">Change password</a>
+
+                        <br>
+
+                        {% if user.is_active %}
+                            <a href="{% url 'administration:active-deactive-user' profile_status='deactivate' user_id=user.id %}" class="waves-effect waves-light btn red white-text" style="margin-top: 20px;">Deactivate This Account</a><br>
+                        {% else %}
+                            <a href="{% url 'administration:active-deactive-user' profile_status='activate' user_id=user.id %}" class="waves-effect waves-light btn red white-text" style="margin-top: 20px;">Activate This Account</a><br>
+                        {% endif %}
+
+                        <a href="{% url 'administration:delete-user' user_id=user.id %}" class="waves-effect waves-light btn red white-text" style="margin-top: 20px;">Delete This Account</a>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col s12 l4 white" style="">
+                <div class="col s12 m12 l12" style="margin-bottom: 50px; margin-top: 40px;">
+                    <p class="left" style="font-size: 22px;">Membership</p>
+
+                    <p class="col s12 m12 l12 divider" style="margin-top: 5px;"></p>
+
+                    <div class="col s12 m12 l12" style="padding: 10px; margin-top: 5px;">
+                        <p>Membership Name : {{ user.membership.name }}</p>
+                        <p>Membership Package : {{ user.membership.package }}</p>
+                        <p>Membership Price : ${{ user.membership.price }}</p>
+                        <br>
+                        <p>Start Date : {{ p_start_date }}</p>
+                        <p>Expired On : {{ package_end_date }}</p>
+
+                        <a href="{% url 'administration:change-membership' user_id=user.id %}" class="waves-effect waves-light btn green white-text" style="margin-top: 20px;">Change membership</a>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col s12 l4 white" style="">
+                <div class="col s12 m12 l12" style="margin-bottom: 50px; margin-top: 40px;">
+                    <p class="left" style="font-size: 22px;">Payment Information</p>
+
+                    <p class="col s12 m12 l12 divider" style="margin-top: 5px;"></p>
+
+                    <div class="col s12 m12" style="margin-top: 30px;">
+                        {% for payment in payments %}
+                            <div class="card blue-grey darken-1">
+                                <div class="card-content white-text">
+                                    <span class="card-title">{{ payment.user.username | title }} : {{ payment.creation_time }}</span>
+
+                                    <p class="col s12 m12 l12 divider"></p>
+
+                                    <p style="margin-top: 20px;">Username: {{ payment.user.username | title }}</p>
+                                    <p>Intent: {{ payment.intent }}</p>
+                                    <p>Payer ID: {{ payment.payer_ID }}</p>
+                                    <p>Payment ID: {{ payment.payment_ID }}</p>
+                                    <p>Payment Token: {{ payment.payment_Token }}</p>
+                                    <p>Membership Name: {{ payment.membership.name }}</p>
+                                    <p>Membership Package: {{ payment.membership.package }}</p>
+                                    <p>Membership Price: ${{ payment.membership.price }}</p>
+                                    <p>Time: {{ payment.creation_time }}</p>
+                                    <p>
+                                        {% if payment.is_verify == 'pending' %}
+                                            Is verified: <span class="red-text">{{ payment.is_verify | title }}</span>
+                                        {% else %}
+                                            <span class="red-text">Is verified: {{ payment.is_verify | title }}</span>
+                                        {% endif %}
+                                    </p>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
 
         </div>
     </div>

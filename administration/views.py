@@ -2,6 +2,9 @@ from django.shortcuts import render, HttpResponse, redirect, get_object_or_404
 from django.views import View
 from django.contrib.auth.mixins import PermissionRequiredMixin
 
+import datetime
+from dateutil.relativedelta import relativedelta
+
 from lessons.models import Module, Lesson, Step
 from home.models import AffiliateLinkControl
 from topic.models import StepControl
@@ -54,11 +57,34 @@ class UserDetail(AdminPermission, View):
 
     def get(self, request, user_id):
 
-        get_object_or_404(account_model.UserProfile, pk=user_id)
-        users = account_model.UserProfile.objects.filter(id=user_id)
+        user = get_object_or_404(account_model.UserProfile, pk=user_id)
+
+        payments = account_model.Payment.objects.filter(user__id=user_id).order_by('-creation_time')
+
+
+        package_end_date = None
+        package_start_date = None
+        p_start_date = None
+        if user.membership.name != 'free':
+            p_start_date = user.package_buy_time
+
+            package_start_date = p_start_date
+
+            package_end_date = None
+
+            if user.membership.package == 'monthly':
+                package_end_date = package_start_date + relativedelta(months=1)
+            elif user.membership.package == 'bi_annually':
+                package_end_date = package_start_date + relativedelta(months=6)
+            elif user.membership.package == 'yearly':
+                package_end_date = package_start_date + relativedelta(months=12)
+
 
         variables = {
-            'users': users,
+            'user': user,
+            'payments': payments,
+            'p_start_date': p_start_date,
+            'package_end_date': package_end_date,
         }
 
         return render(request, self.template_name, variables)
@@ -216,6 +242,47 @@ class DeleteUser(AdminPermission, View):
         }
 
         return render(request, self.template_name, variables)
+
+
+
+#change membership
+class ChangeMembership(AdminPermission, View):
+    template_name = 'administration/change-membership.html'
+
+    def get(self, request, user_id):
+
+        user = get_object_or_404(account_model.UserProfile, pk=user_id)
+
+        change_membership_form = forms.ChangeMembershipForm(instance=account_model.UserProfile.objects.get(id=user_id))
+
+        variables = {
+            'user': user,
+            'change_membership_form': change_membership_form,
+        }
+
+        return render(request, self.template_name, variables)
+
+    def post(self, request, user_id):
+        user = get_object_or_404(account_model.UserProfile, pk=user_id)
+
+        change_membership_form = forms.ChangeMembershipForm(request.POST or None, instance=account_model.UserProfile.objects.get(id=user_id))
+
+        if change_membership_form.is_valid():
+            change_membership_form.save()
+
+            user_obj = account_model.UserProfile.objects.get(id=user_id)
+            user_obj.package_buy_time = datetime.datetime.now()
+            user_obj.save()
+
+            return redirect('administration:user-detail', user_id=user.id)
+
+        variables = {
+            'user': user,
+            'change_membership_form': change_membership_form,
+        }
+
+        return render(request, self.template_name, variables)
+
 
 
 
