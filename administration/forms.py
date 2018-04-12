@@ -1,5 +1,9 @@
 from django import forms
 
+from django.contrib.auth.hashers import make_password, check_password
+
+from account import models as account_model
+
 from . import models
 
 #video link form
@@ -57,5 +61,33 @@ class VideoLinkForm(forms.Form):
 
         deploy = models.VideoLink.objects.update_or_create(lesson_name=lesson_name, defaults={'video_link': video_link})
 
+
+
+
+
+
+#change user password from staff
+class ChangeUserPasswordForm(forms.Form):
+    new_password1 = forms.CharField(max_length=20, required=False, widget=forms.PasswordInput(attrs={'class': 'validate'}))
+    new_password2 = forms.CharField(max_length=20, required=False, widget=forms.PasswordInput(attrs={'class': 'validate'}))
+
+    def clean(self):
+        new_password1 = self.cleaned_data.get('new_password1')
+        new_password2 = self.cleaned_data.get('new_password2')
+
+        if len(new_password1) < 8:
+            raise forms.ValidationError("Password is too short!")
+        else:
+            if new_password1 != new_password2:
+                raise forms.ValidationError("Password not matched!")
+
+
+    def deploy(self, user_id):
+        new_password1 = self.cleaned_data.get('new_password1')
+        new_password2 = self.cleaned_data.get('new_password2')
+
+        hash_pass = make_password(new_password1)
+
+        deploy = account_model.UserProfile.objects.filter(id=user_id).update(password=hash_pass)
 
 

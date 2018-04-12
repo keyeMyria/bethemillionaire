@@ -1,0 +1,80 @@
+{% extends 'admin-base.html' %}
+
+{% block title %}Administration | BeTheMillionaire{% endblock %}
+
+{% block add-css %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home/style/index.css' %}">
+{% endblock %}
+
+{% block main %}
+    <div class="row">
+        <div class="col s12 m10 offset-m1 l8 offset-l2" style="">
+
+            <h5>Edit User: {{ user.username | title }}</h5>
+
+            <form style="padding: 20px;" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <div class="input-field col s12 m10 offset-m1 l10 offset-l1">
+                    <i class="material-icons prefix">email</i>
+                    {{ user_edit_form.email }}
+                    <label for="icon_prefix white-text">Email</label>
+                </div>
+
+                <div class="input-field col s12 m10 offset-m1 l10 offset-l1">
+                    <i class="material-icons prefix">call</i>
+                    {{ user_edit_form.phone_number }}
+                    <label for="icon_prefix white-text">Phone Number</label>
+                </div>
+
+                <div class="input-field col s12 m10 offset-m1 l10 offset-l1">
+                    <i class="material-icons prefix">public</i>
+                    {{ user_edit_form.website }}
+                    <label for="icon_prefix white-text">Website</label>
+                </div>
+
+                <div class="input-field col s12 m10 offset-m1 l10 offset-l1">
+                    <i class="material-icons prefix">group_add</i>
+                    {{ user_edit_form.facebook }}
+                    <label for="icon_prefix white-text">Facebook</label>
+                </div>
+
+                <div class="input-field col s12 m10 offset-m1 l10 offset-l1">
+                    <i class="material-icons prefix">videocam</i>
+                    {{ user_edit_form.skype }}
+                    <label for="icon_prefix white-text">Skype</label>
+                </div>
+
+
+                <div class="row col m10 offset-m1 center-align">
+                    <div class="col m2 center-align" style="margin-top: 20px;">
+                        {% if user.profile_picture %}
+                            <img src="{{ user.profile_picture.url }}" width="100%" style="">
+                        {% else %}
+                            <img src="{% static 'account/style/images/no-img.jpg' %}"  width="100%" style="">
+                        {% endif %}
+                    </div>
+
+                    <div class="input-field col s12 m6 l6">
+                        <div class="file-field input-field">
+                            <div class="btn">
+                                <span>Photo</span>
+                                {{ user_edit_form.profile_picture }}
+                            </div>
+
+                            <div class="file-path-wrapper">
+                                <input class="file-path validate" type="text">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col s12 m12 l12" style="margin-top: 30px;">
+                        <button type="submit" name="account_info" value="account_info" style="margin-bottom: 20px;" class="btn col">Update</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+{% endblock %}

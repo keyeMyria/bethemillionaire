@@ -10,44 +10,44 @@
 {% block main %}
     <div class="row">
         <div class="col s12 m10 offset-m1 l8 offset-l2" style="">
-            <div class="col s12 m12 l12" style="margin-top: 20px; margin-bottom: 20px;">
-                <h5 class="">
-                    Featured Operation
-                </h5>
-            </div>
+            <h5>User management</h5>
 
-            <div class="col s12 m12 l12" style="margin-top: 20px; margin-bottom: 10px;">
-                <a href="{% url 'administration:module-control' %}" class="waves-effect waves-light btn">Module Control</a>
-            </div>
+            <p class="col s12 m12 l12 divider">
 
-            <div class="col s12 m12 l12" style="margin-top: 10px; margin-bottom: 10px;">
-                <a href="{% url 'administration:lesson-control' %}" class="waves-effect waves-light btn">Lesson Control</a>
-            </div>
+            </p>
 
-            <div class="col s12 m12 l12" style="margin-top: 10px; margin-bottom: 20px;">
-                <a href="{% url 'administration:step-control' %}" class="waves-effect waves-light btn">Step Control</a>
-            </div>
-
-            <div class="col s12 m12 l12" style="margin-top: 20px; margin-bottom: 10px;">
-                <h5 class="">
-                    Affiliate Link Control
-                </h5>
-            </div>
-
-            <div class="col s12 m12 l12" style="margin-top: 20px; margin-bottom: 40px;">
-                <a href="{% url 'administration:affiliate-link-control' %}" class="waves-effect waves-light btn">Affiliate Link Control</a>
-            </div>
+            <a href="{% url 'administration:all-user' %}" class="waves-effect waves-light btn red white-text" style="margin-top: 20px;">All user</a>
 
 
-            <div class="col s12 m12 l12" style="margin-top: 20px; margin-bottom: 10px;">
-                <h5 class="">
-                    Add or remove video lesson
-                </h5>
-            </div>
+            <h5 style="margin-top: 50px;">Featured Operation</h5>
 
-            <div class="col s12 m12 l12" style="margin-top: 20px; margin-bottom: 40px;">
-                <a href="{% url 'administration:add-video' %}" class="waves-effect waves-light btn">Add Video</a>
-            </div>
+            <p class="col s12 m12 l12 divider">
+
+            </p>
+
+            <a style="margin-top:20px;" href="{% url 'administration:module-control' %}" class="waves-effect waves-light btn">Module Control</a>
+
+            <a style="margin-top:20px;" href="{% url 'administration:lesson-control' %}" class="waves-effect waves-light btn">Lesson Control</a>
+
+            <a style="margin-top:20px;" href="{% url 'administration:step-control' %}" class="waves-effect waves-light btn">Step Control</a>
+
+
+            <h5 style="margin-top: 50px;">Affiliate Link Control</h5>
+
+            <p class="col s12 m12 l12 divider">
+
+            </p>
+
+            <a style="margin-top: 20px;" href="{% url 'administration:affiliate-link-control' %}" class="waves-effect waves-light btn">Affiliate Link Control</a>
+
+
+            <h5 style="margin-top: 50px;">Add or remove video lesson</h5>
+
+            <p class="col s12 m12 l12 divider">
+
+            </p>
+
+            <a style="margin-top: 20px; margin-bottom: 50px;" href="{% url 'administration:add-video' %}" class="waves-effect waves-light btn">Add Video</a>
         </div>
     </div>
 {% endblock %}

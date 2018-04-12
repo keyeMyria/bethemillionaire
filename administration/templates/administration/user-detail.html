@@ -1,0 +1,85 @@
+{% extends 'admin-base.html' %}
+
+{% block title %}Administration | BeTheMillionaire{% endblock %}
+
+{% block add-css %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home/style/index.css' %}">
+{% endblock %}
+
+{% block main %}
+    <div class="row">
+        <div class="col s12 m10 offset-m1 l8 offset-l2" style="">
+            {% if users %}
+                {% for user in users %}
+                <div class="col s12 m8 offset-m2 l8 offset-l2 white" style="">
+                    <div class="col s12 m12 l12" style="margin-top: 40px;">
+                        <div class="col m2">
+                            {% if user.profile_picture %}
+                            <img src="{{ request.user.profile_picture.url }}" width="100%" height="100%">
+                            {% else %}
+                            <img src="/media/no-img.jpg" width="100%" height="100%">
+                            {% endif %}
+                        </div>
+
+                        <div class="col m8" style="">
+                            <p style="font-size: 18px;">{{ user.username | title }}</p>
+                            <p style="font-size: 14px;">@mail : {{ user.email }}</p>
+
+                            {% if request.user.phone_number %}
+                                <p style="font-size: 14px;">@call : {{ user.phone_number }}</p>
+                            {% endif %}
+
+                            {% if user.is_staff or user.is_superuser %}
+                                <p style="font-size: 14px;">@status : <span style="color: blue;">Staff</span></p>
+                            {% endif %}
+
+                            {% if user.is_active %}
+                                <p style="font-size: 14px;">@profile : <span style="color: green;">Active</span></p>
+                            {% else %}
+                                <p style="font-size: 14px;">@profile : <span style="color: red;">Deactive</span></p>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="col s12 m12 l12" style="margin-bottom: 50px; margin-top: 40px;">
+                        <p class="left" style="font-size: 22px;">Basic Information</p>
+
+                        <a href="{% url 'administration:edit-user' user_id=user.id %}" class="right" style="font-size: 14px;">edit profile</a>
+                        <p class="col s12 m12 l12 divider" style="margin-top: 5px;"></p>
+
+                        <div class="col s12 m12 l12" style="padding: 10px; margin-top: 5px;">
+                            <p>Username : {{ user.username | title }}</p>
+                            <p>Email : {{ user.email }}</p>
+                            {% if user.phone_number %}
+                                <p>Phone : {{ user.phone_number }}</p>
+                            {% endif %}
+                            <p>Facebook : {{ user.facebook }}</p>
+                            <p>Skype : {{ user.skype }}</p>
+                            <p>Website : {{ user.website }}</p>
+                            <p>Join Date : {{ user.join_date | date }}</p>
+
+                            <a href="{% url 'administration:change-user-password' user_id=user.id %}" class="waves-effect waves-light btn green white-text" style="margin-top: 20px;">Change password</a>
+
+                            <br>
+
+                            {% if user.is_active %}
+                                <a href="{% url 'administration:active-deactive-user' profile_status='deactivate' user_id=user.id %}" class="waves-effect waves-light btn red white-text" style="margin-top: 20px;">Deactivate This Account</a><br>
+                            {% else %}
+                                <a href="{% url 'administration:active-deactive-user' profile_status='activate' user_id=user.id %}" class="waves-effect waves-light btn red white-text" style="margin-top: 20px;">Activate This Account</a><br>
+                            {% endif %}
+
+                            <a href="{% url 'administration:delete-user' user_id=user.id %}" class="waves-effect waves-light btn red white-text" style="margin-top: 20px;">Delete This Account</a>
+
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            {% else %}
+                <h5>No user found!</h5>
+            {% endif %}
+
+
+        </div>
+    </div>
+{% endblock %}
