@@ -65,7 +65,7 @@ class UserDetail(AdminPermission, View):
         package_end_date = None
         package_start_date = None
         p_start_date = None
-        if user.membership.name != 'free':
+        if user.membership.name != 'free' and user.package_buy_time != None:
             p_start_date = user.package_buy_time
 
             package_start_date = p_start_date
@@ -323,17 +323,44 @@ class PaymentDetail(AdminPermission, View):
         return render(request, self.template_name, variables)
 
     def post(self, request, payment_id):
-        payment = get_object_or_404(account_model.UserProfile, pk=payment_id)
+        payment = get_object_or_404(account_model.Payment, pk=payment_id)
 
-        if request.POST.get('yes') == 'yes':
-            users.delete()
-            return redirect('administration:all-user')
+        payment_user = payment.user
 
-        elif request.POST.get('no') == 'no':
-            return redirect('administration:all-user')
+        payment_user_profile = account_model.UserProfile.objects.get(id=payment_user.id)
+        payment_membership = payment.membership
+
+        if request.POST.get('authorize') == 'authorize':
+            payment_user_profile.membership = payment_membership
+
+            if payment_user_profile.package_buy_time == None:
+                payment_user_profile.package_buy_time = datetime.datetime.now()
+
+            payment_user_profile.save()
+
+            payment.is_verify = 'authorized'
+            payment.save()
+
+        elif request.POST.get('reject') == 'reject':
+            free_membership_obj = account_model.Membershiplevel.objects.get(name='free')
+            payment_user_profile.membership = free_membership_obj
+            payment_user_profile.package_buy_time = None
+            payment_user_profile.save()
+
+            payment.is_verify = 'rejected'
+            payment.save()
+
+        elif request.POST.get('expired') == 'expired':
+            free_membership_obj = account_model.Membershiplevel.objects.get(name='free')
+            payment_user_profile.membership = free_membership_obj
+            payment_user_profile.package_buy_time = None
+            payment_user_profile.save()
+
+            payment.is_verify = 'expired'
+            payment.save()
 
         variables = {
-            'users': users,
+            'payment': payment,
         }
 
         return render(request, self.template_name, variables)

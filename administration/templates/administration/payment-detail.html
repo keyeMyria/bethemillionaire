@@ -36,15 +36,22 @@
                         {% if payment.is_verify == 'pending' %}
                             Is verified: <span class="red-text">{{ payment.is_verify | title }}</span><br>
                         {% else %}
-                            Is verified: <span class="red-text">{{ payment.is_verify | title }}</span>
+                            Is verified: <span class="green-text">{{ payment.is_verify | title }}</span>
                         {% endif %}
                     </p>
 
                     <form method="post">
                         {% csrf_token %}
-                        <button type="submit" name="yes" value="yes" class="waves-effect waves-light btn red white-text" style="margin-top: 20px;">Authorize</button>
-                        <button type="submit" name="no" value="no" class="waves-effect waves-light btn red white-text" style="margin-top: 20px;">Reject</button>
-                        <button type="submit" name="no" value="no" class="waves-effect waves-light btn red white-text" style="margin-top: 20px;">Expired</button>
+
+                        {% if payment.is_verify == 'pending' or payment.is_verify == 'rejected' %}
+                            <button type="submit" name="authorize" value="authorize" class="waves-effect waves-light btn red white-text" style="margin-top: 20px;">Authorize</button>
+                            <button type="submit" name="reject" value="reject" class="waves-effect waves-light btn red white-text" style="margin-top: 20px;">Reject</button>
+                        {% endif %}
+
+                        {% if payment.is_verify == 'authorized' %}
+                            <button type="submit" name="expired" value="expired" class="waves-effect waves-light btn red white-text" style="margin-top: 20px;">Expired</button>
+                        {% endif %}
+
                     </form>
                 </div>
             </div>
