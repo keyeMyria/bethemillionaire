@@ -2,22 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0ba751cb-a37f-4638-b597-b9218988ff8c" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/administration/templates/administration/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/administration/templates/administration/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/administration/templates/administration/user-detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/administration/templates/administration/user-detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/administration/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/administration/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/administration/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/administration/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bethemillionaire/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/bethemillionaire/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/static/home/style/images/banner/btm120x600.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/static/home/style/images/banner/btm160x600.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/static/home/style/images/banner/btm200x200.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/static/home/style/images/banner/btm250by250.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/static/home/style/images/banner/btm300x250.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/static/home/style/images/banner/btm728_90.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/static/home/style/images/banner/btmbanner468by60.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/static/home/style/images/banner/jacket.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/home/banners.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/home/banners.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -53,6 +37,15 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="manage.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/manage.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="72">
+              <caret line="5" column="70" selection-start-line="5" selection-start-column="70" selection-end-line="5" selection-end-column="70" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="payment-detail.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/administration/templates/administration/payment-detail.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -67,11 +60,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="banners.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="banners.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/home/templates/home/banners.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="236" column="66" lean-forward="true" selection-start-line="236" selection-start-column="66" selection-end-line="236" selection-end-column="66" />
+            <state relative-caret-position="113">
+              <caret line="226" column="22" selection-start-line="226" selection-start-column="22" selection-end-line="226" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -229,7 +222,6 @@
         <option value="$PROJECT_DIR$/administration/forms.py" />
         <option value="$PROJECT_DIR$/administration/templates/administration/change-membership.html" />
         <option value="$PROJECT_DIR$/account/views.py" />
-        <option value="$PROJECT_DIR$/manage.py" />
         <option value="$PROJECT_DIR$/account/models.py" />
         <option value="$PROJECT_DIR$/administration/templates/administration/user-detail.html" />
         <option value="$PROJECT_DIR$/administration/templates/administration/index.html" />
@@ -238,10 +230,11 @@
         <option value="$PROJECT_DIR$/administration/templates/administration/pending-payment.html" />
         <option value="$PROJECT_DIR$/administration/templates/administration/payment-detail.html" />
         <option value="$PROJECT_DIR$/home/templates/home/banners.html" />
+        <option value="$PROJECT_DIR$/manage.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="137" />
     <option name="y" value="194" />
     <option name="width" value="702" />
@@ -752,13 +745,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/manage.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/account/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="365">
@@ -876,8 +862,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/home/templates/home/banners.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="236" column="66" lean-forward="true" selection-start-line="236" selection-start-column="66" selection-end-line="236" selection-end-column="66" />
+        <state relative-caret-position="113">
+          <caret line="226" column="22" selection-start-line="226" selection-start-column="22" selection-end-line="226" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/manage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="5" column="70" selection-start-line="5" selection-start-column="70" selection-end-line="5" selection-end-column="70" />
         </state>
       </provider>
     </entry>
