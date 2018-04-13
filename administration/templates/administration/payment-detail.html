@@ -1,0 +1,55 @@
+{% extends 'admin-base.html' %}
+
+{% block title %}Administration | BeTheMillionaire{% endblock %}
+
+{% block add-css %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home/style/index.css' %}">
+{% endblock %}
+
+{% block main %}
+    <div class="row">
+        <div class="col m8 offset-m2 white " style=" padding: 20px; margin-top: 20px; margin-bottom: 20px;">
+            <!--user table-->
+            <div class="col s12 m12 l12" style="">
+                <h4 class="col s12 m12 l12" style="margin-top: 40px;">
+                    Payment Detail
+                </h4>
+
+                <p class="col s12 m12 l12 divider" style="margin-top: 30px;"></p>
+
+                <div class="col s12 m12 l12">
+                    <p class="" style="margin-top: 30px;">
+                        Username: {{ payment.user.username | title }}<br>
+                        Email: {{ payment.user.email }}<br>
+                    </p>
+
+                    <p style="margin-top: 20px;">Intent: {{ payment.intent }}</p>
+                    <p>Payer ID: {{ payment.payer_ID }}</p>
+                    <p>Payment ID: {{ payment.payment_ID }}</p>
+                    <p>Payment Token: {{ payment.payment_Token }}</p>
+                    <p>Membership Name: {{ payment.membership.name }}</p>
+                    <p>Membership Package: {{ payment.membership.package }}</p>
+                    <p>Membership Price: ${{ payment.membership.price }}</p>
+                    <p>Time: {{ payment.creation_time }}</p>
+                    <p>
+                        {% if payment.is_verify == 'pending' %}
+                            Is verified: <span class="red-text">{{ payment.is_verify | title }}</span><br>
+                        {% else %}
+                            Is verified: <span class="red-text">{{ payment.is_verify | title }}</span>
+                        {% endif %}
+                    </p>
+
+                    <form method="post">
+                        {% csrf_token %}
+                        <button type="submit" name="yes" value="yes" class="waves-effect waves-light btn red white-text" style="margin-top: 20px;">Authorize</button>
+                        <button type="submit" name="no" value="no" class="waves-effect waves-light btn red white-text" style="margin-top: 20px;">No</button>
+                    </form>
+                </div>
+            </div>
+            <!--end user table-->
+        </div>
+
+        </div>
+    </div>
+{% endblock %}

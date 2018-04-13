@@ -285,6 +285,63 @@ class ChangeMembership(AdminPermission, View):
 
 
 
+#payment
+#pending payment
+class PaymentPending(AdminPermission, View):
+    template_name = 'administration/pending-payment.html'
+
+    def get(self, request):
+
+        pending_payments = account_model.Payment.objects.filter(is_verify='pending')
+        pending_payment_count = account_model.Payment.objects.filter(is_verify='pending').count()
+
+        variables = {
+            'pending_payments': pending_payments,
+            'pending_payment_count': pending_payment_count,
+        }
+
+        return render(request, self.template_name, variables)
+
+    def post(self, request):
+        pass
+
+
+
+
+#payment detail
+class PaymentDetail(AdminPermission, View):
+    template_name = 'administration/payment-detail.html'
+
+    def get(self, request, payment_id):
+
+        payment = get_object_or_404(account_model.Payment, pk=payment_id)
+
+        variables = {
+            'payment': payment,
+        }
+
+        return render(request, self.template_name, variables)
+
+    def post(self, request, payment_id):
+        payment = get_object_or_404(account_model.UserProfile, pk=payment_id)
+
+        if request.POST.get('yes') == 'yes':
+            users.delete()
+            return redirect('administration:all-user')
+
+        elif request.POST.get('no') == 'no':
+            return redirect('administration:all-user')
+
+        variables = {
+            'users': users,
+        }
+
+        return render(request, self.template_name, variables)
+
+
+
+
+
 
 
 

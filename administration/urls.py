@@ -16,6 +16,12 @@ urlpatterns = [
     url(r'^user/(?P<user_id>[0-9]+)/change-membership/$', views.ChangeMembership.as_view(), name='change-membership'),
 
 
+    #payment operations
+    url(r'^payment/pending/$', views.PaymentPending.as_view(), name='payment-pending'),
+    url(r'^payment/(?P<payment_id>[0-9]+)/detail/$', views.PaymentDetail.as_view(), name='payment-detail'),
+
+
+
     #url for module control
     url(r'^module-control/$', views.ModuleControl.as_view(), name='module-control'),
 

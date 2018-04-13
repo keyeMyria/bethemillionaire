@@ -121,9 +121,11 @@
                                     <p>Time: {{ payment.creation_time }}</p>
                                     <p>
                                         {% if payment.is_verify == 'pending' %}
-                                            Is verified: <span class="red-text">{{ payment.is_verify | title }}</span>
+                                            Is verified: <span class="red-text">{{ payment.is_verify | title }}</span><br>
+                                            <a style="margin-top: 10px;" href="" class="btn green">Confirm</a>
+                                            <a style="margin-top: 10px;" href="" class="btn green">Reject</a>
                                         {% else %}
-                                            <span class="red-text">Is verified: {{ payment.is_verify | title }}</span>
+                                            Is verified: <span class="red-text">{{ payment.is_verify | title }}</span>
                                         {% endif %}
                                     </p>
                                 </div>

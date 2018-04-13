@@ -1,0 +1,45 @@
+{% extends 'admin-base.html' %}
+
+{% block title %}Administration | BeTheMillionaire{% endblock %}
+
+{% block add-css %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home/style/index.css' %}">
+{% endblock %}
+
+{% block main %}
+    <div class="row">
+        <div class="col s12 m10 offset-m1 l8 offset-l2" style="">
+
+            <h5 style="margin-top: 20px;">Total {{ pending_payment_count }} pending payment found</h5>
+            <p class="col s12 m12 l12 divider" style="margin-bottom: 20px;"></p>
+
+            <table style="margin-bottom: 30px;" class="highlight centered responsive-table">
+                <thead>
+                    <tr>
+                        <th>S/N</th>
+                        <th>Username</th>
+                        <th>Membership</th>
+                        <th>Date</th>
+                        <th>Operation</th>
+                    </tr>
+                </thead>
+
+                <tbody class="table_data">
+                    {% for pending_payment in pending_payments %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ pending_payment.user.username | title }}</td>
+                        <td>{{ pending_payment.membership.name }} - {{ pending_payment.membership.package }}</td>
+                        <td>{{ pending_payment.creation_time }}</td>
+
+                        <td>
+                            <a href="{% url 'administration:payment-detail' payment_id=pending_payment.id %}">View</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
