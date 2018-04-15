@@ -1,5 +1,6 @@
 from django.db import models
 
+from account import models as account_model
 
 class AffiliateLinkControl(models.Model):
     name = models.CharField(max_length=200, null=True, blank=True)
@@ -9,3 +10,36 @@ class AffiliateLinkControl(models.Model):
 
     def __str__(self):
         return self.short_name
+
+
+
+#create team
+class Team(models.Model):
+    owner = models.ForeignKey(account_model.UserProfile, related_name='team_owner', on_delete=models.CASCADE, null=True, blank=True)
+    name = models.CharField(max_length=255, null=True, blank=True)
+    member = models.ManyToManyField(account_model.UserProfile, related_name='team_member', blank=True)
+    creation_time = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+
+    def __str__(self):
+        return str(self.owner.username) + '-' + str(self.name)
+
+
+    @classmethod
+    def addMember(cls, users, team_id, newMember):
+        referral, created = cls.objects.get_or_create(
+            owner = users,
+            id=team_id
+        )
+
+        referral.member.add(newMember)
+
+
+    @classmethod
+    def removeMember(cls, users, team_id, newMember):
+        referral, created = cls.objects.get_or_create(
+            owner = users,
+            id=team_id
+        )
+        referral.member.remove(newMember)
+
+

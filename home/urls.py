@@ -10,6 +10,13 @@ urlpatterns = [
     url(r'^member-home/email-swipes/$', views.EmailSwipes.as_view(), name='email_swipes'),
     url(r'^member-home/banners/$', views.Banners.as_view(), name='banners'),
 
+
+    #training by sponsor
+    url(r'^member-home/manage-team/$', views.ManageTeam.as_view(), name='manage-team'),
+    url(r'^member-home/add-team-member/$', views.AddTeamMemberOperation.as_view(), name='add-team-member'),
+    url(r'^member-home/remove-team-member/$', views.RemoveTeamMemberOperation.as_view(), name='remove-team-member'),
+
+
     #dashboard - bitcoin basics links
     url(r'^member-home/what-is-bitcoin/$', views.WhatIsBitcoin.as_view(), name='what-is-bitcoin'),
     url(r'^member-home/buy-bitcoins-here/$', views.BuyBitcoinHere.as_view(), name='buy-bitcoins-here'),

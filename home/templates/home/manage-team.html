@@ -1,0 +1,182 @@
+{% extends 'base.html' %}
+
+{% block title %}Manage Team{% endblock %}
+
+{% block add-css %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home/style/index.css' %}">
+{% endblock %}
+
+{% block main %}
+    <div class="row">
+        <div class="col s12 m12 l12" style="">
+            <div class="col s12 m12 l9 right main-content" style="margin-top: 30px;">
+                <div class="col s12 m12 l12 center-align">
+                    <h4>Manage team</h4>
+                </div>
+
+                <form class="col s12 m12 l12 center-align" method="post">
+                    <h5 class="col s12 m12 l12 left-align">Create Team</h5>
+                    {% csrf_token %}
+
+                    <div class="input-field col s12 m10 offset-m1 l10 offset-l1">
+                        <i class="material-icons prefix">create</i>
+                        {{ tean_form.name }}
+                        <label for="icon_prefix white-text">Team Name</label>
+                    </div>
+
+                    {% if tean_form.non_field_errors %}
+                        {% for error in tean_form.non_field_errors %}
+                            <div class="col s12 m8 offset-m2 l8 offset-l2 collection teal lighten-2" style="border: 0px;">
+                                <p href="#!" class="collection-item white-text teal lighten-2">{{ error }}</p>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+
+                    <button type="submit" class="waves-effect waves-light btn green white-text" style="margin-top: 20px;">Create Team</button>
+
+                </form>
+
+                {% for team in teams %}
+                <div class="col s12 m10 offset-m1 l10 offset-l1" style="margin-top: 30px;">
+                    <div class="card blue-grey darken-1">
+                        <div class="card-content white-text">
+                            <span class="card-title">{{ team.name | title }}</span>
+                            <p>Member:</p>
+                            {% for m in team.member.all %}
+                                <a class="dropdown-button btn red white-text" style="margin-top: 10px;" href="#!" data-activates="{{ m.username }}-{{team.id}}">
+                                    {{ m.username | title }} : {{ m.membership }}
+                                </a>
+
+                                <ul id='{{ m.username }}-{{ team.id }}' class='dropdown-content' style="">
+                                    <li><a href="{% url 'account:public-profile' %}?userid={{ m.username }}" style="font-size: 12px;">View Profile</a></li>
+                                    <li><a href="{% url 'home:remove-team-member' %}?member_d={{ m.id }}&team_id={{ team.id }}" style="font-size: 12px;">Remove This Member</a></li>
+                                </ul>
+                            {% endfor %}
+                        </div>
+
+                        <div class="card-action">
+                            <a href="#">Go To Training</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+                <div class="col s12 m10 offset-m1 l10 offset-l1" style="margin-top: 30px;">
+                    <div class="card blue">
+                        <div class="card-content white-text">
+                            <span class="card-title">My Referrals</span>
+                            {% for referral in my_referrals %}
+                                <a class="dropdown-button btn" style="margin-bottom: 5px;" href="#!" data-activates="{{ referral.id }}">
+                                    {{ referral.username | title }} : {{ referral.membership }}
+                                </a>
+
+                                <ul id='{{ referral.id }}' class='dropdown-content' style="">
+                                    {% for team_name in teams %}
+                                    <li><a href="{% url 'home:add-team-member' %}?new_member={{ referral.id }}&team_id={{ team_name.id }}" style="font-size: 12px;">Add to {{ team_name.name | upper }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!--end main-content -->
+
+            <div class="col s12 m12 l3 left left-content" style="">
+                <div class="col s12 m12 l12">
+                    <div class="card white black-text">
+                        <div class="card-content black-text left-content-introduction">
+                            <div class="card-title valign-wrapper" style="background-color: blue; color: white">Quick Start Video</div>
+
+                            <div>
+                                <a href="#">
+                                    <p class="valign-wrapper">START HERE - 5 Steps To Set Up BeTheMillionaire System!</p>
+                                </a>
+                            </div>
+
+                            <div>
+                                <a href="#">
+                                    <p class="valign-wrapper">Video Course: Secrets To Growing Your Wealth In Bitcoins</p>
+                                </a>
+                            </div>
+
+                            <div>
+                                <a href="#">
+                                    <p class="valign-wrapper">UPGRADE YOUR MEMBERSHIP</p>
+                                </a>
+                            </div>
+
+                            <div>
+                                <a href="#">
+                                    <p class="valign-wrapper">BTM Facebook Group</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col s12 m12 l12">
+                    <div class="collection">
+                        <a href="#!" class="collection-item black-text"><span class="badge red-text"><b>100300</b></span>Current Members</a>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col s12 m12 l12">
+                        <div class="card white">
+                            <div class="card-content black-text">
+                                <span class="card-title">Your BTM Sponsor</span>
+
+                                <div class="row">
+                                    <div class="col s12 m12 l12" style="width: 90%">
+                                        {% for user_pro in user_profile %}
+                                            {% if user_pro.sponsor.profile_picture %}
+                                                <img src="{{ user_pro.sponsor.profile_picture.url }}" width="100%" style="">
+                                            {% else %}
+                                                <img src="{% static 'account/style/images/no-img.jpg' %}"  width="100%" style="">
+                                            {% endif %}
+                                        {% endfor %}
+                                    </div>
+
+                                    <div class="col s12 m6 offset-m3 l6 offset-l3">
+                                        <h4 id="login_user_sponsor_left"></h4>
+                                    </div>
+
+                                    <div class="col s12 m12 l12">
+                                        <p>Email: <span id="login_user_sponsor_email"></span></p>
+                                    </div>
+
+                                    <div class="col s12 m12 l12">
+                                        <p>Phone: <span id="login_user_sponsor_phone"></span></p>
+                                    </div>
+
+                                    <div class="col s12 m12 l12">
+                                        <p>Skype: <span id="login_user_sponsor_skype"></span></p>
+                                    </div>
+
+                                    <a href="#">
+                                        <div class="col s12 m12 l12 valign-wrapper message_me_fb">
+                                            <p style="width: 100%" class="center-align">Message Me On Facebook</p>
+                                        </div>
+                                    </a>
+
+                                    <a href="#">
+                                        <div class="col s12 m12 l12 valign-wrapper message_me_fb">
+                                            <p style="width: 100%" class="center-align">Training By Your Sponsor</p>
+                                        </div>
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--end left-content -->
+        </div>
+    </div>
+{% endblock %}
