@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import View
 from django.db.models import Q
 
@@ -220,12 +220,28 @@ class ManageTeam(View):
 
         teams = models.Team.objects.filter(owner=request.user)
 
+        my_sponsor = request.user.sponsor
+        sponsors_all_team = models.Team.objects.filter(owner=my_sponsor)
+
+        my_join_teams = []
+
+        for sponsor_team in sponsors_all_team:
+
+            sponsors_team_member = sponsor_team.member.all()
+
+            for sponsors_member in sponsors_team_member:
+                if sponsors_member == request.user:
+                    print("yes")
+                    my_join_teams.append(sponsor_team)
+
         variables = {
             'user_profile': user_profile,
             'my_referrals': my_referrals,
 
             'tean_form': team_form,
             'teams': teams,
+
+            'my_join_teams': my_join_teams,
         }
 
         return render(request, self.template_name, variables)
@@ -289,5 +305,68 @@ class RemoveTeamMemberOperation(View):
 
         return redirect('home:manage-team')
 
+
+
+
+#personal training
+class PersonalTraining(View):
+    template_name = 'home/personal-training.html'
+
+    def check_team_member(self, team, member):
+        for team_member in team.member.all():
+            if team_member == member:
+                return True
+            else:
+                return False
+
+    def get(self, request, owner_id, team_id):
+        team = get_object_or_404(models.Team, id=team_id)
+
+        user_profile = UserProfile.objects.filter(username=request.user.username)
+
+        owner = UserProfile.objects.get(id=owner_id)
+
+        check_team_members = self.check_team_member(team, request.user)
+
+        contents = None
+        if check_team_members or owner == request.user:
+            contents = models.PersonalTrainingContent.objects.filter(team=team)
+        else:
+            return redirect('home:manage-team')
+
+        personal_training_form = None
+        if owner == request.user:
+            personal_training_form = forms.PersonalTrainingContentForm()
+
+        variables = {
+            'user_profile': user_profile,
+            'owner': owner,
+            'team': team,
+            'personal_training_form': personal_training_form,
+
+            'contents': contents,
+        }
+
+        return render(request, self.template_name, variables)
+
+    def post(self, request, owner_id, team_id):
+        team = get_object_or_404(models.Team, id=team_id)
+
+        user_profile = UserProfile.objects.filter(username=request.user.username)
+
+        owner = UserProfile.objects.get(id=owner_id)
+
+        personal_training_form = forms.PersonalTrainingContentForm(request.POST or None, request.FILES)
+
+        if personal_training_form.is_valid():
+            personal_training_form.deploy(owner, team)
+
+        variables = {
+            'user_profile': user_profile,
+            'owner': owner,
+            'personal_training_form': personal_training_form,
+        }
+
+        return render(request, self.template_name, variables)
 
 

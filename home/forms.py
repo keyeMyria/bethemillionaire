@@ -29,3 +29,42 @@ class TeamForm(forms.Form):
         deploy.save()
 
 
+
+#personal training content upload form
+class PersonalTrainingContentForm(forms.Form):
+    title = forms.CharField(max_length=255, required=False, widget=forms.TextInput(attrs={'class': 'validate', 'id': 'icon_prefix',}))
+    description = forms.CharField( required=False, max_length= 5000 ,widget=forms.Textarea(attrs={'class': 'validate materialize-textarea'}) )
+    video = forms.FileField(required=False)
+
+    def clean(self):
+        title = self.cleaned_data.get('title')
+        description = self.cleaned_data.get('description')
+        video = self.cleaned_data.get('video')
+
+
+        if len(title) == 0:
+            raise forms.ValidationError('Enter title!')
+        else:
+            if len(description) == 0:
+                raise forms.ValidationError('Enter description!')
+
+
+
+    def deploy(self, owner, team):
+        title = self.cleaned_data.get('title')
+        description = self.cleaned_data.get('description')
+        video = self.cleaned_data.get('video')
+
+
+        deploy = models.PersonalTrainingContent(owner=owner, team=team, title=title, description=description, video=video)
+        deploy.save()
+
+
+
+
+
+
+
+
+
+

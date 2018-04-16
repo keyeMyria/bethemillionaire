@@ -1,0 +1,204 @@
+{% extends 'base.html' %}
+
+{% block title %}Personal training{% endblock %}
+
+{% block add-css %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home/style/index.css' %}">
+{% endblock %}
+
+{% block main %}
+    <div class="row">
+        <div class="col s12 m12 l12" style="">
+            <div class="col s12 m12 l9 right main-content" style="margin-top: 30px;">
+                <div class="col s12 m12 l12 center-align">
+                    <h4 style="text-decoration: underline;">Your trainer is : {{ owner.username | title }}</h4>
+                </div>
+
+                {% ifequal request.user owner %}
+                <div class="col s12 m12 l10 offset-l1" style="margin-top: 10px;">
+                    <div class="card blue">
+                        <div class="card-content white-text">
+                            <span class="card-title">Create training topics for your trainee.</span>
+                            <p>
+                                When create training topic, create a title and description carefully. If need
+                                to upload video then you can upload video related to that topic otherwise not need
+                                 to upload video.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="col s12 m12 l12 white center-align" style="">
+                    <form class="col s12 m10 offset-m1 l10 offset-l1" enctype="multipart/form-data" method="post" style="margin-top: 50px; margin-bottom: 50px;">
+                        {% csrf_token %}
+
+                        <div class="input-field col s12 m12 l12">
+                            <i class="material-icons prefix">create</i>
+                            {{ personal_training_form.title }}
+                            <label for="icon_prefix white-text">Title</label>
+                        </div>
+
+                        <div style="" class="input-field col s12 m12 l12">
+                            <i class="material-icons prefix">create</i>
+                            {{ personal_training_form.description }}
+                            <label for="icon_prefix white-text">Description</label>
+                        </div>
+
+                        <div class="input-field col s12 m12 l12">
+                            <div class="file-field input-field">
+                                <div class="btn">
+                                    <span>Video</span>
+                                    {{ personal_training_form.video }}
+                                </div>
+
+                                <div class="file-path-wrapper">
+                                    <input class="file-path validate" type="text">
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        {% if personal_training_form.non_field_errors %}
+                            {% for error in personal_training_form.non_field_errors %}
+                                <div class="col s12 m10 offset-m1 l10 offset-l1 valign-wrapper" style="margin-top: 20px; background-color: red; height: 40px;">
+                                    <p style="color: white; font-size: 16px;">
+                                        {{ error }}
+                                    </p>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+
+                        <div class="col s12 m12 l12" style="margin-bottom: 20px; margin-top: 20px;">
+                            <button class="btn waves-effect waves-light black" type="submit" style="">Create Topic
+                                <i class="material-icons right">send</i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                {% endifequal %}
+
+                {% for content in contents %}
+                <div class="col s12 m12 l10 offset-l1" style="margin-top: 10px;">
+                    <div class="card blue">
+                        <div class="card-content white-text">
+                            <span class="card-title" style="border-bottom: 1px solid white;">{{ content.title }}</span>
+                            <p>
+                                {{ content.description }}
+                            </p>
+
+                            {% if content.video %}
+                            <video style="margin-top: 20px;" width="100%" height="100%" controls>
+                                <source src="{{ content.video.url }}" type="video/mp4">
+                            </video>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+            <!--end main-content -->
+
+            <div class="col s12 m12 l3 left left-content" style="">
+                <div class="col s12 m12 l12">
+                    <div class="card white black-text">
+                        <div class="card-content black-text left-content-introduction">
+                            <div class="card-title valign-wrapper" style="background-color: blue; color: white">Quick Start Video</div>
+
+                            <div>
+                                <a href="#">
+                                    <p class="valign-wrapper">START HERE - 5 Steps To Set Up BeTheMillionaire System!</p>
+                                </a>
+                            </div>
+
+                            <div>
+                                <a href="#">
+                                    <p class="valign-wrapper">Video Course: Secrets To Growing Your Wealth In Bitcoins</p>
+                                </a>
+                            </div>
+
+                            <div>
+                                <a href="#">
+                                    <p class="valign-wrapper">UPGRADE YOUR MEMBERSHIP</p>
+                                </a>
+                            </div>
+
+                            <div>
+                                <a href="#">
+                                    <p class="valign-wrapper">BTM Facebook Group</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col s12 m12 l12">
+                    <div class="collection">
+                        <a href="#!" class="collection-item black-text"><span class="badge red-text"><b>100300</b></span>Current Members</a>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col s12 m12 l12">
+                        <div class="card white">
+                            <div class="card-content black-text">
+                                <span class="card-title">Your BTM Sponsor</span>
+
+                                <div class="row">
+                                    <div class="col s12 m12 l12" style="width: 90%">
+                                        {% for user_pro in user_profile %}
+                                            {% if user_pro.sponsor.profile_picture %}
+                                                <img src="{{ user_pro.sponsor.profile_picture.url }}" width="100%" style="">
+                                            {% else %}
+                                                <img src="{% static 'account/style/images/no-img.jpg' %}"  width="100%" style="">
+                                            {% endif %}
+                                        {% endfor %}
+                                    </div>
+
+                                    <div class="col s12 m6 offset-m3 l6 offset-l3">
+                                        <h4 id="login_user_sponsor_left"></h4>
+                                    </div>
+
+                                    <div class="col s12 m12 l12">
+                                        <p>Email: <span id="login_user_sponsor_email"></span></p>
+                                    </div>
+
+                                    <div class="col s12 m12 l12">
+                                        <p>Phone: <span id="login_user_sponsor_phone"></span></p>
+                                    </div>
+
+                                    <div class="col s12 m12 l12">
+                                        <p>Skype: <span id="login_user_sponsor_skype"></span></p>
+                                    </div>
+
+                                    <a href="#">
+                                        <div class="col s12 m12 l12 valign-wrapper message_me_fb">
+                                            <p style="width: 100%" class="center-align">Message Me On Facebook</p>
+                                        </div>
+                                    </a>
+
+                                    <a href="#">
+                                        <div class="col s12 m12 l12 valign-wrapper message_me_fb">
+                                            <p style="width: 100%" class="center-align">Training By Your Sponsor</p>
+                                        </div>
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+            <!--end left-content -->
+        </div>
+    </div>
+{% endblock %}

@@ -4,3 +4,4 @@ from . import models
 
 admin.site.register(models.AffiliateLinkControl)
 admin.site.register(models.Team)
+admin.site.register(models.PersonalTrainingContent)

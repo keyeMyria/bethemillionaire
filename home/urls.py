@@ -16,6 +16,7 @@ urlpatterns = [
     url(r'^member-home/add-team-member/$', views.AddTeamMemberOperation.as_view(), name='add-team-member'),
     url(r'^member-home/remove-team-member/$', views.RemoveTeamMemberOperation.as_view(), name='remove-team-member'),
 
+    url(r'^member-home/training/(?P<owner_id>[0-9]+)/(?P<team_id>[0-9]+)/$', views.PersonalTraining.as_view(), name='personal-training'),
 
     #dashboard - bitcoin basics links
     url(r'^member-home/what-is-bitcoin/$', views.WhatIsBitcoin.as_view(), name='what-is-bitcoin'),

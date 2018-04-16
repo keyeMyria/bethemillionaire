@@ -15,8 +15,38 @@
                     <h4>Manage team</h4>
                 </div>
 
+                <div class="col s12 m12 l10 offset-l1" style="margin-top: 10px;">
+                    <div class="card blue">
+                        <div class="card-content white-text">
+                            <span class="card-title">Your sponsors team where you can join</span>
+                            <p>
+                                You can join in your sponsors teaching team and know how he start in BeTheMillionaire and
+                                 know how he success. If you not seen any team then contact with your sponsor to join you in his team.
+                            </p>
+
+                            {% for my_join_team in my_join_teams %}
+                                <a href="{% url 'home:personal-training' owner_id=my_join_team.owner.id team_id=my_join_team.id %}" class="btn red white-text" style="margin-top: 10px;">
+                                    {{ my_join_team.name }}
+                                </a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col s12 m12 l10 offset-l1" style="margin-top: 10px;">
+                    <div class="card blue">
+                        <div class="card-content white-text">
+                            <span class="card-title">Create your own teaching team for your trainee</span>
+                            <p>
+                                You can create one or several team and you can add your follower to that team
+                                and start teaching them.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
                 <form class="col s12 m12 l12 center-align" method="post">
-                    <h5 class="col s12 m12 l12 left-align">Create Team</h5>
+                    <h5 class="col s12 m10 offset-m1 l10 offset-l1 left-align">Create Team</h5>
                     {% csrf_token %}
 
                     <div class="input-field col s12 m10 offset-m1 l10 offset-l1">
@@ -56,7 +86,7 @@
                         </div>
 
                         <div class="card-action">
-                            <a href="#">Go To Training</a>
+                            <a href="{% url 'home:personal-training' owner_id=request.user.id team_id=team.id %}">Go To Training</a>
                         </div>
                     </div>
                 </div>
