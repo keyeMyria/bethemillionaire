@@ -254,6 +254,20 @@ class ManageTeam(View):
         my_referrals = request.user.referrals.all()
         teams = models.Team.objects.filter(owner=request.user)
 
+        my_sponsor = request.user.sponsor
+        sponsors_all_team = models.Team.objects.filter(owner=my_sponsor)
+
+        my_join_teams = []
+
+        for sponsor_team in sponsors_all_team:
+
+            sponsors_team_member = sponsor_team.member.all()
+
+            for sponsors_member in sponsors_team_member:
+                if sponsors_member == request.user:
+                    print("yes")
+                    my_join_teams.append(sponsor_team)
+
         if team_form.is_valid():
             team_form.deploy()
 
@@ -263,6 +277,8 @@ class ManageTeam(View):
 
             'tean_form': team_form,
             'teams': teams,
+
+            'my_join_teams': my_join_teams,
         }
 
         return render(request, self.template_name, variables)
@@ -356,15 +372,27 @@ class PersonalTraining(View):
 
         owner = UserProfile.objects.get(id=owner_id)
 
-        personal_training_form = forms.PersonalTrainingContentForm(request.POST or None, request.FILES)
+        check_team_members = self.check_team_member(team, request.user)
 
-        if personal_training_form.is_valid():
-            personal_training_form.deploy(owner, team)
+        contents = None
+        if check_team_members or owner == request.user:
+            contents = models.PersonalTrainingContent.objects.filter(team=team)
+        else:
+            return redirect('home:manage-team')
+
+        personal_training_form = None
+        if owner == request.user:
+            personal_training_form = forms.PersonalTrainingContentForm(request.POST or None, request.FILES)
+            if personal_training_form.is_valid():
+                personal_training_form.deploy(owner, team)
 
         variables = {
             'user_profile': user_profile,
             'owner': owner,
+            'team': team,
             'personal_training_form': personal_training_form,
+
+            'contents': contents,
         }
 
         return render(request, self.template_name, variables)

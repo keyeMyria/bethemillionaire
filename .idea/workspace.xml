@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0ba751cb-a37f-4638-b597-b9218988ff8c" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/bethemillionaire/media/personal_training/video/Luis_Fonsi_Daddy_Yankee_-_Despacito_ft._Justin_Beiber_cover_by_p_N8FKYKB.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bethemillionaire/media/personal_training/video/Luis_Fonsi_Daddy_Yankee_-_Despacito_ft._Justin_Beiber_cover_by_p_ad7YMfi.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -28,7 +26,7 @@
         <entry file="file://$PROJECT_DIR$/home/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="473">
-              <caret line="243" column="43" selection-start-line="243" selection-start-column="43" selection-end-line="243" selection-end-column="43" />
+              <caret line="392" column="19" lean-forward="true" selection-start-line="392" selection-start-column="19" selection-end-line="392" selection-end-column="19" />
               <folding>
                 <element signature="e#0#64#0" expanded="true" />
               </folding>
@@ -40,7 +38,7 @@
         <entry file="file://$PROJECT_DIR$/manage.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="72">
-              <caret line="5" column="70" lean-forward="true" selection-start-line="5" selection-start-column="70" selection-end-line="5" selection-end-column="70" />
+              <caret line="5" column="70" selection-start-line="5" selection-start-column="70" selection-end-line="5" selection-end-column="70" />
             </state>
           </provider>
         </entry>
@@ -176,8 +174,8 @@
         <option value="$PROJECT_DIR$/home/forms.py" />
         <option value="$PROJECT_DIR$/home/models.py" />
         <option value="$PROJECT_DIR$/home/templates/home/personal-training.html" />
-        <option value="$PROJECT_DIR$/home/views.py" />
         <option value="$PROJECT_DIR$/home/templates/home/manage-team.html" />
+        <option value="$PROJECT_DIR$/home/views.py" />
         <option value="$PROJECT_DIR$/manage.py" />
       </list>
     </option>
@@ -200,24 +198,6 @@
             <path>
               <item name="bethemillionaire" type="b2602c69:ProjectViewProjectNode" />
               <item name="bethemillionaire" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bethemillionaire" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bethemillionaire" type="462c0819:PsiDirectoryNode" />
-              <item name="bethemillionaire" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bethemillionaire" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bethemillionaire" type="462c0819:PsiDirectoryNode" />
-              <item name="bethemillionaire" type="462c0819:PsiDirectoryNode" />
-              <item name="media" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bethemillionaire" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bethemillionaire" type="462c0819:PsiDirectoryNode" />
-              <item name="bethemillionaire" type="462c0819:PsiDirectoryNode" />
-              <item name="media" type="462c0819:PsiDirectoryNode" />
-              <item name="personal_training" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -304,6 +284,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="24" width="1366" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20699926" />
       <window_info anchor="bottom" id="Version Control" order="1" />
@@ -334,13 +315,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/topic/templates/topic/module_5_lesson_3.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="270" column="72" selection-start-line="270" selection-start-column="72" selection-end-line="270" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/topic/templates/topic/module_5_lesson_4.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
@@ -558,13 +532,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bethemillionaire/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="83">
-          <caret line="66" column="24" selection-start-line="66" selection-start-column="24" selection-end-line="66" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/account/templates/account/registration.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1890">
@@ -683,10 +650,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/bethemillionaire/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="83">
+          <caret line="66" column="24" selection-start-line="66" selection-start-column="24" selection-end-line="66" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bethemillionaire/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/home/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="473">
-          <caret line="243" column="43" selection-start-line="243" selection-start-column="43" selection-end-line="243" selection-end-column="43" />
+          <caret line="392" column="19" lean-forward="true" selection-start-line="392" selection-start-column="19" selection-end-line="392" selection-end-column="19" />
           <folding>
             <element signature="e#0#64#0" expanded="true" />
           </folding>
@@ -696,7 +679,7 @@
     <entry file="file://$PROJECT_DIR$/manage.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
-          <caret line="5" column="70" lean-forward="true" selection-start-line="5" selection-start-column="70" selection-end-line="5" selection-end-column="70" />
+          <caret line="5" column="70" selection-start-line="5" selection-start-column="70" selection-end-line="5" selection-end-column="70" />
         </state>
       </provider>
     </entry>
