@@ -4,17 +4,22 @@
     <list default="true" id="0ba751cb-a37f-4638-b597-b9218988ff8c" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/static/home/style/images/banner/160x600.gif" beforeDir="false" afterPath="$PROJECT_DIR$/home/static/home/style/images/banner/160x600.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/static/home/style/images/banner/200x200.gif" beforeDir="false" afterPath="$PROJECT_DIR$/home/static/home/style/images/banner/200x200.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/static/home/style/images/banner/250x250.gif" beforeDir="false" afterPath="$PROJECT_DIR$/home/static/home/style/images/banner/250x250.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/static/home/style/images/banner/468x60.gif" beforeDir="false" afterPath="$PROJECT_DIR$/home/static/home/style/images/banner/468x60.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/static/home/style/images/banner/728x90.gif" beforeDir="false" afterPath="$PROJECT_DIR$/home/static/home/style/images/banner/728x90.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/home/banners.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/home/banners.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account/templates/account/membership-levels.html" beforeDir="false" afterPath="$PROJECT_DIR$/account/templates/account/membership-levels.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account/templates/account/my-auto-responder-settings.html" beforeDir="false" afterPath="$PROJECT_DIR$/account/templates/account/my-auto-responder-settings.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/course/templates/course/course.html" beforeDir="false" afterPath="$PROJECT_DIR$/course/templates/course/course.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/home/affiliate-link.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/home/affiliate-link.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/home/privacy-policy.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/home/privacy-policy.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/home/recent-update.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/home/recent-update.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lessons/templates/lessons/module-1.html" beforeDir="false" afterPath="$PROJECT_DIR$/lessons/templates/lessons/module-1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lessons/templates/lessons/module-2.html" beforeDir="false" afterPath="$PROJECT_DIR$/lessons/templates/lessons/module-2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lessons/templates/lessons/module-3.html" beforeDir="false" afterPath="$PROJECT_DIR$/lessons/templates/lessons/module-3.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topic/templates/topic/lesson_2.html" beforeDir="false" afterPath="$PROJECT_DIR$/topic/templates/topic/lesson_2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topic/templates/topic/module_2_lesson_4.html" beforeDir="false" afterPath="$PROJECT_DIR$/topic/templates/topic/module_2_lesson_4.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topic/templates/topic/step_1.html" beforeDir="false" afterPath="$PROJECT_DIR$/topic/templates/topic/step_1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topic/templates/topic/step_2.html" beforeDir="false" afterPath="$PROJECT_DIR$/topic/templates/topic/step_2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topic/templates/topic/step_3.html" beforeDir="false" afterPath="$PROJECT_DIR$/topic/templates/topic/step_3.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topic/templates/topic/step_4.html" beforeDir="false" afterPath="$PROJECT_DIR$/topic/templates/topic/step_4.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -28,26 +33,58 @@
       <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/topic/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
+            <state relative-caret-position="477">
               <caret line="29" column="79" selection-start-line="29" selection-start-column="11" selection-end-line="29" selection-end-column="79" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/topic/views.py">
+      <file leaf-file-name="module_3_lesson_1.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/topic/templates/topic/module_3_lesson_1.html">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="module-3.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lessons/templates/lessons/module-3.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="13050">
-              <caret line="737" selection-start-line="737" selection-end-line="737" />
+            <state relative-caret-position="360">
+              <caret line="20" column="101" selection-start-line="20" selection-start-column="101" selection-end-line="20" selection-end-column="101" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="banners.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/home/templates/home/banners.html">
+      <file leaf-file-name="membership-levels.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/account/templates/account/membership-levels.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="491">
-              <caret line="245" column="149" selection-start-line="245" selection-start-column="149" selection-end-line="245" selection-end-column="149" />
+            <state relative-caret-position="162">
+              <caret line="14" column="148" selection-start-line="14" selection-start-column="148" selection-end-line="14" selection-end-column="148" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="my-auto-responder-settings.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/account/templates/account/my-auto-responder-settings.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="127" column="148" selection-start-line="127" selection-start-column="148" selection-end-line="127" selection-end-column="148" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="affiliate-link.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/home/templates/home/affiliate-link.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="39" column="129" selection-start-line="39" selection-start-column="129" selection-end-line="39" selection-end-column="129" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="module_2_lesson_4.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/topic/templates/topic/module_2_lesson_4.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="509">
+              <caret line="41" column="128" selection-start-line="41" selection-start-column="128" selection-end-line="41" selection-end-column="128" />
             </state>
           </provider>
         </entry>
@@ -91,17 +128,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/topic/templates/topic/module_5_lesson_1.html" />
-        <option value="$PROJECT_DIR$/topic/templates/topic/module_5_lesson_2.html" />
-        <option value="$PROJECT_DIR$/topic/templates/topic/module_5_lesson_3.html" />
-        <option value="$PROJECT_DIR$/topic/templates/topic/module_5_lesson_4.html" />
-        <option value="$PROJECT_DIR$/topic/templates/topic/module_5_lesson_5.html" />
-        <option value="$PROJECT_DIR$/topic/templates/topic/module_5_lesson_6.html" />
-        <option value="$PROJECT_DIR$/topic/templates/topic/module_6_lesson_1.html" />
-        <option value="$PROJECT_DIR$/topic/templates/topic/module_6_lesson_2.html" />
-        <option value="$PROJECT_DIR$/topic/templates/topic/module_7_lesson_1.html" />
-        <option value="$PROJECT_DIR$/topic/templates/topic/module_7_lesson_2.html" />
-        <option value="$PROJECT_DIR$/topic/views.py" />
         <option value="$PROJECT_DIR$/topic/templates/topic/module_7_lesson_3.html" />
         <option value="$PROJECT_DIR$/account/templates/account/welcome.html" />
         <option value="$PROJECT_DIR$/account/urls.py" />
@@ -126,26 +152,37 @@
         <option value="$PROJECT_DIR$/administration/templates/administration/payment-detail.html" />
         <option value="$PROJECT_DIR$/administration/templates/administration/user-detail.html" />
         <option value="$PROJECT_DIR$/administration/views.py" />
-        <option value="$PROJECT_DIR$/home/templates/base.html" />
-        <option value="$PROJECT_DIR$/home/templates/home/affiliate-link.html" />
         <option value="$PROJECT_DIR$/account/templates/account/registration.html" />
-        <option value="$PROJECT_DIR$/home/urls.py" />
         <option value="$PROJECT_DIR$/home/admin.py" />
         <option value="$PROJECT_DIR$/home/forms.py" />
         <option value="$PROJECT_DIR$/home/models.py" />
         <option value="$PROJECT_DIR$/home/templates/home/personal-training.html" />
         <option value="$PROJECT_DIR$/home/templates/home/manage-team.html" />
-        <option value="$PROJECT_DIR$/home/views.py" />
-        <option value="$PROJECT_DIR$/manage.py" />
-        <option value="$PROJECT_DIR$/topic/templates/topic/step_1.html" />
         <option value="$PROJECT_DIR$/topic/templates/topic/step_2.html" />
         <option value="$PROJECT_DIR$/topic/templates/topic/step_3.html" />
         <option value="$PROJECT_DIR$/topic/templates/topic/step_4.html" />
         <option value="$PROJECT_DIR$/home/templates/home/banners.html" />
+        <option value="$PROJECT_DIR$/home/templates/home/recent-update.html" />
+        <option value="$PROJECT_DIR$/home/templates/home/privacy-policy.html" />
+        <option value="$PROJECT_DIR$/manage.py" />
+        <option value="$PROJECT_DIR$/account/templates/account/membership-levels.html" />
+        <option value="$PROJECT_DIR$/home/urls.py" />
+        <option value="$PROJECT_DIR$/home/views.py" />
+        <option value="$PROJECT_DIR$/home/templates/base.html" />
+        <option value="$PROJECT_DIR$/home/templates/home/passive-income.html" />
+        <option value="$PROJECT_DIR$/topic/templates/topic/step_1.html" />
+        <option value="$PROJECT_DIR$/course/templates/course/course.html" />
+        <option value="$PROJECT_DIR$/lessons/templates/lessons/module-1.html" />
+        <option value="$PROJECT_DIR$/topic/templates/topic/lesson_2.html" />
+        <option value="$PROJECT_DIR$/lessons/templates/lessons/module-2.html" />
+        <option value="$PROJECT_DIR$/topic/templates/topic/module_2_lesson_4.html" />
+        <option value="$PROJECT_DIR$/lessons/templates/lessons/module-3.html" />
+        <option value="$PROJECT_DIR$/account/templates/account/my-auto-responder-settings.html" />
+        <option value="$PROJECT_DIR$/home/templates/home/affiliate-link.html" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="164" />
     <option name="y" value="372" />
     <option name="width" value="1040" />
@@ -156,6 +193,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Course" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -166,53 +204,79 @@
             <path>
               <item name="bethemillionaire" type="b2602c69:ProjectViewProjectNode" />
               <item name="bethemillionaire" type="462c0819:PsiDirectoryNode" />
+              <item name="account" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bethemillionaire" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bethemillionaire" type="462c0819:PsiDirectoryNode" />
+              <item name="account" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bethemillionaire" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bethemillionaire" type="462c0819:PsiDirectoryNode" />
+              <item name="account" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="account" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bethemillionaire" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bethemillionaire" type="462c0819:PsiDirectoryNode" />
               <item name="home" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="bethemillionaire" type="b2602c69:ProjectViewProjectNode" />
               <item name="bethemillionaire" type="462c0819:PsiDirectoryNode" />
               <item name="home" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="bethemillionaire" type="b2602c69:ProjectViewProjectNode" />
               <item name="bethemillionaire" type="462c0819:PsiDirectoryNode" />
               <item name="home" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="home" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="bethemillionaire" type="b2602c69:ProjectViewProjectNode" />
               <item name="bethemillionaire" type="462c0819:PsiDirectoryNode" />
-              <item name="home" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="home" type="462c0819:PsiDirectoryNode" />
-              <item name="style" type="462c0819:PsiDirectoryNode" />
+              <item name="lessons" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="bethemillionaire" type="b2602c69:ProjectViewProjectNode" />
               <item name="bethemillionaire" type="462c0819:PsiDirectoryNode" />
-              <item name="home" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="home" type="462c0819:PsiDirectoryNode" />
-              <item name="style" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
+              <item name="lessons" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="bethemillionaire" type="b2602c69:ProjectViewProjectNode" />
               <item name="bethemillionaire" type="462c0819:PsiDirectoryNode" />
-              <item name="home" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="home" type="462c0819:PsiDirectoryNode" />
-              <item name="style" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
-              <item name="banner" type="462c0819:PsiDirectoryNode" />
+              <item name="lessons" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="lessons" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bethemillionaire" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bethemillionaire" type="462c0819:PsiDirectoryNode" />
+              <item name="topic" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bethemillionaire" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bethemillionaire" type="462c0819:PsiDirectoryNode" />
+              <item name="topic" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bethemillionaire" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bethemillionaire" type="462c0819:PsiDirectoryNode" />
+              <item name="topic" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="topic" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Course" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -223,10 +287,10 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/home/templates/home" />
+      <recent name="$PROJECT_DIR$/home/static/home/style/images/banner" />
       <recent name="$PROJECT_DIR$/administration/templates/administration" />
       <recent name="$PROJECT_DIR$/bethemillionaire/media" />
       <recent name="$PROJECT_DIR$/account/templates/account" />
-      <recent name="$PROJECT_DIR$/administration/templates" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -325,90 +389,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/topic/templates/topic/module_5_lesson_5.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
-          <caret line="270" column="72" selection-start-line="270" selection-start-column="72" selection-end-line="270" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/topic/templates/topic/module_5_lesson_6.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="269" column="72" selection-start-line="269" selection-start-column="72" selection-end-line="269" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/topic/templates/topic/module_6_lesson_1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="269" column="72" selection-start-line="269" selection-start-column="72" selection-end-line="269" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/topic/templates/topic/module_6_lesson_2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="269" column="72" selection-start-line="269" selection-start-column="72" selection-end-line="269" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/topic/templates/topic/module_7_lesson_1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="269" column="72" selection-start-line="269" selection-start-column="72" selection-end-line="269" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/topic/templates/topic/module_7_lesson_2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="270" column="72" selection-start-line="270" selection-start-column="72" selection-end-line="270" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/topic/templates/topic/module_7_lesson_3.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="269" column="72" selection-start-line="269" selection-start-column="72" selection-end-line="269" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/account/templates/account/live-web-class.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="118" column="22" lean-forward="true" selection-start-line="116" selection-start-column="16" selection-end-line="118" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/account/templates/account/welcome.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="67" column="68" selection-start-line="67" selection-start-column="68" selection-end-line="67" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/account/templates/account/thank-you.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="469">
-          <caret line="79" column="97" selection-start-line="79" selection-start-column="97" selection-end-line="79" selection-end-column="97" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/administration/templates/administration/all-user.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="13" column="40" selection-start-line="13" selection-start-column="40" selection-end-line="13" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/administration/templates/administration/user-edit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="491">
-          <caret line="71" column="73" selection-start-line="71" selection-start-column="73" selection-end-line="71" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/administration/templates/administration/change-user-password.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="923">
@@ -507,13 +487,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/home/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="153" column="27" lean-forward="true" selection-start-line="153" selection-start-column="27" selection-end-line="153" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/account/templates/account/registration.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1890">
@@ -563,22 +536,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lessons/templates/lessons/module-1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="111" column="27" selection-start-line="111" selection-start-column="27" selection-end-line="111" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/home/templates/home/personal-training.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="522">
           <caret line="29" column="22" selection-start-line="18" selection-start-column="16" selection-end-line="29" selection-end-column="22" />
-          <folding>
-            <element signature="n#style#0;n#h4#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#video#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -589,20 +550,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/home/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="134" selection-start-line="18" selection-start-column="117" selection-end-line="18" selection-end-column="134" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/home/templates/home/manage-team.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="414">
           <caret line="23" column="134" selection-start-line="23" selection-start-column="134" selection-end-line="23" selection-end-column="134" />
-          <folding>
-            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -613,51 +564,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/home/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6876">
-          <caret line="392" column="19" selection-start-line="392" selection-start-column="19" selection-end-line="392" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#64#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/account/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="54">
           <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/home/templates/home/affiliate-link.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="43" column="22" selection-start-line="23" selection-start-column="16" selection-end-line="43" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/manage.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/topic/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="29" column="79" selection-start-line="29" selection-start-column="11" selection-end-line="29" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/topic/templates/topic/step_1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="44" column="109" selection-start-line="44" selection-start-column="109" selection-end-line="44" selection-end-column="109" />
         </state>
       </provider>
     </entry>
@@ -682,17 +592,164 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/home/templates/home/banners.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4410">
+          <caret line="245" column="149" selection-start-line="245" selection-start-column="149" selection-end-line="245" selection-end-column="149" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/home/templates/home/recent-update.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1278">
+          <caret line="71" column="27" selection-start-line="71" selection-start-column="27" selection-end-line="71" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/home/templates/home/privacy-policy.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="13" column="35" selection-start-line="13" selection-start-column="35" selection-end-line="13" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/manage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="5" column="76" selection-start-line="5" selection-start-column="76" selection-end-line="5" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/topic/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="13050">
+        <state relative-caret-position="18">
           <caret line="737" selection-start-line="737" selection-end-line="737" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/home/templates/home/banners.html">
+    <entry file="file://$PROJECT_DIR$/home/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="491">
-          <caret line="245" column="149" selection-start-line="245" selection-start-column="149" selection-end-line="245" selection-end-column="149" />
+        <state relative-caret-position="185">
+          <caret line="106" column="115" selection-start-line="106" selection-start-column="115" selection-end-line="106" selection-end-column="115" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/home/templates/home/bitcoin-wallet.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="89" column="79" lean-forward="true" selection-start-line="89" selection-start-column="24" selection-end-line="89" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/home/templates/home/passive-income.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="77">
+          <caret line="65" column="140" selection-start-line="65" selection-start-column="140" selection-end-line="65" selection-end-column="140" />
+          <folding>
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#2;n#div#2;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#2;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/home/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="365">
+          <caret line="402" column="40" selection-start-line="402" selection-start-column="40" selection-end-line="402" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#64#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/home/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="13" column="93" selection-start-line="13" selection-start-column="93" selection-end-line="13" selection-end-column="93" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/topic/templates/topic/step_1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="67" column="72" selection-start-line="67" selection-start-column="72" selection-end-line="67" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/course/templates/course/course.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="41" column="130" selection-start-line="41" selection-start-column="130" selection-end-line="41" selection-end-column="130" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lessons/templates/lessons/module-1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="15" column="77" selection-start-line="15" selection-start-column="77" selection-end-line="15" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/topic/templates/topic/lesson_2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="331">
+          <caret line="82" column="111" selection-start-line="82" selection-start-column="111" selection-end-line="82" selection-end-column="111" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lessons/templates/lessons/module-2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="20" column="101" selection-start-line="20" selection-start-column="101" selection-end-line="20" selection-end-column="101" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/topic/templates/topic/module_2_lesson_4.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="509">
+          <caret line="41" column="128" selection-start-line="41" selection-start-column="128" selection-end-line="41" selection-end-column="128" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/topic/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="477">
+          <caret line="29" column="79" selection-start-line="29" selection-start-column="11" selection-end-line="29" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/topic/templates/topic/module_3_lesson_1.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lessons/templates/lessons/module-3.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="20" column="101" selection-start-line="20" selection-start-column="101" selection-end-line="20" selection-end-column="101" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/account/templates/account/membership-levels.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="14" column="148" selection-start-line="14" selection-start-column="148" selection-end-line="14" selection-end-column="148" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/account/templates/account/my-auto-responder-settings.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="127" column="148" selection-start-line="127" selection-start-column="148" selection-end-line="127" selection-end-column="148" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/home/templates/home/affiliate-link.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="39" column="129" selection-start-line="39" selection-start-column="129" selection-end-line="39" selection-end-column="129" />
         </state>
       </provider>
     </entry>

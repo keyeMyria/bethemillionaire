@@ -398,3 +398,18 @@ class PersonalTraining(View):
         return render(request, self.template_name, variables)
 
 
+#passive income
+class PassiveIncome(View):
+    template_name = 'home/passive-income.html'
+
+    def get(self, request):
+        user_profile = UserProfile.objects.filter(username=request.user.username)
+
+        variables = {
+            'user_profile': user_profile,
+        }
+
+        return render(request, self.template_name, variables)
+
+    def post(self, request):
+        pass

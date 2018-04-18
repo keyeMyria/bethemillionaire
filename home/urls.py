@@ -10,6 +10,9 @@ urlpatterns = [
     url(r'^member-home/email-swipes/$', views.EmailSwipes.as_view(), name='email_swipes'),
     url(r'^member-home/banners/$', views.Banners.as_view(), name='banners'),
 
+    #passive profits
+    url(r'^member-home/passive-income/$', views.PassiveIncome.as_view(), name='passive-income'),
+
 
     #training by sponsor
     url(r'^member-home/manage-team/$', views.ManageTeam.as_view(), name='manage-team'),
