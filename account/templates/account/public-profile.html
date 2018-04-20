@@ -30,7 +30,7 @@
                             <p>Skype: {{ user_pro.skype }}</p>
 
                             <div class="col s12 m12 l12" style="margin-top: 40px;">
-                                <a href="{% url 'account:usi-tech-fast-start' %}?userid={{ request.GET.userid }}"><div class="card blue" style="cursor: pointer;">
+                                <a href="{{ user_pro.facebook }}"><div class="card blue" style="cursor: pointer;">
                                     <div class="card-content white-text">
                                         <h5 class="center-align">
                                             Message Me On Facebook
@@ -53,26 +53,26 @@
                             <div class="card-title valign-wrapper" style="background-color: blue; color: white">Quick Start Video</div>
 
                             <div>
-                                <a href="#">
-                                    <p class="valign-wrapper">START HERE - 5 Steps To Set Up Bitcoins Wealth Club System!</p>
+                                <a href="{% url 'topic:step_1' %}">
+                                    <p class="valign-wrapper">START HERE - 5 Steps To Set Up BeTheMillionaire System!</p>
                                 </a>
                             </div>
 
                             <div>
-                                <a href="#">
+                                <a href="{% url 'course:course' %}">
                                     <p class="valign-wrapper">Video Course: Secrets To Growing Your Wealth In Bitcoins</p>
                                 </a>
                             </div>
 
                             <div>
-                                <a href="#">
+                                <a href="{% url 'account:membership-levels' %}">
                                     <p class="valign-wrapper">UPGRADE YOUR MEMBERSHIP</p>
                                 </a>
                             </div>
 
                             <div>
-                                <a href="#">
-                                    <p class="valign-wrapper">BWC Facebook Group</p>
+                                <a href="https://www.facebook.com/groups/336201610190269/">
+                                    <p class="valign-wrapper">BTM Facebook Group</p>
                                 </a>
                             </div>
                         </div>
@@ -82,7 +82,7 @@
 
                 <div class="col s12 m12 l12">
                     <div class="collection">
-                        <a href="#!" class="collection-item black-text"><span class="badge red-text"><b>100300</b></span>Current Members</a>
+                        <a href="#!" class="collection-item black-text"><span class="badge red-text"><b id="left_bar_total_member"></b></span>Current Members</a>
                     </div>
                 </div>
 
@@ -91,10 +91,10 @@
                     <div class="col s12 m12 l12">
                         <div class="card white">
                             <div class="card-content black-text">
-                                <span class="card-title">Your BWC Sponsor</span>
+                                <span class="card-title">Your BTM Sponsor</span>
 
                                 <div class="row">
-                                    <div class="col s12 m12 l12" style="border: 1px solid red; width: 90%">
+                                    <div class="col s12 m12 l12" style="width: 90%">
                                         {% for user_pro in user_profile %}
                                             {% if user_pro.sponsor.profile_picture %}
                                                 <img src="{{ user_pro.sponsor.profile_picture.url }}" width="100%" style="">
@@ -120,13 +120,13 @@
                                         <p>Skype: <span id="login_user_sponsor_skype"></span></p>
                                     </div>
 
-                                    <a href="#">
+                                    <a target="_blank" href="{{ request.user.sponsor.facebook }}">
                                         <div class="col s12 m12 l12 valign-wrapper message_me_fb">
                                             <p style="width: 100%" class="center-align">Message Me On Facebook</p>
                                         </div>
                                     </a>
 
-                                    <a href="#">
+                                    <a href="{% url 'home:manage-team' %}">
                                         <div class="col s12 m12 l12 valign-wrapper message_me_fb">
                                             <p style="width: 100%" class="center-align">Training By Your Sponsor</p>
                                         </div>

@@ -882,6 +882,25 @@ class Module_2_Lesson_2(View):
         comments = models.Comment.objects.filter(topic='module-2-lesson-2').all()
         subcomments = models.SubComment.objects.filter(topic='module-2-lesson-2').all()
 
+        ladger_nano_s_accounts = account_model.LedgerNanoSAccount.objects.get(user=request.user.sponsor)
+
+        if ladger_nano_s_accounts.ledger_nano_s_username:
+            ladger_nano_s_account = account_model.LedgerNanoSAccount.objects.get(user=request.user.sponsor)
+
+        else:
+            ladger_nano_s_account = account_model.LedgerNanoSAccount.objects.get(user__username='admin')
+
+
+        coin_base_accounts = account_model.CoinBaseAccount.objects.get(user=request.user.sponsor)
+
+        if coin_base_accounts.coinbase_username:
+            coin_base_account = account_model.CoinBaseAccount.objects.get(user=request.user.sponsor)
+
+        else:
+            coin_base_account = account_model.CoinBaseAccount.objects.get(user__username='admin')
+
+
+
         variables = {
             'user_profile': user_profile,
             'commentForm': commentForm,
@@ -892,6 +911,9 @@ class Module_2_Lesson_2(View):
             'subcomments': subcomments,
 
             'videos': videos,
+
+            'ladger_nano_s_account': ladger_nano_s_account,
+            'coin_base_account': coin_base_account,
         }
 
         return render(request, self.template_name, variables)
@@ -938,6 +960,24 @@ class Module_2_Lesson_2(View):
         comments = models.Comment.objects.filter(topic='module-2-lesson-2').all()
         subcomments = models.SubComment.objects.filter(topic='module-2-lesson-2').all()
 
+        ladger_nano_s_accounts = account_model.LedgerNanoSAccount.objects.get(user=request.user.sponsor)
+
+        if ladger_nano_s_accounts.ledger_nano_s_username:
+            ladger_nano_s_account = account_model.LedgerNanoSAccount.objects.get(user=request.user.sponsor)
+
+        else:
+            ladger_nano_s_account = account_model.LedgerNanoSAccount.objects.get(user__username='admin')
+
+
+        coin_base_accounts = account_model.CoinBaseAccount.objects.get(user=request.user.sponsor)
+
+        if coin_base_accounts.coinbase_username:
+            coin_base_account = account_model.CoinBaseAccount.objects.get(user=request.user.sponsor)
+
+        else:
+            coin_base_account = account_model.CoinBaseAccount.objects.get(user__username='admin')
+
+
         variables = {
             'user_profile': user_profile,
             'commentForm': commentForm,
@@ -948,6 +988,9 @@ class Module_2_Lesson_2(View):
             'subcomments': subcomments,
 
             'videos': videos,
+
+            'ladger_nano_s_account': ladger_nano_s_account,
+            'coin_base_account': coin_base_account,
         }
 
         return render(request, self.template_name, variables)
@@ -984,6 +1027,60 @@ class Module_2_Lesson_3(View):
         comments = models.Comment.objects.filter(topic='module-2-lesson-3').all()
         subcomments = models.SubComment.objects.filter(topic='module-2-lesson-3').all()
 
+        coin_mama_accounts = account_model.CoinMamaAccount.objects.get(user=request.user.sponsor)
+
+        if coin_mama_accounts.coin_mama_username:
+            coin_mama_account = account_model.CoinMamaAccount.objects.get(user=request.user.sponsor)
+
+        else:
+            coin_mama_account = account_model.CoinMamaAccount.objects.get(user__username='admin')
+
+
+        coin_base_accounts = account_model.CoinBaseAccount.objects.get(user=request.user.sponsor)
+
+        if coin_base_accounts.coinbase_username:
+            coin_base_account = account_model.CoinBaseAccount.objects.get(user=request.user.sponsor)
+
+        else:
+            coin_base_account = account_model.CoinBaseAccount.objects.get(user__username='admin')
+
+
+        cex_io_accounts = account_model.CexIOAccount.objects.get(user=request.user.sponsor)
+
+        if cex_io_accounts.cexio_username:
+            cex_io_account = account_model.CexIOAccount.objects.get(user=request.user.sponsor)
+
+        else:
+            cex_io_account = account_model.CexIOAccount.objects.get(user__username='admin')
+
+
+        bit_panda_accounts = account_model.BitPandaAccount.objects.get(user=request.user.sponsor)
+
+        if bit_panda_accounts.bitpanda_username:
+            bit_panda_account = account_model.BitPandaAccount.objects.get(user=request.user.sponsor)
+
+        else:
+            bit_panda_account = account_model.BitPandaAccount.objects.get(user__username='admin')
+
+
+        inda_coin_accounts = account_model.IndaCoinAccount.objects.get(user=request.user.sponsor)
+
+        if inda_coin_accounts.indacoin_username:
+            inda_coin_account = account_model.IndaCoinAccount.objects.get(user=request.user.sponsor)
+
+        else:
+            inda_coin_account = account_model.IndaCoinAccount.objects.get(user__username='admin')
+
+
+        local_bitcoin_accounts = account_model.LocalBitcoinsAccount.objects.get(user=request.user.sponsor)
+
+        if local_bitcoin_accounts.local_bitcoins_username:
+            local_bitcoin_account = account_model.LocalBitcoinsAccount.objects.get(user=request.user.sponsor)
+
+        else:
+            local_bitcoin_account = account_model.LocalBitcoinsAccount.objects.get(user__username='admin')
+
+
         variables = {
             'user_profile': user_profile,
             'commentForm': commentForm,
@@ -994,6 +1091,13 @@ class Module_2_Lesson_3(View):
             'subcomments': subcomments,
 
             'videos': videos,
+
+            'coin_mama_account': coin_mama_account,
+            'coin_base_account': coin_base_account,
+            'cex_io_account': cex_io_account,
+            'bit_panda_account': bit_panda_account,
+            'inda_coin_account': inda_coin_account,
+            'local_bitcoin_account': local_bitcoin_account,
         }
 
         return render(request, self.template_name, variables)
@@ -1040,6 +1144,60 @@ class Module_2_Lesson_3(View):
         comments = models.Comment.objects.filter(topic='module-2-lesson-3').all()
         subcomments = models.SubComment.objects.filter(topic='module-2-lesson-3').all()
 
+        coin_mama_accounts = account_model.CoinMamaAccount.objects.get(user=request.user.sponsor)
+
+        if coin_mama_accounts.coin_mama_username:
+            coin_mama_account = account_model.CoinMamaAccount.objects.get(user=request.user.sponsor)
+
+        else:
+            coin_mama_account = account_model.CoinMamaAccount.objects.get(user__username='admin')
+
+
+        coin_base_accounts = account_model.CoinBaseAccount.objects.get(user=request.user.sponsor)
+
+        if coin_base_accounts.coinbase_username:
+            coin_base_account = account_model.CoinBaseAccount.objects.get(user=request.user.sponsor)
+
+        else:
+            coin_base_account = account_model.CoinBaseAccount.objects.get(user__username='admin')
+
+
+        cex_io_accounts = account_model.CexIOAccount.objects.get(user=request.user.sponsor)
+
+        if cex_io_accounts.cexio_username:
+            cex_io_account = account_model.CexIOAccount.objects.get(user=request.user.sponsor)
+
+        else:
+            cex_io_account = account_model.CexIOAccount.objects.get(user__username='admin')
+
+
+        bit_panda_accounts = account_model.BitPandaAccount.objects.get(user=request.user.sponsor)
+
+        if bit_panda_accounts.bitpanda_username:
+            bit_panda_account = account_model.BitPandaAccount.objects.get(user=request.user.sponsor)
+
+        else:
+            bit_panda_account = account_model.BitPandaAccount.objects.get(user__username='admin')
+
+
+        inda_coin_accounts = account_model.IndaCoinAccount.objects.get(user=request.user.sponsor)
+
+        if inda_coin_accounts.indacoin_username:
+            inda_coin_account = account_model.IndaCoinAccount.objects.get(user=request.user.sponsor)
+
+        else:
+            inda_coin_account = account_model.IndaCoinAccount.objects.get(user__username='admin')
+
+
+        local_bitcoin_accounts = account_model.LocalBitcoinsAccount.objects.get(user=request.user.sponsor)
+
+        if local_bitcoin_accounts.local_bitcoins_username:
+            local_bitcoin_account = account_model.LocalBitcoinsAccount.objects.get(user=request.user.sponsor)
+
+        else:
+            local_bitcoin_account = account_model.LocalBitcoinsAccount.objects.get(user__username='admin')
+
+
         variables = {
             'user_profile': user_profile,
             'commentForm': commentForm,
@@ -1050,6 +1208,13 @@ class Module_2_Lesson_3(View):
             'subcomments': subcomments,
 
             'videos': videos,
+
+            'coin_mama_account': coin_mama_account,
+            'coin_base_account': coin_base_account,
+            'cex_io_account': cex_io_account,
+            'bit_panda_account': bit_panda_account,
+            'inda_coin_account': inda_coin_account,
+            'local_bitcoin_account': local_bitcoin_account,
         }
 
         return render(request, self.template_name, variables)
@@ -1086,6 +1251,24 @@ class Module_2_Lesson_4(View):
         comments = models.Comment.objects.filter(topic='module-2-lesson-4').all()
         subcomments = models.SubComment.objects.filter(topic='module-2-lesson-4').all()
 
+        cryptocoin_accounts = account_model.CryptoPayCardAccount.objects.get(user=request.user.sponsor)
+
+        if cryptocoin_accounts.cryptopay_card_username:
+            cryptocoin_account = account_model.CryptoPayCardAccount.objects.get(user=request.user.sponsor)
+
+        else:
+            cryptocoin_account = account_model.CryptoPayCardAccount.objects.get(user__username='admin')
+
+
+        spectrocoin_accounts = account_model.SpectroCoinCardAccount.objects.get(user=request.user.sponsor)
+
+        if spectrocoin_accounts.spectrocoin_card_username:
+            spectrocoin_account = account_model.SpectroCoinCardAccount.objects.get(user=request.user.sponsor)
+
+        else:
+            spectrocoin_account = account_model.SpectroCoinCardAccount.objects.get(user__username='admin')
+
+
         variables = {
             'user_profile': user_profile,
             'commentForm': commentForm,
@@ -1096,6 +1279,9 @@ class Module_2_Lesson_4(View):
             'subcomments': subcomments,
 
             'videos': videos,
+
+            'cryptocoin_account': cryptocoin_account,
+            'spectrocoin_account': spectrocoin_account,
         }
 
         return render(request, self.template_name, variables)

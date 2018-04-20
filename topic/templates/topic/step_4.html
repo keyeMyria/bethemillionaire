@@ -552,100 +552,17 @@
             </div>
             <!--end main-content -->
 
-            <div class="col s12 m12 l3 left left-content" style="">
+            <div class="col s12 m12 l3 left left-content" style="border-right: 1px solid #333; margin-top: 20px;">
                 <div class="col s12 m12 l12">
-                    <div class="card white black-text">
-                        <div class="card-content black-text left-content-introduction">
-                            <div class="card-title valign-wrapper" style="background-color: blue; color: white">Quick Start Video</div>
+                    <a class="col s12 m12 l12 white-text center-align blue" style="padding: 10px; font-size: 16px;" href="#">5 Steps outline</a>
 
-                            <div>
-                                <a href="#">
-                                    <p class="valign-wrapper">START HERE - 5 Steps To Set Up Bitcoins Wealth Club System!</p>
-                                </a>
-                            </div>
+                    <a class="col s12 m12 l12 grey-text" style="padding: 10px;" href="{% url 'topic:step_1' %}">** Step 1 – The Foundation & Overview</a>
+                    <a class="col s12 m12 l12 grey-text" style="padding: 10px;" href="{% url 'topic:step_2' %}">** Step 2 – Set Up Your Bitcoin Wallet Load It With Bitcoins</a>
+                    <a class="col s12 m12 l12 grey-text" style="padding: 10px;" href="{% url 'topic:step_3' %}">** Step 3 – Set Up Your Multiple Passive Profits Wealth Building Vehicles Inside The System</a>
+                    <a class="col s12 m12 l12 navy-text" style="padding: 10px;" href="{% url 'topic:step_4' %}">** Step 4 - How To Earn Extra $20K A Month, Get Access To 7 Figures Live Mentoring, And Earn BONUS FREE Bitcoins</a>
+                    <a class="col s12 m12 l12 grey-text" style="padding: 10px;" href="{% url 'topic:step_5' %}">** Step 5 – Start Promoting BeTheMillionaire System & Earn Bitcoins In Multiple Ways!</a>
 
-                            <div>
-                                <a href="#">
-                                    <p class="valign-wrapper">Video Course: Secrets To Growing Your Wealth In Bitcoins</p>
-                                </a>
-                            </div>
-
-                            <div>
-                                <a href="#">
-                                    <p class="valign-wrapper">UPGRADE YOUR MEMBERSHIP</p>
-                                </a>
-                            </div>
-
-                            <div>
-                                <a href="#">
-                                    <p class="valign-wrapper">BTM Facebook Group</p>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
                 </div>
-
-
-                <div class="col s12 m12 l12">
-                    <div class="collection">
-                        <a href="#!" class="collection-item black-text"><span class="badge red-text"><b>100300</b></span>Current Members</a>
-                    </div>
-                </div>
-
-
-                <div class="row">
-                    <div class="col s12 m12 l12">
-                        <div class="card white">
-                            <div class="card-content black-text">
-                                <span class="card-title">Your BTM Sponsor</span>
-
-                                <div class="row">
-                                    <div class="col s12 m12 l12" style="width: 90%">
-                                        {% for user_pro in user_profile %}
-                                            {% if user_pro.sponsor.profile_picture %}
-                                                <img src="{{ user_pro.sponsor.profile_picture.url }}" width="100%" style="">
-                                            {% else %}
-                                                <img src="{% static 'account/style/images/no-img.jpg' %}"  width="100%" style="">
-                                            {% endif %}
-                                        {% endfor %}
-                                    </div>
-
-                                    <div class="col s12 m6 offset-m3 l6 offset-l3">
-                                        <h4 id="login_user_sponsor_left"></h4>
-                                    </div>
-
-                                    <div class="col s12 m12 l12">
-                                        <p>Email: <span id="login_user_sponsor_email"></span></p>
-                                    </div>
-
-                                    <div class="col s12 m12 l12">
-                                        <p>Phone: <span id="login_user_sponsor_phone"></span></p>
-                                    </div>
-
-                                    <div class="col s12 m12 l12">
-                                        <p>Skype: <span id="login_user_sponsor_skype"></span></p>
-                                    </div>
-
-                                    <a href="#">
-                                        <div class="col s12 m12 l12 valign-wrapper message_me_fb">
-                                            <p style="width: 100%" class="center-align">Message Me On Facebook</p>
-                                        </div>
-                                    </a>
-
-                                    <a href="#">
-                                        <div class="col s12 m12 l12 valign-wrapper message_me_fb">
-                                            <p style="width: 100%" class="center-align">Training By Your Sponsor</p>
-                                        </div>
-                                    </a>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-
             </div>
             <!--end left-content -->
         </div>

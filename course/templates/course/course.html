@@ -743,100 +743,32 @@
             </div>
             <!--end main-content -->
 
-            <div class="col s12 m12 l3 left left-content" style="">
+            <div class="col s12 m12 l3 left left-content" style="border-right: 1px solid #333; margin-top: 20px;">
                 <div class="col s12 m12 l12">
-                    <div class="card white black-text">
-                        <div class="card-content black-text left-content-introduction">
-                            <div class="card-title valign-wrapper" style="background-color: blue; color: white">Quick Start Video</div>
+                    <a class="col s12 m12 l12 white-text center-align blue" style="padding: 10px; font-size: 16px;" href="#">Course Outline</a>
 
-                            <div>
-                                <a href="#">
-                                    <p class="valign-wrapper">START HERE - 5 Steps To Set Up Bitcoins Wealth Club System!</p>
-                                </a>
-                            </div>
 
-                            <div>
-                                <a href="#">
-                                    <p class="valign-wrapper">Video Course: Secrets To Growing Your Wealth In Bitcoins</p>
-                                </a>
-                            </div>
+                    <a class="col s12 m12 l12 grey-text" style="padding: 10px;" href="{% url 'lessons:module_1' %}">** Module 1 – How Be The Millionaire system can help you</a>
 
-                            <div>
-                                <a href="#">
-                                    <p class="valign-wrapper">UPGRADE YOUR MEMBERSHIP</p>
-                                </a>
-                            </div>
+                    <a class="col m10 offset-m1 grey-text" style="padding: 10px; font-size: 12px;" href="{% url 'topic:module-1-lesson-1' %}">1. Lesson 1 – Welcome To BeTheMillionaire System</a>
+                    <a class="col m10 offset-m1 grey-text" style="padding: 10px; font-size: 12px;" href="{% url 'topic:module-1-lesson-2' %}">2. Lesson 2 – Foundation & Overview Of BeTheMillionaire System</a>
 
-                            <div>
-                                <a href="#">
-                                    <p class="valign-wrapper">BTM Facebook Group</p>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+
+                    <a class="col s12 m12 l12 grey-text" style="padding: 10px;" href="{% url 'lessons:module_2' %}">** Module 2 – What Is Bitcoin & Why It’s Completely Revolutionizing Money</a>
+
+                    <a class="col m10 offset-m1 grey-text" style="padding: 10px; font-size: 12px;" href="{% url 'topic:module-2-lesson-1' %}">1. Lesson 1 – Why Bitcoins & Cryptocurrencies Are The Most Exciting Investment Vehicles To Grow Your Wealth On Earth Today</a>
+                    <a class="col m10 offset-m1 grey-text" style="padding: 10px; font-size: 12px;" href="{% url 'topic:module-2-lesson-2' %}">2. Lesson 2 – What Are The Best Bitcoin Wallets To Use To Store Your Bitcoins Safely?</a>
+                    <a class="col m10 offset-m1 grey-text" style="padding: 10px; font-size: 12px;" href="{% url 'topic:module-2-lesson-3' %}">3. Lesson 3 – The Complete Guide To Easily Buying Bitcoins Online & Offline</a>
+                    <a class="col m10 offset-m1 grey-text" style="padding: 10px; font-size: 12px;" href="{% url 'topic:module-2-lesson-4' %}">4. Lesson 4 – How To Turn Bitcoins Into Cash & Buy Anything You Want With VISA Debit Cards</a>
+
+
+                    <a class="col s12 m12 l12 grey-text" style="padding: 10px;" href="{% url 'lessons:module_3' %}">** Module 3 – The Secret To Wealth Acceleration</a>
+
+                    <a class="col m10 offset-m1 grey-text" style="padding: 10px; font-size: 12px;" href="{% url 'topic:module-3-lesson-1' %}">1. Lesson 1 – 4 Ways To Produce Income & How To Become Financially Free</a>
+                    <a class="col m10 offset-m1 grey-text" style="padding: 10px; font-size: 12px;" href="{% url 'topic:module-3-lesson-2' %}">2. Lesson 2 – Why Banks Are Biggest Scammers & Why Typical Investment Vehicles SUCK</a>
+                    <a class="col m10 offset-m1 grey-text" style="padding: 10px; font-size: 12px;" href="{% url 'topic:module-3-lesson-3' %}">3. Lesson 3 – 5 Primary Ways To Grow Your Wealth In Bitcoins</a>
+
                 </div>
-
-
-                <div class="col s12 m12 l12">
-                    <div class="collection">
-                        <a href="#!" class="collection-item black-text"><span class="badge red-text"><b>100300</b></span>Current Members</a>
-                    </div>
-                </div>
-
-
-                <div class="row">
-                    <div class="col s12 m12 l12">
-                        <div class="card white">
-                            <div class="card-content black-text">
-                                <span class="card-title">Your BTM Sponsor</span>
-
-                                <div class="row">
-                                    <div class="col s12 m12 l12" style="width: 90%">
-                                        {% for user_pro in user_profile %}
-                                            {% if user_pro.sponsor.profile_picture %}
-                                                <img src="{{ user_pro.sponsor.profile_picture.url }}" width="100%" style="">
-                                            {% else %}
-                                                <img src="{% static 'account/style/images/no-img.jpg' %}"  width="100%" style="">
-                                            {% endif %}
-                                        {% endfor %}
-                                    </div>
-
-                                    <div class="col s12 m6 offset-m3 l6 offset-l3">
-                                        <h4 id="login_user_sponsor_left"></h4>
-                                    </div>
-
-                                    <div class="col s12 m12 l12">
-                                        <p>Email: <span id="login_user_sponsor_email"></span></p>
-                                    </div>
-
-                                    <div class="col s12 m12 l12">
-                                        <p>Phone: <span id="login_user_sponsor_phone"></span></p>
-                                    </div>
-
-                                    <div class="col s12 m12 l12">
-                                        <p>Skype: <span id="login_user_sponsor_skype"></span></p>
-                                    </div>
-
-                                    <a href="#">
-                                        <div class="col s12 m12 l12 valign-wrapper message_me_fb">
-                                            <p style="width: 100%" class="center-align">Message Me On Facebook</p>
-                                        </div>
-                                    </a>
-
-                                    <a href="#">
-                                        <div class="col s12 m12 l12 valign-wrapper message_me_fb">
-                                            <p style="width: 100%" class="center-align">Training By Your Sponsor</p>
-                                        </div>
-                                    </a>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-
             </div>
             <!--end left-content -->
         </div>
