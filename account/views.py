@@ -1363,6 +1363,9 @@ class UserProfileAPI(APIView):
                 user_membership_name = user_membership.membership.name
 
 
+            total_member = models.UserProfile.objects.all().count()
+
+
             serializer = None
             x = 'User authorized'
 
@@ -1375,6 +1378,7 @@ class UserProfileAPI(APIView):
                 'data': serializer,
                 'x': x,
                 'user_membership_name': user_membership_name,
+                'total_member': total_member,
             })
 
 
@@ -1528,9 +1532,21 @@ class MyAutoresponderSettings(View):
 
         getresponseform = forms.GetResponseAutoresponderAddContactForm(instance=models.GetResponseAutoresponderAddContact.objects.get(user__username=request.user.username))
 
+
+        get_response_accounts = models.GetResponseAccount.objects.get(user=request.user.sponsor)
+
+        if get_response_accounts.getresponse_username:
+            get_response_account = models.GetResponseAccount.objects.get(user=request.user.sponsor)
+
+        else:
+            get_response_account = models.GetResponseAccount.objects.get(user__username='admin')
+
+
         variables = {
             'user_profile': user_profile,
             'getresponseform': getresponseform,
+
+            'get_response_account': get_response_account,
         }
 
         return render(request, self.template_name, variables)

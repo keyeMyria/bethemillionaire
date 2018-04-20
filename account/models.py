@@ -778,3 +778,23 @@ def create_CoinMamaAccount(sender, **kwargs):
 
 post_save.connect(create_CoinMamaAccount, sender=UserProfile)
 
+
+
+
+#itb account
+class ITBAccount(models.Model):
+    user = models.OneToOneField(UserProfile, on_delete=models.CASCADE, null=True, blank=True)
+    itb_username = models.CharField(max_length=100, null=True, blank=True)
+    create_on = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return str(self.user.username)
+
+
+
+def create_ITBAccount(sender, **kwargs):
+    if kwargs['created']:
+        itb = ITBAccount.objects.create(user=kwargs['instance'])
+
+post_save.connect(create_ITBAccount, sender=UserProfile)
+

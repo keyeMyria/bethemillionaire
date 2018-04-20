@@ -376,11 +376,13 @@ class LocalBitcoinsEditForm(forms.ModelForm):
         fields = ('local_bitcoins_username', )
 
 
+
 #inda coin account edit
 class IndaCoinEditForm(forms.ModelForm):
     class Meta:
         model = models.IndaCoinAccount
         fields = ('indacoin_username', )
+
 
 
 #coin mama account edit
@@ -389,3 +391,10 @@ class CoinMamaEditForm(forms.ModelForm):
         model = models.CoinMamaAccount
         fields = ('coin_mama_username', )
 
+
+
+#ITB account edit
+class ITBEditForm(forms.ModelForm):
+    class Meta:
+        model = models.ITBAccount
+        fields = ('itb_username', )

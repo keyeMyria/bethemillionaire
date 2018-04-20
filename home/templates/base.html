@@ -167,9 +167,9 @@
                                 <ul id='dropdown-support' class='dropdown-content' style="">
                                     <li><a style="font-size: 12px;" href="{% url 'home:faq' %}">FAQ</a></li>
                                     <li><a style="font-size: 12px;" href="{% url 'home:recent-update' %}">BTM Recent Updates</a></li>
-                                    <li><a style="font-size: 12px;" href="#!">BTM Facebook Group</a></li>
-                                    <li><a style="font-size: 12px;" href="#!">BTM Facebook Fanpage</a></li>
-                                    <li><a style="font-size: 12px;" href="#!">BTM Support</a></li>
+                                    <li><a style="font-size: 12px;" href="https://www.facebook.com/groups/336201610190269/">BTM Facebook Group</a></li>
+                                    <!--<li><a style="font-size: 12px;" href="#!">BTM Facebook Fanpage</a></li>
+                                    <li><a style="font-size: 12px;" href="#!">BTM Support</a></li>-->
                                 </ul>
 
                             </div>
@@ -187,7 +187,7 @@
         {% endblock %}
 
         <div class="row">
-            <div class="col s12 m12 l12" style="background-color: blue;">
+            <div class="col s12 m12 l12" style="background-color: black;">
                 <div class="col s12 m12 l4 footer-logo valign-wrapper" style=" height: 150px">
                     <div class="center-align white-text" style="width: 100%; font-size: 40px;">
                         BeTheMillionaire
@@ -288,6 +288,9 @@ s0.parentNode.insertBefore(s1,s0);
                     $("#login_user_sponsor_email").append(data.data[0].sponsor_email);
                     $("#login_user_sponsor_phone").append(data.data[0].sponsor_phone);
                     $("#login_user_sponsor_skype").append(data.data[0].sponsor_skype);
+
+                    $("#left_bar_total_member").append(data.total_member);
+
                     //$("#login_user_sponsor_profile_picture").append(data[0].sponsor_profile_picture);
                 }
         });

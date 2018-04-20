@@ -9,6 +9,7 @@ from . import models
 from lessons.models import Lesson
 from account.models import UsiTechAccount, BitconnectAccount
 from topic.models import StepControl, Note
+from account import models as account_model
 
 from administration import models as admin_model
 
@@ -109,6 +110,70 @@ class Step_2(View):
         comments = models.Comment.objects.filter(topic='step-2-setup-bitcoinwallet').all()
         subcomments = models.SubComment.objects.filter(topic='step-2-setup-bitcoinwallet').all()
 
+        ladger_nano_s_accounts = account_model.LedgerNanoSAccount.objects.get(user=request.user.sponsor)
+
+        if ladger_nano_s_accounts.ledger_nano_s_username:
+            ladger_nano_s_account = account_model.LedgerNanoSAccount.objects.get(user=request.user.sponsor)
+
+        else:
+            ladger_nano_s_account = account_model.LedgerNanoSAccount.objects.get(user__username='admin')
+
+
+        coin_mama_accounts = account_model.CoinMamaAccount.objects.get(user=request.user.sponsor)
+
+        if coin_mama_accounts.coin_mama_username:
+            coin_mama_account = account_model.CoinMamaAccount.objects.get(user=request.user.sponsor)
+
+        else:
+            coin_mama_account = account_model.CoinMamaAccount.objects.get(user__username='admin')
+
+
+        coin_base_accounts = account_model.CoinBaseAccount.objects.get(user=request.user.sponsor)
+
+        if coin_base_accounts.coinbase_username:
+            coin_base_account = account_model.CoinBaseAccount.objects.get(user=request.user.sponsor)
+
+        else:
+            coin_base_account = account_model.CoinBaseAccount.objects.get(user__username='admin')
+
+
+        cex_io_accounts = account_model.CexIOAccount.objects.get(user=request.user.sponsor)
+
+        if cex_io_accounts.cexio_username:
+            cex_io_account = account_model.CexIOAccount.objects.get(user=request.user.sponsor)
+
+        else:
+            cex_io_account = account_model.CexIOAccount.objects.get(user__username='admin')
+
+
+        bit_panda_accounts = account_model.BitPandaAccount.objects.get(user=request.user.sponsor)
+
+        if bit_panda_accounts.bitpanda_username:
+            bit_panda_account = account_model.BitPandaAccount.objects.get(user=request.user.sponsor)
+
+        else:
+            bit_panda_account = account_model.BitPandaAccount.objects.get(user__username='admin')
+
+
+        inda_coin_accounts = account_model.IndaCoinAccount.objects.get(user=request.user.sponsor)
+
+        if inda_coin_accounts.indacoin_username:
+            inda_coin_account = account_model.IndaCoinAccount.objects.get(user=request.user.sponsor)
+
+        else:
+            inda_coin_account = account_model.IndaCoinAccount.objects.get(user__username='admin')
+
+
+        local_bitcoin_accounts = account_model.LocalBitcoinsAccount.objects.get(user=request.user.sponsor)
+
+        if local_bitcoin_accounts.local_bitcoins_username:
+            local_bitcoin_account = account_model.LocalBitcoinsAccount.objects.get(user=request.user.sponsor)
+
+        else:
+            local_bitcoin_account = account_model.LocalBitcoinsAccount.objects.get(user__username='admin')
+
+
+
         variables = {
             'user_profile': user_profile,
             'commentForm': commentForm,
@@ -117,6 +182,14 @@ class Step_2(View):
             'total_comments': total_comments,
             'comments': comments,
             'subcomments': subcomments,
+
+            'ladger_nano_s_account': ladger_nano_s_account,
+            'coin_mama_account': coin_mama_account,
+            'coin_base_account': coin_base_account,
+            'cex_io_account': cex_io_account,
+            'bit_panda_account': bit_panda_account,
+            'inda_coin_account': inda_coin_account,
+            'local_bitcoin_account': local_bitcoin_account,
         }
 
         return render(request, self.template_name, variables)
@@ -152,6 +225,70 @@ class Step_2(View):
         comments = models.Comment.objects.filter(topic='step-2-setup-bitcoinwallet').all()
         subcomments = models.SubComment.objects.filter(topic='step-2-setup-bitcoinwallet').all()
 
+        ladger_nano_s_accounts = account_model.LedgerNanoSAccount.objects.get(user=request.user.sponsor)
+
+        if ladger_nano_s_accounts.ledger_nano_s_username:
+            ladger_nano_s_account = account_model.LedgerNanoSAccount.objects.get(user=request.user.sponsor)
+
+        else:
+            ladger_nano_s_account = account_model.LedgerNanoSAccount.objects.get(user__username='admin')
+
+
+        coin_mama_accounts = account_model.CoinMamaAccount.objects.get(user=request.user.sponsor)
+
+        if coin_mama_accounts.coin_mama_username:
+            coin_mama_account = account_model.CoinMamaAccount.objects.get(user=request.user.sponsor)
+
+        else:
+            coin_mama_account = account_model.CoinMamaAccount.objects.get(user__username='admin')
+
+
+        coin_base_accounts = account_model.CoinBaseAccount.objects.get(user=request.user.sponsor)
+
+        if coin_base_accounts.coinbase_username:
+            coin_base_account = account_model.CoinBaseAccount.objects.get(user=request.user.sponsor)
+
+        else:
+            coin_base_account = account_model.CoinBaseAccount.objects.get(user__username='admin')
+
+
+        cex_io_accounts = account_model.CexIOAccount.objects.get(user=request.user.sponsor)
+
+        if cex_io_accounts.cexio_username:
+            cex_io_account = account_model.CexIOAccount.objects.get(user=request.user.sponsor)
+
+        else:
+            cex_io_account = account_model.CexIOAccount.objects.get(user__username='admin')
+
+
+        bit_panda_accounts = account_model.BitPandaAccount.objects.get(user=request.user.sponsor)
+
+        if bit_panda_accounts.bitpanda_username:
+            bit_panda_account = account_model.BitPandaAccount.objects.get(user=request.user.sponsor)
+
+        else:
+            bit_panda_account = account_model.BitPandaAccount.objects.get(user__username='admin')
+
+
+        inda_coin_accounts = account_model.IndaCoinAccount.objects.get(user=request.user.sponsor)
+
+        if inda_coin_accounts.indacoin_username:
+            inda_coin_account = account_model.IndaCoinAccount.objects.get(user=request.user.sponsor)
+
+        else:
+            inda_coin_account = account_model.IndaCoinAccount.objects.get(user__username='admin')
+
+
+        local_bitcoin_accounts = account_model.LocalBitcoinsAccount.objects.get(user=request.user.sponsor)
+
+        if local_bitcoin_accounts.local_bitcoins_username:
+            local_bitcoin_account = account_model.LocalBitcoinsAccount.objects.get(user=request.user.sponsor)
+
+        else:
+            local_bitcoin_account = account_model.LocalBitcoinsAccount.objects.get(user__username='admin')
+
+
+
         variables = {
             'user_profile': user_profile,
             'commentForm': commentForm,
@@ -160,6 +297,14 @@ class Step_2(View):
             'total_comments': total_comments,
             'comments': comments,
             'subcomments': subcomments,
+
+            'ladger_nano_s_account': ladger_nano_s_account,
+            'coin_mama_account': coin_mama_account,
+            'coin_base_account': coin_base_account,
+            'cex_io_account': cex_io_account,
+            'bit_panda_account': bit_panda_account,
+            'inda_coin_account': inda_coin_account,
+            'local_bitcoin_account': local_bitcoin_account,
         }
 
         return render(request, self.template_name, variables)
@@ -175,8 +320,6 @@ class Step_3(View):
         commentForm = forms.CommentForm()
         subcommentForm = forms.SubCommentForm()
 
-        usiaccountForm = forms.UsiTechAccountForm(instance=UsiTechAccount.objects.get(user=request.user))
-        bitconnectaccountForm = forms.BitconnectAccountForm(instance=BitconnectAccount.objects.get(user=request.user))
 
         user_profile = UserProfile.objects.filter(username=request.user.username)
 
@@ -192,8 +335,7 @@ class Step_3(View):
             'user_profile': user_profile,
             'commentForm': commentForm,
             'subcommentForm': subcommentForm,
-            'usiaccountForm': usiaccountForm,
-            'bitconnectaccountForm': bitconnectaccountForm,
+
             'steps': steps,
             'total_comments': total_comments,
             'comments': comments,
@@ -208,8 +350,6 @@ class Step_3(View):
         commentForm = forms.CommentForm(request.POST or None)
         subcommentForm = forms.SubCommentForm(request.POST or None)
 
-        usiaccountForm = forms.UsiTechAccountForm(request.POST or None, instance=UsiTechAccount.objects.get(user=request.user))
-        bitconnectaccountForm = forms.BitconnectAccountForm(request.POST or None, instance=BitconnectAccount.objects.get(user=request.user))
 
         user_profile = UserProfile.objects.filter(username=request.user.username)
 
@@ -228,14 +368,6 @@ class Step_3(View):
                 deploy1.topic = 'step-3-wealth-vehicles'
                 deploy1.save()
 
-        if request.method == 'POST' and request.POST.get('usi_account') == 'usi_account':
-            if usiaccountForm.is_valid():
-                deploy = usiaccountForm.deploy(request)
-
-        if request.method == 'POST' and request.POST.get('bitconnect_account') == 'bitconnect_account':
-            if bitconnectaccountForm.is_valid():
-                deploy = bitconnectaccountForm.deploy(request)
-
 
         total_comment = models.Comment.objects.filter(topic='step-3-wealth-vehicles').count()
         total_subcomment = models.SubComment.objects.filter(topic='step-3-wealth-vehicles').count()
@@ -249,8 +381,7 @@ class Step_3(View):
             'user_profile': user_profile,
             'commentForm': commentForm,
             'subcommentForm': subcommentForm,
-            'usiaccountForm': usiaccountForm,
-            'bitconnectaccountForm': bitconnectaccountForm,
+
             'steps': steps,
             'total_comments': total_comments,
             'comments': comments,

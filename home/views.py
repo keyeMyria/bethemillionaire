@@ -7,6 +7,7 @@ from .models import AffiliateLinkControl
 
 from . import models
 from account import models as account_model
+from account import forms as account_form
 
 from . import forms
 
@@ -76,14 +77,66 @@ class Banners(View):
     def get(self, request):
         user_profile = UserProfile.objects.filter(username=request.user.username)
 
+        itb_form = account_form.ITBEditForm(instance=account_model.ITBAccount.objects.get(user=request.user))
+
+        click_magic_form = account_form.ClickMagicAccountEditForm(instance=account_model.ClickMagicAccount.objects.get(user=request.user))
+
+
+        itb_accounts = account_model.ITBAccount.objects.get(user=request.user.sponsor)
+
+        if itb_accounts.itb_username:
+            itb_account = account_model.ITBAccount.objects.get(user=request.user.sponsor)
+
+        else:
+            itb_account = account_model.ITBAccount.objects.get(user__username='admin')
+
+
+        click_magic_accounts = account_model.ClickMagicAccount.objects.get(user=request.user.sponsor)
+
+        if click_magic_accounts.clickmagic_username:
+            click_magic_account = account_model.ClickMagicAccount.objects.get(user=request.user.sponsor)
+
+        else:
+            click_magic_account = account_model.ClickMagicAccount.objects.get(user__username='admin')
+
+
+
         variables = {
             'user_profile': user_profile,
+
+            'itb_form': itb_form,
+            'click_magic_form': click_magic_form,
+
+            'itb_account': itb_account,
+            'click_magic_account': click_magic_account,
         }
 
         return render(request, self.template_name, variables)
 
     def post(self, request):
-        pass
+        user_profile = UserProfile.objects.filter(username=request.user.username)
+
+        itb_form = account_form.ITBEditForm(request.POST or None, instance=account_model.ITBAccount.objects.get(user=request.user))
+
+        click_magic_form = account_form.ClickMagicAccountEditForm(request.POST or None, instance=account_model.ClickMagicAccount.objects.get(user=request.user))
+
+        if request.POST.get('itb_account') == 'itb_account':
+            if itb_form.is_valid():
+                itb_form.save()
+
+        elif request.POST.get('click_magic_account') == 'click_magic_account':
+            if click_magic_form.is_valid():
+                click_magic_form.save()
+
+        variables = {
+            'user_profile': user_profile,
+
+            'itb_form': itb_form,
+            'click_magic_form': click_magic_form,
+        }
+
+        return render(request, self.template_name, variables)
+
 
 
 #dashboard - bitcoin basic --> WhatIsBitcoin
