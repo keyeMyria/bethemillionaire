@@ -59,12 +59,14 @@
 
 
             <div class="col s12 m10 offset-m1 l8 offset-l2" style="margin-top: 10px;">
+                {{ sale_count }}
                 <table class="highlight centered bordered responsive-table" style="margin-bottom: 50px; margin-top: 30px;">
                     <thead>
                       <tr style="background-color: blue; color: white;">
                           <th>Rank</th>
                           <th>Member</th>
-                          <th>Referral</th>
+                          <th>Total Referral</th>
+                          <th>Referral Sale</th>
                       </tr>
                     </thead>
 
@@ -75,7 +77,10 @@
                             <td>
                                 <a href="{% url 'account:public-profile' %}?userid={{ member.username }}">{{ member.username | title }}</a>
                             </td>
-                            <td>{{member.referrals.all.count}}</td>
+
+                            <td>{{ member.referrals.all.count }}</td>
+
+                            <td>{{ member.sales_count }}</td>
                         </tr>
                     </tbody>
                     {% endfor %}

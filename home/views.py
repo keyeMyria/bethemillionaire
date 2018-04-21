@@ -578,7 +578,8 @@ class LeaderBoard(View):
     template_name = 'home/leader-board.html'
 
     def get(self, request):
-        members = account_model.UserProfile.objects.annotate(refer_count=Count('referrals')).order_by('-refer_count')[:15]
+        
+        members = account_model.UserProfile.objects.annotate(sales_count=Count('payment')).order_by('-sales_count')[:15]
 
         variables = {
             'members': members,

@@ -8,6 +8,7 @@ from rest_framework.response import Response
 from django.http import JsonResponse
 from django.db.models import Q
 import datetime
+from dateutil.relativedelta import relativedelta
 
 from rest_framework.permissions import AllowAny
 
@@ -1046,6 +1047,10 @@ class Profile(View):
 
         user_profiles = models.UserProfile.objects.filter(username=request.user.username)
 
+
+
+
+
         variables = {
             'user_edit_form': user_edit_form,
             #'basic_info_edit_form': basic_info_edit_form,
@@ -1499,11 +1504,25 @@ class PaymentAPI(APIView):
                 deploy = models.Payment(user=userObj, intent=intent, payer_ID=payerID, payment_ID=paymentID, payment_Token=paymentToken, membership=membeshiplevelObj, is_verify='pending')
                 deploy.save()
                 payment_obj_id = deploy.id
+                payment_date = deploy.creation_time
 
-                paymentObj = models.Payment.objects.filter(id=payment_obj_id)
+                #calculate expired date
+                package_end_date = None
+                if membeshiplevelObj.package == 'monthly':
+                    package_end_date = payment_date + relativedelta(months=1)
+                elif membeshiplevelObj.package == 'bi_annually':
+                    package_end_date = payment_date + relativedelta(months=6)
+                elif membeshiplevelObj.package == 'yearly':
+                    package_end_date = payment_date + relativedelta(months=12)
+
+
+                paymentObj = models.Payment.objects.get(id=payment_obj_id)
+
+                paymentObj.expired_time = package_end_date
+                paymentObj.save()
 
                 #update user profile
-                update_user_profile = UserProfile.objects.filter(username=username).update(membership=membeshiplevelObj, package_buy_time=datetime.datetime.now())
+                update_user_profile = UserProfile.objects.filter(username=username).update(membership=membeshiplevelObj, payments=paymentObj)
 
                 payment_confirm = 'confirmed'
 

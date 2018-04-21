@@ -62,29 +62,9 @@ class UserDetail(AdminPermission, View):
         payments = account_model.Payment.objects.filter(user__id=user_id).order_by('-creation_time')
 
 
-        package_end_date = None
-        package_start_date = None
-        p_start_date = None
-        if user.membership.name != 'free' and user.package_buy_time != None:
-            p_start_date = user.package_buy_time
-
-            package_start_date = p_start_date
-
-            package_end_date = None
-
-            if user.membership.package == 'monthly':
-                package_end_date = package_start_date + relativedelta(months=1)
-            elif user.membership.package == 'bi_annually':
-                package_end_date = package_start_date + relativedelta(months=6)
-            elif user.membership.package == 'yearly':
-                package_end_date = package_start_date + relativedelta(months=12)
-
-
         variables = {
             'user': user,
             'payments': payments,
-            'p_start_date': p_start_date,
-            'package_end_date': package_end_date,
         }
 
         return render(request, self.template_name, variables)

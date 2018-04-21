@@ -59,7 +59,8 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(max_length=255, unique=True)
 
     membership = models.ForeignKey('Membershiplevel', related_name='membership_level', default=1, null=True, blank=True)
-    package_buy_time = models.DateTimeField(null=True, blank=True)
+
+    payments = models.ForeignKey('Payment', null=True, blank=True, related_name='last_payments' )
 
     sponsor = models.ForeignKey('UserProfile', related_name='sponsors', null=True, blank=True)
     referrals = models.ManyToManyField('UserProfile', related_name='referral', blank=True)
@@ -494,6 +495,7 @@ class Payment(models.Model):
     #this is for manual verification protect fraud transaction
     is_verify = models.CharField(max_length=10, default='pending')
     creation_time = models.DateTimeField(auto_now_add=True)
+    expired_time = models.DateTimeField(null=True, blank=True)
 
     def __str__(self):
         return str(self.user.username)
