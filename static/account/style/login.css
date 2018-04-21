@@ -1,0 +1,20 @@
+#left-section{
+    min-height: 675px;
+}
+
+
+#right-section{
+    min-height: 675px;
+}
+
+
+.logo{
+    font-family: 'Sacramento', cursive;
+    font-size: 50px;
+}
+
+
+#footer{
+    min-height: 50px;
+    color: orange;
+}
