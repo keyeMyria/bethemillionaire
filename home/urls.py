@@ -13,6 +13,9 @@ urlpatterns = [
     #passive profits
     url(r'^member-home/passive-income/$', views.PassiveIncome.as_view(), name='passive-income'),
 
+    #leader board
+    url(r'^member-home/leader-board/$', views.LeaderBoard.as_view(), name='leader-board'),
+
 
     #training by sponsor
     url(r'^member-home/manage-team/$', views.ManageTeam.as_view(), name='manage-team'),

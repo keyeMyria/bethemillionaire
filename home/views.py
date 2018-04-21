@@ -569,3 +569,23 @@ class PassiveIncome(View):
 
     def post(self, request):
         pass
+
+
+from django.db.models import Count
+
+#leader board
+class LeaderBoard(View):
+    template_name = 'home/leader-board.html'
+
+    def get(self, request):
+        members = account_model.UserProfile.objects.annotate(refer_count=Count('referrals')).order_by('-refer_count')[:15]
+
+        variables = {
+            'members': members,
+        }
+
+        return render(request, self.template_name, variables)
+
+
+
+

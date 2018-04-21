@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+
+{% block title %}Leader Board | BeTheMillionaire{% endblock %}
+
+{% block add-css %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home/style/index.css' %}">
+
+    <style>
+        table tbody a{
+            color: black;
+        }
+
+        table tbody a:hover{
+            color: navy;
+            text-decoration: underline;
+        }
+    </style>
+{% endblock %}
+
+{% block main %}
+    <div class="row">
+        <div class="col s12 m12 l12" style="">
+            <div class="col s12 m10 offset-m1 l8 offset-l2" style="margin-top: 10px;">
+                <div class="card blue">
+                    <div class="card-content white-text">
+                        <span class="card-title">BeTheMillionaire Monthly Competition</span>
+                        <p>
+                            Refer the most people to BeTheMillionaire each month and you will be getting the following prizes:
+                        </p>
+
+                        <p>First Place  – $1,000 in BTC </p>
+                        <p>Second Place – $500 in BTC </p>
+                        <p>Third Place – $250 in BTC </p>
+                    </div>
+                </div>
+            </div>
+
+            <a class="col s12 m12 l12" target="_blank" href="{% url 'home:affiliate_link' %}" style="margin-bottom: 30px; margin-top: 30px;">
+                <div class="col s12 m10 offset-m1 l8 offset-l2 valign-wrapper message_me_fb">
+                    <p style="width: 100%" class="center-align">Your Affiliate Links and Funnels To Promote BeTheMillionaire are here</p>
+                </div>
+            </a>
+
+
+            <a class="col s12 m12 l12" target="_blank" href="{% url 'account:my-referrals' %}" style="margin-bottom: 30px; margin-top: 10px;">
+                <div class="col s12 m10 offset-m1 l8 offset-l2 valign-wrapper message_me_fb">
+                    <p style="width: 100%" class="center-align">Your Referrals Details are here</p>
+                </div>
+            </a>
+
+
+            <a class="col s12 m12 l12" style="margin-top: 10px;">
+                <div class="col s12 m10 offset-m1 l8 offset-l2 valign-wrapper message_me_fb">
+                    <p style="width: 100%" class="center-align">Total Referrals Leaderboard</p>
+                </div>
+            </a>
+
+
+
+            <div class="col s12 m10 offset-m1 l8 offset-l2" style="margin-top: 10px;">
+                <table class="highlight centered bordered responsive-table" style="margin-bottom: 50px; margin-top: 30px;">
+                    <thead>
+                      <tr style="background-color: blue; color: white;">
+                          <th>Rank</th>
+                          <th>Member</th>
+                          <th>Referral</th>
+                      </tr>
+                    </thead>
+
+                    {% for member in members %}
+                    <tbody>
+                        <tr>
+                            <td>#{{ forloop.counter }}</td>
+                            <td>
+                                <a href="{% url 'account:public-profile' %}?userid={{ member.username }}">{{ member.username | title }}</a>
+                            </td>
+                            <td>{{member.referrals.all.count}}</td>
+                        </tr>
+                    </tbody>
+                    {% endfor %}
+                </table>
+            </div>
+
+
+
+
+            <!--end main-content -->
+        </div>
+    </div>
+{% endblock %}

@@ -4,43 +4,9 @@
     <list default="true" id="0ba751cb-a37f-4638-b597-b9218988ff8c" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/templates/account/my-auto-responder-settings.html" beforeDir="false" afterPath="$PROJECT_DIR$/account/templates/account/my-auto-responder-settings.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/templates/account/my-referrals.html" beforeDir="false" afterPath="$PROJECT_DIR$/account/templates/account/my-referrals.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/templates/account/public-profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/account/templates/account/public-profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/course/templates/course/course.html" beforeDir="false" afterPath="$PROJECT_DIR$/course/templates/course/course.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/home/affiliate-link.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/home/affiliate-link.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/home/banners.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/home/banners.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/home/bitcoin-debit-card.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/home/bitcoin-debit-card.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/home/bitcoin-wallet.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/home/bitcoin-wallet.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/home/buy-bitcoin-here.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/home/buy-bitcoin-here.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/home/email-swipes.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/home/email-swipes.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/home/faq.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/home/faq.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/home/manage-team.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/home/manage-team.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/home/passive-income.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/home/passive-income.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/home/personal-training.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/home/personal-training.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/home/privacy-policy.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/home/privacy-policy.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/home/recent-update.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/home/recent-update.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/home/what-is-bitcoin.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/home/what-is-bitcoin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lessons/templates/lessons/module-1.html" beforeDir="false" afterPath="$PROJECT_DIR$/lessons/templates/lessons/module-1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lessons/templates/lessons/module-2.html" beforeDir="false" afterPath="$PROJECT_DIR$/lessons/templates/lessons/module-2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lessons/templates/lessons/module-3.html" beforeDir="false" afterPath="$PROJECT_DIR$/lessons/templates/lessons/module-3.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topic/templates/topic/lesson_1.html" beforeDir="false" afterPath="$PROJECT_DIR$/topic/templates/topic/lesson_1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topic/templates/topic/lesson_2.html" beforeDir="false" afterPath="$PROJECT_DIR$/topic/templates/topic/lesson_2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topic/templates/topic/module_2_lesson_1.html" beforeDir="false" afterPath="$PROJECT_DIR$/topic/templates/topic/module_2_lesson_1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topic/templates/topic/module_2_lesson_2.html" beforeDir="false" afterPath="$PROJECT_DIR$/topic/templates/topic/module_2_lesson_2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topic/templates/topic/module_2_lesson_3.html" beforeDir="false" afterPath="$PROJECT_DIR$/topic/templates/topic/module_2_lesson_3.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topic/templates/topic/module_2_lesson_4.html" beforeDir="false" afterPath="$PROJECT_DIR$/topic/templates/topic/module_2_lesson_4.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topic/templates/topic/module_3_lesson_1.html" beforeDir="false" afterPath="$PROJECT_DIR$/topic/templates/topic/module_3_lesson_1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topic/templates/topic/module_3_lesson_2.html" beforeDir="false" afterPath="$PROJECT_DIR$/topic/templates/topic/module_3_lesson_2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topic/templates/topic/module_3_lesson_3.html" beforeDir="false" afterPath="$PROJECT_DIR$/topic/templates/topic/module_3_lesson_3.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topic/templates/topic/step_1.html" beforeDir="false" afterPath="$PROJECT_DIR$/topic/templates/topic/step_1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topic/templates/topic/step_2.html" beforeDir="false" afterPath="$PROJECT_DIR$/topic/templates/topic/step_2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topic/templates/topic/step_3.html" beforeDir="false" afterPath="$PROJECT_DIR$/topic/templates/topic/step_3.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topic/templates/topic/step_4.html" beforeDir="false" afterPath="$PROJECT_DIR$/topic/templates/topic/step_4.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topic/templates/topic/step_5.html" beforeDir="false" afterPath="$PROJECT_DIR$/topic/templates/topic/step_5.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topic/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/topic/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -54,74 +20,63 @@
       <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/home/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="30" column="93" selection-start-line="30" selection-start-column="79" selection-end-line="30" selection-end-column="93" />
+            <state relative-caret-position="126">
+              <caret line="8" column="93" selection-start-line="8" selection-start-column="79" selection-end-line="8" selection-end-column="93" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="faq.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/home/templates/home/faq.html">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/home/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="419">
-              <caret line="314" column="134" selection-start-line="314" selection-start-column="134" selection-end-line="314" selection-end-column="134" />
+            <state relative-caret-position="329">
+              <caret line="580" column="121" selection-start-line="580" selection-start-column="121" selection-end-line="580" selection-end-column="121" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/account/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="64" column="13" selection-start-line="64" selection-start-column="4" selection-end-line="64" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="leader-board.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/home/templates/home/leader-board.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="458">
+              <caret line="64" column="101" selection-start-line="64" selection-start-column="101" selection-end-line="64" selection-end-column="101" />
               <folding>
-                <element signature="n#style#0;n#a#1;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#3;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#2;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="recent-update.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/home/templates/home/recent-update.html">
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/account/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="239">
-              <caret line="68" column="23" lean-forward="true" selection-start-line="68" selection-start-column="23" selection-end-line="68" selection-end-column="23" />
+            <state relative-caret-position="311">
+              <caret line="58" column="100" selection-start-line="58" selection-start-column="86" selection-end-line="58" selection-end-column="100" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="affiliate-link.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/home/templates/home/affiliate-link.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="185">
+              <caret line="238" column="38" selection-start-line="238" selection-start-column="38" selection-end-line="238" selection-end-column="38" />
               <folding>
                 <element signature="n#style#0;n#a#1;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#3;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="privacy-policy.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/home/templates/home/privacy-policy.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="234" column="50" selection-start-line="234" selection-start-column="50" selection-end-line="234" selection-end-column="50" />
-              <folding>
-                <element signature="n#style#0;n#a#1;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#3;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/home/templates/home/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="278">
-              <caret line="74" column="129" selection-start-line="74" selection-start-column="108" selection-end-line="74" selection-end-column="129" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="passive-income.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/home/templates/home/passive-income.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="382">
-              <caret line="131" column="131" selection-start-line="131" selection-start-column="131" selection-end-line="131" selection-end-column="131" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="public-profile.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/account/templates/account/public-profile.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="363">
-              <caret line="84" column="131" selection-start-line="84" selection-start-column="131" selection-end-line="84" selection-end-column="131" />
             </state>
           </provider>
         </entry>
@@ -173,16 +128,13 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/administration/views.py" />
         <option value="$PROJECT_DIR$/home/admin.py" />
         <option value="$PROJECT_DIR$/home/forms.py" />
         <option value="$PROJECT_DIR$/home/models.py" />
         <option value="$PROJECT_DIR$/account/templates/account/membership-levels.html" />
-        <option value="$PROJECT_DIR$/home/urls.py" />
         <option value="$PROJECT_DIR$/account/templates/account/preregistration.html" />
         <option value="$PROJECT_DIR$/account/templates/account/registration.html" />
         <option value="$PROJECT_DIR$/home/templates/home/index.html" />
-        <option value="$PROJECT_DIR$/home/templates/base.html" />
         <option value="$PROJECT_DIR$/account/views.py" />
         <option value="$PROJECT_DIR$/account/models.py" />
         <option value="$PROJECT_DIR$/account/forms.py" />
@@ -211,7 +163,6 @@
         <option value="$PROJECT_DIR$/home/templates/home/buy-bitcoin-here.html" />
         <option value="$PROJECT_DIR$/home/templates/home/bitcoin-wallet.html" />
         <option value="$PROJECT_DIR$/home/templates/home/bitcoin-debit-card.html" />
-        <option value="$PROJECT_DIR$/home/views.py" />
         <option value="$PROJECT_DIR$/account/templates/account/my-auto-responder-settings.html" />
         <option value="$PROJECT_DIR$/account/templates/account/my-referrals.html" />
         <option value="$PROJECT_DIR$/home/templates/home/affiliate-link.html" />
@@ -224,6 +175,10 @@
         <option value="$PROJECT_DIR$/home/templates/home/privacy-policy.html" />
         <option value="$PROJECT_DIR$/home/templates/home/passive-income.html" />
         <option value="$PROJECT_DIR$/account/templates/account/public-profile.html" />
+        <option value="$PROJECT_DIR$/home/templates/base.html" />
+        <option value="$PROJECT_DIR$/home/urls.py" />
+        <option value="$PROJECT_DIR$/home/views.py" />
+        <option value="$PROJECT_DIR$/home/templates/home/leader-board.html" />
       </list>
     </option>
   </component>
@@ -238,6 +193,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Course" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -248,19 +204,6 @@
             <path>
               <item name="bethemillionaire" type="b2602c69:ProjectViewProjectNode" />
               <item name="bethemillionaire" type="462c0819:PsiDirectoryNode" />
-              <item name="account" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bethemillionaire" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bethemillionaire" type="462c0819:PsiDirectoryNode" />
-              <item name="account" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bethemillionaire" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bethemillionaire" type="462c0819:PsiDirectoryNode" />
-              <item name="account" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="account" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -285,7 +228,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Course" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -398,13 +340,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/account/templates/account/registration.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="114" column="22" lean-forward="true" selection-start-line="114" selection-start-column="22" selection-end-line="114" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/topic/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-283" />
@@ -414,13 +349,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
           <caret line="6" column="87" selection-start-line="6" selection-start-column="81" selection-end-line="6" selection-end-column="87" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/home/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1762">
-          <caret line="171" column="101" selection-start-line="171" selection-start-column="101" selection-end-line="171" selection-end-column="101" />
         </state>
       </provider>
     </entry>
@@ -575,18 +503,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="419">
           <caret line="344" column="34" lean-forward="true" selection-start-line="289" selection-start-column="28" selection-end-line="344" selection-end-column="34" />
-          <folding>
-            <element signature="e#32600#32655#0" expanded="true" />
-            <element signature="e#32779#32818#0" expanded="true" />
-            <element signature="e#32906#32928#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/account/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="658" column="29" selection-start-line="658" selection-start-column="4" selection-end-line="658" selection-end-column="29" />
         </state>
       </provider>
     </entry>
@@ -608,16 +524,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
           <caret line="176" column="18" lean-forward="true" selection-start-line="167" selection-start-column="12" selection-end-line="176" selection-end-column="18" />
-          <folding>
-            <element signature="n#style#0;n#a#1;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/home/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="455">
-          <caret line="303" column="55" selection-start-line="303" selection-start-column="55" selection-end-line="303" selection-end-column="55" />
         </state>
       </provider>
     </entry>
@@ -632,9 +538,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
           <caret line="59" column="18" lean-forward="true" selection-start-line="50" selection-start-column="12" selection-end-line="59" selection-end-column="18" />
-          <folding>
-            <element signature="n#style#0;n#a#1;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -642,9 +545,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="297">
           <caret line="224" column="31" lean-forward="true" selection-end-line="242" />
-          <folding>
-            <element signature="n#style#0;n#a#1;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -652,9 +552,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
           <caret line="124" column="22" lean-forward="true" selection-start-line="31" selection-start-column="16" selection-end-line="124" selection-end-column="22" />
-          <folding>
-            <element signature="e#3676#3701#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -662,10 +559,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="581">
           <caret line="116" column="22" selection-start-line="116" selection-start-column="22" selection-end-line="116" selection-end-column="22" />
-          <folding>
-            <element signature="n#style#0;n#div#6;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#1;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -673,9 +566,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="419">
           <caret line="99" column="50" selection-start-line="99" selection-start-column="50" selection-end-line="99" selection-end-column="50" />
-          <folding>
-            <element signature="n#style#0;n#a#1;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -683,19 +573,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="491">
           <caret line="160" column="18" lean-forward="true" selection-start-line="151" selection-start-column="12" selection-end-line="160" selection-end-column="18" />
-          <folding>
-            <element signature="n#style#0;n#a#1;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/home/templates/home/affiliate-link.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
-          <caret line="429" column="18" lean-forward="true" selection-start-line="420" selection-start-column="12" selection-end-line="429" selection-end-column="18" />
-          <folding>
-            <element signature="n#style#0;n#a#1;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -703,9 +580,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="401">
           <caret line="171" column="50" selection-start-line="171" selection-start-column="50" selection-end-line="171" selection-end-column="50" />
-          <folding>
-            <element signature="n#style#0;n#a#1;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -713,9 +587,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="491">
           <caret line="114" column="18" lean-forward="true" selection-start-line="105" selection-start-column="12" selection-end-line="114" selection-end-column="18" />
-          <folding>
-            <element signature="n#style#0;n#a#1;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -723,9 +594,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="401">
           <caret line="297" column="50" selection-start-line="297" selection-start-column="50" selection-end-line="297" selection-end-column="50" />
-          <folding>
-            <element signature="n#style#0;n#a#1;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -733,29 +601,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="383">
           <caret line="119" column="50" selection-start-line="119" selection-start-column="50" selection-end-line="119" selection-end-column="50" />
-          <folding>
-            <element signature="n#style#0;n#a#1;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/account/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="56" column="80" selection-start-line="56" selection-start-column="73" selection-end-line="56" selection-end-column="80" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/home/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="30" column="93" selection-start-line="30" selection-start-column="79" selection-end-line="30" selection-end-column="93" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/home/templates/home/faq.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="419">
+        <state relative-caret-position="5652">
           <caret line="314" column="134" selection-start-line="314" selection-start-column="134" selection-end-line="314" selection-end-column="134" />
           <folding>
             <element signature="n#style#0;n#a#1;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -766,8 +617,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/home/templates/home/recent-update.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="68" column="23" lean-forward="true" selection-start-line="68" selection-start-column="23" selection-end-line="68" selection-end-column="23" />
+        <state relative-caret-position="1224">
+          <caret line="68" column="23" selection-start-line="68" selection-start-column="23" selection-end-line="68" selection-end-column="23" />
           <folding>
             <element signature="n#style#0;n#a#1;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#a#3;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -777,19 +628,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/home/templates/home/privacy-policy.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
+        <state relative-caret-position="4212">
           <caret line="234" column="50" selection-start-line="234" selection-start-column="50" selection-end-line="234" selection-end-column="50" />
           <folding>
             <element signature="n#style#0;n#a#1;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#a#3;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/home/templates/home/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="74" column="129" selection-start-line="74" selection-start-column="108" selection-end-line="74" selection-end-column="129" />
         </state>
       </provider>
     </entry>
@@ -802,8 +646,77 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/account/templates/account/public-profile.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="84" column="131" selection-start-line="84" selection-start-column="131" selection-end-line="84" selection-end-column="131" />
+        <state relative-caret-position="18">
+          <caret line="113" selection-start-line="113" selection-end-line="113" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/home/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="385">
+          <caret line="117" column="99" selection-start-line="117" selection-start-column="99" selection-end-line="117" selection-end-column="99" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#li#1;n#ul#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/home/templates/home/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="426">
+          <caret line="122" column="40" lean-forward="true" selection-start-line="118" selection-start-column="36" selection-end-line="122" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/home/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="8" column="93" selection-start-line="8" selection-start-column="79" selection-end-line="8" selection-end-column="93" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/home/templates/home/affiliate-link.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="238" column="38" selection-start-line="238" selection-start-column="38" selection-end-line="238" selection-end-column="38" />
+          <folding>
+            <element signature="n#style#0;n#a#1;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/account/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="64" column="13" selection-start-line="64" selection-start-column="4" selection-end-line="64" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/home/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="580" column="121" selection-start-line="580" selection-start-column="121" selection-end-line="580" selection-end-column="121" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/account/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="58" column="100" selection-start-line="58" selection-start-column="86" selection-end-line="58" selection-end-column="100" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/home/templates/home/leader-board.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="458">
+          <caret line="64" column="101" selection-start-line="64" selection-start-column="101" selection-end-line="64" selection-end-column="101" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#2;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
