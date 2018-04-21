@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0ba751cb-a37f-4638-b597-b9218988ff8c" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/account/templates/account/membership-checkout.html" beforeDir="false" afterPath="$PROJECT_DIR$/account/templates/account/membership-checkout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/administration/templates/administration/user-detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/administration/templates/administration/user-detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/administration/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/administration/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bethemillionaire/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/bethemillionaire/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bethemillionaire/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/bethemillionaire/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
-    </list>
+    <list default="true" id="0ba751cb-a37f-4638-b597-b9218988ff8c" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,15 +11,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="membership-checkout.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/account/templates/account/membership-checkout.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="86" column="27" selection-start-line="86" selection-start-column="27" selection-end-line="86" selection-end-column="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/account/views.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -65,11 +49,20 @@
       <file leaf-file-name="celery.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bethemillionaire/celery.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="486">
-              <caret line="27" column="48" selection-start-line="27" selection-start-column="48" selection-end-line="27" selection-end-column="48" />
+            <state relative-caret-position="144">
+              <caret line="8" column="66" selection-start-line="8" selection-start-column="66" selection-end-line="8" selection-end-column="66" />
               <folding>
                 <element signature="e#0#56#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="manage.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/manage.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="72">
+              <caret line="5" column="70" selection-start-line="5" selection-start-column="70" selection-end-line="5" selection-end-column="70" />
             </state>
           </provider>
         </entry>
@@ -89,8 +82,8 @@
       <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bethemillionaire/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="24" column="11" lean-forward="true" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
+            <state relative-caret-position="-1849">
+              <caret line="117" selection-start-line="117" selection-end-line="117" />
             </state>
           </provider>
         </entry>
@@ -213,16 +206,16 @@
         <option value="$PROJECT_DIR$/account/views.py" />
         <option value="$PROJECT_DIR$/home/templates/home/leader-board.html" />
         <option value="$PROJECT_DIR$/home/views.py" />
-        <option value="$PROJECT_DIR$/manage.py" />
         <option value="$PROJECT_DIR$/account/templates/account/membership-checkout.html" />
         <option value="$PROJECT_DIR$/administration/templates/administration/user-detail.html" />
         <option value="$PROJECT_DIR$/bethemillionaire/local_settings.py" />
-        <option value="$PROJECT_DIR$/bethemillionaire/celery.py" />
         <option value="$PROJECT_DIR$/bethemillionaire/__init__.py" />
         <option value="$PROJECT_DIR$/administration/task.py" />
         <option value="$PROJECT_DIR$/administration/views.py" />
         <option value="$PROJECT_DIR$/administration/tasks.py" />
         <option value="$PROJECT_DIR$/bethemillionaire/settings.py" />
+        <option value="$PROJECT_DIR$/bethemillionaire/celery.py" />
+        <option value="$PROJECT_DIR$/manage.py" />
       </list>
     </option>
   </component>
@@ -715,13 +708,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/manage.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="5" column="72" selection-start-line="5" selection-start-column="72" selection-end-line="5" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/account/templates/account/membership-checkout.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
@@ -779,16 +765,6 @@
     <entry file="file://$PROJECT_DIR$/administration/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/bethemillionaire/celery.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="27" column="48" selection-start-line="27" selection-start-column="48" selection-end-line="27" selection-end-column="48" />
-          <folding>
-            <element signature="e#0#56#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/administration/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="113">
@@ -816,10 +792,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/bethemillionaire/celery.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" column="66" selection-start-line="8" selection-start-column="66" selection-end-line="8" selection-end-column="66" />
+          <folding>
+            <element signature="e#0#56#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/manage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="5" column="70" selection-start-line="5" selection-start-column="70" selection-end-line="5" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/bethemillionaire/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="24" column="11" lean-forward="true" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
+        <state relative-caret-position="-1849">
+          <caret line="117" selection-start-line="117" selection-end-line="117" />
         </state>
       </provider>
     </entry>
