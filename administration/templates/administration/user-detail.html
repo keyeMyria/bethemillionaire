@@ -87,8 +87,8 @@
                         <p>Membership Package : {{ user.membership.package }}</p>
                         <p>Membership Price : ${{ user.membership.price }}</p>
                         <br>
-                        <p>Start Date : {{ p_start_date }}</p>
-                        <p>Expired On : {{ package_end_date }}</p>
+                        <p>Start Date : {{ user.payments.creation_time }}</p>
+                        <p>Expired On : {{ user.payments.expired_time }}</p>
 
                         <a href="{% url 'administration:change-membership' user_id=user.id %}" class="waves-effect waves-light btn green white-text" style="margin-top: 20px;">Change membership</a>
 

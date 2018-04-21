@@ -82,7 +82,9 @@
 {% block script %}
 
 <script>
-        var payable = $("#membership_price").html();
+        //var payable = $("#membership_price").html();
+
+        var payable = 0.02;
 
 
         paypal.Button.render({
@@ -133,7 +135,7 @@
                         dataType: 'json',
                         success: function (data) {
                             console.log(data);
-                            window.location.href="/account/membership-account/checkout-success/";
+                            //window.location.href="/account/membership-account/checkout-success/";
                         }
                     });
                 });
@@ -141,7 +143,7 @@
 
 
             onCancel: function(data, actions) {
-                window.location.href="/account/membership-account/checkout-failure/";
+                //window.location.href="/account/membership-account/checkout-failure/";
             },
 
 
