@@ -14,6 +14,8 @@ from account import forms as account_form
 
 from . import forms
 
+from . import tasks
+
 
 class AdminPermission(PermissionRequiredMixin, View):
     permission_required = 'is_superuser'
@@ -310,22 +312,21 @@ class PaymentDetail(AdminPermission, View):
         payment_user_profile = account_model.UserProfile.objects.get(id=payment_user.id)
         payment_membership = payment.membership
 
+        expired_date = payment.expired_time
+
         if request.POST.get('authorize') == 'authorize':
-            payment_user_profile.membership = payment_membership
-
-            if payment_user_profile.package_buy_time == None:
-                payment_user_profile.package_buy_time = datetime.datetime.now()
-
-            payment_user_profile.save()
-
             payment.is_verify = 'authorized'
             payment.save()
+
+            tasks.membership_change.apply_async(args=[payment_user_profile.id, payment_id], eta=expired_date)
+
 
         elif request.POST.get('reject') == 'reject':
             free_membership_obj = account_model.Membershiplevel.objects.get(name='free')
             payment_user_profile.membership = free_membership_obj
-            payment_user_profile.package_buy_time = None
+            payment_user_profile.payments = None
             payment_user_profile.save()
+
 
             payment.is_verify = 'rejected'
             payment.save()
