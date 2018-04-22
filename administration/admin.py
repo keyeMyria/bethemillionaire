@@ -5,4 +5,3 @@ from . import models
 
 
 admin.site.register(models.VideoLink)
-admin.site.register(models.Mul)

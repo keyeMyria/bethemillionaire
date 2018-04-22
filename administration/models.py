@@ -10,11 +10,3 @@ class VideoLink(models.Model):
     def __str__(self):
         return str(self.lesson_name)
 
-
-
-#test model
-class Mul(models.Model):
-    total = models.IntegerField(null=True, blank=True)
-
-    def __str__(self):
-        return self.total

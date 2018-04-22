@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0ba751cb-a37f-4638-b597-b9218988ff8c" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/administration/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/administration/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -41,16 +42,7 @@
         <entry file="file://$PROJECT_DIR$/manage.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="72">
-              <caret line="5" column="70" selection-start-line="5" selection-start-column="70" selection-end-line="5" selection-end-column="70" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tasks.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/administration/tasks.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="4" column="29" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
+              <caret line="5" column="76" selection-start-line="5" selection-start-column="76" selection-end-line="5" selection-end-column="76" />
             </state>
           </provider>
         </entry>
@@ -58,17 +50,8 @@
       <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bethemillionaire/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="18">
+            <state relative-caret-position="3960">
               <caret line="220" column="5" selection-start-line="220" selection-start-column="5" selection-end-line="220" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="local_settings.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bethemillionaire/local_settings.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="30" selection-start-line="30" selection-end-line="31" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -76,8 +59,8 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/administration/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="4" column="30" lean-forward="true" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
+            <state relative-caret-position="198">
+              <caret line="11" selection-start-line="11" selection-end-line="11" />
             </state>
           </provider>
         </entry>
@@ -99,15 +82,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1620">
               <caret line="90" column="69" selection-start-line="90" selection-start-column="69" selection-end-line="90" selection-end-column="69" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/account/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="8820">
-              <caret line="497" column="16" selection-start-line="497" selection-start-column="4" selection-end-line="497" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -162,7 +136,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/lessons/templates/lessons/module-2.html" />
         <option value="$PROJECT_DIR$/topic/templates/topic/module_2_lesson_1.html" />
         <option value="$PROJECT_DIR$/lessons/templates/lessons/module-3.html" />
         <option value="$PROJECT_DIR$/topic/templates/topic/module_3_lesson_1.html" />
@@ -209,9 +182,10 @@
         <option value="$PROJECT_DIR$/administration/views.py" />
         <option value="$PROJECT_DIR$/bethemillionaire/settings.py" />
         <option value="$PROJECT_DIR$/bethemillionaire/celery.py" />
-        <option value="$PROJECT_DIR$/administration/models.py" />
         <option value="$PROJECT_DIR$/administration/admin.py" />
         <option value="$PROJECT_DIR$/administration/tasks.py" />
+        <option value="$PROJECT_DIR$/account/migrations/0008_remove_userprofile_package_buy_time.py" />
+        <option value="$PROJECT_DIR$/administration/models.py" />
         <option value="$PROJECT_DIR$/manage.py" />
       </list>
     </option>
@@ -233,6 +207,17 @@
             <path>
               <item name="bethemillionaire" type="b2602c69:ProjectViewProjectNode" />
               <item name="bethemillionaire" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bethemillionaire" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bethemillionaire" type="462c0819:PsiDirectoryNode" />
+              <item name="account" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bethemillionaire" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bethemillionaire" type="462c0819:PsiDirectoryNode" />
+              <item name="account" type="462c0819:PsiDirectoryNode" />
+              <item name="migrations" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="bethemillionaire" type="b2602c69:ProjectViewProjectNode" />
@@ -399,13 +384,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/topic/templates/topic/module_3_lesson_2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="241" column="52" selection-start-line="241" selection-start-column="52" selection-end-line="241" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/topic/templates/topic/module_3_lesson_3.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
@@ -722,27 +700,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bethemillionaire/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="220" column="5" selection-start-line="220" selection-start-column="5" selection-end-line="220" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bethemillionaire/local_settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="30" selection-start-line="30" selection-end-line="31" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/administration/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="30" lean-forward="true" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/administration/admin.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
@@ -760,10 +717,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/account/migrations/0008_remove_userprofile_package_buy_time.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bethemillionaire/local_settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="30" selection-start-line="30" selection-end-line="31" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bethemillionaire/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3960">
+          <caret line="220" column="5" selection-start-line="220" selection-start-column="5" selection-end-line="220" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/administration/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/manage.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
-          <caret line="5" column="70" selection-start-line="5" selection-start-column="70" selection-end-line="5" selection-end-column="70" />
+          <caret line="5" column="76" selection-start-line="5" selection-start-column="76" selection-end-line="5" selection-end-column="76" />
         </state>
       </provider>
     </entry>
