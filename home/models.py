@@ -63,3 +63,16 @@ class PersonalTrainingContent(models.Model):
 
     class Meta:
         ordering = ('-creation_time', )
+
+
+
+#commission payment receiver account
+class PaymentAccountSetting(models.Model):
+    user = models.OneToOneField(account_model.UserProfile, on_delete=False, null=True, blank=True)
+    account_type = models.CharField(max_length=50, null=True, blank=True)
+    account_no = models.CharField(max_length=255, null=True, blank=True)
+    creation_time = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return str(self.user.username)
+

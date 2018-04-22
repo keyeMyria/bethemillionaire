@@ -64,7 +64,31 @@ class PersonalTrainingContentForm(forms.Form):
 
 
 
+#payment account setting form
+account_type_list = (
+    ('bitcoin', 'Bitcoin'),
+    ('paypal', 'Paypal'),
+)
+class PaymentAccountSettingForm(forms.Form):
+    account_type = forms.ChoiceField(choices=account_type_list, required=False, widget=forms.Select(attrs={'class': 'validate'}))
+    account_no = forms.CharField(max_length=255, required=False, widget=forms.TextInput(attrs={'class': 'validate', 'id': 'icon_prefix'}))
 
+
+    def clean(self):
+        account_type = self.cleaned_data.get('account_type')
+        account_no = self.cleaned_data.get('account_no')
+
+        if len(account_no) == 0:
+            raise forms.ValidationError('Enter the account no!')
+
+
+
+    def deploy(self, request):
+        account_type = self.cleaned_data.get('account_type')
+        account_no = self.cleaned_data.get('account_no')
+
+
+        deploy = models.PaymentAccountSetting.objects.update_or_create(user=request.user, defaults={'account_type': account_type, 'account_no': account_no})
 
 
 

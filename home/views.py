@@ -590,3 +590,35 @@ class LeaderBoard(View):
 
 
 
+
+#Payment account settings
+class PaymentAccountSetting(View):
+    template_name = 'home/payment-account-setting.html'
+
+    def get(self, request):
+
+        current_payment_account = models.PaymentAccountSetting.objects.filter(user=request.user)
+
+        payment_account_form = forms.PaymentAccountSettingForm()
+
+        variables = {
+            'payment_account_form': payment_account_form,
+            'current_payment_account': current_payment_account,
+        }
+
+        return render(request, self.template_name, variables)
+
+    def post(self, request):
+        current_payment_account = models.PaymentAccountSetting.objects.filter(user=request.user)
+
+        payment_account_form = forms.PaymentAccountSettingForm(request.POST or None)
+
+        if payment_account_form.is_valid():
+            payment_account_form.deploy(request)
+
+        variables = {
+            'payment_account_form': payment_account_form,
+            'current_payment_account': current_payment_account,
+        }
+
+        return render(request, self.template_name, variables)

@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+
+{% block title %}Payment Account Setting | BeTheMillionaire{% endblock %}
+
+{% block add-css %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home/style/index.css' %}">
+{% endblock %}
+
+{% block main %}
+    <div class="row">
+        <div class="col s12 m12 l12" style="">
+            <div class="col s12 m12 l9 right main-content" style="">
+
+                <div class="col s12 m12 l10 offset-l1" style="margin-top: 10px;">
+                    <div class="card blue">
+                        <div class="card-content white-text">
+                            <span class="card-title">Commissions Payout Notice</span>
+                            <p>
+                                -All Commissions for Premium and VIP memberships are paid out twice a month on the 15th and 30th of the month and all profit sharing pools commissions paid out every 30th of the month.
+                            </p><br>
+
+                            <p>
+                                -Free members are eligible for 10% commissions from Premium and VIP sales, Premium members are eligible for 40% commissions from all Premium and VIP sales and VIP members are eligible for 70% commissions for all Premium and VIP sales!
+                            </p><br>
+
+                            <p>
+                                -VIP members are eligible to share 20% of the profits of BeTheMillionaire every month on the 30th of the month.
+                            </p><br>
+
+                            <p>
+                                -You can choose to choose to receive your commissions via Bitcoin or Paypal. I would recommend that you choose Bitcoin!
+                            </p><br>
+
+                            <p>
+                                -You can save 17% by paying for 6 months in advance and you can save 25% by paying 12 months in advance on Premium or VIP memberships.
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+
+                {% if current_payment_account %}
+                    <div class="col s12 m12 l10 offset-l1" style="margin-top: 10px; margin-bottom: 20px;">
+                        <h5>Your current payment account settings details are below:</h5>
+                        <br>
+
+                        {% for current_payment in current_payment_account %}
+                            <p>
+                                Receiving payment method: {{ current_payment.account_type | title }}
+                            </p>
+
+                            <p>
+                                {% if current_payment.account_type == 'paypal' %}
+                                    Paypal email: {{ current_payment.account_no }}
+                                {% endif %}
+
+                                {% if current_payment.account_type == 'bitcoin' %}
+                                    Bitcoin wallet address: {{ current_payment.account_no }}
+                                {% endif %}
+                            </p>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <div class="col s12 m12 l10 offset-l1" style="margin-top: 10px;">
+                        <h5>You have not yet setup your payment settings!</h5>
+                    </div>
+                {% endif %}
+
+                <div class="col s12 m12 l10 offset-l1" style="margin-top: 10px;">
+                    <h5>Update Your Commission Payment Method</h5>
+                </div>
+
+                <div class="col s12 m12 l10 offset-l1" style="margin-top: 50px; margin-bottom: 40px;">
+                    <form method="post">
+                        {% csrf_token %}
+
+                        <div style="" class="input-field col s12 m12 l12">
+                            <i class="material-icons prefix">create</i>
+                            {{ payment_account_form.account_type }}
+                            <label for="icon_prefix white-text">Select receiving payment method</label>
+                        </div>
+
+                        <div style="" class="input-field col s12 m12 l12">
+                            <i class="material-icons prefix">create</i>
+                            {{ payment_account_form.account_no }}
+                            <label for="icon_prefix white-text">Bitcoin wallet address / Paypal email</label>
+                        </div>
+
+                        {% if payment_account_form.non_field_errors %}
+                            {% for error in payment_account_form.non_field_errors %}
+                                <div class="col s12 m12 l12 center-align valign-wrapper red" style="height: 40px; border: 1px solid red; margin-bottom: 20px; margin-top: 10px;">
+                                    <p class="col s12 m12 l12 white-text" style="font-size: 14px;">
+                                        {{ error }}
+                                    </p>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+
+                        <button class="waves-effect waves-light btn red white-text" style="margin-top: 20px;">Save Settings</button>
+                    </form>
+                </div>
+
+            </div>
+            <!--end main-content -->
+
+            <div class="col s12 m12 l3 left left-content" style="border-right: 1px solid #333; margin-top: 20px;">
+                <div class="col s12 m12 l12">
+
+                    <a class="col s12 m12 l12 grey-text" style="padding: 10px;" href="{% url 'account:profile' %}">My Profile</a>
+                    <a class="col s12 m12 l12 navy-text" style="padding: 10px;" href="{% url 'home:payment-account-setting' %}">Payment Account Setting</a>
+                    <a class="col s12 m12 l12 grey-text" style="padding: 10px;" href="{% url 'account:membership-levels' %}">Upgrade Membership</a>
+                    <a class="col s12 m12 l12 grey-text" style="padding: 10px;" href="{% url 'account:my-autoresponder-settings' %}">My Autoresponder Setting</a>
+                    <a class="col s12 m12 l12 grey-text" style="padding: 10px;" href="{% url 'account:my-referrals' %}">My Referrals</a>
+
+                </div>
+            </div>
+            <!--end left-content -->
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block script %}
+
+<script>
+
+     $(document).ready(function() {
+        $('select').material_select();
+      });
+
+</script>
+
+{% endblock %}
