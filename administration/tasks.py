@@ -5,6 +5,7 @@ from celery.decorators import task
 from datetime import datetime, timedelta
 from dateutil.relativedelta import relativedelta
 
+from . import models
 
 from account import models as account_model
 
@@ -12,8 +13,9 @@ from account import models as account_model
 @task
 def mul(x, y):
     total = x * (y * random.randint(3, 100))
-    number1 = x
-    number2 = y
+
+    deploy = models.Mul(total=total)
+    deploy.save()
 
     return total
 
