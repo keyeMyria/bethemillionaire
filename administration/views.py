@@ -320,7 +320,7 @@ class PaymentDetail(AdminPermission, View):
             payment.is_verify = 'authorized'
             payment.save()
 
-            tasks.membership_change.apply_async(args=[payment_user_profile.id, payment_id], eta=today)
+            tasks.membership_change.apply_async(args=[payment_user_profile.id, payment_id], eta=expired_date)
 
 
         elif request.POST.get('reject') == 'reject':
