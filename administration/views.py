@@ -2,7 +2,7 @@ from django.shortcuts import render, HttpResponse, redirect, get_object_or_404
 from django.views import View
 from django.contrib.auth.mixins import PermissionRequiredMixin
 
-import datetime
+from datetime import datetime, timedelta
 from dateutil.relativedelta import relativedelta
 
 from lessons.models import Module, Lesson, Step
