@@ -111,11 +111,19 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
+"""
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com' # mail service smtp
 EMAIL_HOST_USER = 'mubarak117136' # email id
 EMAIL_HOST_PASSWORD = '117136m117136u' #password
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+"""
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'mail.privateemail.com' # mail service smtp
+EMAIL_HOST_USER = 'support@bethemillionaire.com' # email id
+EMAIL_HOST_PASSWORD = 'menaKP00' #password
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
