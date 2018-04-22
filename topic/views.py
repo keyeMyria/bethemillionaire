@@ -1,6 +1,8 @@
 from django.shortcuts import render, HttpResponseRedirect
 from django.views import View
 from django.db.models import Q
+from rest_framework.views import APIView
+from rest_framework.response import Response
 
 from account.models import UserProfile
 from . import forms
@@ -10,6 +12,8 @@ from lessons.models import Lesson
 from account.models import UsiTechAccount, BitconnectAccount
 from topic.models import StepControl, Note
 from account import models as account_model
+
+from . import serializers
 
 from administration import models as admin_model
 
@@ -2980,3 +2984,73 @@ class Module_7_Lesson_3(View):
         }
 
         return render(request, self.template_name, variables)
+
+
+
+
+
+
+#==============================================================================================
+#==============================================================================================
+#                               api
+#==============================================================================================
+#==============================================================================================
+
+class CommentAPI(APIView):
+
+    def get(self, request):
+        if request.GET.get("comment_id") and request.user.username == 'admin':
+
+            comment_id = request.GET.get("comment_id")
+
+            x = 'User authorized'
+
+            if request.user.username == 'admin':
+
+                commentObj = models.Comment.objects.get(id=comment_id)
+                commentObj.delete()
+
+                msg = 'Delete'
+            else:
+                x = 'Error authentication'
+                msg = 'Not delete'
+
+            return Response({
+                'msg': msg,
+                'x': x,
+            })
+        else:
+            return Response({
+                'x': 'not permitted to view',
+            })
+
+
+
+
+class SubCommentAPI(APIView):
+
+    def get(self, request):
+        if request.GET.get("subcomment_id") and request.user.username == 'admin':
+
+            subcomment_id = request.GET.get("subcomment_id")
+
+            x = 'User authorized'
+
+            if request.user.username == 'admin':
+
+                subcommentObj = models.SubComment.objects.get(id=subcomment_id)
+                subcommentObj.delete()
+
+                msg = 'Delete'
+            else:
+                x = 'Error authentication'
+                msg = 'Not delete'
+
+            return Response({
+                'msg': msg,
+                'x': x,
+            })
+        else:
+            return Response({
+                'x': 'not permitted to view',
+            })

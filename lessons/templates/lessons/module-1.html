@@ -154,6 +154,10 @@
                                 </div>
 
                                 <div class="col s8 m9 l10" style="margin-top: 10px;">
+                                    {% if request.user.username == 'admin' %}
+                                        <p style="cursor: pointer;" onclick="comment_delete({{ comment.id }})">Delete</p>
+                                    {% endif %}
+
                                     <p>{{ comment.comment }}</p>
                                 </div>
                             </div>
@@ -180,6 +184,10 @@
                                             </div>
 
                                             <div class="col s8 m9 l10" style="margin-top: 10px;">
+                                                {% if request.user.username == 'admin' %}
+                                                    <p style="cursor: pointer;" onclick="subcomment_delete({{ subcomment.id }})">Delete</p>
+                                                {% endif %}
+
                                                 <p>{{ subcomment.subcomment }}</p>
                                             </div>
                                         </div>
@@ -313,6 +321,36 @@
         $(document).ready(function(){
             $('.modal').modal();
         });
+
+        {% if request.user.username == 'admin' %}
+
+            function comment_delete(comment_id){
+
+                $.ajax({
+                    url: '/topic/api/comment/',
+                    data: { "comment_id":comment_id },
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data);
+                        document.location.href = "{{ request.get_full_path }}";
+                    }
+                });
+            }
+
+
+            function subcomment_delete(subcomment_id){
+
+                $.ajax({
+                    url: '/topic/api/subcomment/',
+                    data: { "subcomment_id":subcomment_id },
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data);
+                        document.location.href = "{{ request.get_full_path }}";
+                    }
+                });
+            }
+        {% endif %}
     </script>
 
 {% endblock %}

@@ -45,4 +45,8 @@ urlpatterns = [
     url(r'^how-to-achieve-your-goals-dreams/$', views.Module_7_Lesson_1.as_view(), name='module-7-lesson-1'),
     url(r'^lesson2-your-daily-method-of-operation/$', views.Module_7_Lesson_2.as_view(), name='module-7-lesson-2'),
     url(r'^top-bitcoin-resources/$', views.Module_7_Lesson_3.as_view(), name='module-7-lesson-3'),
+
+    #api
+    url(r'^api/comment/$', views.CommentAPI.as_view(), name='comment-api'),
+    url(r'^api/subcomment/$', views.SubCommentAPI.as_view(), name='subcomment-api'),
 ]
