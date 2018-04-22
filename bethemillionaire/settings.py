@@ -126,6 +126,8 @@ EMAIL_HOST_USER = 'support@bethemillionaire.com' # email id
 EMAIL_HOST_PASSWORD = 'menaKP00' #password
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
+SERVER_EMAIL = EMAIL_HOST_USER
 
 
 LANGUAGE_CODE = 'en-us'
