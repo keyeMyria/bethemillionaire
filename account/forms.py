@@ -131,6 +131,7 @@ class RegistrationForm(forms.Form):
 
             #celery task
             tasks.sent_registration_email.delay(sponsor_obj.username, sponsor_obj.email, username, email)
+            tasks.sent_registred_email.delay(username, email, password1)
 
             #add referral
             current_user = UserProfile.objects.get(id=user.id)
@@ -155,6 +156,7 @@ class RegistrationForm(forms.Form):
 
             #celery task
             tasks.sent_registration_email.delay(sponsor_obj.username, sponsor_obj.email, username, email)
+            tasks.sent_registred_email.delay(username, email, password1)
 
             current_user = UserProfile.objects.get(id=user.id)
 

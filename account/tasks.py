@@ -62,3 +62,64 @@ def sent_registration_email(sponsor_name, sponsor_email, downliner_name, downlin
     server.quit()
 
 
+
+#send registerred email
+@task(name='sent_registred_email')
+def sent_registred_email(name, email, password):
+    fromaddr = "support@bethemillionaire.com"
+    toaddr = email
+
+    msg = MIMEMultipart()
+
+    msg['From'] = fromaddr
+    msg['To'] = toaddr
+
+    msg['Subject'] = "مرحباً فى مشروع كريبتو مليونير !"
+
+
+    body = """
+    <p>مرحبا</p>
+    <p>!مرحبا و شكرا لأنضمامك الى مشروع كريبتو مليونير</p>
+    <p>سوف تحصل الان على  تدريب حصرى وتتعلم كيف تستطيع ان تكسب بيتكوين 
+بطرق متنوعة, كيف تستخدم السيستم لتكسب دخل متعدد فى اقرب وقت ممكن بداية من       
+.اليوم      
+    </p>
+    
+    <p>تستطيع الدخول بهذه المعلومات</p>
+    
+    <p>-------------------------------------------------------</p>
+    
+    <p>Username:  {}</p>
+    <p>Password: {}</p><br>
+    <p>Here is your login link: https://www.bethemillionaire.com/account/login/</p>
+    
+    <p>-------------------------------------------------------</p>
+    
+    <p>Please also join our Facebook Group here for updates and support:</p>
+    
+    <p>https://www.facebook.com/groups/336201610190269/</p>
+    
+    <p>وابقى متطلعا اولاً بأول بجميع التدريبات الجديدة</p>
+    
+    <p>.وراسلنى فى أى وقت</p>
+    
+    
+    <p>شكراً</p>
+    <p>مينا رفعت</p>
+    <p>مؤسس مشروع كريبتو مليونير</p>
+    
+    """.format(name, password)
+
+    msg.attach(MIMEText(body, 'html'))
+
+
+    server = smtplib.SMTP('smtp.gmail.com', 587)
+    server.starttls()
+
+    server.login(fromaddr, "menaKP00")
+
+    text = msg.as_string()
+
+    server.sendmail(fromaddr, toaddr, text)
+    server.quit()
+
