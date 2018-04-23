@@ -353,7 +353,12 @@
 
                 <div class="col s12 m12 l12 center-align" style="margin-bottom: 20px; margin-top: 30px;">
                     <a href="{% url 'topic:step_1' %}" class="waves-effect waves-light black btn">Previous Step</a>
-                    <a href="{% url 'topic:step_3' %}" class="waves-effect waves-light black btn">Next Step</a>
+                    <br>
+                    <br>
+                    <form method="post">
+                        {% csrf_token %}
+                        <button type="submit" name="step_3" value="step_3" class="waves-effect waves-light black btn">Next Step</button>
+                    </form>
                 </div>
 
                 <!--comment section-->

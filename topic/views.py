@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponseRedirect
+from django.shortcuts import render, HttpResponseRedirect, redirect
 from django.views import View
 from django.db.models import Q
 from rest_framework.views import APIView
@@ -24,6 +24,8 @@ class Step_1(View):
 
     def get(self, request):
         steps = StepControl.objects.filter(short_name='step-1')
+
+        models.StepCount.objects.update_or_create(user=request.user, defaults={'step1': True})
 
         commentForm = forms.CommentForm()
         subcommentForm = forms.SubCommentForm()
@@ -73,6 +75,12 @@ class Step_1(View):
                 deploy1.topic = 'step-1-overview'
                 deploy1.save()
 
+        if request.method == 'POST' and request.POST.get('step_2') == 'step_2':
+            models.StepCount.objects.update_or_create(user=request.user, defaults={'step2': True})
+
+            return redirect('topic:step_2')
+
+
         total_comment = models.Comment.objects.filter(topic='step-1-overview').count()
         total_subcomment = models.SubComment.objects.filter(topic='step-1-overview').count()
 
@@ -100,6 +108,11 @@ class Step_2(View):
 
     def get(self, request):
         steps = StepControl.objects.filter(short_name='step-2')
+
+        get_step = models.StepCount.objects.get(user=request.user)
+
+        if not get_step.step2:
+            return redirect('topic:step_1')
 
         commentForm = forms.CommentForm()
         subcommentForm = forms.SubCommentForm()
@@ -221,6 +234,13 @@ class Step_2(View):
                 deploy1.topic = 'step-2-setup-bitcoinwallet'
                 deploy1.save()
 
+
+        if request.method == 'POST' and request.POST.get('step_3') == 'step_3':
+            models.StepCount.objects.update_or_create(user=request.user, defaults={'step3': True})
+
+            return redirect('topic:step_3')
+
+
         total_comment = models.Comment.objects.filter(topic='step-2-setup-bitcoinwallet').count()
         total_subcomment = models.SubComment.objects.filter(topic='step-2-setup-bitcoinwallet').count()
 
@@ -321,6 +341,11 @@ class Step_3(View):
     def get(self, request):
         steps = StepControl.objects.filter(short_name='step-3')
 
+        get_step = models.StepCount.objects.get(user=request.user)
+
+        if not get_step.step3:
+            return redirect('topic:step_2')
+
         commentForm = forms.CommentForm()
         subcommentForm = forms.SubCommentForm()
 
@@ -353,6 +378,11 @@ class Step_3(View):
 
         commentForm = forms.CommentForm(request.POST or None)
         subcommentForm = forms.SubCommentForm(request.POST or None)
+
+        if request.method == 'POST' and request.POST.get('step_4') == 'step_4':
+            models.StepCount.objects.update_or_create(user=request.user, defaults={'step4': True})
+
+            return redirect('topic:step_4')
 
 
         user_profile = UserProfile.objects.filter(username=request.user.username)
@@ -403,6 +433,11 @@ class Step_4(View):
     def get(self, request):
         steps = StepControl.objects.filter(short_name='step-4')
 
+        get_step = models.StepCount.objects.get(user=request.user)
+
+        if not get_step.step4:
+            return redirect('topic:step_3')
+
         commentForm = forms.CommentForm()
         subcommentForm = forms.SubCommentForm()
 
@@ -430,6 +465,11 @@ class Step_4(View):
 
     def post(self, request):
         steps = StepControl.objects.filter(short_name='step-4')
+
+        if request.method == 'POST' and request.POST.get('step_5') == 'step_5':
+            models.StepCount.objects.update_or_create(user=request.user, defaults={'step5': True})
+
+            return redirect('topic:step_5')
 
         commentForm = forms.CommentForm(request.POST or None)
         subcommentForm = forms.SubCommentForm(request.POST or None)
@@ -478,6 +518,11 @@ class Step_5(View):
 
     def get(self, request):
         steps = StepControl.objects.filter(short_name='step-5')
+
+        get_step = models.StepCount.objects.get(user=request.user)
+
+        if not get_step.step5:
+            return redirect('topic:step_4')
 
         commentForm = forms.CommentForm()
         subcommentForm = forms.SubCommentForm()

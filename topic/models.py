@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 
 from account.models import UserProfile
 
+
 class Comment(models.Model):
     user = models.ForeignKey(UserProfile, on_delete=models.CASCADE, default=1)
     topic = models.CharField(max_length=255, default='step-1-overview', null=True, blank=True)
@@ -42,3 +43,17 @@ class Note(models.Model):
 
     def __str__(self):
         return self.topic
+
+
+#step count
+class StepCount(models.Model):
+    user = models.OneToOneField(UserProfile, on_delete=models.CASCADE, null=True, blank=True)
+    step1 = models.BooleanField(default=True)
+    step2 = models.BooleanField(default=False)
+    step3 = models.BooleanField(default=False)
+    step4 = models.BooleanField(default=False)
+    step5 = models.BooleanField(default=False)
+
+    def __str__(self):
+        return str(self.user.username)
+

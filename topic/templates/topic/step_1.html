@@ -83,7 +83,10 @@
                 {% endfor %}
 
                 <div class="col s12 m10 offset-m1 l10 offset-l1" style="margin-bottom: 20px; margin-top: 30px;">
-                    <a href="{% url 'topic:step_2' %}" class="waves-effect waves-light black btn">Next Step</a>
+                    <form method="post">
+                        {% csrf_token %}
+                        <button type="submit" name="step_2" value="step_2" class="waves-effect waves-light black btn">Next Step</button>
+                    </form>
                 </div>
 
 
