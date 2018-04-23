@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0ba751cb-a37f-4638-b597-b9218988ff8c" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/topic/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/topic/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topic/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/topic/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topic/templates/topic/step_1.html" beforeDir="false" afterPath="$PROJECT_DIR$/topic/templates/topic/step_1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topic/templates/topic/step_2.html" beforeDir="false" afterPath="$PROJECT_DIR$/topic/templates/topic/step_2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topic/templates/topic/step_3.html" beforeDir="false" afterPath="$PROJECT_DIR$/topic/templates/topic/step_3.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topic/templates/topic/step_4.html" beforeDir="false" afterPath="$PROJECT_DIR$/topic/templates/topic/step_4.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topic/templates/topic/step_5.html" beforeDir="false" afterPath="$PROJECT_DIR$/topic/templates/topic/step_5.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topic/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/topic/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,11 +13,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="manage.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/manage.py">
+      <file leaf-file-name="thank-you.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/account/templates/account/thank-you.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="5" column="70" selection-start-line="5" selection-start-column="70" selection-end-line="5" selection-end-column="70" />
+            <state relative-caret-position="236">
+              <caret line="64" column="109" selection-start-line="64" selection-start-column="109" selection-end-line="64" selection-end-column="109" />
             </state>
           </provider>
         </entry>
@@ -116,7 +109,6 @@
         <option value="$PROJECT_DIR$/account/emails.py" />
         <option value="$PROJECT_DIR$/bethemillionaire/celery.py" />
         <option value="$PROJECT_DIR$/account/templates/account/welcome.html" />
-        <option value="$PROJECT_DIR$/account/templates/account/thank-you.html" />
         <option value="$PROJECT_DIR$/bethemillionaire/settings.py" />
         <option value="$PROJECT_DIR$/account/tasks.py" />
         <option value="$PROJECT_DIR$/account/forms.py" />
@@ -130,10 +122,11 @@
         <option value="$PROJECT_DIR$/topic/templates/topic/step_5.html" />
         <option value="$PROJECT_DIR$/account/models.py" />
         <option value="$PROJECT_DIR$/manage.py" />
+        <option value="$PROJECT_DIR$/account/templates/account/thank-you.html" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="164" />
     <option name="y" value="372" />
     <option name="width" value="1040" />
@@ -155,6 +148,19 @@
             <path>
               <item name="bethemillionaire" type="b2602c69:ProjectViewProjectNode" />
               <item name="bethemillionaire" type="462c0819:PsiDirectoryNode" />
+              <item name="account" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bethemillionaire" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bethemillionaire" type="462c0819:PsiDirectoryNode" />
+              <item name="account" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bethemillionaire" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bethemillionaire" type="462c0819:PsiDirectoryNode" />
+              <item name="account" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="account" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -285,7 +291,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="24" width="1366" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2278481" />
       <window_info anchor="bottom" id="Version Control" order="1" />
@@ -572,13 +577,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/account/templates/account/thank-you.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="52" column="19" lean-forward="true" selection-start-line="52" selection-start-column="19" selection-end-line="52" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/account/tasks.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="169">
@@ -721,6 +719,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="5" column="70" selection-start-line="5" selection-start-column="70" selection-end-line="5" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/account/templates/account/thank-you.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="236">
+          <caret line="64" column="109" selection-start-line="64" selection-start-column="109" selection-end-line="64" selection-end-column="109" />
         </state>
       </provider>
     </entry>
