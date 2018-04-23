@@ -14,6 +14,7 @@ c = {
 
 data = {
     'email': 'mubarak117136@gmail.com',
+    'name': 'muba',
     'campaign': c,
     'ipAddress': ipaddress,
 }
@@ -28,3 +29,5 @@ headers = {
 }
 
 r = requests.post('https://api.getresponse.com/v3/contacts', headers=headers, data=data_json)
+
+print(r)
