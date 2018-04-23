@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0ba751cb-a37f-4638-b597-b9218988ff8c" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topic/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/topic/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topic/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/topic/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topic/templates/topic/step_1.html" beforeDir="false" afterPath="$PROJECT_DIR$/topic/templates/topic/step_1.html" afterDir="false" />
@@ -21,123 +20,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/topic/urls.py">
+      <file leaf-file-name="manage.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/manage.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="491">
-              <caret line="50" column="70" selection-start-line="50" selection-start-column="70" selection-end-line="50" selection-end-column="70" />
-              <folding>
-                <element signature="e#0#32#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/topic/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="524" column="41" selection-start-line="524" selection-start-column="41" selection-end-line="524" selection-end-column="41" />
-              <folding>
-                <element signature="e#0#67#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="step_5.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/topic/templates/topic/step_5.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="426">
-              <caret line="86" column="53" selection-start-line="86" selection-start-column="53" selection-end-line="86" selection-end-column="53" />
-              <folding>
-                <element signature="e#6057#6081#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/account/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
-              <caret line="64" column="46" selection-start-line="64" selection-start-column="46" selection-end-line="64" selection-end-column="46" />
-              <folding>
-                <element signature="e#0#28#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/course/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="6" column="87" selection-start-line="6" selection-start-column="81" selection-end-line="6" selection-end-column="87" />
-              <folding>
-                <element signature="e#0#32#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="step_4.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/topic/templates/topic/step_4.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="410" column="73" selection-start-line="410" selection-start-column="73" selection-end-line="410" selection-end-column="73" />
-              <folding>
-                <element signature="e#27340#27364#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="step_3.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/topic/templates/topic/step_3.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="58" column="27" lean-forward="true" selection-start-line="53" selection-start-column="20" selection-end-line="58" selection-end-column="27" />
-              <folding>
-                <element signature="e#4452#4476#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="step_1.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/topic/templates/topic/step_1.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="88" column="27" lean-forward="true" selection-start-line="85" selection-start-column="20" selection-end-line="88" selection-end-column="27" />
-              <folding>
-                <element signature="n#style#0;n#p#0;n#div#3;n#div#0;n#div#0;n#div#8;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#0;n#div#3;n#div#0;n#div#1;n#div#0;n#div#8;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="step_2.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/topic/templates/topic/step_2.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="360" column="27" lean-forward="true" selection-start-line="355" selection-start-column="20" selection-end-line="360" selection-end-column="27" />
-              <folding>
-                <element signature="e#25923#25947#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/topic/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="383">
-              <caret line="48" column="15" selection-start-line="48" selection-start-column="6" selection-end-line="48" selection-end-column="15" />
-              <folding>
-                <element signature="e#0#28#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="72">
+              <caret line="5" column="70" selection-start-line="5" selection-start-column="70" selection-end-line="5" selection-end-column="70" />
             </state>
           </provider>
         </entry>
@@ -233,7 +120,6 @@
         <option value="$PROJECT_DIR$/bethemillionaire/settings.py" />
         <option value="$PROJECT_DIR$/account/tasks.py" />
         <option value="$PROJECT_DIR$/account/forms.py" />
-        <option value="$PROJECT_DIR$/manage.py" />
         <option value="$PROJECT_DIR$/topic/models.py" />
         <option value="$PROJECT_DIR$/topic/admin.py" />
         <option value="$PROJECT_DIR$/topic/templates/topic/step_1.html" />
@@ -243,6 +129,7 @@
         <option value="$PROJECT_DIR$/topic/views.py" />
         <option value="$PROJECT_DIR$/topic/templates/topic/step_5.html" />
         <option value="$PROJECT_DIR$/account/models.py" />
+        <option value="$PROJECT_DIR$/manage.py" />
       </list>
     </option>
   </component>
@@ -712,13 +599,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/manage.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="5" column="76" selection-start-line="5" selection-start-column="76" selection-end-line="5" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bethemillionaire/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
@@ -834,6 +714,13 @@
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/manage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="5" column="70" selection-start-line="5" selection-start-column="70" selection-end-line="5" selection-end-column="70" />
         </state>
       </provider>
     </entry>
