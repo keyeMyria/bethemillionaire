@@ -4,6 +4,8 @@ from django.contrib.auth import authenticate
 import re
 import itertools
 
+from . import tasks
+
 from .models import UserProfile, Preregistration, BeTheMillionaire_3_Step_Registration_Funnel, Direct_Registration
 
 from . import models
@@ -127,6 +129,9 @@ class RegistrationForm(forms.Form):
             user.set_password(password1)
             user.save()
 
+            #celery task
+            tasks.sent_registration_email.delay(sponsor_obj.username, sponsor_obj.email, username, email)
+
             #add referral
             current_user = UserProfile.objects.get(id=user.id)
 
@@ -147,6 +152,9 @@ class RegistrationForm(forms.Form):
             user = UserProfile(username=username, email=email, sponsor=sponsor_obj)
             user.set_password(password1)
             user.save()
+
+            #celery task
+            tasks.sent_registration_email.delay(sponsor_obj.username, sponsor_obj.email, username, email)
 
             current_user = UserProfile.objects.get(id=user.id)
 
