@@ -16,6 +16,9 @@ urlpatterns = [
     #payment settings
     url(r'^member-home/payment-account-setting/$', views.PaymentAccountSetting.as_view(), name='payment-account-setting'),
 
+    #my commission
+    url(r'^member-home/my-commission/$', views.MyCommission.as_view(), name='my-commission'),
+
     #leader board
     url(r'^member-home/leader-board/$', views.LeaderBoard.as_view(), name='leader-board'),
 

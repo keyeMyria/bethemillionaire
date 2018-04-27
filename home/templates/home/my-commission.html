@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+{% block title %}My-Commission | BeTheMillionaire{% endblock %}
+
+{% block add-css %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home/style/index.css' %}">
+{% endblock %}
+
+{% block main %}
+    <div class="row">
+        <div class="col s12 m12 l12" style="">
+            <div class="col s12 m12 l9 right main-content" style="">
+
+                <div class="col s12 m12 l10 offset-l1" style="margin-top: 10px;">
+                    <div class="card blue">
+                        <div class="card-content white-text">
+                            <span class="card-title">Commission</span>
+
+                            <p>
+                                Here you can see your referral sale commission.
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col s12 m12 l10 offset-l1" style="margin-top: 10px; margin-bottom: 40px;">
+                    <table class="highlight centered responsive-table">
+                        <thead>
+                            <tr>
+                                <th>S/N</th>
+                                <th>Referred User</th>
+                                <th>Commission</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody class="table_data">
+                            {% for commission in commissions %}
+                            <tr>
+                                <td>{{ forloop.counter }}</td>
+                                <td>{{ commission.referred_user.username | title }}</td>
+                                <td>{{ commission.commission }}$</td>
+
+                                <td>{{ commission.creation_time | date }}</td>
+                                <td>
+                                    {% if commission.is_verified %}
+                                        Authorized
+                                    {% else %}
+                                        Pending
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+
+            </div>
+            <!--end main-content -->
+
+            <div class="col s12 m12 l3 left left-content" style="border-right: 1px solid #333; margin-top: 20px;">
+                <div class="col s12 m12 l12">
+
+                    <a class="col s12 m12 l12 grey-text" style="padding: 10px;" href="{% url 'account:profile' %}">My Profile</a>
+                    <a class="col s12 m12 l12 grey-text" style="padding: 10px;" href="{% url 'home:payment-account-setting' %}">Payment Account Setting</a>
+                    <a class="col s12 m12 l12 navy-text" style="padding: 10px;" href="{% url 'home:my-commission' %}">My Commission</a>
+                    <a class="col s12 m12 l12 grey-text" style="padding: 10px;" href="{% url 'account:membership-levels' %}">Upgrade Membership</a>
+                    <a class="col s12 m12 l12 grey-text" style="padding: 10px;" href="{% url 'account:my-autoresponder-settings' %}">My Autoresponder Setting</a>
+                    <a class="col s12 m12 l12 grey-text" style="padding: 10px;" href="{% url 'account:my-referrals' %}">My Referrals</a>
+
+                </div>
+            </div>
+            <!--end left-content -->
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block script %}
+
+<script>
+
+     $(document).ready(function() {
+        $('select').material_select();
+      });
+
+</script>
+
+{% endblock %}

@@ -622,3 +622,20 @@ class PaymentAccountSetting(View):
         }
 
         return render(request, self.template_name, variables)
+
+
+
+#my commission
+class MyCommission(View):
+    template_name = 'home/my-commission.html'
+
+    def get(self, request):
+
+        commissions = account_model.ReferralSaleCommission.objects.filter(user=request.user).order_by('is_verified')
+
+        variables = {
+            'commissions': commissions,
+        }
+
+        return render(request, self.template_name, variables)
+

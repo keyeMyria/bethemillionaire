@@ -1053,8 +1053,7 @@ class Profile(View):
         user_profiles = models.UserProfile.objects.filter(username=request.user.username)
 
 
-
-
+        payments = models.Payment.objects.filter(user=request.user).order_by('-creation_time').all()
 
         variables = {
             'user_edit_form': user_edit_form,
@@ -1078,6 +1077,7 @@ class Profile(View):
 
 
             'user_profiles': user_profiles,
+            'payments': payments,
         }
 
         return render(request, self.template_name, variables)

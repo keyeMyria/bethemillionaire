@@ -12,9 +12,9 @@
         <div class="col s12 m8 offset-m2 l18 offset-l2" style="margin-top: 20px;">
             <div class="col s12 m12 l12">
                 <ul class="tabs">
-                    <li class="tab col l4"><a class="black-text" href="#account-details">My Account Details</a></li>
+                    <li class="tab col l4"><a class="active black-text" href="#account-details">My Account Details</a></li>
                     <li class="tab col l4"><a class="black-text" href="#other-affiliate-network">Other Affiliate Networks</a></li>
-                    <li class="tab col l3"><a class="active black-text" href="#account-my-membership">My Membership</a></li>
+                    <li class="tab col l3"><a class="black-text" href="#account-my-memberhsip">My Membership</a></li>
                 </ul>
             </div>
         </div>
@@ -296,21 +296,53 @@
                 <h5 class="col l10 offset-l1">My Membership</h5>
 
                 <div class="col l10 offset-l1">
+                    <div class="card blue">
+                        <div class="card-content white-text">
+                            <span class="card-title">Current Membership</span>
+
+                            <p>
+                                Membership Name: {{ request.user.membership.name | title }}
+                            </p>
+
+                            <p>
+                                Membership Package: {{ request.user.membership.package | title }}
+                            </p>
+
+                            {% if request.user.payments %}
+                                <p>
+                                    Membership Start: {{ request.user.payments.creation_time | date }}
+                                </p>
+
+                                <p>
+                                    Membership Expired: {{ request.user.payments.expired_time | date }}
+                                </p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col l10 offset-l1">
                     <table class="highlight centered bordered responsive-table" style="margin-bottom: 50px; margin-top: 30px;">
                         <thead>
                           <tr style="background-color: blue; color: white;">
                               <th>Level</th>
                               <th>Billing</th>
+                              <th>Start</th>
                               <th>Expired</th>
+                              <th>Status</th>
                           </tr>
                         </thead>
 
                         <tbody>
-                            <tr>
-                                <td>Level</td>
-                                <td></td>
-                                <td></td>
-                            </tr>
+                            {% for payment in payments %}
+                                <tr>
+                                    <td>{{ payment.membership.name | title }} - {{ payment.membership.package | title }}</td>
+                                    <td>{{ payment.membership.price }}$</td>
+                                    <td>{{ payment.creation_time | date }}</td>
+                                    <td>{{ payment.expired_time | date }}</td>
+                                    <td>{{ payment.is_verify | title }}</td>
+                                </tr>
+                            {% endfor %}
                         </tbody>
                     </table>
                 </div>
