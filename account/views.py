@@ -33,7 +33,7 @@ import simplejson
 import socket
 
 class Preregistration(View):
-    template_name = 'account/preregistration.html'
+    template_name = 'account/sign-up.html'
 
     def get(self, request):
 
