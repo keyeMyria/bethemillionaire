@@ -33,7 +33,7 @@ import simplejson
 import socket
 
 class Preregistration(View):
-    template_name = 'account/sign-up.html'
+    template_name = 'account/pre-registration1.html'
 
     def get(self, request):
 
@@ -81,7 +81,7 @@ class Preregistration(View):
 
 #user login
 class Login(View):
-    template_name = 'account/login.html'
+    template_name = 'account/login1.html'
 
     def get(self, request):
         form = LoginForm()
@@ -115,7 +115,7 @@ class Login(View):
 
 #registration functionality
 class Registration(View):
-    template_name = 'account/registration.html'
+    template_name = 'account/registration1.html'
 
     def get(self, request):
         affiliate_name = request.GET.get("userid")
