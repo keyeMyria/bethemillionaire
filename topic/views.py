@@ -191,6 +191,16 @@ class Step_2(View):
 
 
 
+        trezors_accounts = account_model.TrezorSAccount.objects.get(user=request.user.sponsor)
+
+        if trezors_accounts.trezor_username:
+            trezors_account = account_model.TrezorSAccount.objects.get(user=request.user.sponsor)
+
+        else:
+            trezors_account = account_model.TrezorSAccount.objects.get(user__username='admin')
+
+
+
         variables = {
             'user_profile': user_profile,
             'commentForm': commentForm,
@@ -207,6 +217,7 @@ class Step_2(View):
             'bit_panda_account': bit_panda_account,
             'inda_coin_account': inda_coin_account,
             'local_bitcoin_account': local_bitcoin_account,
+            'trezors_account': trezors_account,
         }
 
         return render(request, self.template_name, variables)
@@ -312,6 +323,15 @@ class Step_2(View):
             local_bitcoin_account = account_model.LocalBitcoinsAccount.objects.get(user__username='admin')
 
 
+        trezors_accounts = account_model.TrezorSAccount.objects.get(user=request.user.sponsor)
+
+        if trezors_accounts.trezor_username:
+            trezors_account = account_model.TrezorSAccount.objects.get(user=request.user.sponsor)
+
+        else:
+            trezors_account = account_model.TrezorSAccount.objects.get(user__username='admin')
+
+
 
         variables = {
             'user_profile': user_profile,
@@ -329,6 +349,7 @@ class Step_2(View):
             'bit_panda_account': bit_panda_account,
             'inda_coin_account': inda_coin_account,
             'local_bitcoin_account': local_bitcoin_account,
+            'trezors_account': trezors_account,
         }
 
         return render(request, self.template_name, variables)
@@ -950,6 +971,17 @@ class Module_2_Lesson_2(View):
 
 
 
+        trezors_accounts = account_model.TrezorSAccount.objects.get(user=request.user.sponsor)
+
+        if trezors_accounts.trezor_username:
+            trezors_account = account_model.TrezorSAccount.objects.get(user=request.user.sponsor)
+
+        else:
+            trezors_account = account_model.TrezorSAccount.objects.get(user__username='admin')
+
+
+
+
         variables = {
             'user_profile': user_profile,
             'commentForm': commentForm,
@@ -963,6 +995,7 @@ class Module_2_Lesson_2(View):
 
             'ladger_nano_s_account': ladger_nano_s_account,
             'coin_base_account': coin_base_account,
+            'trezors_account': trezors_account,
         }
 
         return render(request, self.template_name, variables)
@@ -1027,6 +1060,17 @@ class Module_2_Lesson_2(View):
             coin_base_account = account_model.CoinBaseAccount.objects.get(user__username='admin')
 
 
+        trezors_accounts = account_model.TrezorSAccount.objects.get(user=request.user.sponsor)
+
+        if trezors_accounts.trezor_username:
+            trezors_account = account_model.TrezorSAccount.objects.get(user=request.user.sponsor)
+
+        else:
+            trezors_account = account_model.TrezorSAccount.objects.get(user__username='admin')
+
+
+
+
         variables = {
             'user_profile': user_profile,
             'commentForm': commentForm,
@@ -1040,6 +1084,7 @@ class Module_2_Lesson_2(View):
 
             'ladger_nano_s_account': ladger_nano_s_account,
             'coin_base_account': coin_base_account,
+            'trezors_account': trezors_account,
         }
 
         return render(request, self.template_name, variables)
