@@ -1,0 +1,85 @@
+{% extends 'admin-base.html' %}
+
+{% block title %}Administration | BeTheMillionaire{% endblock %}
+
+{% block add-css %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home/style/index.css' %}">
+{% endblock %}
+
+{% block main %}
+    <div class="row">
+        <div class="col s12 l8 offset-l2" style="">
+
+            <div class="col s12 l6 white" style="">
+
+                <div class="col s12 m12 l12" style="margin-bottom: 50px; margin-top: 40px;">
+                    <p class="left" style="font-size: 22px;">Payout User</p>
+
+                    <p class="col s12 m12 l12 divider" style="margin-top: 5px;"></p>
+
+                    <div class="col s12 m12 l12" style="padding: 10px; margin-top: 5px;">
+                        <p>Username : {{ commission.user.username | title }}</p>
+                        <p>Email : {{ commission.user.email }}</p>
+                        <p>Commission : {{ commission.commission }}$</p>
+
+
+                        {% if current_payment_account %}
+                            <h5>Payout Method</h5>
+
+
+                            {% for current_payment in current_payment_account %}
+                                <p>
+                                    Receiving payment method: {{ current_payment.account_type | title }}
+                                </p>
+
+                                <p>
+                                    {% if current_payment.account_type == 'paypal' %}
+                                        Paypal email: {{ current_payment.account_no }}
+                                    {% endif %}
+
+                                    {% if current_payment.account_type == 'bitcoin' %}
+                                        Bitcoin wallet address: {{ current_payment.account_no }}
+                                    {% endif %}
+                                </p>
+                            {% endfor %}
+                        {% else %}
+                            <h5>You have not yet setup your payment settings!</h5>
+                        {% endif %}
+
+                        <form method="post">
+                            {% csrf_token %}
+
+                            {% if not commission.is_verified %}
+                                <button type="submit" name="authorize" value="authorize" class="waves-effect waves-light btn red white-text" style="margin-top: 20px;">Authorize</button>
+                            {% else %}
+                                <h5>Already authorized</h5>
+                                <h5>Authorized by: {{ commission.verified_by }}</h5>
+                            {% endif %}
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col s12 l6 white" style="">
+                <div class="col s12 m12 l12" style="margin-bottom: 50px; margin-top: 40px;">
+                    <p class="left" style="font-size: 22px;">Referred User</p>
+
+                    <p class="col s12 m12 l12 divider" style="margin-top: 5px;"></p>
+
+                    <div class="col s12 m12 l12" style="padding: 10px; margin-top: 5px;">
+                        <p>Username : {{ commission.referred_user.username | title }}</p>
+                        <p>Email : {{ commission.referred_user.email }}</p>
+
+                        <h5>Payment on</h5>
+
+                        <p>Membership: {{ commission.referred_user_payment.membership.name }}</p>
+                        <p>Package: {{ commission.referred_user_payment.membership.package }}</p>
+                        <p>Price: {{ commission.referred_user_payment.membership.price }}$</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

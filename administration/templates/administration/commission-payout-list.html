@@ -1,0 +1,45 @@
+{% extends 'admin-base.html' %}
+
+{% block title %}Administration | BeTheMillionaire{% endblock %}
+
+{% block add-css %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home/style/index.css' %}">
+{% endblock %}
+
+{% block main %}
+    <div class="row">
+        <div class="col s12 m10 offset-m1 l8 offset-l2" style="">
+
+            <h5 style="margin-top: 20px;">Total pending commissions</h5>
+            <p class="col s12 m12 l12 divider" style="margin-bottom: 20px;"></p>
+
+            <table class="highlight centered responsive-table">
+                <thead>
+                    <tr>
+                        <th>S/N</th>
+                        <th>Username</th>
+                        <th>Referred User</th>
+                        <th>Commission</th>
+                        <th>Operation</th>
+                    </tr>
+                </thead>
+
+                <tbody class="table_data">
+                    {% for commission in commissions %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ commission.user.username | title }}</td>
+                        <td>{{ commission.referred_user.username | title }}</td>
+                        <td>{{ commission.commission }}$</td>
+
+                        <td>
+                            <a href="{% url 'administration:commission-payment-detail' commission_id=commission.id %}">View</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

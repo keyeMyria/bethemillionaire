@@ -800,3 +800,18 @@ def create_ITBAccount(sender, **kwargs):
 
 post_save.connect(create_ITBAccount, sender=UserProfile)
 
+
+
+#referral sale comission
+class ReferralSaleCommission(models.Model):
+    user = models.ForeignKey(UserProfile, on_delete=None, null=True, blank=True, related_name='sponsor_comission')
+    referred_user = models.ForeignKey(UserProfile, on_delete=None, null=True, blank=True, related_name='referred_user')
+    referred_user_payment = models.ForeignKey(Payment, on_delete=None, null=True, blank=True)
+    commission = models.FloatField(null=True, blank=True)
+    is_verified = models.BooleanField(default=False)
+    verified_by = models.ForeignKey(UserProfile, on_delete=None, null=True, blank=True, related_name='verified_by_staff')
+    creation_time = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return str(self.user.username)
+

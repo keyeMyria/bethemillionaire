@@ -20,6 +20,10 @@ urlpatterns = [
     url(r'^payment/pending/$', views.PaymentPending.as_view(), name='payment-pending'),
     url(r'^payment/(?P<payment_id>[0-9]+)/detail/$', views.PaymentDetail.as_view(), name='payment-detail'),
 
+    #commissions payout
+    url(r'^commission-payment/$', views.CommissionPayment.as_view(), name='commission-payment'),
+    url(r'^commission-payment/(?P<commission_id>[0-9]+)/detail/$', views.CommissionPaymentDetail.as_view(), name='commission-payment-detail'),
+
 
 
     #url for module control

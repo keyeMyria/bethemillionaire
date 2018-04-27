@@ -12,9 +12,13 @@ from topic.models import StepControl
 from account import models as account_model
 from account import forms as account_form
 
+from home import models as home_model
+
 from . import forms
 
 from . import tasks
+
+from . import email
 
 
 class AdminPermission(PermissionRequiredMixin, View):
@@ -304,6 +308,40 @@ class PaymentDetail(AdminPermission, View):
 
         return render(request, self.template_name, variables)
 
+
+    def commission_sale_calculation(self, referred_payment, referred_percent):
+        payable = (referred_payment*referred_percent) / 100
+
+        return payable
+
+
+    def commission_sale_deploy(self, request, payment):
+        sponsor_obj = payment.user.sponsor
+        referred_user = payment.user
+        referral_membership = payment.membership
+        sponsor_membership = sponsor_obj.membership.name
+
+
+        referred_payment = referral_membership.price
+
+        get_commission = None
+
+        if sponsor_membership == 'free':
+            get_commission = self.commission_sale_calculation(referred_payment, 10)
+        elif sponsor_membership == 'premium':
+            get_commission = self.commission_sale_calculation(referred_payment, 40)
+        elif sponsor_membership == 'vip':
+            get_commission = self.commission_sale_calculation(referred_payment, 70)
+
+
+
+        deploy = account_model.ReferralSaleCommission(user=sponsor_obj, referred_user=referred_user, referred_user_payment=payment, commission=get_commission)
+        deploy.save()
+
+        email.sent_commission_email(sponsor_obj, referred_user, referral_membership, get_commission)
+
+
+
     def post(self, request, payment_id):
         payment = get_object_or_404(account_model.Payment, pk=payment_id)
 
@@ -314,13 +352,18 @@ class PaymentDetail(AdminPermission, View):
 
         expired_date = payment.expired_time
 
-        today = datetime.utcnow() + relativedelta(minutes=2)
+        #today = datetime.utcnow() + relativedelta(minutes=2)
 
         if request.POST.get('authorize') == 'authorize':
             payment.is_verify = 'authorized'
             payment.save()
 
             tasks.membership_change.apply_async(args=[payment_user_profile.id, payment_id], eta=expired_date)
+
+
+            #referral sale commission calculation
+            self.commission_sale_deploy(request, payment)
+
 
 
         elif request.POST.get('reject') == 'reject':
@@ -551,3 +594,58 @@ class AddVideo(AdminPermission, View):
         }
 
         return render(request, self.template_name, variables)
+
+
+#pending commission payment
+class CommissionPayment(View):
+    template_name = 'administration/commission-payout-list.html'
+
+    def get(self, request):
+
+        commissions = account_model.ReferralSaleCommission.objects.filter(is_verified=False).all()
+
+        variables = {
+            'commissions': commissions,
+        }
+
+        return render(request, self.template_name, variables)
+
+
+
+#pending commission payment
+class CommissionPaymentDetail(View):
+    template_name = 'administration/commission-payout-detail.html'
+
+    def get(self, request, commission_id):
+        commission = get_object_or_404(account_model.ReferralSaleCommission, pk=commission_id)
+
+        current_payment_account = home_model.PaymentAccountSetting.objects.filter(user=commission.user)
+
+
+        variables = {
+            'commission': commission,
+            'current_payment_account': current_payment_account,
+        }
+
+        return render(request, self.template_name, variables)
+    def post(self, request, commission_id):
+        commission = get_object_or_404(account_model.ReferralSaleCommission, pk=commission_id)
+
+        current_payment_account = home_model.PaymentAccountSetting.objects.filter(user=commission.user)
+
+
+        if request.POST.get('authorize') == 'authorize':
+            commission.is_verified = True
+            commission.verified_by = request.user
+            commission.save()
+
+            email.sent_commission_email_confirmation(commission.user, commission.referred_user, commission.referred_user_payment.membership, commission.commission)
+
+        variables = {
+            'commission': commission,
+            'current_payment_account': current_payment_account,
+        }
+
+        return render(request, self.template_name, variables)
+
+
