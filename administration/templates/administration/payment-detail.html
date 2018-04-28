@@ -12,13 +12,13 @@
         <div class="col m8 offset-m2 white " style=" padding: 20px; margin-top: 20px; margin-bottom: 20px;">
             <!--user table-->
             <div class="col s12 m12 l12" style="">
-                <h4 class="col s12 m12 l12" style="margin-top: 40px;">
+                <h5 class="col s12 m12 l12" style="">
                     Payment Detail
-                </h4>
+                </h5>
 
-                <p class="col s12 m12 l12 divider" style="margin-top: 30px;"></p>
+                <p class="col s12 m12 l12 divider" style=""></p>
 
-                <div class="col s12 m12 l12">
+                <div class="col s12 l8">
                     <p class="" style="margin-top: 30px;">
                         Username: {{ payment.user.username | title }}<br>
                         Email: {{ payment.user.email }}<br>
@@ -28,6 +28,7 @@
                     <p>Payer ID: {{ payment.payer_ID }}</p>
                     <p>Payment ID: {{ payment.payment_ID }}</p>
                     <p>Payment Token: {{ payment.payment_Token }}</p>
+                    <p>Transaction ID: {{ payment.transaction_ID }}</p><br>
                     <p>Membership Name: {{ payment.membership.name }}</p>
                     <p>Membership Package: {{ payment.membership.package }}</p>
                     <p>Membership Price: ${{ payment.membership.price }}</p>
@@ -52,6 +53,17 @@
                             <button type="submit" name="expired" value="expired" class="waves-effect waves-light btn red white-text" style="margin-top: 20px;">Expired</button>
                         {% endif %}
 
+                    </form>
+                </div>
+
+                <div class="col l4 center-align">
+                    <h4 style="margin-top: 100px;">Not Checked</h4>
+
+
+                    <form method="post">
+                        {% csrf_token %}
+
+                        <button type="submit" name="check_payment" value="check_payment" class="waves-effect waves-light btn red white-text" style="margin-top: 20px;">Check This Payment</button>
                     </form>
                 </div>
             </div>

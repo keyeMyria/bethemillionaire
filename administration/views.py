@@ -341,6 +341,9 @@ class PaymentDetail(AdminPermission, View):
         email.sent_commission_email(sponsor_obj, referred_user, referral_membership, get_commission)
 
 
+    def check_payment(self, params):
+        pass
+
 
     def post(self, request, payment_id):
         payment = get_object_or_404(account_model.Payment, pk=payment_id)
@@ -353,6 +356,11 @@ class PaymentDetail(AdminPermission, View):
         expired_date = payment.expired_time
 
         #today = datetime.utcnow() + relativedelta(minutes=2)
+
+
+        if request.POST.get('check_payment') == 'check_payment':
+            print(len(payment.paypal_confirmation.ipn_message))
+
 
         if request.POST.get('authorize') == 'authorize':
             payment.is_verify = 'authorized'
