@@ -5,6 +5,10 @@ from django.contrib.auth.mixins import PermissionRequiredMixin
 from datetime import datetime, timedelta
 from dateutil.relativedelta import relativedelta
 
+import sys
+import urllib.parse
+import requests
+
 from lessons.models import Module, Lesson, Step
 from home.models import AffiliateLinkControl
 from topic.models import StepControl
@@ -357,9 +361,27 @@ class PaymentDetail(AdminPermission, View):
 
         #today = datetime.utcnow() + relativedelta(minutes=2)
 
-
+        check_status = False
         if request.POST.get('check_payment') == 'check_payment':
-            print(len(payment.paypal_confirmation.ipn_message))
+            print('check')
+            VERIFY_URL_PROD = 'https://ipnpb.paypal.com/cgi-bin/webscr'
+            VERIFY_URL = VERIFY_URL_PROD
+
+            params = payment.paypal_confirmation.ipn_message
+
+            headers = {'content-type': 'application/x-www-form-urlencoded',
+                       'user-agent': 'Python-IPN-Verification-Script'}
+            r = requests.post(VERIFY_URL, data=params, headers=headers, verify=True)
+            r.raise_for_status()
+
+            print(r)
+
+            if r.text == 'VERIFIED':
+                check_status = "Payment Checked Success!"
+                print('y')
+            elif r.text == 'INVALID':
+                print('y')
+                check_status = "Payment has an error!"
 
 
         if request.POST.get('authorize') == 'authorize':
@@ -395,6 +417,7 @@ class PaymentDetail(AdminPermission, View):
 
         variables = {
             'payment': payment,
+            'check_status': check_status,
         }
 
         return render(request, self.template_name, variables)

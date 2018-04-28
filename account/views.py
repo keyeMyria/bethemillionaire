@@ -1679,7 +1679,7 @@ def PaypalIPN(request):
                 if param[0] == 'txn_id':
                     transaction_id = param[1]
 
-            deploy = models.PaypalConfirmation(transaction_ID=transaction_id, ipn_message=str(params))
+            deploy = models.PaypalConfirmation(transaction_ID=transaction_id, ipn_message=str(datas))
             deploy.save()
 
             update_payment = models.Payment.objects.filter(transaction_ID=transaction_id).update(paypal_confirmation=deploy)
