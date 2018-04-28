@@ -1703,7 +1703,9 @@ def PaypalIPN(request):
         datas = request.body.decode('utf-8')
         #body = json.loads(datas)
 
-        deploy = models.PaypalConfirmation(payer_ID=payer_id, ipn_message=str(datas))
+        params = urllib.parse.parse_qsl(datas)
+
+        deploy = models.PaypalConfirmation(payer_ID=payer_id, ipn_message=str(params))
         deploy.save()
 
 
