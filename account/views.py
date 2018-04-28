@@ -1653,9 +1653,9 @@ from django.views.decorators.csrf import csrf_exempt
 @csrf_exempt
 def PaypalIPN(request):
     if request.POST:
-        inputtxt=request.POST['getrow']
+        get_id = request.POST.get('payer_id')
 
-        deploy = models.PaypalConfirmation(payer_ID='ajnajknkjn', ipn_message=str(inputtxt))
+        deploy = models.PaypalConfirmation(payer_ID=get_id, ipn_message='sdsfkjdfsdjk')
         deploy.save()
 
 
