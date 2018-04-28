@@ -30,7 +30,7 @@ elif r.text == 'INVALID':
 
 
 import requests
-r = requests.post("localhost:8000/account/paypal-ipn/", data={'number': 12524, 'type': 'issue'})
+r = requests.post("https://www.bethemillionaire.com/account/paypal-ipn/", data={'number': 12524, 'type': 'issue'})
 print(r.status_code, r.reason)
 
 

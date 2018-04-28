@@ -72,7 +72,7 @@ urlpatterns = [
 
 
     #paypal ipn
-    url(r'^paypal-ipn/$', views.PaypalIPN.as_view(), name='paypal-ipn'),
+    url(r'^paypal-ipn/$', views.PaypalIPN, name='paypal-ipn'),
 
 
 

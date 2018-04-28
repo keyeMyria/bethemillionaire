@@ -1648,21 +1648,17 @@ class CheckoutFailure(View):
     def get(self, request):
         return render(request, self.template_name)
 
+from django.views.decorators.csrf import csrf_exempt
 
-
-class PaypalIPN(View):
-    template_name = 'account/paypal_confirmation.html'
-
-    def get(self, request):
-
-        return render(request, self.template_name)
-
-    def post(self, request):
+@csrf_exempt
+def PaypalIPN(request):
+    if request.POST:
         if request.POST.get('number') and request.POST.get('type'):
             deploy = models.PaypalConfirmation(payer_ID=str(request.POST.get('number')), ipn_message=str(request.POST.get('type')))
             deploy.save()
 
-        return render(request, self.template_name)
+        return render(request, 'account/paypal_confirmation.html')
+    return render(request, 'account/paypal_confirmation.html')
 
 
 
