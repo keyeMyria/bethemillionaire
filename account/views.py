@@ -1700,7 +1700,7 @@ def PaypalIPN(request):
 
         list = [('kjs', 'jsnk'), ('hbjh', 'hjh'), ('b jhb', 'bjhb')]
 
-        deploy = models.PaypalConfirmation(payer_ID=payer_id, ipn_message=str(list))
+        deploy = models.PaypalConfirmation(payer_ID=payer_id, ipn_message=str(request.body))
         deploy.save()
 
 
