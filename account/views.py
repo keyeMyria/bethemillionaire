@@ -1649,7 +1649,7 @@ class CheckoutFailure(View):
         return render(request, self.template_name)
 
 from django.views.decorators.csrf import csrf_exempt
-
+import json
 @csrf_exempt
 def PaypalIPN(request):
     if request.POST:
@@ -1657,10 +1657,9 @@ def PaypalIPN(request):
 
         #param_str = sys.stdin.readline().strip()
         #params = urllib.parse.parse_qsl(param_str)
+        json_data = json.loads(request.body)
 
-        params = 'dskskj'
-
-        deploy = models.PaypalConfirmation(payer_ID=get_id, ipn_message=str(params))
+        deploy = models.PaypalConfirmation(payer_ID=get_id, ipn_message=str(json_data))
         deploy.save()
 
 
