@@ -6,6 +6,7 @@
     {% load staticfiles %}
     <link rel="stylesheet" type="text/css" href="{% static 'home/style/index.css' %}">
     <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 {% endblock %}
 
 {% block main %}
@@ -91,20 +92,15 @@
 
             env: 'production', // sandbox | production
 
-            // PayPal Client IDs - replace with your own
-            // Create a PayPal app: https://developer.paypal.com/developer/applications/create
+
             client: {
                 sandbox: '',
                 production: 'AeAk71BtpPfy1tjOada556TEsVjbgoKxwclhQv-OxPk9BUWp_VP86EP5EXDR7eR0fuhAo8NPIxuopT-D'
             },
 
-            // Show the buyer a 'Pay Now' button in the checkout flow
             commit: true,
 
-            // payment() is called when the button is clicked
             payment: function(data, actions) {
-
-                // Make a call to the REST api to create the payment
                 return actions.payment.create({
                     payment: {
                         transactions: [
@@ -113,28 +109,27 @@
                             }
                         ]
                     }
+
                 });
             },
 
-            // onAuthorize() is called when the buyer approves the payment
+
             onAuthorize: function(data, actions) {
 
-                // Make a call to the REST api to execute the payment
-                return actions.payment.execute().then(function() {
-                    console.log(data);
+                return actions.payment.execute().then(function(payment) {
                     var intent = data.intent;
                     var payerID = data.payerID;
                     var paymentID = data.paymentID;
                     var paymentToken = data.paymentToken;
+                    var transactionID = payment.transactions[0].related_resources[0].sale.id;
                     var level = $("#get_level").val();
                     var userid = $("#get_userid").val();
 
                     $.ajax({
                         url: '/account/api/payment/',
-                        data: { "userid":userid, "intent":intent, "payerID":payerID, "paymentID":paymentID, "paymentToken":paymentToken, "memberhsiplevel":level },
+                        data: { "userid":userid, "intent":intent, "payerID":payerID, "paymentID":paymentID, "paymentToken":paymentToken, "memberhsiplevel":level, "transactionID": transactionID, },
                         dataType: 'json',
                         success: function (data) {
-                            console.log(data);
                             window.location.href="/account/membership-account/checkout-success/";
                         }
                     });
@@ -143,7 +138,7 @@
 
 
             onCancel: function(data, actions) {
-                window.location.href="/account/membership-account/checkout-failure/";
+                //window.location.href="/account/membership-account/checkout-failure/";
             },
 
 
@@ -160,9 +155,6 @@
 
           return text;
         }
-
-        //console.log("number: " + makeid());
-
     </script>
 
 {% endblock %}

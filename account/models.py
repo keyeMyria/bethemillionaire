@@ -486,11 +486,11 @@ class Membershiplevel(models.Model):
 
 #paypal ipn data
 class PaypalConfirmation(models.Model):
-    payer_ID = models.CharField(max_length=100, null=True, blank=True)
+    transaction_ID = models.CharField(max_length=100, null=True, blank=True)
     ipn_message = models.TextField(max_length=1000, null=True, blank=True)
 
     def __str__(self):
-        return str(self.payer_ID)
+        return str(self.transaction_ID)
 
 
 
@@ -501,6 +501,10 @@ class Payment(models.Model):
     payer_ID = models.CharField(max_length=100, null=True, blank=True)
     payment_ID = models.CharField(max_length=100, null=True, blank=True)
     payment_Token = models.CharField(max_length=100, null=True, blank=True)
+    transaction_ID = models.CharField(max_length=100, null=True, blank=True)
+
+    paypal_confirmation = models.ForeignKey(PaypalConfirmation, on_delete=None, null=True, blank=True)
+
     membership = models.ForeignKey(Membershiplevel, null=True, blank=True)
 
     #this is for manual verification protect fraud transaction

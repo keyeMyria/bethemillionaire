@@ -1494,7 +1494,7 @@ def check_username(request):
 class PaymentAPI(APIView):
 
     def get(self, request):
-        if request.GET.get("payerID") and request.GET.get("paymentID") and request.GET.get("paymentToken") and request.GET.get("userid"):
+        if request.GET.get("payerID") and request.GET.get("paymentID") and request.GET.get("paymentToken") and request.GET.get("userid") and request.GET.get("transactionID"):
             username = request.GET.get("userid")
 
             userObj = UserProfile.objects.get(username=username)
@@ -1502,6 +1502,7 @@ class PaymentAPI(APIView):
             payerID = request.GET.get("payerID")
             paymentID = request.GET.get("paymentID")
             paymentToken = request.GET.get("paymentToken")
+            transactionID = request.GET.get("transactionID")
             membership_plan_id = request.GET.get("memberhsiplevel")
             membeshiplevelObj = models.Membershiplevel.objects.get(id=membership_plan_id)
 
@@ -1510,7 +1511,7 @@ class PaymentAPI(APIView):
             payment_confirm = 'unconfirmed'
 
             if request.user.is_authenticated() and request.user.username == username:
-                deploy = models.Payment(user=userObj, intent=intent, payer_ID=payerID, payment_ID=paymentID, payment_Token=paymentToken, membership=membeshiplevelObj, is_verify='pending')
+                deploy = models.Payment(user=userObj, intent=intent, payer_ID=payerID, payment_ID=paymentID, payment_Token=paymentToken, transaction_ID=transactionID, membership=membeshiplevelObj, is_verify='pending')
                 deploy.save()
                 payment_obj_id = deploy.id
                 payment_date = deploy.creation_time
@@ -1527,6 +1528,8 @@ class PaymentAPI(APIView):
 
                 paymentObj = models.Payment.objects.get(id=payment_obj_id)
 
+                payment_list_obj = models.Payment.objects.filter(id=payment_obj_id)
+
                 paymentObj.expired_time = package_end_date
                 paymentObj.save()
 
@@ -1535,7 +1538,7 @@ class PaymentAPI(APIView):
 
                 payment_confirm = 'confirmed'
 
-                serializer = serializers.PaymentSerializer(paymentObj, many=True).data
+                serializer = serializers.PaymentSerializer(payment_list_obj, many=True).data
             else:
                 x = 'Error authentication'
                 payment_confirm = 'unconfirmed'
@@ -1672,8 +1675,15 @@ def PaypalIPN(request):
         r.raise_for_status()
 
         if r.text == 'VERIFIED':
-            deploy = models.PaypalConfirmation(payer_ID='sdhbdkjn', ipn_message=str(params))
+            for param in params:
+                if param[0] == 'txn_id':
+                    transaction_id = param[1]
+
+            deploy = models.PaypalConfirmation(transaction_ID=transaction_id, ipn_message=str(params))
             deploy.save()
+
+            update_payment = models.Payment.objects.filter(transaction_ID=transaction_id).update(paypal_confirmation=deploy)
+
         elif r.text == 'INVALID':
             pass
 
