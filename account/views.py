@@ -1655,7 +1655,7 @@ import json
 def PaypalIPN(request):
 
     if request.POST:
-        VERIFY_URL_PROD = 'https://www.bethemillionaire.com/account/paypal-ipn/'
+        VERIFY_URL_PROD = 'https://ipnpb.paypal.com/cgi-bin/webscr'
         VERIFY_URL = VERIFY_URL_PROD
 
 
