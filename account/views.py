@@ -1652,14 +1652,53 @@ from django.views.decorators.csrf import csrf_exempt
 import json
 @csrf_exempt
 def PaypalIPN(request):
+
+    data = []
+
     if request.POST:
-        get_id = request.POST.get('payer_id')
+        mc_gross = request.POST.get('mc_gross')
+        protection_eligibility = request.POST.get('protection_eligibility')
+        address_status = request.POST.get('address_status')
+        payer_id = request.POST.get('payer_id')
+        address_street = request.POST.get('address_street')
+        payment_date = request.POST.get('payment_date')
+        payment_status = request.POST.get('payment_status')
+        charset = request.POST.get('charset')
+        address_zip = request.POST.get('address_zip')
+        first_name = request.POST.get('first_name')
+        mc_fee = request.POST.get('mc_fee')
+        address_country_code = request.POST.get('address_country_code')
+        address_name = request.POST.get('address_name')
+        notify_version = request.POST.get('notify_version')
+        payer_status = request.POST.get('payer_status')
+        business = request.POST.get('business')
+        address_country = request.POST.get('address_country')
+        address_city = request.POST.get('address_city')
+        quantity = request.POST.get('quantity')
+        verify_sign = request.POST.get('verify_sign')
+        payer_email = request.POST.get('payer_email')
+        txn_id = request.POST.get('txn_id')
+        payment_type = request.POST.get('payment_type')
+        last_name = request.POST.get('last_name')
+        address_state = request.POST.get('address_state')
+        receiver_email = request.POST.get('receiver_email')
+        payment_fee = request.POST.get('payment_fee')
+        shipping_discount = request.POST.get('shipping_discount')
+        insurance_amount = request.POST.get('insurance_amount')
+        receiver_id = request.POST.get('receiver_id')
+        txn_type = request.POST.get('txn_type')
+        discount = request.POST.get('discount')
+        mc_currency = request.POST.get('mc_currency')
+        residence_country = request.POST.get('residence_country')
+        shipping_method = request.POST.get('shipping_method')
+        payment_gross = request.POST.get('payment_gross')
+        ipn_track_id = request.POST.get('ipn_track_id')
 
-        #param_str = sys.stdin.readline().strip()
-        #params = urllib.parse.parse_qsl(param_str)
-        json_data = json.loads(request.body)
 
-        deploy = models.PaypalConfirmation(payer_ID=get_id, ipn_message=str(json_data))
+        data.append(mc_gross, protection_eligibility, address_status, payer_id, address_street, payment_date, payment_status, charset, address_zip, first_name, mc_fee, address_country_code, address_name, notify_version, payer_status, business)
+
+
+        deploy = models.PaypalConfirmation(payer_ID=payer_id, ipn_message=str(data))
         deploy.save()
 
 
