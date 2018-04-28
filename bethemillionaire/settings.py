@@ -204,6 +204,9 @@ LOGIN_EXEMPT_URLS = (
  r'^account/welcome/$',
  r'^account/thank-you/$',
 
+
+ r'^account/paypal-ipn/$',
+
  r'^account/recover-password/$',
  r'^account/recover-password/done/$',
  r'^account/reset/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',

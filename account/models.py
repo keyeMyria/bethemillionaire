@@ -483,6 +483,17 @@ class Membershiplevel(models.Model):
         return self.name + "-" + self.package
 
 
+
+#paypal ipn data
+class PaypalConfirmation(models.Model):
+    payer_ID = models.CharField(max_length=100, null=True, blank=True)
+    ipn_message = models.TextField(max_length=1000, null=True, blank=True)
+
+    def __str__(self):
+        return str(self.payer_ID)
+
+
+
 #payment
 class Payment(models.Model):
     user = models.ForeignKey(UserProfile, null=True, blank=True)

@@ -71,6 +71,10 @@ urlpatterns = [
     url(r'^thank-you/$', views.ThankYou.as_view(), name='thank-you'),
 
 
+    #paypal ipn
+    url(r'^paypal-ipn/$', views.PaypalIPN.as_view(), name='paypal-ipn'),
+
+
 
     url(r'^api/check-username/$', views.check_username, name='chech-username'),
     url(r'^api/user-profile/$', views.UserProfileAPI.as_view(), name='user-profile-api'),
