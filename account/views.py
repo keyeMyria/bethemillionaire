@@ -1651,6 +1651,12 @@ class CheckoutFailure(View):
 
 
 class PaypalIPN(View):
+    template_name = 'account/paypal_confirmation.html'
+
+    def get(self, request):
+
+        return render(request, self.template_name)
+
     def post(self, request):
         VERIFY_URL_PROD = 'https://ipnpb.paypal.com/cgi-bin/webscr'
 
@@ -1673,12 +1679,17 @@ class PaypalIPN(View):
         r = requests.post(VERIFY_URL, params=params, headers=headers, verify=True)
         r.raise_for_status()
 
+        deploy = models.PaypalConfirmation(payer_ID='ksjdksdkjnskj', ipn_message=params)
+        deploy.save()
+
 
         if r.text == 'VERIFIED':
             deploy = models.PaypalConfirmation(payer_ID='ksjdksdkjnskj', ipn_message=params)
             deploy.save()
         elif r.text == 'INVALID':
             pass
+
+        return render(request, self.template_name)
 
 
 
