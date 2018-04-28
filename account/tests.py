@@ -2,7 +2,7 @@ import sys
 import urllib.parse
 import requests
 
-"""
+
 VERIFY_URL_PROD = 'https://ipnpb.paypal.com/cgi-bin/webscr'
 
 
@@ -25,12 +25,3 @@ if r.text == 'VERIFIED':
     print('y')
 elif r.text == 'INVALID':
     print('n')
-
-"""
-
-
-import requests
-r = requests.post("https://www.bethemillionaire.com/account/paypal-ipn/", data={'number': 12524, 'type': 'issue'})
-print(r.status_code, r.reason)
-
-
