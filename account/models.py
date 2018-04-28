@@ -496,7 +496,7 @@ class PaypalConfirmation(models.Model):
 
 #payment
 class Payment(models.Model):
-    user = models.ForeignKey(UserProfile, null=True, blank=True)
+    user = models.ForeignKey(UserProfile, on_delete=None, null=True, blank=True)
     intent = models.CharField(max_length=50, null=True, blank=True)
     payer_ID = models.CharField(max_length=100, null=True, blank=True)
     payment_ID = models.CharField(max_length=100, null=True, blank=True)
