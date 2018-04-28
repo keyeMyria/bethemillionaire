@@ -22,7 +22,7 @@ def sent_commission_email(user, referral, membership, payment_received):
     https://www.bethemillionaire.com/member-home/payment-account-setting/   <br>
     <br><br>
     
-    You get this commission from {}. He just update his membership to {}.
+    You get this commission from {}. He just update his membership to {}.<br><br>
     
     Thanks<br>
     Mena Refeat and BeTheMillionaire Team
