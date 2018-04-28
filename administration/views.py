@@ -345,10 +345,6 @@ class PaymentDetail(AdminPermission, View):
         email.sent_commission_email(sponsor_obj, referred_user, referral_membership, get_commission)
 
 
-    def check_payment(self, params):
-        pass
-
-
     def post(self, request, payment_id):
         payment = get_object_or_404(account_model.Payment, pk=payment_id)
 
@@ -363,24 +359,23 @@ class PaymentDetail(AdminPermission, View):
 
         check_status = False
         if request.POST.get('check_payment') == 'check_payment':
-            print('check')
             VERIFY_URL_PROD = 'https://ipnpb.paypal.com/cgi-bin/webscr'
             VERIFY_URL = VERIFY_URL_PROD
 
-            params = payment.paypal_confirmation.ipn_message
+            param_str = payment.paypal_confirmation.ipn_message
+            params = urllib.parse.parse_qsl(param_str)
+
+            params.append(('cmd', '_notify-validate'))
 
             headers = {'content-type': 'application/x-www-form-urlencoded',
                        'user-agent': 'Python-IPN-Verification-Script'}
             r = requests.post(VERIFY_URL, data=params, headers=headers, verify=True)
             r.raise_for_status()
 
-            print(r)
-
             if r.text == 'VERIFIED':
-                check_status = "Payment Checked Success!"
-                print('y')
+                check_status = "Payment Checked Success! You can authorize!"
+
             elif r.text == 'INVALID':
-                print('y')
                 check_status = "Payment has an error!"
 
 
