@@ -19,8 +19,15 @@ params = urllib.parse.parse_qsl(param_str)
 
 headers = {'content-type': 'application/x-www-form-urlencoded',
            'user-agent': 'Python-IPN-Verification-Script'}
-r = requests.post(VERIFY_URL, params=params, headers=headers, verify=True)
+r = requests.post(VERIFY_URL, data=params, headers=headers, verify=True)
 r.raise_for_status()
 
-
 print(r)
+
+"""
+if r.text == 'VERIFIED':
+    print('y')
+elif r.text == 'INVALID':
+    print('n')
+"""
+

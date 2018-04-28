@@ -1655,7 +1655,10 @@ def PaypalIPN(request):
     if request.POST:
         get_id = request.POST.get('payer_id')
 
-        deploy = models.PaypalConfirmation(payer_ID=get_id, ipn_message='sdsfkjdfsdjk')
+        param_str = sys.stdin.readline().strip()
+        params = urllib.parse.parse_qsl(param_str)
+
+        deploy = models.PaypalConfirmation(payer_ID=get_id, ipn_message=str(params))
         deploy.save()
 
 
