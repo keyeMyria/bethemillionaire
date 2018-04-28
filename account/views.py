@@ -1698,7 +1698,7 @@ def PaypalIPN(request):
         #data.append(mc_gross, protection_eligibility, address_status, payer_id, address_street, payment_date, payment_status, charset, address_zip, first_name, mc_fee, address_country_code, address_name, notify_version, payer_status, business)
 
 
-        list = ['kjnkjs', 'sdjnfkjs', 'sjkdbkjs']
+        list = [('kjs', 'jsnk'), ('hbjh', 'hjh'), ('b jhb', 'bjhb')]
 
         deploy = models.PaypalConfirmation(payer_ID=payer_id, ipn_message=str(list))
         deploy.save()
