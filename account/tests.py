@@ -13,7 +13,7 @@ param_str = 'mc_gross=0.02&protection_eligibility=Ineligible&address_status=conf
 params = urllib.parse.parse_qsl(param_str)
 
 # Add '_notify-validate' parameter
-#params.append(('cmd', '_notify-validate'))
+params.append(('cmd', '_notify-validate'))
 
 headers = {'content-type': 'application/x-www-form-urlencoded',
            'user-agent': 'Python-IPN-Verification-Script'}
