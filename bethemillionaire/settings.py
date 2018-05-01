@@ -204,6 +204,8 @@ LOGIN_EXEMPT_URLS = (
  r'^account/welcome/$',
  r'^account/thank-you/$',
 
+ r'^account/api/user-profile/$',
+
 
  r'^account/paypal-ipn/$',
 

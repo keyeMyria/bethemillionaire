@@ -1394,6 +1394,13 @@ class UserProfileAPI(APIView):
                 'user_membership_name': user_membership_name,
                 'total_member': total_member,
             })
+        elif request.GET.get('user_range'):
+            range = int(request.GET.get('user_range'))
+
+            userObj = UserProfile.objects.all().order_by('?')[0:range]
+            serializer = serializers.UserProfileSerializer(userObj, many=True)
+
+            return Response(serializer.data)
 
 
 #14 affiliate link api
@@ -1679,7 +1686,7 @@ def PaypalIPN(request):
                 if param[0] == 'txn_id':
                     transaction_id = param[1]
 
-            deploy = models.PaypalConfirmation(transaction_ID=transaction_id, ipn_message=str(datas))
+            deploy = models.PaypalConfirmation(transaction_ID=transaction_id, ipn_message=str(datasUser))
             deploy.save()
 
             update_payment = models.Payment.objects.filter(transaction_ID=transaction_id).update(paypal_confirmation=deploy)

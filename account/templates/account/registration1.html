@@ -10,6 +10,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link href="https://fonts.googleapis.com/css?family=Sacramento" rel="stylesheet">
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+
+
 
     <style>
         .container{
@@ -35,6 +38,14 @@
             font-family: 'myFont';
             src: url('/static/account/fonts/myFont.ttf');
         }
+
+        #toast-container {
+          top: auto !important;
+          right: auto !important;
+          bottom: 10%;
+          left:7%;
+        }
+
     </style>
 </head>
 
@@ -141,3 +152,53 @@
     <script type="text/javascript" src="{% static 'account/js/materialize.min.js' %}"></script>
 </body>
 </html>
+
+<script>
+    $(document).ready(function () {
+        $.ajax({
+        url: '/account/api/user-profile/',
+        data: { "user_range":1, },
+        dataType: 'json',
+        success: function (data) {
+            username = data[0].username;
+
+            var toastHTML = `
+              <div class="col s12 m12 l12 valign-wrapper" style="">
+                <a href="{% url 'account:public-profile' %}?userid=${username}" class="white-text" style="text-decoration: underline;">${username} </a> &nbsp; Just joined!
+              </div>
+            `
+
+            M.toast({html: toastHTML });
+        }
+        });
+    });
+
+    $(function() {
+      setInterval(update, 5000);
+      setInterval(dissmiss, 10000);
+    });
+
+    function dissmiss(){
+        M.Toast.dismissAll();
+    }
+
+    function update() {
+      $.ajax({
+        url: '/account/api/user-profile/',
+        data: { "user_range":1, },
+        dataType: 'json',
+        success: function (data) {
+            username = data[0].username;
+
+            var toastHTML = `
+              <div class="col s12 m12 l12 valign-wrapper" style="">
+                <a href="{% url 'account:public-profile' %}?userid=${username}" class="white-text" style="text-decoration: underline;">${username} </a> &nbsp; Just joined!
+              </div>
+            `
+
+            M.toast({html: toastHTML });
+
+        }
+        });
+    }
+</script>

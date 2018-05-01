@@ -80,4 +80,5 @@ urlpatterns = [
     url(r'^api/user-profile/$', views.UserProfileAPI.as_view(), name='user-profile-api'),
     url(r'^api/affiliate-link/$', views.AffiliateLinkAPI.as_view(), name='affiliate-link-api'),
     url(r'^api/payment/$', views.PaymentAPI.as_view(), name='payment-api'),
+
 ]

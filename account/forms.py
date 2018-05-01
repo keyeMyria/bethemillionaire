@@ -44,7 +44,10 @@ class PreregistrationForm(forms.Form):
 
             getresponseObj = models.GetResponseAutoresponderAddContact.objects.filter(user__username=request.GET.get("userid"))
 
+            print(getresponseObj)
+
             for getresponseUser in getresponseObj:
+                get_response_user = getresponseUser.user.username
                 campaign_id = getresponseUser.campaignId
                 api_key = getresponseUser.api_key
                 isEnable = getresponseUser.isEnable
@@ -57,6 +60,7 @@ class PreregistrationForm(forms.Form):
                         }
 
                     data = {
+                        'name': get_response_user,
                         'email': email,
                         'campaign': c,
                         'ipAddress': ipaddress,
@@ -72,6 +76,7 @@ class PreregistrationForm(forms.Form):
                     }
 
                     r = requests.post('https://api.getresponse.com/v3/contacts', headers=headers, data=data_json)
+                    print(r)
                 else:
                     print("Get Response not enabled")
         else:
@@ -84,7 +89,7 @@ class PreregistrationForm(forms.Form):
 class RegistrationForm(forms.Form):
     username = forms.CharField(max_length=30, required=False, widget=forms.TextInput(attrs={'class': 'validate', 'id': 'icon_prefix'}))
     email = forms.CharField(max_length=100, required=False, widget=forms.TextInput(attrs={'class': 'validate', 'id': 'email'}))
-    password1 = forms.CharField(max_length=20, required=False, widget=forms.PasswordInput(attrs={'class': 'validate', 'id': 'email'}))
+    password1 = forms.CharField(max_length=20, required=False, widget=forms.PasswordInput(attrs={'class': 'validate',}))
     password2 = forms.CharField(max_length=20, required=False, widget=forms.PasswordInput(attrs={'class': 'validate', 'id': 'password'}))
 
     def clean(self):
