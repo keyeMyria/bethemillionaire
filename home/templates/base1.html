@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+
+    {% load staticfiles %}
+    <link rel="shortcut icon" type="image/png" href="{% static 'home/style/images/logo/favicon.png' %}" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'home/style/materialize.min.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link href="https://fonts.googleapis.com/css?family=Sacramento" rel="stylesheet">
+    <meta name="google-site-verification" content="JG1CxJpUx1tAYQReDoQKHcJKXz-4Zk4UVAGOn5O9AvU" />
+
+    <style>
+        .container{
+            min-width: 100%;
+        }
+
+        .container > .row {
+            margin: 0;
+        }
+
+
+        .container > .row > .col {
+            padding: 0;
+        }
+
+        *{
+            padding: 0px;
+            margin: 0px;
+            font-family: 'myFont';
+        }
+
+        @font-face {
+            font-family: 'myFont';
+            src: url('/static/account/fonts/myFont.ttf');
+        }
+
+        nav ul li a{
+            color: orange;
+        }
+
+        nav ul li a:hover{
+            color: white;
+        }
+
+        .drop_down_contents ul li a{
+            color: yellow;
+        }
+
+        .main-menu-btn{
+            border: 1px solid red;
+            height: 30px;
+            width: 150px;
+            text-align: center;
+            line-height: 30px;
+        }
+
+        .dropdown-content{
+            overflow: visible !important;
+        }
+
+        .dropdown_menu_submenu{
+            font-size: 12px;
+        }
+
+        #footer-content{
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        #footer-content li{
+            float: left;
+            height: 20px;
+            line-height: 1.1em;
+            margin: 0 .5em 0 -.5em;
+            padding: 0 .5em 0 .5em;
+            color: white;
+        }
+
+        .sub-menu-ams ul{
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .sub-menu-ams ul li{
+            float: left;
+            margin-left: 20px;
+        }
+
+        .sub-menu-ams ul li a{
+            color: grey;
+        }
+
+        .sub-menu-ams ul li a:hover{
+            color: black;
+        }
+
+        footer li a{
+            color: orange;
+        }
+
+        footer li a:hover{
+            color: white;
+            text-decoration: underline;
+        }
+    </style>
+
+    {% block add-css %}
+    {% endblock %}
+
+</head>
+<body>
+    <div class="container">
+        <input type="hidden" id="login_username" value="{{ request.user.username }}">
+        <!--start navbar-->
+            <div class="navbar row" style="border-bottom: 1px solid #333;">
+                <div class="col s12 m12 l12 navbar-fixed" style="">
+                    <nav class="black white-text z-depth-0" style="">
+                        <div class="nav-wrapper">
+                            <ul class="left white-text">
+                                <!-- Dropdown Trigger -->
+                                <li><a class="dropdown-button " href="#!" data-activates="dropdown-member-home">BTM Dashboard</a></li>
+                                <li><a class="dropdown-button " href="{% url 'home:passive-income' %}">Passive Profits</a></li>
+                                <li><a class="dropdown-button " href="#!" data-activates="dropdown-my-account">My Account</a></li>
+                                <li><a class="dropdown-button " href="#!" data-activates="dropdown-training">Training & Marketing</a></li>
+                                <li><a class="dropdown-button " href="#!" data-activates="dropdown-support">Support</a></li>
+                            </ul>
+
+                            <div class="col l3 right valign-wrapper" style="height: 100%;">
+                                <a href="{% url 'account:profile' %}" class="right waves-effect waves-light btn orange black-text pulse" style="margin-right: 20px;">{{ request.user.username | title }}</a>
+                                <a href="{% url 'account:logout' %}" class="right waves-effect waves-light btn red white-text" style="">Logout</a>
+                            </div>
+                        </div>
+                    </nav>
+
+                    <!--start dropdown-->
+                    <!--dropdown contents-->
+                    <div class="drop_down_contents">
+                        <ul id='dropdown-member-home' class='dropdown-content' style="">
+                            <li><a style="font-size: 12px;" href="{% url 'home:leader-board' %}">Leader Boards</a></li>
+                            <li><a style="font-size: 12px;" href="{% url 'topic:step_1' %}">START HERE - 5 Steps To Set Up BTM!</a></li>
+                            <li><a style="font-size: 12px;" href="{% url 'course:course' %}">Video Course: Secrets To Growing Your <br> Wealth In Bitcoins</a></li>
+                            <li><a style="font-size: 12px;" class="dropdown-button2" href="#!" data-activates="bitcoin-basic" data-alignment="left">Bitcoin Basics <i class="material-icons right">arrow_drop_down</i></a></li>
+                                <ul id='bitcoin-basic' class='dropdown-content' style="width: 310px !important">
+                                    <li><a style="font-size: 12px;" href="{% url 'home:what-is-bitcoin' %}">What Is Bitcoin</a></li>
+                                    <li><a style="font-size: 12px;" href="{% url 'home:buy-bitcoins-here' %}">Get Bitcoin Here</a></li>
+                                    <li><a style="font-size: 12px;" href="{% url 'home:bitcoin-wallets' %}">Bitcoin Wallets</a></li>
+                                    <li><a style="font-size: 12px;" href="{% url 'home:bitcoin-debit-cards' %}">Bitcoin Debit Cards</a></li>
+                                </ul>
+                        </ul>
+
+
+                        <ul id='dropdown-my-account' class='dropdown-content' style="">
+                            <li><a style="font-size: 12px;" href="{% url 'account:profile' %}">My Profile Settings</a></li>
+                            <li><a style="font-size: 12px;" href="{% url 'home:payment-account-setting' %}">Payment Account Setting</a></li>
+                            <li><a style="font-size: 12px;" href="{% url 'home:my-commission' %}">My Commission</a></li>
+                            <li><a style="font-size: 12px;" href="{% url 'account:membership-levels' %}">Upgrade Your Membership</a></li>
+                            <li><a style="font-size: 12px;" href="{% url 'account:my-autoresponder-settings' %}">My Autoresponder Settings</a></li><!--
+                            <li><a style="font-size: 12px;" href="#!">Affiliate Account Settings</a></li>
+                            <li><a style="font-size: 12px;" href="#!">My Affiliate Earnings</a></li>-->
+                            <li><a style="font-size: 12px;" href="{% url 'account:my-referrals' %}">My Referrals</a></li><!--
+                            <li><a style="font-size: 12px;" href="#!">BWC Leaderboards</a></li>-->
+                        </ul>
+
+
+
+                        <ul id='dropdown-training' class='dropdown-content' style="">
+                            <li><a style="font-size: 12px;" href="{% url 'home:manage-team' %}">Manage Team</a></li>
+                            <li><a style="font-size: 12px;" href="{% url 'home:affiliate_link' %}">Your Affiliate Links & Funnels</a></li>
+                            <!--<li><a style="font-size: 12px;" href="#!">Premium Members Area</a></li>
+                            <li><a style="font-size: 12px;" href="#!">Access VIP Members Area</a></li>
+                            <li><a style="font-size: 12px;" class="dropdown-button2" href="#!" data-activates="sponsor-training" data-alignment="left">Train By Your Sponsor<i class="material-icons right">arrow_drop_down</i></a></li>
+                                <ul id='sponsor-training' class='dropdown-content' style="width: 310px !important">
+                                    <li><a style="font-size: 12px;" href="#!">Connect With Your Sponsor</a></li>
+                                </ul>
+                            <li><a style="font-size: 12px;" href="#!">Create Custom Team Training</a></li>
+                            <li><a style="font-size: 12px;" href="#!">Next Live Events!</a></li>
+                            <li><a style="font-size: 12px;" href="#!">Weekly Webinar Replays</a></li>
+                            -->
+                            <li><a style="font-size: 12px;" class="dropdown-button2" href="#!" data-activates="marketing-resources" data-alignment="left">Marketing Resources<i class="material-icons right">arrow_drop_down</i></a></li>
+                                <ul id='marketing-resources' class='dropdown-content' style="">
+                                    <!--<li><a style="font-size: 12px;" href="#!">Autoresponders Set Up</a></li>-->
+                                    <li><a style="font-size: 12px;" href="{% url 'home:banners' %}">Banners</a></li>
+                                    <li><a style="font-size: 12px;" href="{% url 'home:email_swipes' %}">Email Swipes</a></li>
+                                    <!--<li><a style="font-size: 12px;" href="#!">Free Facebook Marketing Strategies</a></li>-->
+                                </ul>
+                            <!--
+                            <li><a style="font-size: 12px;" href="#!">Advanced Marketing Training</a></li>
+                            <li><a style="font-size: 12px;" href="#!">How To Trade Cryptocurrencies</a></li>-->
+                        </ul>
+
+                        <ul id='dropdown-support' class='dropdown-content' style="">
+                            <li><a style="font-size: 12px;" href="{% url 'home:faq' %}">FAQ</a></li>
+                            <li><a style="font-size: 12px;" href="{% url 'home:recent-update' %}">BTM Recent Updates</a></li>
+                            <li><a style="font-size: 12px;" href="https://www.facebook.com/groups/336201610190269/">BTM Facebook Group</a></li>
+                            <!--<li><a style="font-size: 12px;" href="#!">BTM Facebook Fanpage</a></li>
+                            <li><a style="font-size: 12px;" href="#!">BTM Support</a></li>-->
+                        </ul>
+
+                    </div>
+                            <!--end dropdown content-->
+
+
+
+                    <!--end dropdown contents-->
+
+                </div>
+            </div>
+            <!--end main menu-->
+        <!--end navbar-->
+
+        <div class="row">
+            <div class="col l12 white" style="padding: 5px; box-shadow: 1px 1px grey;">
+                <div class="col l7 offset-l3 sub-menu-ams" style="">
+                    <ul style="font-size: 14px;">
+                        <li>
+                            <span class="grey-text">MEMBERSHIP: <span class="" style="">{{ request.user.membership.name | upper }}</span></span>
+                        </li>
+
+                        <li>
+                            <p class="grey-text">SPONSOR: <a class="" href="{% url 'account:public-profile' %}?userid={{ request.user.username }}">{{ request.user.sponsor.username | upper }}</a></p>
+                        </li>
+
+                        <li>
+                            <span class="grey-text">TOTAL MEMBER: <span class="" id="left_bar_total_member" style=""></span></span>
+                        </li>
+
+                        <li>
+                            <p class="grey-text">{% now "jS F Y H:i" %}</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        {% block main %}
+
+        {% endblock %}
+
+        <footer class="row black" style="">
+            <div class="col s12 m12 l12" style="margin-top: 20px;">
+                <div class="col l4 offset-l4" style="">
+                    <img src="{% static 'home/style/images/logo/logo.png' %}" style="height: 100%; width: 100%;" alt="">
+                </div>
+            </div>
+
+            <div class="col s12 m12 l12" style="margin-top: 20px;">
+                <div class="col s12 m10 offset-m1 l5 offset-l4 white-text center-align" style="boder: 1px solid red;">
+                    <ul id="footer-content">
+                        <li>
+                           <a class="" href="{% url 'home:faq' %}">
+                                FAQ
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="" href="{% url 'home:privacy-policy' %}">
+                                Privacy Policy
+                            </a>
+                        </li>
+
+                        <li>
+                           <a class="" href="{% url 'home:recent-update' %}">
+                                Recent Update
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="" href="https://www.facebook.com/groups/336201610190269/">
+                                Facebook
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="" href="{% url 'home:index' %}">
+                                Terms & Conditions
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col s12 m12 l12 center-align orange-text" style="margin-top: 10px; margin-bottom: 20px;">
+                &copy; 2018-2018 All right reserved Mena Refaat
+            </div>
+        </footer>
+    </div>
+
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/5ac39b5b4b401e45400e4ebe/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+
+</script>
+<!--End of Tawk.to Script-->
+</body>
+</html>
+
+<!--js-->
+<script type="text/javascript" src="{% static 'home/js/jquery.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'home/js/materialize.min.js' %}"></script>
+
+<script>
+    $('.dropdown-button').dropdown({
+          inDuration: 300,
+          outDuration: 225,
+          constrainWidth: false, // Does not change width of dropdown to that of the activator
+          hover: true, // Activate on hover
+          gutter: 0, // Spacing from edge
+          belowOrigin: true, // Displays dropdown below the button
+          alignment: 'left', // Displays dropdown with edge aligned to the left of button
+          stopPropagation: false // Stops event propagation
+        }
+    );
+
+    $('.dropdown-button2').dropdown({
+          inDuration: 300,
+          outDuration: 225,
+          constrainWidth: true, // Does not change width of dropdown to that of the activator
+          hover: true, // Activate on hover
+          gutter: ($('.dropdown-content').width()*2)/3.4,
+          belowOrigin: false, // Displays dropdown below the button
+          alignment: 'left', // Displays dropdown with edge aligned to the left of button
+          stopPropagation: false // Stops event propagation
+        }
+    );
+
+    $(document).ready(function(){
+        var username = $("#login_username").val();
+
+        $.ajax({
+                url: '/account/api/user-profile/',
+                data: { "username":username },
+                dataType: 'json',
+                success: function (data) {
+
+                    $("#login_user_sponsor").append(data.data[0].sponsor_username);
+                    $("#login_user_sponsor").attr("href","/account/membership-account/public-profile/?userid="+data.data[0].sponsor_username);
+                    $("#login_user_sponsor_left").append(data.data[0].sponsor_username);
+                    $("#login_user_membership").append(data.user_membership_name);
+                    $("#login_user_sponsor_email").append(data.data[0].sponsor_email);
+                    $("#login_user_sponsor_phone").append(data.data[0].sponsor_phone);
+                    $("#login_user_sponsor_skype").append(data.data[0].sponsor_skype);
+
+                    $("#left_bar_total_member").append(data.total_member);
+
+                    //$("#login_user_sponsor_profile_picture").append(data[0].sponsor_profile_picture);
+                }
+        });
+    })
+</script>
+
+{% block script %}
+{% endblock %}

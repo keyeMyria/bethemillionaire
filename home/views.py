@@ -21,13 +21,15 @@ class LoginRequiredMixin(object):
 """
 
 class Home(View):
-    template_name = 'home/index.html'
+    template_name = 'home/index1.html'
 
     def get(self, request):
-        user_profile = UserProfile.objects.filter(username=request.user.username)
+        sponsor_teams = models.Team.objects.filter(owner=request.user.sponsor)
+        total_member = account_model.UserProfile.objects.all().count()
 
         variables = {
-            'user_profile': user_profile,
+            'sponsor_teams': sponsor_teams,
+            'total_member': total_member,
         }
 
         return render(request, self.template_name, variables)
