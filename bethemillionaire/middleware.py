@@ -31,5 +31,5 @@ class LoginRequiredMiddleware:
                 if request.GET.get('userid'):
                     fullURL = "%s%s" %(settings.LOGIN_URL, request.get_full_path().lstrip('/'))
                 else:
-                    fullURL = "%s%s" %(settings.LOGIN_URL, "?userid=admin")
+                    fullURL = "%s%s" %(settings.LOGIN_URL, "?userid=Mena")
                 return HttpResponseRedirect(fullURL)

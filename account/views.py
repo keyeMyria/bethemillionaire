@@ -46,14 +46,14 @@ class Preregistration(View):
         affiliate_name = request.GET.get("userid")
 
         if not affiliate_name:
-            return HttpResponseRedirect('/account/pre-registration/?userid=admin')
+            return HttpResponseRedirect('/account/pre-registration/?userid=Mena')
 
         if affiliate_name:
             affiliate_db1 = models.BeTheMillionaire_3_Step_Registration_Funnel.objects.get(user__username=affiliate_name)
             affiliate_db1.visitors = affiliate_db1.visitors + 1
             affiliate_db1.save()
         else:
-            affiliate_db1 = models.BeTheMillionaire_3_Step_Registration_Funnel.objects.get(user__username='admin')
+            affiliate_db1 = models.BeTheMillionaire_3_Step_Registration_Funnel.objects.get(user__username='Mena')
             affiliate_db1.visitors = affiliate_db1.visitors + 1
             affiliate_db1.save()
 
@@ -72,7 +72,7 @@ class Preregistration(View):
             form.preregistration(request)
 
             if affiliate_name == None:
-                return HttpResponseRedirect("/account/registration/?userid=admin&s=%s" %('three'))
+                return HttpResponseRedirect("/account/registration/?userid=Mena&s=%s" %('three'))
             else:
                 return HttpResponseRedirect("/account/registration/?userid=%s&s=%s" %(affiliate_name, 'three'))
 
@@ -126,7 +126,7 @@ class Registration(View):
         step = request.GET.get("s")
 
         if not affiliate_name:
-            return HttpResponseRedirect('/account/registration/?userid=admin')
+            return HttpResponseRedirect('/account/registration/?userid=Mena')
 
 
         form = RegistrationForm()
@@ -137,7 +137,7 @@ class Registration(View):
                 affiliate_db2.visitors = affiliate_db2.visitors + 1
                 affiliate_db2.save()
             else:
-                affiliate_db2 = models.Direct_Registration.objects.get(user__username='admin')
+                affiliate_db2 = models.Direct_Registration.objects.get(user__username='Mena')
                 affiliate_db2.visitors = affiliate_db2.visitors + 1
                 affiliate_db2.save()
 
@@ -187,14 +187,14 @@ class PreWeb(View):
         affiliate_name = request.GET.get("userid")
 
         if not affiliate_name:
-            return HttpResponseRedirect('/account/pre-web/?userid=admin')
+            return HttpResponseRedirect('/account/pre-web/?userid=Mena')
 
         if affiliate_name:
             affiliate_db1 = models.Automated_Webinar_Funnel_Version_1.objects.get(user__username=affiliate_name)
             affiliate_db1.visitors = affiliate_db1.visitors + 1
             affiliate_db1.save()
         else:
-            affiliate_db1 = models.Automated_Webinar_Funnel_Version_1.objects.get(user__username='admin')
+            affiliate_db1 = models.Automated_Webinar_Funnel_Version_1.objects.get(user__username='Mena')
             affiliate_db1.visitors = affiliate_db1.visitors + 1
             affiliate_db1.save()
 
@@ -219,7 +219,7 @@ class PreWeb(View):
             form.preregistration(request)
 
             if affiliate_name == None:
-                return HttpResponseRedirect("/account/reg-web/?userid=admin")
+                return HttpResponseRedirect("/account/reg-web/?userid=Mena")
             else:
                 return HttpResponseRedirect("/account/reg-web/?userid=%s" % affiliate_name)
 
@@ -243,12 +243,12 @@ class RegWeb(View):
         affiliate_name = request.GET.get("userid")
 
         if not affiliate_name:
-            return HttpResponseRedirect('/account/reg-web/?userid=admin')
+            return HttpResponseRedirect('/account/reg-web/?userid=Mena')
 
         form = RegWebForm()
 
         if not affiliate_name:
-            return HttpResponseRedirect('/account/reg-web/?userid=admin')
+            return HttpResponseRedirect('/account/reg-web/?userid=Mena')
 
         variables = {
             'form': form,
@@ -298,7 +298,7 @@ class WebConfirmation(View):
         affiliate_name = request.GET.get("userid")
 
         if not affiliate_name:
-            return HttpResponseRedirect('/account/web-confirmation/?userid=admin')
+            return HttpResponseRedirect('/account/web-confirmation/?userid=Mena')
 
         variables = {
             'form': form,
@@ -321,7 +321,7 @@ class WebConfirmation(View):
             form.preregistration()
 
             if affiliate_name == None:
-                return HttpResponseRedirect("/account/reg-web/?userid=admin")
+                return HttpResponseRedirect("/account/reg-web/?userid=Mena")
             else:
                 return HttpResponseRedirect("/account/reg-web/?userid=%s" %(affiliate_name))
 
@@ -350,14 +350,14 @@ class Webinar(View):
         affiliate_name = request.GET.get("userid")
 
         if not affiliate_name:
-            return HttpResponseRedirect('/account/webinar/?userid=admin')
+            return HttpResponseRedirect('/account/webinar/?userid=Mena')
 
         if affiliate_name:
             affiliate_db1 = models.Automated_Webinar_Funnel_Version_2.objects.get(user__username=affiliate_name)
             affiliate_db1.visitors = affiliate_db1.visitors + 1
             affiliate_db1.save()
         else:
-            affiliate_db1 = models.Automated_Webinar_Funnel_Version_2.objects.get(user__username='admin')
+            affiliate_db1 = models.Automated_Webinar_Funnel_Version_2.objects.get(user__username='Mena')
             affiliate_db1.visitors = affiliate_db1.visitors + 1
             affiliate_db1.save()
 
@@ -382,7 +382,7 @@ class Webinar(View):
             form.preregistration(request)
 
             if affiliate_name == None:
-                return HttpResponseRedirect("/account/live-web-class/?userid=admin")
+                return HttpResponseRedirect("/account/live-web-class/?userid=Mena")
             else:
                 return HttpResponseRedirect("/account/live-web-class/?userid=%s" %(affiliate_name))
 
@@ -408,7 +408,7 @@ class LiveWebClass(View):
         form = RegWebForm()
 
         if not affiliate_name:
-            return HttpResponseRedirect('/account/live-web-class/?userid=admin')
+            return HttpResponseRedirect('/account/live-web-class/?userid=Mena')
 
         variables = {
             'form': form,
@@ -456,12 +456,12 @@ class WatchLiveWebClass(View):
         affiliate_name = request.GET.get("userid")
 
         if not affiliate_name:
-            return HttpResponseRedirect('/account/watchlivewebclass/?userid=admin')
+            return HttpResponseRedirect('/account/watchlivewebclass/?userid=Mena')
 
         if affiliate_name:
             sponsors = UserProfile.objects.filter(username=affiliate_name)
         else:
-            sponsors = UserProfile.objects.filter(username='admin')
+            sponsors = UserProfile.objects.filter(username='Mena')
 
         variables = {
             'sponsors': sponsors,
@@ -491,7 +491,7 @@ class GetYourCourse(View):
         form = RegWebForm()
 
         if not affiliate_name:
-            return HttpResponseRedirect('/account/get-your-course/?userid=admin')
+            return HttpResponseRedirect('/account/get-your-course/?userid=Mena')
 
         x = models.Course_Giveaway_Direct_Registration.objects.get(user__username=affiliate_name)
         x.visitors = x.visitors + 1
@@ -550,7 +550,7 @@ class SecretsToWealth(View):
         form = PreregistrationForm()
 
         if not affiliate_name:
-            return HttpResponseRedirect('/account/secrets-to-wealth/?userid=admin')
+            return HttpResponseRedirect('/account/secrets-to-wealth/?userid=Mena')
 
         x = models.Course_Giveaway_3_Steps_Funnel.objects.get(user__username=affiliate_name)
         x.visitors = x.visitors + 1
@@ -600,7 +600,7 @@ class SecretsToWealthFinal(View):
         form = RegWebForm()
 
         if not affiliate_name:
-            return HttpResponseRedirect('/secrets-to-wealth-final/?userid=admin')
+            return HttpResponseRedirect('/secrets-to-wealth-final/?userid=Mena')
 
         variables = {
             'form': form,
@@ -653,7 +653,7 @@ class WebinarReplay(View):
         affiliate_name = request.GET.get("userid")
 
         if not affiliate_name:
-            return HttpResponseRedirect('/account/webinar-replay/?userid=admin')
+            return HttpResponseRedirect('/account/webinar-replay/?userid=Mena')
 
         x = models.Latest_Webinar_Replay_BTM.objects.get(user__username=affiliate_name)
         x.visitors = x.visitors + 1

@@ -129,7 +129,7 @@ class RegistrationForm(forms.Form):
         password1 = self.cleaned_data.get('password1')
 
         if user_id == None:
-            sponsor_obj = UserProfile.objects.get(username='admin')
+            sponsor_obj = UserProfile.objects.get(username='Mena')
 
             user = UserProfile(username=username, email=email, sponsor=sponsor_obj)
             user.set_password(password1)
@@ -142,15 +142,15 @@ class RegistrationForm(forms.Form):
             #add referral
             current_user = UserProfile.objects.get(id=user.id)
 
-            UserProfile.addReferral('admin', current_user)
+            UserProfile.addReferral('Mena', current_user)
 
             #update lead
             if step == None:
-                x = models.Direct_Registration.objects.get(user__username='admin')
+                x = models.Direct_Registration.objects.get(user__username='Mena')
                 x.leads = x.leads + 1
                 x.save()
             elif step == 'three':
-                x = BeTheMillionaire_3_Step_Registration_Funnel.objects.get(user__username='admin')
+                x = BeTheMillionaire_3_Step_Registration_Funnel.objects.get(user__username='Mena')
                 x.leads = x.leads + 1
                 x.save()
 
@@ -160,8 +160,6 @@ class RegistrationForm(forms.Form):
             add_contact_getresponse(sponsor_obj.username, email)
 
             #end getresponse autoresponder add contact
-
-
 
         else:
             sponsor_obj = UserProfile.objects.get(username=user_id)
