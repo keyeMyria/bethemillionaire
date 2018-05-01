@@ -15,6 +15,49 @@ import simplejson
 import socket
 
 
+def add_contact_getresponse(user_id, email):
+    getresponseExists = models.GetResponseAutoresponderAddContact.objects.filter(user__username=user_id).exists()
+
+    if getresponseExists:
+        getresponseObj = models.GetResponseAutoresponderAddContact.objects.filter(user__username=user_id)
+
+        for getresponseUser in getresponseObj:
+            get_response_user = getresponseUser.user.username
+            campaign_id = getresponseUser.campaignId
+            api_key = getresponseUser.api_key
+            isEnable = getresponseUser.isEnable
+
+            if isEnable.upper() == 'ENABLE':
+                ipaddress = socket.gethostbyname(socket.gethostname())
+
+                c = {
+                        'campaignId': campaign_id,
+                    }
+
+                data = {
+                    'name': get_response_user,
+                    'email': email,
+                    'campaign': c,
+                    'ipAddress': ipaddress,
+                }
+
+                data_json = simplejson.dumps(data)
+
+                api_format = 'api-key %s' %api_key
+
+                headers = {
+                    'Content-Type': 'application/json',
+                    'X-Auth-Token': api_format,
+                }
+
+                r = requests.post('https://api.getresponse.com/v3/contacts', headers=headers, data=data_json)
+
+            else:
+                print("Get Response not enabled")
+    else:
+        print("False")
+
+
 #email registration / pre-registration
 class PreregistrationForm(forms.Form):
     email = forms.EmailField(max_length=100, required=False)
@@ -38,49 +81,7 @@ class PreregistrationForm(forms.Form):
 
         #getresponse autoresponder add contact
 
-        getresponseExists = models.GetResponseAutoresponderAddContact.objects.filter(user__username=request.GET.get("userid")).exists()
-
-        if getresponseExists:
-
-            getresponseObj = models.GetResponseAutoresponderAddContact.objects.filter(user__username=request.GET.get("userid"))
-
-            print(getresponseObj)
-
-            for getresponseUser in getresponseObj:
-                get_response_user = getresponseUser.user.username
-                campaign_id = getresponseUser.campaignId
-                api_key = getresponseUser.api_key
-                isEnable = getresponseUser.isEnable
-
-                if isEnable.upper() == 'ENABLE':
-                    ipaddress = socket.gethostbyname(socket.gethostname())
-
-                    c = {
-                            'campaignId': campaign_id,
-                        }
-
-                    data = {
-                        'name': get_response_user,
-                        'email': email,
-                        'campaign': c,
-                        'ipAddress': ipaddress,
-                    }
-
-                    data_json = simplejson.dumps(data)
-
-                    api_format = 'api-key %s' %api_key
-
-                    headers = {
-                        'Content-Type': 'application/json',
-                        'X-Auth-Token': api_format,
-                    }
-
-                    r = requests.post('https://api.getresponse.com/v3/contacts', headers=headers, data=data_json)
-                    print(r)
-                else:
-                    print("Get Response not enabled")
-        else:
-            print("False")
+        add_contact_getresponse(request.GET.get('userid'), email)
 
         #end getresponse autoresponder add contact
 
@@ -152,6 +153,16 @@ class RegistrationForm(forms.Form):
                 x = BeTheMillionaire_3_Step_Registration_Funnel.objects.get(user__username='admin')
                 x.leads = x.leads + 1
                 x.save()
+
+
+            #getresponse autoresponder add contact
+
+            add_contact_getresponse(sponsor_obj.username, email)
+
+            #end getresponse autoresponder add contact
+
+
+
         else:
             sponsor_obj = UserProfile.objects.get(username=user_id)
 
@@ -178,6 +189,16 @@ class RegistrationForm(forms.Form):
                 x = models.BeTheMillionaire_3_Step_Registration_Funnel.objects.get(user__username=user_id)
                 x.leads = x.leads + 1
                 x.save()
+
+
+
+            #getresponse autoresponder add contact
+
+            add_contact_getresponse(sponsor_obj.username, email)
+
+            #end getresponse autoresponder add contact
+
+
 
         return user
 

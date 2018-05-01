@@ -6,7 +6,7 @@ import requests
 
 campaign_id = '6rwSE'
 api_key = '75a678181ff9476176fee468f8ef587a'
-email = 'mubarak117136@gmail.com'
+email = 'amirmubarak19@gmail.com'
 
 ipaddress = socket.gethostbyname(socket.gethostname())
 
@@ -30,7 +30,7 @@ headers = {
     'X-Auth-Token': api_format,
 }
 
-r = requests.post('https://api.getresponse.com/v3/campaigns', headers=headers, data=data_json)
+r = requests.post('https://api.getresponse.com/v3/contacts', headers=headers, data=data_json)
 
 
 print(r)
