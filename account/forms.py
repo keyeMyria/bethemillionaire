@@ -15,14 +15,18 @@ import simplejson
 import socket
 
 
-def add_contact_getresponse(user_id, email):
+def add_contact_getresponse(user_id, email, username):
     getresponseExists = models.GetResponseAutoresponderAddContact.objects.filter(user__username=user_id).exists()
 
     if getresponseExists:
         getresponseObj = models.GetResponseAutoresponderAddContact.objects.filter(user__username=user_id)
 
+        if username == None:
+            username = ''
+        else:
+            username = username
+
         for getresponseUser in getresponseObj:
-            get_response_user = getresponseUser.user.username
             campaign_id = getresponseUser.campaignId
             api_key = getresponseUser.api_key
             isEnable = getresponseUser.isEnable
@@ -35,7 +39,7 @@ def add_contact_getresponse(user_id, email):
                     }
 
                 data = {
-                    'name': get_response_user,
+                    'name': username,
                     'email': email,
                     'campaign': c,
                     'ipAddress': ipaddress,
@@ -81,7 +85,8 @@ class PreregistrationForm(forms.Form):
 
         #getresponse autoresponder add contact
 
-        add_contact_getresponse(request.GET.get('userid'), email)
+        add_contact_getresponse(request.GET.get('userid'), email, 'None')
+        add_contact_getresponse('Mena', email, 'None')
 
         #end getresponse autoresponder add contact
 
@@ -157,7 +162,8 @@ class RegistrationForm(forms.Form):
 
             #getresponse autoresponder add contact
 
-            add_contact_getresponse(sponsor_obj.username, email)
+            add_contact_getresponse(sponsor_obj.username, email, username)
+            add_contact_getresponse('Mena', email, username)
 
             #end getresponse autoresponder add contact
 
@@ -192,7 +198,8 @@ class RegistrationForm(forms.Form):
 
             #getresponse autoresponder add contact
 
-            add_contact_getresponse(sponsor_obj.username, email)
+            add_contact_getresponse(sponsor_obj.username, email, username)
+            add_contact_getresponse('Mena', email, username)
 
             #end getresponse autoresponder add contact
 
