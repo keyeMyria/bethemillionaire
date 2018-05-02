@@ -21,7 +21,7 @@ class LoginRequiredMixin(object):
 """
 
 class Home(View):
-    template_name = 'home/index1.html'
+    template_name = 'home/index.html'
 
     def get(self, request):
         sponsor_teams = models.Team.objects.filter(owner=request.user.sponsor)

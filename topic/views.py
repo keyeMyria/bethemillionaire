@@ -18,14 +18,42 @@ from . import serializers
 from administration import models as admin_model
 
 
+def step_complete_percent(step_obj):
+    step_complete = 0
+
+    if step_obj.step1:
+        step_complete = step_complete + 20
+
+    if step_obj.step2:
+        step_complete = step_complete + 20
+
+    if step_obj.step3:
+        step_complete = step_complete + 20
+
+    if step_obj.step4:
+        step_complete = step_complete + 20
+
+    if step_obj.step5:
+        step_complete = step_complete + 20
+
+    return step_complete
+
+
 #step 1
 class Step_1(View):
-    template_name = 'topic/step_1.html'
+    template_name = 'topic/step_1_v_1.html'
 
     def get(self, request):
+
+
         steps = StepControl.objects.filter(short_name='step-1')
 
         models.StepCount.objects.update_or_create(user=request.user, defaults={'step1': True})
+
+        get_step = models.StepCount.objects.get(user=request.user)
+
+        step_complete_percents = step_complete_percent(get_step)
+
 
         commentForm = forms.CommentForm()
         subcommentForm = forms.SubCommentForm()
@@ -48,6 +76,8 @@ class Step_1(View):
             'total_comments': total_comments,
             'comments': comments,
             'subcomments': subcomments,
+
+            'step_complete_percents': step_complete_percents,
         }
 
         return render(request, self.template_name, variables)
@@ -70,7 +100,6 @@ class Step_1(View):
         if request.method == 'POST' and request.POST.get('subcomment_form') == 'subcomment_form':
             if subcommentForm.is_valid():
                 comment_id = request.POST.get('commentid')
-                print(comment_id)
                 deploy1 = subcommentForm.deploy(request, comment_id)
                 deploy1.topic = 'step-1-overview'
                 deploy1.save()
@@ -79,6 +108,10 @@ class Step_1(View):
             models.StepCount.objects.update_or_create(user=request.user, defaults={'step2': True})
 
             return redirect('topic:step_2')
+
+        get_step = models.StepCount.objects.get(user=request.user)
+
+        step_complete_percents = step_complete_percent(get_step)
 
 
         total_comment = models.Comment.objects.filter(topic='step-1-overview').count()
@@ -97,6 +130,8 @@ class Step_1(View):
             'total_comments': total_comments,
             'comments': comments,
             'subcomments': subcomments,
+
+            'step_complete_percents': step_complete_percents,
         }
 
         return render(request, self.template_name, variables)
@@ -104,12 +139,14 @@ class Step_1(View):
 
 #step 2
 class Step_2(View):
-    template_name = 'topic/step_2.html'
+    template_name = 'topic/step_2_v_1.html'
 
     def get(self, request):
         steps = StepControl.objects.filter(short_name='step-2')
 
         get_step = models.StepCount.objects.get(user=request.user)
+        step_complete_percents = step_complete_percent(get_step)
+
 
         if not get_step.step2:
             return redirect('topic:step_1')
@@ -218,12 +255,17 @@ class Step_2(View):
             'inda_coin_account': inda_coin_account,
             'local_bitcoin_account': local_bitcoin_account,
             'trezors_account': trezors_account,
+
+            'step_complete_percents': step_complete_percents,
         }
 
         return render(request, self.template_name, variables)
 
     def post(self, request):
         steps = StepControl.objects.filter(short_name='step-2')
+
+        get_step = models.StepCount.objects.get(user=request.user)
+        step_complete_percents = step_complete_percent(get_step)
 
         commentForm = forms.CommentForm(request.POST or None)
         subcommentForm = forms.SubCommentForm(request.POST or None)
@@ -350,6 +392,8 @@ class Step_2(View):
             'inda_coin_account': inda_coin_account,
             'local_bitcoin_account': local_bitcoin_account,
             'trezors_account': trezors_account,
+
+            'step_complete_percents': step_complete_percents,
         }
 
         return render(request, self.template_name, variables)
@@ -357,12 +401,13 @@ class Step_2(View):
 
 #step 3
 class Step_3(View):
-    template_name = 'topic/step_3.html'
+    template_name = 'topic/step_3_v_1.html'
 
     def get(self, request):
         steps = StepControl.objects.filter(short_name='step-3')
 
         get_step = models.StepCount.objects.get(user=request.user)
+        step_complete_percents = step_complete_percent(get_step)
 
         if not get_step.step3:
             return redirect('topic:step_2')
@@ -390,12 +435,17 @@ class Step_3(View):
             'total_comments': total_comments,
             'comments': comments,
             'subcomments': subcomments,
+
+            'step_complete_percents': step_complete_percents,
         }
 
         return render(request, self.template_name, variables)
 
     def post(self, request):
         steps = StepControl.objects.filter(short_name='step-3')
+
+        get_step = models.StepCount.objects.get(user=request.user)
+        step_complete_percents = step_complete_percent(get_step)
 
         commentForm = forms.CommentForm(request.POST or None)
         subcommentForm = forms.SubCommentForm(request.POST or None)
@@ -441,6 +491,8 @@ class Step_3(View):
             'total_comments': total_comments,
             'comments': comments,
             'subcomments': subcomments,
+
+            'step_complete_percents': step_complete_percents,
         }
 
         return render(request, self.template_name, variables)
@@ -449,12 +501,13 @@ class Step_3(View):
 
 #step 4
 class Step_4(View):
-    template_name = 'topic/step_4.html'
+    template_name = 'topic/step_4_v_1.html'
 
     def get(self, request):
         steps = StepControl.objects.filter(short_name='step-4')
 
         get_step = models.StepCount.objects.get(user=request.user)
+        step_complete_percents = step_complete_percent(get_step)
 
         if not get_step.step4:
             return redirect('topic:step_3')
@@ -464,13 +517,13 @@ class Step_4(View):
 
         user_profile = UserProfile.objects.filter(username=request.user.username)
 
-        total_comment = models.Comment.objects.filter(topic='step-3-setup-multiple-passive-profile').count()
-        total_subcomment = models.SubComment.objects.filter(topic='step-3-setup-multiple-passive-profile').count()
+        total_comment = models.Comment.objects.filter(topic='step-4').count()
+        total_subcomment = models.SubComment.objects.filter(topic='step-4').count()
 
         total_comments = total_comment + total_subcomment
 
-        comments = models.Comment.objects.filter(topic='step-3-setup-multiple-passive-profile').all()
-        subcomments = models.SubComment.objects.filter(topic='step-3-setup-multiple-passive-profile').all()
+        comments = models.Comment.objects.filter(topic='step-4').all()
+        subcomments = models.SubComment.objects.filter(topic='step-4').all()
 
         variables = {
             'user_profile': user_profile,
@@ -480,12 +533,17 @@ class Step_4(View):
             'total_comments': total_comments,
             'comments': comments,
             'subcomments': subcomments,
+
+            'step_complete_percents': step_complete_percents,
         }
 
         return render(request, self.template_name, variables)
 
     def post(self, request):
         steps = StepControl.objects.filter(short_name='step-4')
+
+        get_step = models.StepCount.objects.get(user=request.user)
+        step_complete_percents = step_complete_percent(get_step)
 
         if request.method == 'POST' and request.POST.get('step_5') == 'step_5':
             models.StepCount.objects.update_or_create(user=request.user, defaults={'step5': True})
@@ -500,7 +558,7 @@ class Step_4(View):
         if request.method == 'POST' and request.POST.get('comment_form') == 'comment_form':
             if commentForm.is_valid():
                 deploy = commentForm.deploy(request)
-                deploy.topic = 'step-3-setup-multiple-passive-profile'
+                deploy.topic = 'step-4'
                 deploy.save()
 
 
@@ -509,16 +567,16 @@ class Step_4(View):
                 comment_id = request.POST.get('commentid')
                 print(comment_id)
                 deploy1 = subcommentForm.deploy(request, comment_id)
-                deploy1.topic = 'step-3-setup-multiple-passive-profile'
+                deploy1.topic = 'step-4'
                 deploy1.save()
 
-        total_comment = models.Comment.objects.filter(topic='step-3-setup-multiple-passive-profile').count()
-        total_subcomment = models.SubComment.objects.filter(topic='step-3-setup-multiple-passive-profile').count()
+        total_comment = models.Comment.objects.filter(topic='step-4').count()
+        total_subcomment = models.SubComment.objects.filter(topic='step-4').count()
 
         total_comments = total_comment + total_subcomment
 
-        comments = models.Comment.objects.filter(topic='step-3-setup-multiple-passive-profile').all()
-        subcomments = models.SubComment.objects.filter(topic='step-3-setup-multiple-passive-profile').all()
+        comments = models.Comment.objects.filter(topic='step-4').all()
+        subcomments = models.SubComment.objects.filter(topic='step-4').all()
 
         variables = {
             'user_profile': user_profile,
@@ -528,6 +586,8 @@ class Step_4(View):
             'total_comments': total_comments,
             'comments': comments,
             'subcomments': subcomments,
+
+            'step_complete_percents': step_complete_percents,
         }
 
         return render(request, self.template_name, variables)
@@ -535,12 +595,13 @@ class Step_4(View):
 
 #step 5
 class Step_5(View):
-    template_name = 'topic/step_5.html'
+    template_name = 'topic/step_5_v_1.html'
 
     def get(self, request):
         steps = StepControl.objects.filter(short_name='step-5')
 
         get_step = models.StepCount.objects.get(user=request.user)
+        step_complete_percents = step_complete_percent(get_step)
 
         if not get_step.step5:
             return redirect('topic:step_4')
@@ -566,12 +627,17 @@ class Step_5(View):
             'total_comments': total_comments,
             'comments': comments,
             'subcomments': subcomments,
+
+            'step_complete_percents': step_complete_percents,
         }
 
         return render(request, self.template_name, variables)
 
     def post(self, request):
         steps = StepControl.objects.filter(short_name='step-5')
+
+        get_step = models.StepCount.objects.get(user=request.user)
+        step_complete_percents = step_complete_percent(get_step)
 
         commentForm = forms.CommentForm(request.POST or None)
         subcommentForm = forms.SubCommentForm(request.POST or None)
@@ -609,6 +675,8 @@ class Step_5(View):
             'total_comments': total_comments,
             'comments': comments,
             'subcomments': subcomments,
+
+            'step_complete_percents': step_complete_percents,
         }
 
         return render(request, self.template_name, variables)

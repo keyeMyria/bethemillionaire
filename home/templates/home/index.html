@@ -1,6 +1,6 @@
 {% extends 'base1.html' %}
 
-{% block title %}BeTheMillionaire | Home{% endblock %}
+{% block title %}BeTheMillionaire | Home1{% endblock %}
 
 {% block add-css %}
     {% load staticfiles %}
@@ -8,134 +8,163 @@
 {% endblock %}
 
 {% block main %}
-    <div class="row">
-        <div class="col s12 m12 l12" style="">
-            <div class="col s12 m12 l9 right main-content" style="margin-top: 30px;">
-                <div class="col s12 m12 l12 center-align">
-                    <h4>Welcome to BeTheMillionaire</h4>
+    <div class="row" style="margin-top: 30px;">
+        <div class="col s12 m12 l12" style="padding: 30px;">
+            <div class="col s12 m8 offset-m2 l7 black center-align" style="padding: 30px;">
+                <iframe width="100%" height="430px" src="https://www.youtube.com/embed/mjhE6uSkOqg" frameborder="0" gesture="media" allow="encrypted-media" autoplay="true" allowfullscreen></iframe>
+
+                <a href="{% url 'home:index' %}" class="btn orange black-text" style="margin-top: 10px;">
+                    Show Me The SYSTEM
+                </a><br>
+
+                <a href="{% url 'topic:step_1' %}" class="btn orange black-text" style="margin-top: 10px;">
+                    Start 5 step fast start
+                </a>
+            </div>
+
+            <div class="col s12 m8 offset-m2 l5 center-align" style="padding: 20px;">
+                <img src="{% static 'home/style/images/logo/logo.png' %}" style="height: 100%; width: 100%;" alt="">
+
+                <h5>
+                    Welcome to <span class="black white-text" style="padding: 10px;">BeTheMillionaire</span>
+                </h5>
+            </div>
+        </div>
+
+        <div class="col s12 m12 l12 center-align" style="padding: 30px; margin-top: 20px;">
+            <p class="col s12 m12 l12 divider"></p>
+
+            <h5 style="margin-top: 40px;">Your sponsor is great, Learn from your sponsor</h5>
+
+            <div class="col s12 m8 offset-m2 l8 offset-l2" style="margin-top: 20px;">
+                <div class="col s10 offset-s1 m5 l5 center-align" style="">
+                    {% if request.user.sponsor.profile_picture %}
+                        <img src="{{ request.user.sponsor.profile_picture.url }}" width="100%" style="">
+                    {% else %}
+                        <img src="{% static 'account/style/images/no-img.jpg' %}"  width="100%" style="">
+                    {% endif %}
                 </div>
 
+                <div class="col s10 offset-s1 m6 l6 left-align" style="padding: 20px;">
+                    <p style="font-size: 16px;">@name: {{ request.user.sponsor.username | title }}</p>
+                    <p style="font-size: 16px;">@email: {{ request.user.sponsor.email }}</p>
+                    <p style="font-size: 16px;">@phone: {{ request.user.sponsor.phone_number }}</p>
+                    <p style="font-size: 16px;">@skype: {{ request.user.sponsor.skype }}</p>
+                    <p style="font-size: 16px;">@facebook: <a target="_blank" href="{{ request.user.sponsor.facebook }}">click</a></p>
+                    <p style="font-size: 16px; text-decoration: underline;">@sponsor manage team</p>
 
-                <div class="col s12 m12 l10 offset-l1" style="margin-top: 40px; height: 400px;">
-                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/mjhE6uSkOqg" frameborder="0" gesture="media" allow="encrypted-media" autoplay="true" allowfullscreen></iframe>
+                    {% for sponsor_team in sponsor_teams %}
+                    <a href="{% url 'home:personal-training' owner_id=sponsor_team.owner.id team_id=sponsor_team.id %}" class="btn black orange-text" style="margin-top: 10px;">
+                        {{ sponsor_team.name }}
+                    </a>
+                    {% endfor %}
                 </div>
+            </div>
+        </div>
 
+        <div class="col s12 m12 l12 center-align" style="padding: 40px; margin-top: 20px;">
+            <p class="col s12 m12 l12 divider"></p>
 
-                <a target="_blank" href="https://www.facebook.com/groups/336201610190269/">
-                    <div class="col s12 m6 offset-m3 l6 offset-l3 valign-wrapper message_me_fb" style="margin-top: 40px; margin-bottom: 20px;">
-                        <p style="width: 100%" class="center-align">Join our facebook group</p>
-                    </div>
+            <h5 style="margin-top: 40px;">Start from step 1, success is <span class="red white-text" style="padding: 10px;">guaranteed</span></h5>
+
+            <div class="col s12 m8 offset-m2 l8 offset-l2 left-align" style="border: 4px solid #333; margin-top: 30px; padding: 20px;">
+                <h5>
+                    Success is in your hand, just follow these steps!
+                </h5>
+
+                <a href="{% url 'topic:step_1' %}" class="btn orange black-text" style="margin-top: 10px;">
+                    Step 1 – The Foundation & Overview
                 </a>
 
-                <div class="col s12 m12 l10 offset-l1 center-align" style="margin-top: 50px;">
-                    <h5>Upgrade your membership to VIP and get exclusive training course</h5>
+                <a href="{% url 'topic:step_2' %}" class="btn orange black-text" style="margin-top: 10px;">
+                    Step 2 – Set Up Your Bitcoin Wallet Load It With Bitcoins
+                </a>
+
+                <a href="{% url 'topic:step_3' %}" class="btn orange black-text" style="margin-top: 10px;">
+                    Step 3 – Set Up Your Multiple Passive Profits Wealth Building Vehicles Inside The System
+                </a>
+
+                <a href="{% url 'topic:step_4' %}" class="btn orange black-text" style="margin-top: 10px;">
+                    Step 4 - How To Earn Extra $20K A Month, Get Access To 7 Figures Live Mentoring
+                </a>
+
+                <a href="{% url 'topic:step_5' %}" class="btn orange black-text" style="margin-top: 10px;">
+                    Step 5 – Start Promoting BeTheMillionaire System & Earn Bitcoins In Multiple Ways!
+                </a>
+            </div>
+
+
+            <div class="col s12 m12 l12 center-align" style="padding: 40px; margin-top: 20px;">
+                <p class="col s12 m12 l12 divider"></p>
+
+                <h5 style="margin-top: 40px; margin-bottom: 50px;">Promotion & Affiliating</h5>
+
+                <div class="col s12 m6 l6" style="padding: 20px;">
+                    <h5>Promote BeTheMillionaire in the <span class="blue-text" style="padding: 10px;">Social Media</span>,
+                        its help you to get member and referrals point. More referral point chance you to win monthly <span class="red-text">competetion</span>.
+                        Join our facebook group.
+                    </h5>
+                </div>
+
+                <div class="col s12 m6 l6" style="padding: 20px;">
+                    <a target="_blank" href="https://www.facebook.com/groups/336201610190269/" class="btn blue white-text" style="margin-top: 10px;">
+                        Join BeTheMillionaire Facebook Group
+                    </a>
+
+                    <a href="#affiliate_link" class="btn orange black-text modal-trigger" style="margin-top: 10px;">
+                        Click To Get Your Default Affiliate Link
+                    </a>
+
+                    <div id="affiliate_link" class="modal">
+                        <div class="modal-content">
+                            <h4 style="margin-bottom: 40px; color: blue;">Default Affiliate Link</h4>
+
+                            <p><b>Here Is Your Capture Page ( Copy Below )</b></p>
+
+                            <div class="chip col s12 m12 l12" style="font-size: 16px; margin-top: 10px; margin-bottom: 50px;">
+                                <p>http://www.bethemillionaire.com/account/registration/?userid={{ user.username }}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p style="font-size: 16px; margin-top: 10px;">Promote this link to your friends and family</p>
+                    <a href="{% url 'home:affiliate_link' %}" style="font-size: 16px; margin-top: 10px; text-decoration: underline;">My all affiliate link</a>
+                </div>
+            </div>
+
+
+            <div class="col s12 m12 l12 center-align" style="padding: 40px; margin-top: 20px;">
+                <p class="col s12 m12 l12 divider"></p>
+
+                <h5 style="margin-top: 40px; margin-bottom: 50px;">Upgrade Membership and get Our Extra-ordinary courses</h5>
+
+                <div class="col s12 m10 offset-m1 l8 offset-l2">
                     <img src="{% static 'home/style/images/image/cd_cover1.png' %}" height="100%" width="100%">
-                </div>
-
-                <div class="col s12 m12 l10 offset-l1 center-align" style="margin-top: 50px;">
-                    <h5>Upgrade your membership to VIP and get exclusive training course</h5>
                     <img src="{% static 'home/style/images/image/cd_cover2.png' %}" height="100%" width="100%">
-                </div>
 
+                    <a href="{% url 'course:course' %}" class="btn orange black-text pulse" style="margin-top: 10px;">
+                        Visit Course
+                    </a>
+                </div>
             </div>
-            <!--end main-content -->
 
-            <div class="col s12 m12 l3 left left-content" style="">
-                <div class="col s12 m12 l12">
-                    <div class="card white black-text">
-                        <div class="card-content black-text left-content-introduction">
-                            <div class="card-title valign-wrapper" style="background-color: blue; color: white">Quick Start Video</div>
+            <div class="col s12 m12 l12 center-align" style="padding: 40px; margin-top: 20px;">
+                <p class="col s12 m12 l12 divider"></p>
 
-                            <div>
-                                <a href="{% url 'topic:step_1' %}">
-                                    <p class="valign-wrapper">START HERE - 5 Steps To Set Up BeTheMillionaire System!</p>
-                                </a>
-                            </div>
+                <h5 style="padding: 40px;">WE ARE INCRESING <span class="red white-text" style="padding: 10px;">{{ total_member }}+</span>
+                </h5>
 
-                            <div>
-                                <a href="{% url 'course:course' %}">
-                                    <p class="valign-wrapper">Video Course: Secrets To Growing Your Wealth In Bitcoins</p>
-                                </a>
-                            </div>
-
-                            <div>
-                                <a href="{% url 'account:membership-levels' %}">
-                                    <p class="valign-wrapper">UPGRADE YOUR MEMBERSHIP</p>
-                                </a>
-                            </div>
-
-                            <div>
-                                <a href="https://www.facebook.com/groups/336201610190269/">
-                                    <p class="valign-wrapper">BTM Facebook Group</p>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col s12 m12 l12">
-                    <div class="collection">
-                        <a href="#!" class="collection-item black-text"><span class="badge red-text"><b id="left_bar_total_member"></b></span>Current Members</a>
-                    </div>
-                </div>
-
-
-                <div class="row">
-                    <div class="col s12 m12 l12">
-                        <div class="card white">
-                            <div class="card-content black-text">
-                                <span class="card-title">Your BTM Sponsor</span>
-
-                                <div class="row">
-                                    <div class="col s12 m12 l12" style="width: 90%">
-                                        {% for user_pro in user_profile %}
-                                            {% if user_pro.sponsor.profile_picture %}
-                                                <img src="{{ user_pro.sponsor.profile_picture.url }}" width="100%" style="">
-                                            {% else %}
-                                                <img src="{% static 'account/style/images/no-img.jpg' %}"  width="100%" style="">
-                                            {% endif %}
-                                        {% endfor %}
-                                    </div>
-
-                                    <div class="col s12 m6 offset-m3 l6 offset-l3">
-                                        <h4 id="login_user_sponsor_left"></h4>
-                                    </div>
-
-                                    <div class="col s12 m12 l12">
-                                        <p>Email: <span id="login_user_sponsor_email"></span></p>
-                                    </div>
-
-                                    <div class="col s12 m12 l12">
-                                        <p>Phone: <span id="login_user_sponsor_phone"></span></p>
-                                    </div>
-
-                                    <div class="col s12 m12 l12">
-                                        <p>Skype: <span id="login_user_sponsor_skype"></span></p>
-                                    </div>
-
-                                    <a target="_blank" href="{{ request.user.sponsor.facebook }}">
-                                        <div class="col s12 m12 l12 valign-wrapper message_me_fb">
-                                            <p style="width: 100%" class="center-align">Message Me On Facebook</p>
-                                        </div>
-                                    </a>
-
-                                    <a href="{% url 'home:manage-team' %}">
-                                        <div class="col s12 m12 l12 valign-wrapper message_me_fb">
-                                            <p style="width: 100%" class="center-align">Training By Your Sponsor</p>
-                                        </div>
-                                    </a>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-
+                <p class="col s12 m12 l12 divider"></p>
             </div>
-            <!--end left-content -->
+
         </div>
     </div>
+{% endblock %}
+
+{% block script %}
+    <script>
+        $(document).ready(function(){
+            $('.modal').modal();
+         });
+    </script>
 {% endblock %}
