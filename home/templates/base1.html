@@ -9,7 +9,6 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{% static 'home/style/materialize.min.css' %}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link href="https://fonts.googleapis.com/css?family=Sacramento" rel="stylesheet">
     <meta name="google-site-verification" content="JG1CxJpUx1tAYQReDoQKHcJKXz-4Zk4UVAGOn5O9AvU" />
 
     <link href="https://fonts.googleapis.com/css?family=Changa" rel="stylesheet">
@@ -111,6 +110,20 @@
             color: orange;
             text-decoration: underline;
         }
+
+        .preloader-background {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: white;
+
+            position: fixed;
+            z-index: 100;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
     </style>
 
     {% block add-css %}
@@ -127,6 +140,7 @@
                         <div class="nav-wrapper">
                             <ul class="left white-text">
                                 <!-- Dropdown Trigger -->
+                                <li><a class="dropdown-button" href="{% url 'home:index' %}">Home</a></li>
                                 <li><a class="dropdown-button " href="#!" data-activates="dropdown-member-home">BTM Dashboard</a></li>
                                 <li><a class="dropdown-button " href="{% url 'home:passive-income' %}">Passive Profits</a></li>
                                 <li><a class="dropdown-button " href="#!" data-activates="dropdown-my-account">My Account</a></li>
@@ -294,21 +308,44 @@
         </footer>
     </div>
 
-<!--Start of Tawk.to Script-->
-<script type="text/javascript">
 
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/5ac39b5b4b401e45400e4ebe/default';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
+    <!--preloader-->
 
-</script>
-<!--End of Tawk.to Script-->
+    <div class="preloader-background">
+        <div class="preloader-wrapper big active">
+            <div class="spinner-layer spinner-orange-only">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div>
+                <div class="gap-patch">
+                    <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--end preloader-->
+
+
+
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/5ac39b5b4b401e45400e4ebe/default';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+
+    </script>
+    <!--End of Tawk.to Script-->
 </body>
 </html>
 
@@ -317,6 +354,17 @@ s0.parentNode.insertBefore(s1,s0);
 <script type="text/javascript" src="{% static 'home/js/materialize.min.js' %}"></script>
 
 <script>
+
+    document.addEventListener("DOMContentLoaded", function(){
+        $('.preloader-background').delay(1700).fadeOut('slow');
+
+        $('.preloader-wrapper')
+            .delay(1700)
+            .fadeOut();
+    });
+
+
+
     $('.dropdown-button').dropdown({
           inDuration: 300,
           outDuration: 225,

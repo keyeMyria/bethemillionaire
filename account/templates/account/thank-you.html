@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{% static 'account/style/materialize.min.css' %}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link href="https://fonts.googleapis.com/css?family=Sacramento" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Changa" rel="stylesheet">
 
     <style>
         .container{
@@ -27,12 +27,26 @@
         *{
             padding: 0px;
             margin: 0px;
-            font-family: 'myFont';
+            font-family: 'Changa', 'myFont';
         }
 
         @font-face {
             font-family: 'myFont';
             src: url('/static/account/fonts/myFont.ttf');
+        }
+
+        .preloader-background {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: white;
+
+            position: fixed;
+            z-index: 100;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
         }
     </style>
 </head>
@@ -65,15 +79,15 @@
                             <iframe width="100%" height="100%" src="https://www.youtube.com/embed/mjhE6uSkOqg" frameborder="0" gesture="media" allow="encrypted-media" autoplay="true" allowfullscreen></iframe>
                         </div>
 
-                        <a href="{% url 'account:webinar' %}" class="waves-effect waves-light btn green white-text" style="margin-top: 30px;">Webinar registration</a>
+                        <a href="{% url 'account:webinar' %}" class="waves-effect waves-light btn orange black-text" style="margin-top: 30px;">Webinar registration</a>
                         <br>
-                        <a href="{% url 'account:login' %}" class="waves-effect waves-light btn green white-text" style="margin-top: 10px;">Facebook group</a>
-                        <a href="{% url 'account:login' %}" class="waves-effect waves-light btn green white-text" style="margin-top: 10px;">Facebook page</a>
+                        <a href="{% url 'account:login' %}" class="waves-effect waves-light btn orange black-text" style="margin-top: 10px;">Facebook group</a>
+                        <a href="{% url 'account:login' %}" class="waves-effect waves-light btn orange black-text" style="margin-top: 10px;">Facebook page</a>
                         <br>
                         {% if coin_mama_account.coin_mama_username %}
-                            <a target="_blank" href="https://www.coinmama.com/?ref={{ coin_mama_account.coin_mama_username }}" class="waves-effect waves-light btn green white-text" style="margin-top: 10px;">Get free account on coinmama</a>
+                            <a target="_blank" href="https://www.coinmama.com/?ref={{ coin_mama_account.coin_mama_username }}" class="waves-effect waves-light btn orange black-text" style="margin-top: 10px;">Get free account on coinmama</a>
                         {% else %}
-                            <a target="_blank" href="https://www.coinmama.com/?ref=admin" class="waves-effect waves-light btn green white-text" style="margin-top: 10px;">Get free account on coinmama</a>
+                            <a target="_blank" href="https://www.coinmama.com/?ref=admin" class="waves-effect waves-light btn orange black-text" style="margin-top: 10px;">Get free account on coinmama</a>
                         {% endif %}
 
                         <br>
@@ -90,7 +104,40 @@
         </div>
     </div>
 
+    <!--preloader-->
+
+    <div class="preloader-background">
+        <div class="preloader-wrapper big active">
+            <div class="spinner-layer spinner-orange-only">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div>
+                <div class="gap-patch">
+                    <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--end preloader-->
+
     <script type="text/javascript" src="{% static 'account/js/jquery.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'account/js/materialize.min.js' %}"></script>
 </body>
 </html>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+        $('.preloader-background').delay(1700).fadeOut('slow');
+
+        $('.preloader-wrapper')
+            .delay(1700)
+            .fadeOut();
+    });
+</script>
+
+
