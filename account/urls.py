@@ -60,7 +60,8 @@ urlpatterns = [
     url(r'^membership-account/my-autoresponder-settings/$', views.MyAutoresponderSettings.as_view(), name='my-autoresponder-settings'),
 
     #upgrade membership
-    url(r'^membership-account/membership-levels/$', views.MembershipLevels.as_view(), name='membership-levels'),
+    url(r'^membership-account/premium-members/$', views.MembershipLevelPremium.as_view(), name='membership-level-premium'),
+    url(r'^membership-account/vip-members/$', views.MembershipLevelVIP.as_view(), name='membership-level-vip'),
     url(r'^membership-account/membership-checkout/$', views.MembershipCheckout.as_view(), name='membership-checkout'),
     url(r'^membership-account/checkout-success/$', views.CheckoutSuccess.as_view(), name='checkout-success'),
     url(r'^membership-account/checkout-failure/$', views.CheckoutFailure.as_view(), name='checkout-failure'),

@@ -15,7 +15,7 @@
             <div class="col s12 m12 l8 offset-l2 main-content" style="">
                 {% if membership_levels %}
                     <div class="collection">
-                        <p class="collection-item orange black-text"><span class="badge"><a class="white-text" href="{% url 'account:membership-levels' %}">Change</a></span>MEMBERSHIP LEVEL</p>
+                        <p class="collection-item orange black-text"><span class="badge"><a class="white-text" href="{% url 'account:membership-level-premium' %}">Change</a></span>MEMBERSHIP LEVEL</p>
                     </div><br><br>
 
                     {% for membership in membership_levels %}

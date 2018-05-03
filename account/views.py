@@ -24,6 +24,8 @@ from . import serializers
 from . import forms
 from home.models import AffiliateLinkControl
 
+from account import models as account_model
+
 
 #logout functionality
 def logout_request(request):
@@ -1606,21 +1608,29 @@ class MyAutoresponderSettings(View):
         return render(request, self.template_name, variables)
 
 
-class MembershipLevels(View):
-    template_name = 'account/membership-levels.html'
+class MembershipLevelPremium(View):
+    template_name = 'account/membership-levels_v_1.html'
 
     def get(self, request):
 
-        variables = {
+        total_member = account_model.UserProfile.objects.all().count()
 
+        variables = {
+            'total_member': total_member,
         }
 
         return render(request, self.template_name, variables)
 
-    def post(self, request):
+
+class MembershipLevelVIP(View):
+    template_name = 'account/membership-level-vip-members.html'
+
+    def get(self, request):
+
+        total_member = account_model.UserProfile.objects.all().count()
 
         variables = {
-
+            'total_member': total_member,
         }
 
         return render(request, self.template_name, variables)

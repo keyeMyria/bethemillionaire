@@ -1,0 +1,260 @@
+{% extends 'base1.html' %}
+
+{% block title %}BeTheMillionaire | Premium Membership{% endblock %}
+
+{% block add-css %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home/style/index.css' %}">
+
+    <style>
+        .top-section-background{
+            background-image: url('/static/account/style/images/membership/bitcoin_background_premium.jpg');
+            background-repeat: no-repeat;
+            background-position: center;
+            position: relative;
+            height: 100%;
+            width: 100%;
+            background-attachment: fixed;
+            background-size: cover;
+            opacity: .8;
+        }
+    </style>
+
+{% endblock %}
+
+{% block main %}
+    <div class="row" style="">
+        <div class="col s12 m12 l12 top-section-background center-align valign-wrapper" style="height: 560px;">
+            <div class="col s12 m12 l12">
+                <h1 class="black white-text" style="padding: 20px; opacity: .7;">Premium Membership Zone<br>
+                    Upgrade Now With Exclusive Features
+                </h1>
+            </div>
+        </div>
+
+        <div class="col s12 m12 l12" style="padding: 30px;">
+            <div class="col s12 m12 l12 black center-align" style="padding: 50px; margin-top: 30px;">
+                <h2 class="orange-text">DISCOVER HOW TO GET ACCESS</h2>
+
+                <h5 class="orange-text">
+                    TO WEEKLY PRIVATE BITCOIN MASTERMIND WITH THE OWNER OF BeTheMillionaire, LEARN HOW TO EARN BITCOINS EVERY DAY & BUILD A LIFESTYLE OF YOUR DREAMS LEVERAGING CRYPTOCURRENCIES!
+                </h5>
+
+                <h3 class="orange-text" style="margin-bottom: 20px;">
+                    YES, You Too Can Earn Bitcoins In Multiple Ways And Build A Million Dollars Bitcoin Empire!
+                </h3>
+
+                <iframe width="100%" height="520px" src="https://www.youtube.com/embed/PllAhiKTzjk" frameborder="0" gesture="media" allow="encrypted-media" autoplay="true" allowfullscreen></iframe>
+
+                <a href="{% url 'topic:step_1' %}" class="col s12 m12 l12 btn orange black-text" style="margin-top: 20px; font-size: 25px;">
+                    Start 5 step fast start
+                </a>
+            </div>
+        </div>
+
+
+
+
+        <div class="col s12 m12 l12 center-align" style="padding: 40px; margin-top: 0px;">
+            <div class="col s12 m12 l12 center-align" style="padding: 40px;">
+                <p class="col s12 m12 l12 divider"></p>
+
+                <h5 style="margin-top: 20px; text-decoration: underline;">Available Premium Membership Plans</h5>
+
+                <table class="col l10 offset-l1 highlight centered responsive-table" style="margin-top: 60px;">
+                    <thead>
+                        <tr class="orange white-text">
+                            <th>Features</th>
+                            <th>Monthly</th>
+                            <th>Bi-Annually (20% off)</th>
+                            <th>Yearly (30% off)</th>
+                        </tr>
+                    </thead>
+
+                    <tbody class="table_data">
+                        <tr>
+                            <td>1. Weekly Premium Hangouts & Masterminds ($2,000 Value)</td>
+                            <td><i class="material-icons">check</i></td>
+                            <td><i class="material-icons">check</i></td>
+                            <td><i class="material-icons">check</i></td>
+                        </tr>
+
+                        <tr class="#fff8e1 amber lighten-5 black-text">
+                            <td>2. Advanced Marketing Strategies Training ($1,000 Value)</td>
+                            <td><i class="material-icons">check</i></td>
+                            <td><i class="material-icons">check</i></td>
+                            <td><i class="material-icons">check</i></td>
+                        </tr>
+
+                        <tr>
+                            <td>3. Exclusive Interviews & VIP Content ($500 Value)</td>
+                            <td><i class="material-icons">close</i></td>
+                            <td><i class="material-icons">close</i></td>
+                            <td><i class="material-icons">close</i></td>
+                        </tr>
+
+                        <tr class="#fff8e1 amber lighten-5 black-text">
+                            <td>4. Access To Premium Facebook Group ($500 Value)</td>
+                            <td><i class="material-icons">check</i></td>
+                            <td><i class="material-icons">check</i></td>
+                            <td><i class="material-icons">check</i></td>
+                        </tr>
+
+                        <tr>
+                            <td>5. Priority In Webinar Promotions ($1,000 Value)</td>
+                            <td><i class="material-icons">close</i></td>
+                            <td><i class="material-icons">close</i></td>
+                            <td><i class="material-icons">close</i></td>
+                        </tr>
+
+                        <tr class="#fff8e1 amber lighten-5 black-text">
+                            <td>6. Participate in Traffic Co-Ops ($500 Value)</td>
+                            <td><i class="material-icons">close</i></td>
+                            <td><i class="material-icons">close</i></td>
+                            <td><i class="material-icons">close</i></td>
+                        </tr>
+
+                        <tr>
+                            <td>7. Increased 40% Commissions Of Premium & VIP Sales</td>
+                            <td><i class="material-icons">check</i></td>
+                            <td><i class="material-icons">check</i></td>
+                            <td><i class="material-icons">check</i></td>
+                        </tr>
+
+                        <tr class="#fff8e1 amber lighten-5 black-text">
+                            <td>8. Sharing 20% Of All BeTheMillionaire Profits</td>
+                            <td><i class="material-icons">check</i></td>
+                            <td><i class="material-icons">check</i></td>
+                            <td><i class="material-icons">check</i></td>
+                        </tr>
+
+                        <tr>
+                            <td>Premium Price</td>
+                            <td>97$</td>
+                            <td>450$</td>
+                            <td>850$</td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td>
+                                <a href="{% url 'account:membership-checkout' %}?level=2&name=premium&package=monthly" class="btn waves-effect waves-light black" style="">Buy Now</a>
+                            </td>
+
+                            <td>
+                                <a href="{% url 'account:membership-checkout' %}?level=4&name=premium&package=bi_annually" class="btn waves-effect waves-light orange" style="">Buy Now</a>
+                            </td>
+
+                            <td>
+                                <a href="{% url 'account:membership-checkout' %}?level=6&name=premium&package=yearly" class="btn waves-effect waves-light red" style="">Buy Now</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+
+
+
+        <div class="col s12 m12 l12 center-align" style="padding: 40px; margin-top: 20px;">
+            <p class="col s12 m12 l12 divider"></p>
+
+            <h5 style="margin-top: 40px;">Our Features for <span class="red white-text" style="padding: 10px;">Premium</span> membership</h5>
+
+            <div class="col s12 m8 offset-m2 l8 offset-l2 left-align" style="border: 4px solid #333; margin-top: 30px; padding: 20px;">
+                <h5 class="orange-text">
+                    WHO BENEFITS FROM THIS PROGRAM?
+                </h5>
+
+                <p class="blue-text" style="margin-top: 10px; font-size: 20px;">
+                    <b class="black-text">1.</b> People who want to build a long lasting wealth with Cryptocurrencies and enjoy a life of financial freedom and abundance.
+                </p>
+
+                <p class="blue-text" style="margin-top: 10px; font-size: 20px;">
+                    <b class="black-text">2.</b> People who want to passively earn multiple streams of income with BeTheMillionaire.
+                </p>
+
+                <p class="blue-text" style="margin-top: 10px; font-size: 20px;">
+                    <b class="black-text">3.</b> People who want to learn to mastermind with the owner of BeTheMillionaire and master online marketing skills so they can earn Bitcoin every day.
+                </p>
+
+                <p class="blue-text" style="margin-top: 10px; font-size: 20px;">
+                    <b class="black-text">4.</b> People who want to be coached LIVE every week and get their ongoing questions answered.
+                </p>
+
+                <p class="blue-text" style="margin-top: 10px; font-size: 20px;">
+                    <b class="black-text">5.</b> People who want to maximize their income with BeTheMillionaire.
+                </p>
+            </div>
+
+
+            <div class="col s12 m8 offset-m2 l8 offset-l2 left-align" style="border: 4px solid #333; margin-top: 30px; padding: 20px;">
+                <h5 class="orange-text">
+                    HOW DOES PREMIUM MEMBERSHIP WORK?<br>
+                    What if the owner of BeTheMillionaire showed you behind the scene what is working now and what he is doing to build a Bitcoin empire? What if you could ask any question about building your Bitcoin business and your marketing efforts and get LIVE answer? What if we coached you step by step and shared with you all the behind the scenes secrets… Inside Advanced Marketing Strategies You Will Learn…
+                </h5>
+
+                <p class="blue-text" style="margin-top: 10px; font-size: 20px;">
+                    <b class="black-text">1.</b> The foundations of attraction marketing, how to attract prospects to you who are already interested in growing their wealth in Bitcoins.
+                </p>
+
+                <p class="blue-text" style="margin-top: 10px; font-size: 20px;">
+                    <b class="black-text">2.</b> How to develop a vision for success and have a millionaire success mindset.
+                </p>
+
+                <p class="blue-text" style="margin-top: 10px; font-size: 20px;">
+                    <b class="black-text">3.</b> How to become an amazing leader and influence your audience to make decisions that will better their lives.
+                </p>
+
+                <p class="blue-text" style="margin-top: 10px; font-size: 20px;">
+                    <b class="black-text">4. List Management Email Marketing Skills –</b> Your email list of prospects and clients is your #1 asset online – learn effective email follow up strategies.
+                </p>
+
+                <p class="blue-text" style="margin-top: 10px; font-size: 20px;">
+                    <b class="black-text">5. Facebook Marketing –</b> learn how to have thousands of friends and non-stop incoming messages on Facebook of people who want to JOIN your business..
+                </p>
+
+                <p class="blue-text" style="margin-top: 10px; font-size: 20px;">
+                    <b class="black-text">6.</b> How to leverage FREE strategies to generate RED HOT prospects and leads that will reach out to you and want to do business with you.
+                </p>
+
+                <p class="blue-text" style="margin-top: 10px; font-size: 20px;">
+                    <b class="black-text">7.</b> How to instantly build trust and rapport with your prospects.
+                </p>
+
+                <p class="blue-text" style="margin-top: 10px; font-size: 20px;">
+                    <b class="black-text">8.</b> How to shoot videos and do Facebook lives so people really fall in love with you and what you stand for and generate a lot of prospects and leads daily.
+                </p>
+
+                <p class="blue-text" style="margin-top: 10px; font-size: 20px;">
+                    <b class="black-text">9.</b> How to build a list of subscribers on your Facebook messenger app!
+                </p>
+
+                <p class="orange-text" style="margin-top: 10px; font-size: 20px;">
+                    Every week we are going to coach you LIVE on the exact strategies to grow their Bitcoin empire! How much that would be worth to you and your business?
+                </p>
+            </div>
+        </div>
+
+
+        <div class="col s12 m12 l12 center-align" style="padding: 40px; margin-top: 20px;">
+            <div class="col s12 m12 l12 center-align" style="padding: 40px; margin-top: 20px;">
+                <p class="col s12 m12 l12 divider"></p>
+
+                <h5 style="padding: 40px;">WE ARE INCRESING <span class="red white-text" style="padding: 10px;">{{ total_member }}+</span>
+                </h5>
+
+                <p class="col s12 m12 l12 divider"></p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script>
+        $(document).ready(function(){
+            $('.modal').modal();
+         });
+    </script>
+{% endblock %}
