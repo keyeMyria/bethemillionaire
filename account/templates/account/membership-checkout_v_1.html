@@ -1,0 +1,245 @@
+{% extends 'base1.html' %}
+
+{% block title %}BeTheMillionaire | Membership Checkout{% endblock %}
+
+{% block add-css %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home/style/index.css' %}">
+    <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <style>
+        .top-section-background{
+            background-image: url('/static/account/style/images/membership/membership_cover1.png!d');
+            background-repeat: no-repeat;
+            background-position: center;
+            position: relative;
+            height: 100%;
+            width: 100%;
+            background-attachment: fixed;
+            background-size: cover;
+            opacity: .8;
+        }
+    </style>
+{% endblock %}
+
+{% block main %}
+    <div class="row">
+        <div class="col s12 m12 l12 top-section-background center-align valign-wrapper" style="min-height: 560px;">
+            {% if membership_level.name == 'vip' %}
+            <div class="col s12 m12 l10 offset-l1 orange black-text flow-text" style="opacity: .8; padding: 20px; margin-top: 40px; margin-bottom: 40px;">
+                Yes I'm ready and excited to become VIP member of BeTheMillionaire & 10X my profits this year! I'm excited to get live coaching and mastermind with 7 figure income earners every week and learn how to build a Bitcoin Empire!
+                <br>
+                Yes, I'm excited to master online marketing skills so I can help more people build wealth and generate increasing levels of residual income both in Bitcoins and USD.
+                <br>
+                Yes, I'm excited to master the mindset and strategies of the wealthy people so I can live the lifestyle of my dreams.
+                <br>
+                Yes, I want to earn up to 70% commissions and share 20% of all BeTheMillionaire profits in Bitcoin via VIP profit sharing pools*
+                <br>
+                Yes, I'm ready to get all the special training, bonuses, privileges and perks that are only reserved for VIP members of BeTheMillionaire. Your VIP membership of BeTheMillionaire will have instant access to all the benefits and services.
+            </div>
+            {% endif %}
+
+            {% if membership_level.name == 'premium' %}
+            <div class="col s12 m12 l10 offset-l1 orange black-text flow-text" style="opacity: .8; padding: 20px; margin-top: 40px; margin-bottom: 40px;">
+                Yes I'm ready and excited to become Premium member of BeTheMillionaire & 10X my profits this year! I'm excited to get live coaching and mastermind with the owner of BeTheMillionaire every week and learn how to build a Bitcoin Empire!
+                <br>
+                Yes, I'm excited to master online marketing skills so I can help more people build wealth and generate increasing levels of residual income both in Bitcoins and USD.
+                <br>
+                Yes, I want to earn up to 40% commissions!
+            </div>
+            {% endif %}
+        </div>
+
+        <div class="col s12 m12 l12 center-align" style="padding: 40px; margin-top: 20px;">
+            <p class="col s12 m12 l12 divider"></p>
+
+            <h5 style="margin-top: 40px;"><span class="red white-text" style="padding: 10px;">{{ membership_level.package | title }} {{ membership_level.name | upper }}</span> Membership Details</h5>
+
+            <div class="col l10 offset-l1" style="margin-top: 50px;">
+                <ul class="collapsible popout">
+                    <li>
+                        <div class="collapsible-header active"><i class="material-icons">accessibility</i>Check Your Member Information</div>
+                        <div class="collapsible-body left-align">
+                            <p>Username: {{ request.user.username | title }}</p>
+                            <p>Email: {{ request.user.email }}</p>
+                            <p>Current Membership: {{ request.user.membership.name | upper }}</p>
+
+                            {% if request.user.membership.name != 'free' %}
+                                <p>Membership Start Date: {{ request.user.membership.creation_time | date }}</p>
+                                <p>Membership Expired Date: {{ request.user.membership.expired_time | date }}</p>
+                            {% endif %}
+
+                            <p>Not You : <a href="{% url 'account:logout' %}">Logged Out</a></p>
+
+                            <p class="btn waves-effect waves-light orange" id="gotomembership" style="margin-top: 10px;">Yes, Its Me
+                            </p>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="collapsible-header" id="membership"><i class="material-icons">domain</i>Check The Membership Information</div>
+                        <div class="collapsible-body left-align">
+                            <p>Membership Name: {{ membership_level.name | title }}</p>
+                            <p>Membership Package: {{ membership_level.package | title }}</p>
+                            <p>Membership Price: <span id="membership_price">{{ membership_level.price }}</span>$</p>
+                            <p>Wanna Change Membership Plan:
+                                {% if membership_level.name == 'vip' %}
+                                    <a href="{% url 'account:membership-level-vip' %}">Click Here</a>
+                                {% endif %}
+
+                                {% if membership_level.name == 'premium' %}
+                                    <a href="{% url 'account:membership-level-premium' %}">Click Here</a>
+                                {% endif %}
+                            </p>
+
+                            <p class="btn waves-effect waves-light orange" id="membership_confirm" style="margin-top: 10px;">Confirm Membership
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <input type="hidden" id="get_level" value="{{ membership_level.id }}" />
+        <input type="hidden" id="get_userid" value="{{ request.user.username }}" />
+
+
+        <div class="col s12 m10 offset-m1 l8 offset-l2 center-align" style="padding: 40px; margin-top: 20px; margin-bottom: 50px;">
+            <p class="col s12 m12 l12 divider"></p>
+
+            <h5 class="red-text" style="margin-top: 40px;">Choose Payment Method</h5>
+
+            <div class="col s12 m5 l5 left-align" style="height: 180px; margin-right: 10px; border: 4px solid #333; margin-top: 30px; padding: 20px;">
+                <h5 class="orange-text">
+                    Pay With Paypal
+                </h5>
+
+                <p class="blue-text" style="margin-top: 10px; font-size: 20px;">
+                    <br>
+                    <b id="paypal-button-container" class="black-text">
+                    </b>
+                </p>
+            </div>
+
+            <div class="col s12 m5 l5 left-align" style="height: 180px; border: 4px solid #333; margin-top: 30px; padding: 20px;">
+                <h5 class="orange-text">
+                    Comming Soon
+                </h5>
+
+                <p class="blue-text" style="margin-top: 10px; font-size: 20px;">
+                    <b class="black-text">...</b><br><br>
+                </p>
+            </div>
+        </div>
+
+        <div class="col s12 m10 offset-m1 l8 offset-l2 center-align" style="padding: 40px; margin-top: 20px; margin-bottom: 120px;">
+            <p class="col s12 m12 l12 divider"></p>
+        </div>
+
+    </div>
+{% endblock %}
+
+{% block script %}
+
+<script>
+    $(document).ready(function(){
+        $('.collapsible').collapsible();
+    });
+
+    $("#gotomembership").click(function(){
+        $(".collapsible-header").removeClass(function(){
+            return "active";
+          });
+          $(".collapsible").collapsible({accordion: true});
+          $(".collapsible").collapsible({accordion: false});
+
+
+        $("#membership").addClass("active").collapsible("refresh");;
+        $(".collapsible").collapsible({accordion: false});
+    });
+
+    $("#membership_confirm").click(function(){
+        $(".collapsible-header").removeClass(function(){
+            return "active";
+          });
+          $(".collapsible").collapsible({accordion: true});
+          $(".collapsible").collapsible({accordion: false});
+    });
+
+
+        var payable = $("#membership_price").html();
+        //var payable = 0.02;
+
+
+
+        paypal.Button.render({
+
+            env: 'production', // sandbox | production
+
+
+            client: {
+                sandbox: '',
+                production: 'AeAk71BtpPfy1tjOada556TEsVjbgoKxwclhQv-OxPk9BUWp_VP86EP5EXDR7eR0fuhAo8NPIxuopT-D'
+            },
+
+            commit: true,
+
+            payment: function(data, actions) {
+                return actions.payment.create({
+                    payment: {
+                        transactions: [
+                            {
+                                amount: { total: payable, currency: 'USD' }
+                            }
+                        ]
+                    }
+
+                });
+            },
+
+
+            onAuthorize: function(data, actions) {
+
+                return actions.payment.execute().then(function(payment) {
+                    var intent = data.intent;
+                    var payerID = data.payerID;
+                    var paymentID = data.paymentID;
+                    var paymentToken = data.paymentToken;
+                    var transactionID = payment.transactions[0].related_resources[0].sale.id;
+                    var level = $("#get_level").val();
+                    var userid = $("#get_userid").val();
+
+                    $.ajax({
+                        url: '/account/api/payment/',
+                        data: { "userid":userid, "intent":intent, "payerID":payerID, "paymentID":paymentID, "paymentToken":paymentToken, "memberhsiplevel":level, "transactionID": transactionID, },
+                        dataType: 'json',
+                        success: function (data) {
+                            window.location.href="/account/membership-account/checkout-success/";
+                        }
+                    });
+                });
+            },
+
+
+            onCancel: function(data, actions) {
+                //window.location.href="/account/membership-account/checkout-failure/";
+            },
+
+
+
+        }, '#paypal-button-container');
+
+
+        function makeid() {
+          var text = "";
+          var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+          for (var i = 0; i < 12; i++)
+            text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+          return text;
+        }
+    </script>
+
+{% endblock %}

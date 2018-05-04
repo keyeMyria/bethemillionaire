@@ -1637,7 +1637,7 @@ class MembershipLevelVIP(View):
 
 
 class MembershipCheckout(View):
-    template_name = 'account/membership-checkout.html'
+    template_name = 'account/membership-checkout_v_1.html'
 
     def get(self, request):
 
@@ -1645,10 +1645,10 @@ class MembershipCheckout(View):
         name = request.GET.get("name")
         package = request.GET.get("package")
 
-        membership_levels = models.Membershiplevel.objects.filter(Q(level=level) & Q(name=name) & Q(package=package))
+        membership_level = models.Membershiplevel.objects.get(Q(level=level) & Q(name=name) & Q(package=package))
 
         variables = {
-            'membership_levels': membership_levels,
+            'membership_level': membership_level,
         }
 
         return render(request, self.template_name, variables)
