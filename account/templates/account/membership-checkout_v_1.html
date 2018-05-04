@@ -20,6 +20,18 @@
             background-size: cover;
             opacity: .8;
         }
+
+        .checkout_footer{
+            background-image: url('/static/account/style/images/membership/checkout_footer.jpg');
+            background-repeat: no-repeat;
+            background-position: center;
+            position: relative;
+            height: 100%;
+            width: 100%;
+            background-attachment: fixed;
+            background-size: cover;
+            opacity: .6;
+        }
     </style>
 {% endblock %}
 
@@ -133,7 +145,36 @@
             </div>
         </div>
 
-        <div class="col s12 m10 offset-m1 l8 offset-l2 center-align" style="padding: 40px; margin-top: 20px; margin-bottom: 120px;">
+        <div class="col s12 m12 l12">
+            <div class="col s12 m12 l10 offset-l1 white-text flow-text checkout_footer" style="opacity: .8; padding: 20px; margin-top: 40px; margin-bottom: 40px;">
+                {% if membership_level.name == 'premium' %}
+                <h1>Welcome To Premium Membership Of BeTheMillionaire!</h1>
+
+                <p>
+                    This is where you will get the chance to learn directly from founder and creator of BeTheMillionaire on a private premium mastermind calls, network with other Premium members and get coaching that you need to get to the next level.
+                </p>
+
+                <p>
+                    To get the most out of your membership we highly recommend to attend ALL of the Premium events, watch the recordings and stay active inside our Premium group.
+                </p>
+                {% endif %}
+
+                {% if membership_level.name == 'vip' %}
+                <h1>Welcome To VIP Membership Of BeTheMillionaire!</h1>
+
+                <p>
+                    This is where you will get the most cutting edge strategies to grow your wealth in Bitcoins, mastermind and network with our top affiliates and leaders and get coaching that you need to get to the next level.
+                </p>
+
+                <p>
+                    To get the most out of your membership we highly recommend to attend ALL of the VIP events, watch the recordings and stay active inside our VIP group.
+                </p>
+                {% endif %}
+
+            </div>
+        </div>
+
+        <div class="col s12 m10 offset-m1 l10 offset-l1 center-align" style="padding: 40px; margin-top: 20px; margin-bottom: 80px;">
             <p class="col s12 m12 l12 divider"></p>
         </div>
 
@@ -223,7 +264,7 @@
 
 
             onCancel: function(data, actions) {
-                //window.location.href="/account/membership-account/checkout-failure/";
+                window.location.href="/account/membership-account/checkout-failure/";
             },
 
 
