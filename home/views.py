@@ -20,6 +20,18 @@ class LoginRequiredMixin(object):
     class Home(LoginRequiredMixin, View):
 """
 
+
+class Start(View):
+    template_name = 'home/start.html'
+
+    def get(self, request):
+        return render(request, self.template_name)
+
+    def post(self, request):
+        pass
+
+
+
 class Home(View):
     template_name = 'home/index.html'
 

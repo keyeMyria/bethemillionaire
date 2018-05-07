@@ -40,4 +40,6 @@ urlpatterns = [
     url(r'^member-home/privacy-policy/$', views.PrivacyPolicy.as_view(), name='privacy-policy'),
     url(r'^member-home/faq/$', views.FAQ.as_view(), name='faq'),
     url(r'^member-home/recent-update/$', views.RecentUpdate.as_view(), name='recent-update'),
+
+    url(r'^start/$', views.Start.as_view(), name='start'),
 ]

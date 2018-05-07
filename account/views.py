@@ -121,7 +121,7 @@ class Login(View):
 
 #registration functionality
 class Registration(View):
-    template_name = 'account/registration1.html'
+    template_name = 'account/registration_v_2.html'
 
     def get(self, request):
         affiliate_name = request.GET.get("userid")
@@ -1031,7 +1031,7 @@ class SevenFigurePlan(View):
 
 #profile
 class Profile(View):
-    template_name = 'account/profile.html'
+    template_name = 'account/profile_v_1.html'
 
     def get(self, request):
         user_edit_form = UserEditForm(instance=UserProfile.objects.get(username=request.user.username))

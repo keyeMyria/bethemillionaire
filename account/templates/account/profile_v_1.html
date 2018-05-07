@@ -1,0 +1,53 @@
+{% extends 'base1.html' %}
+
+{% block title %}{{ request.user.username }} | Profile{% endblock %}
+
+{% block add-css %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home/style/index.css' %}">
+
+    <style>
+        .left_main_menu a{
+            color: orange;
+        }
+
+        .left_main_menu a:hover{
+            color: white;
+            text-decoration: underline;
+        }
+    </style>
+{% endblock %}
+
+{% block main %}
+    <div class="row">
+        <div class="col m4 l2 blue" style="border: 1px solid #333; height: 500px;">
+            <div class="col s12 m12 l12 #1a237e indigo orange-text darken-4 center-align" style="padding: 10px;">
+                <h5>My Profile</h5>
+            </div>
+
+            <div class="col s12 m12 l12 white center-align" style="min-height: 200px;">
+                <img class="col m10 offset-m1 l10 offset-l1" src="{{ request.user.profile_picture.url}}" height="100%" width="100%" style="margin-top: 20px;" alt="">
+                <p style="margin-bottom: 10px;">@{{ request.user.username | title }}</p>
+            </div>
+
+            <div class="col s12 m12 l12 #1a237e indigo orange-text darken-4 left_main_menu" style="padding: 10px;">
+                <a class="left col s12 m12 l12 white-text" href="" style="padding: 10px;">Profile
+                    <span class="right" style=""> > </span>
+                </a>
+
+                <a class="left col s12 m12 l12" href="" style="padding: 10px;">Other Affiliate Network
+                    <span class="right" style=""> > </span>
+                </a>
+
+                <a class="left col s12 m12 l12" href="" style="padding: 10px;">My Membership
+                    <span class="right" style=""> > </span>
+                </a>
+            </div>
+        </div>
+
+        <div class="col m8 l10 #eceff1 blue-grey lighten-5" style="border: 1px solid #333; height: 500px;">
+
+        </div>
+
+    </div>
+{% endblock %}

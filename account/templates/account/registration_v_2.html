@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BeTheMillionaire | Registration2</title>
+
+    {% load staticfiles %}
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'account/style/materialize.min.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link href="https://fonts.googleapis.com/css?family=Sacramento" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Changa" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+
+
+
+    <style>
+        .container{
+            min-width: 100%;
+        }
+
+        .container > .row {
+            margin: 0;
+        }
+
+
+        .container > .row > .col {
+            padding: 0;
+        }
+
+        *{
+            padding: 0px;
+            margin: 0px;
+            font-family: 'Changa', 'myFont';
+        }
+
+        @font-face {
+            font-family: 'myFont';
+            src: url('/static/account/fonts/myFont.ttf');
+        }
+
+        #toast-container {
+          top: auto !important;
+          right: auto !important;
+          bottom: 10%;
+          left:7%;
+        }
+
+        .preloader-background {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: white;
+
+            position: fixed;
+            z-index: 100;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+
+        .left-side-background{
+            background-image: url('/static/account/style/images/reg/back-1.jpeg');
+            background-repeat: no-repeat;
+            background-position: center;
+            position: relative;
+            height: 100%;
+            width: 100%;
+            background-size: cover;
+        }
+
+    </style>
+</head>
+
+<body class="">
+    <div class="container">
+        <div class="row #f5f5f5 grey lighten-4">
+            <div class="col s12 m12 l9 left-side-background white-text" style="height: 680px; padding: 50px;">
+                <div class="col s12 m12 l12">
+                    <img class="col l2 left" src="{% static 'home/style/images/logo/logo.png' %}" height="100%" width="100%">
+                    <h5 class="left" style="margin-top: 40px;">FREE System Reveals Never-Before-Seen Wealth Building Secrets...</h5>
+                </div>
+
+
+                <div class="col s12 l12" style="padding: 0px; opacity: 1; margin-top: 10px; border: 15px solid white;">
+                    {% if request.GET.s == 'three' %}
+                        <iframe width="100%" height="450px" src="https://www.youtube.com/embed/AajNTycAjKo?autoplay=1" frameborder="0" gesture="media" allow="encrypted-media" autoplay="true" allowfullscreen></iframe>
+                    {% else %}
+                        <iframe width="100%" height="450px" src="https://www.youtube.com/embed/cvFKgbZOTvw?autoplay=1" frameborder="0" gesture="media" allow="encrypted-media" autoplay="true" allowfullscreen></iframe>
+                    {% endif %}
+                </div>
+
+
+                <video autoplay muted loop id="myVideo">
+                  <source src="https://www.youtube.com/embed/AajNTycAjKo" type="video/mp4">
+                </video>
+
+            </div>
+
+            <div class="col s12 m12 l3 white z-depth-2" style="height: 680px; padding: 30px;">
+                <h5>Join Now</h5>
+                <p class="" style="color: grey;">Connect with over 7 million investors in the world's leading social trading network</p>
+
+
+                <form class="col s12 m12" method="post" style="margin-top: 30px; padding: 0px;">
+                    {% csrf_token %}
+
+                    <div class="input-field col s12 l12">
+                        {{ form.username }}
+                        <label for="icon_prefix white-text">Username</label>
+                    </div>
+
+                    <div class="input-field col s12 l12">
+                        {{ form.email }}
+                        <label for="icon_prefix white-text">Email</label>
+                    </div>
+
+                    <div class="input-field col s12 l12">
+                        {{ form.password1 }}
+                        <label for="icon_prefix white-text">Password</label>
+                    </div>
+
+                    <div class="input-field col s12 l12">
+                        {{ form.password2 }}
+                        <label for="icon_prefix white-text">Password Again</label>
+                    </div>
+
+
+                    {% if form.non_field_errors %}
+                        {% for error in form.non_field_errors %}
+                            <div class="col s12 l12" style="border: 0px; margin-bottom: 10px;">
+                                <p href="#!" class="red-text">{{ error }}</p>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+
+                    <p class="col s12 l12">
+                        Already have an account?
+                        <a href="{% url 'account:login' %}">Login</a>
+                    </p>
+
+                    <div class="col s12 m12 l12" style="margin-top: 20px;">
+                        <button class="col s12 m12 l12 btn waves-effect waves-light orange white-text" type="submit" style="">
+                            Join
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="col s12 l8 offset-l2" style="height: 400px; padding: 50px;">
+                skjbsjkd
+            </div>
+
+        </div>
+    </div>
+
+    <script type="text/javascript" src="{% static 'account/js/jquery.min.js' %}"></script>
+    <!--<script type="text/javascript" src="{% static 'account/js/materialize.min.js' %}"></script>-->
+
+    <!--preloader-->
+
+    <div class="preloader-background">
+        <div class="preloader-wrapper big active">
+            <div class="spinner-layer spinner-orange-only">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div>
+                <div class="gap-patch">
+                    <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--end preloader-->
+</body>
+</html>
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function(){
+        $('.preloader-background').delay(1700).fadeOut('slow');
+
+        $('.preloader-wrapper')
+            .delay(1700)
+            .fadeOut();
+    });
+
+
+    $(document).ready(function () {
+        $.ajax({
+        url: '/account/api/user-profile/',
+        data: { "user_range":1, },
+        dataType: 'json',
+        success: function (data) {
+            username = data[0].username;
+
+            var toastHTML = `
+              <div class="col s12 m12 l12 valign-wrapper" style="">
+                <a href="{% url 'account:public-profile' %}?userid=${username}" class="white-text" style="text-decoration: underline;">${username} </a> &nbsp; Just joined!
+              </div>
+            `
+
+            M.toast({html: toastHTML });
+        }
+        });
+    });
+
+    $(function() {
+      setInterval(update, 5000);
+
+    });
+
+    function dissmiss(){
+        M.Toast.dismissAll();
+    }
+
+    function update() {
+      $.ajax({
+        url: '/account/api/user-profile/',
+        data: { "user_range":1, },
+        dataType: 'json',
+        success: function (data) {
+            username = data[0].username;
+
+            var toastHTML = `
+              <div class="col s12 m12 l12 valign-wrapper" style="">
+                <a href="{% url 'account:public-profile' %}?userid=${username}" class="white-text" style="text-decoration: underline;">${username} </a> &nbsp; Just joined!
+              </div>
+            `
+
+            M.toast({html: toastHTML });
+
+        }
+        });
+    }
+</script>
