@@ -2,6 +2,7 @@ from django import forms
 from django.db.models import Q
 
 from . import models
+from account import models as account_model
 
 
 #team create form
@@ -89,6 +90,4 @@ class PaymentAccountSettingForm(forms.Form):
 
 
         deploy = models.PaymentAccountSetting.objects.update_or_create(user=request.user, defaults={'account_type': account_type, 'account_no': account_no})
-
-
 

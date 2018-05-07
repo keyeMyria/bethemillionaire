@@ -675,3 +675,28 @@ class CommissionPaymentDetail(View):
         return render(request, self.template_name, variables)
 
 
+
+#lesson control view
+class WebinarRegistrationLink(AdminPermission, View):
+    template_name = 'administration/webinar-registration.html'
+
+    def get(self, request):
+        webinar_link_form = forms.WebinarLinkForm(instance=account_model.WebinarLink.objects.get(id=1))
+
+        variables = {
+            'webinar_link_form': webinar_link_form,
+        }
+
+        return render(request, self.template_name, variables)
+
+    def post(self, request):
+        webinar_link_form = forms.WebinarLinkForm(request.POST or None, instance=account_model.WebinarLink.objects.get(id=1))
+
+        if webinar_link_form.is_valid():
+            webinar_link_form.save()
+
+        variables = {
+            'webinar_link_form': webinar_link_form,
+        }
+
+        return render(request, self.template_name, variables)

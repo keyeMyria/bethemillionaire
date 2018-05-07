@@ -27,9 +27,13 @@ class Home(View):
         sponsor_teams = models.Team.objects.filter(owner=request.user.sponsor)
         total_member = account_model.UserProfile.objects.all().count()
 
+        webinar_registration_link = account_model.WebinarLink.objects.get(id=1)
+
         variables = {
             'sponsor_teams': sponsor_teams,
             'total_member': total_member,
+
+            'webinar_registration_link': webinar_registration_link,
         }
 
         return render(request, self.template_name, variables)

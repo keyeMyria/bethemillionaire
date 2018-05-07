@@ -42,4 +42,7 @@ urlpatterns = [
     #add video on lesson
     url(r'^video/add/$', views.AddVideo.as_view(), name='add-video'),
 
+
+    url(r'^webinar-registration/link/$', views.WebinarRegistrationLink.as_view(), name='webinar-registration-link'),
+
 ]

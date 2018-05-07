@@ -830,3 +830,12 @@ class ReferralSaleCommission(models.Model):
     def __str__(self):
         return str(self.user.username)
 
+
+
+
+#webinar link
+class WebinarLink(models.Model):
+    link = models.URLField(max_length=255, null=True, blank=True)
+
+    def __str__(self):
+        return str(self.id)
