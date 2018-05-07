@@ -148,7 +148,8 @@
                                 <li><a class="dropdown-button " href="#!" data-activates="dropdown-support">Support</a></li>
                             </ul>
 
-                            <div class="col l3 right valign-wrapper" style="height: 100%;">
+                            <div class="col l4 right valign-wrapper" style="height: 100%;">
+                                <a class="right" style="margin-right: 10px;" id="google_translate_element"></a>
                                 <a href="{% url 'account:profile' %}" class="right waves-effect waves-light btn orange black-text pulse" style="margin-right: 20px;">{{ request.user.username | title }}</a>
                                 <a href="{% url 'account:logout' %}" class="right waves-effect waves-light btn red white-text" style="">Logout</a>
                             </div>
@@ -419,6 +420,13 @@
         });
     })
 </script>
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'ar', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+}
+</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 
 {% block script %}
 {% endblock %}
