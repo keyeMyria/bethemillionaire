@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0ba751cb-a37f-4638-b597-b9218988ff8c" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/templates/account/affiliate-network.html" beforeDir="false" afterPath="$PROJECT_DIR$/account/templates/account/affiliate-network.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/templates/account/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/account/templates/account/profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/templates/account/profile_v_1.html" beforeDir="false" afterPath="$PROJECT_DIR$/account/templates/account/profile_v_1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/account/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account/templates/account/thank-you_v_1.html" beforeDir="false" afterPath="$PROJECT_DIR$/account/templates/account/thank-you_v_1.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/templates/base1.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/base1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/home/start.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/home/start1.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -25,6 +19,18 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="441">
               <caret line="1358" column="42" selection-start-line="1358" selection-start-column="42" selection-end-line="1358" selection-end-column="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="base1.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/home/templates/base1.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="347">
+              <caret line="130" column="24" selection-start-line="130" selection-start-column="24" selection-end-line="130" selection-end-column="24" />
+              <folding>
+                <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#nav#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -50,7 +56,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>api</find>
       <find>pub</find>
       <find>My</find>
       <find>getresponseacc</find>
@@ -80,6 +85,7 @@
       <find>9e10b02d81ee6618e25526c06ef39a0b-0</find>
       <find>Your sponsor is:</find>
       <find>welcome</find>
+      <find>!ابدا من هنا</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -129,7 +135,6 @@
         <option value="$PROJECT_DIR$/account/templates/account/my-membership.html" />
         <option value="$PROJECT_DIR$/account/templates/account/profile.html" />
         <option value="$PROJECT_DIR$/home/templates/home/start.html" />
-        <option value="$PROJECT_DIR$/home/templates/base1.html" />
         <option value="$PROJECT_DIR$/account/templates/account/profile_v_1.html" />
         <option value="$PROJECT_DIR$/account/templates/account/affiliate-network.html" />
         <option value="$PROJECT_DIR$/account/templates/account/my-membership_v_1.html" />
@@ -138,6 +143,7 @@
         <option value="$PROJECT_DIR$/account/templates/account/welcome_v_1.html" />
         <option value="$PROJECT_DIR$/account/views.py" />
         <option value="$PROJECT_DIR$/account/templates/account/thank-you_v_1.html" />
+        <option value="$PROJECT_DIR$/home/templates/base1.html" />
         <option value="$PROJECT_DIR$/manage.py" />
       </list>
     </option>
@@ -415,13 +421,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/account/templates/account/thank-you.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1602">
-          <caret line="89" column="92" selection-start-line="89" selection-start-column="92" selection-end-line="89" selection-end-column="92" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/administration/templates/administration/add-video.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
@@ -658,16 +657,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/home/templates/base1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="347" column="13" lean-forward="true" selection-start-line="340" selection-start-column="4" selection-end-line="347" selection-end-column="13" />
-          <folding>
-            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#nav#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/account/templates/account/affiliate-network.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="365">
@@ -816,13 +805,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/account/templates/account/welcome.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="60" column="55" selection-start-line="60" selection-start-column="55" selection-end-line="60" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/account/templates/account/welcome_v_1.html">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -842,10 +824,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/account/templates/account/thank-you.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="415">
+          <caret line="89" column="92" selection-start-line="89" selection-start-column="92" selection-end-line="89" selection-end-column="92" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/account/templates/account/welcome.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="81" column="68" lean-forward="true" selection-start-line="81" selection-start-column="33" selection-end-line="81" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/account/templates/account/thank-you_v_1.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="581">
-          <caret line="1627" lean-forward="true" selection-start-line="1627" selection-end-line="1627" />
+        <state relative-caret-position="70">
+          <caret line="1140" column="49" selection-start-line="1140" selection-start-column="49" selection-end-line="1140" selection-end-column="49" />
           <folding>
             <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#p#0;n#h1#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -886,6 +882,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="441">
           <caret line="1358" column="42" selection-start-line="1358" selection-start-column="42" selection-end-line="1358" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/home/templates/base1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="347">
+          <caret line="130" column="24" selection-start-line="130" selection-start-column="24" selection-end-line="130" selection-end-column="24" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#nav#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
