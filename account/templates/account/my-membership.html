@@ -1,0 +1,124 @@
+{% extends 'base1.html' %}
+
+{% block title %}{{ request.user.username }} | My Membership{% endblock %}
+
+{% block add-css %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home/style/index.css' %}">
+
+    <style>
+        .left_main_menu a{
+            color: orange;
+        }
+
+        .left_main_menu a:hover{
+            color: white;
+            text-decoration: underline;
+        }
+    </style>
+{% endblock %}
+
+{% block main %}
+    <div class="row">
+        <div class="col m4 l2 blue" style="border: 1px solid #333; height: 650px;">
+            <div class="col s12 m12 l12 #1a237e indigo orange-text darken-4 center-align" style="padding: 10px;">
+                <h5>My Profile</h5>
+            </div>
+
+            <div class="col s12 m12 l12 white center-align" style="min-height: 200px;">
+                {% if request.user.profile_picture %}
+                    <img class="col m10 offset-m1 l10 offset-l1" src="{{ request.user.profile_picture.url}}" height="100%" width="100%" style="margin-top: 20px;" alt="">
+                {% else %}
+                    <img class="col m10 offset-m1 l10 offset-l1" src="{% static 'account/style/images/no-img.jpg' %}" height="100%" width="100%" style="margin-top: 20px;" alt="">
+                {% endif %}
+                <p style="margin-bottom: 10px;">@{{ request.user.username | title }}</p>
+            </div>
+
+            <div class="col s12 m12 l12 #1a237e indigo orange-text darken-4 left_main_menu" style="padding: 10px;">
+                <a class="left col s12 m12 l12" href="{% url 'account:profile' %}" style="padding: 10px;">Profile
+                    <span class="right" style=""> > </span>
+                </a>
+
+                <a class="left col s12 m12 l12" href="{% url 'account:affiliate-network' %}" style="padding: 10px;">Other Affiliate Network
+                    <span class="right" style=""> > </span>
+                </a>
+
+                <a class="left col s12 m12 l12 white-text" href="{% url 'account:my-membership' %}" style="padding: 10px;">My Membership
+                    <span class="right" style=""> > </span>
+                </a>
+
+                <a class="left col s12 m12 l12" href="" style="padding: 10px;">Change Password
+                    <span class="right" style=""> > </span>
+                </a>
+
+                <a class="left col s12 m12 l12" href="" style="padding: 10px;">Change Profile Picture
+                    <span class="right" style=""> > </span>
+                </a>
+            </div>
+        </div>
+
+        <div class="col m8 l10 #eceff1 blue-grey lighten-5" style="min-height: 650px; padding: 30px;">
+            <div class="col s12 l8 offset-l2 white z-depth-2 left-align" style="min-height: 550px; padding: 30px;">
+                <h5>My Membership</h5>
+
+                <div class="col l12" style="padding: 0px;">
+                    <div class="card orange">
+                        <div class="card-content black-text">
+                            <span class="card-title">Current Membership</span>
+
+                            <p>
+                                Membership Name: {{ request.user.membership.name | title }}
+                            </p>
+
+                            <p>
+                                Membership Package: {{ request.user.membership.package | title }}
+                            </p>
+
+                            {% if request.user.payments %}
+                                <p>
+                                    Membership Start: {{ request.user.payments.creation_time | date }}
+                                </p>
+
+                                <p>
+                                    Membership Expired: {{ request.user.payments.expired_time | date }}
+                                </p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="col l12" style="padding: 0px;">
+                    <table class="highlight centered bordered responsive-table" style="margin-bottom: 50px; margin-top: 30px;">
+                        <thead>
+                          <tr style="background-color: blue; color: white;">
+                              <th>Level</th>
+                              <th>Billing</th>
+                              <th>Start</th>
+                              <th>Expired</th>
+                              <th>Status</th>
+                          </tr>
+                        </thead>
+
+                        <tbody>
+                            {% for payment in payments %}
+                                <tr>
+                                    <td>{{ payment.membership.name | title }} - {{ payment.membership.package | title }}</td>
+                                    <td>{{ payment.membership.price }}$</td>
+                                    <td>{{ payment.creation_time | date }}</td>
+                                    <td>{{ payment.expired_time | date }}</td>
+                                    <td>{{ payment.is_verify | title }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+
+
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

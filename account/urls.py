@@ -55,6 +55,10 @@ urlpatterns = [
     url(r'^logout/$', views.logout_request, name='logout'),
 
     url(r'^membership-account/profile/$', views.Profile.as_view(), name='profile'),
+    url(r'^membership-account/affiliate-network/$', views.AffiliateNetwork.as_view(), name='affiliate-network'),
+    url(r'^membership-account/my-membership/$', views.MyMembership.as_view(), name='my-membership'),
+
+
     url(r'^membership-account/my-referrals/$', views.MyReferrals.as_view(), name='my-referrals'),
     url(r'^membership-account/public-profile/$', views.PublicProfile.as_view(), name='public-profile'),
     url(r'^membership-account/my-autoresponder-settings/$', views.MyAutoresponderSettings.as_view(), name='my-autoresponder-settings'),

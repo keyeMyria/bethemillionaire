@@ -39,7 +39,7 @@ import simplejson
 import socket
 
 class Preregistration(View):
-    template_name = 'account/pre-registration1.html'
+    template_name = 'account/pre-registration_v_2.html'
 
     def get(self, request):
 
@@ -1035,7 +1035,34 @@ class Profile(View):
 
     def get(self, request):
         user_edit_form = UserEditForm(instance=UserProfile.objects.get(username=request.user.username))
-        #basic_info_edit_form = BasicInfoEditForm(instance=UserProfile.objects.get(username=request.user.username))
+
+        variables = {
+            'user_edit_form': user_edit_form,
+        }
+
+        return render(request, self.template_name, variables)
+
+    def post(self, request):
+        user_edit_form = UserEditForm(request.POST or None, request.FILES, instance=UserProfile.objects.get(username=request.user.username))
+
+
+        if request.POST.get('account_info') == 'account_info':
+            if user_edit_form.is_valid():
+                user_edit_form.save()
+                return redirect('account:profile')
+
+        variables = {
+            'user_edit_form': user_edit_form,
+        }
+
+        return render(request, self.template_name, variables)
+
+
+#affiliate Netwok
+class AffiliateNetwork(View):
+    template_name = 'account/affiliate-network.html'
+
+    def get(self, request):
 
         click_magic_form = forms.ClickMagicAccountEditForm(instance=models.ClickMagicAccount.objects.get(user=request.user))
         click_funnels_form = forms.ClickFunnelsAccountEditForm(instance=models.ClickFunnelsAccount.objects.get(user=request.user))
@@ -1054,17 +1081,7 @@ class Profile(View):
         inda_coin_form = forms.IndaCoinEditForm(instance=models.IndaCoinAccount.objects.get(user=request.user))
         coin_mama_form = forms.CoinMamaEditForm(instance=models.CoinMamaAccount.objects.get(user=request.user))
 
-
-
-        user_profiles = models.UserProfile.objects.filter(username=request.user.username)
-
-
-        payments = models.Payment.objects.filter(user=request.user).order_by('-creation_time').all()
-
         variables = {
-            'user_edit_form': user_edit_form,
-            #'basic_info_edit_form': basic_info_edit_form,
-
             'click_magic_form': click_magic_form,
             'click_funnels_form': click_funnels_form,
             'getresponse_form': getresponse_form,
@@ -1080,22 +1097,16 @@ class Profile(View):
             'local_bitcoins_form': local_bitcoins_form,
             'inda_coin_form': inda_coin_form,
             'coin_mama_form': coin_mama_form,
-
-
-            'user_profiles': user_profiles,
-            'payments': payments,
         }
 
         return render(request, self.template_name, variables)
 
     def post(self, request):
-        user_edit_form = UserEditForm(request.POST or None, request.FILES, instance=UserProfile.objects.get(username=request.user.username))
 
         click_magic_form = forms.ClickMagicAccountEditForm(request.POST or None, instance=models.ClickMagicAccount.objects.get(user=request.user))
         click_funnels_form = forms.ClickFunnelsAccountEditForm(request.POST or None, instance=models.ClickFunnelsAccount.objects.get(user=request.user))
         getresponse_form = forms.GetResponseAccountEditForm(request.POST or None, instance=models.GetResponseAccount.objects.get(user=request.user))
         aweber_form = forms.AweberAccountEditForm(request.POST or None, instance=models.AweberAccount.objects.get(user=request.user))
-
 
         ledger_nano_s_form = forms.LedgerNanoSEditForm(request.POST or None, instance=models.LedgerNanoSAccount.objects.get(user=request.user))
         trezor_s_form = forms.TrezorSEditForm(request.POST or None, instance=models.TrezorSAccount.objects.get(user=request.user))
@@ -1109,78 +1120,67 @@ class Profile(View):
         coin_mama_form = forms.CoinMamaEditForm(request.POST or None, instance=models.CoinMamaAccount.objects.get(user=request.user))
 
 
-        user_profiles = models.UserProfile.objects.filter(username=request.user.username)
-
-
-        if request.POST.get('account_info') == 'account_info':
-            if user_edit_form.is_valid():
-                user_edit_form.save()
-                return redirect('account:profile')
-
-
-        elif request.POST.get('click_magic') == 'click_magic':
+        if request.POST.get('click_magic') == 'click_magic':
             if click_magic_form.is_valid():
                 click_magic_form.save()
-                return redirect('account:profile')
+                return redirect('account:affiliate-network')
         elif request.POST.get('click_funnels') == 'click_funnels':
             if click_funnels_form.is_valid():
                 click_funnels_form.save()
-                return redirect('account:profile')
+                return redirect('account:affiliate-network')
         elif request.POST.get('getresponse') == 'getresponse':
             if getresponse_form.is_valid():
                 getresponse_form.save()
-                return redirect('account:profile')
+                return redirect('account:affiliate-network')
         elif request.POST.get('aweber') == 'aweber':
             if aweber_form.is_valid():
                 aweber_form.save()
-                return redirect('account:profile')
+                return redirect('account:affiliate-network')
 
 
         elif request.POST.get('ledger_nano_s') == 'ledger_nano_s':
             if ledger_nano_s_form.is_valid():
                 ledger_nano_s_form.save()
-                return redirect('account:profile')
+                return redirect('account:affiliate-network')
         elif request.POST.get('trezor_s') == 'trezor_s':
             if trezor_s_form.is_valid():
                 trezor_s_form.save()
-                return redirect('account:profile')
+                return redirect('account:affiliate-network')
         elif request.POST.get('coin_base') == 'coin_base':
             if coin_base_form.is_valid():
                 coin_base_form.save()
-                return redirect('account:profile')
+                return redirect('account:affiliate-network')
         elif request.POST.get('spectro_coin_card') == 'spectro_coin_card':
             if spectrocoin_card_form.is_valid():
                 spectrocoin_card_form.save()
-                return redirect('account:profile')
+                return redirect('account:affiliate-network')
         elif request.POST.get('cryptopay_card') == 'cryptopay_card':
             if cryptopay_card_form.is_valid():
                 cryptopay_card_form.save()
-                return redirect('account:profile')
+                return redirect('account:affiliate-network')
         elif request.POST.get('cex_io') == 'cex_io':
             if cex_io_form.is_valid():
                 cex_io_form.save()
-                return redirect('account:profile')
+                return redirect('account:affiliate-network')
         elif request.POST.get('bit_panda') == 'bit_panda':
             if bitpanda_form.is_valid():
                 bitpanda_form.save()
-                return redirect('account:profile')
+                return redirect('account:affiliate-network')
         elif request.POST.get('local_bitcoins') == 'local_bitcoins':
             if local_bitcoins_form.is_valid():
                 local_bitcoins_form.save()
-                return redirect('account:profile')
+                return redirect('account:affiliate-network')
         elif request.POST.get('inda_coin') == 'inda_coin':
             if inda_coin_form.is_valid():
                 inda_coin_form.save()
-                return redirect('account:profile')
+                return redirect('account:affiliate-network')
         elif request.POST.get('coin_mama') == 'coin_mama':
             if coin_mama_form.is_valid():
                 coin_mama_form.save()
-                return redirect('account:profile')
+                return redirect('account:affiliate-network')
 
 
         variables = {
-            'user_edit_form': user_edit_form,
-
             'click_magic_form': click_magic_form,
             'click_funnels_form': click_funnels_form,
             'getresponse_form': getresponse_form,
@@ -1196,11 +1196,25 @@ class Profile(View):
             'local_bitcoins_form': local_bitcoins_form,
             'inda_coin_form': inda_coin_form,
             'coin_mama_form': coin_mama_form,
-
-            'user_profiles': user_profiles,
         }
 
         return render(request, self.template_name, variables)
+
+
+
+#my membership
+class MyMembership(View):
+    template_name = 'account/my-membership.html'
+
+    def get(self, request):
+        payments = models.Payment.objects.filter(user=request.user).order_by('-creation_time').all()
+
+        variables = {
+            'payments': payments,
+        }
+
+        return render(request, self.template_name, variables)
+
 
 
 class MyReferrals(View):
