@@ -87,7 +87,7 @@ class Preregistration(View):
 
 #user login
 class Login(View):
-    template_name = 'account/login1.html'
+    template_name = 'account/login_v_2.html'
 
     def get(self, request):
         form = LoginForm()
