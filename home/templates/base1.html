@@ -261,6 +261,7 @@
                 </div>
             </div>
         </div>
+
         {% block main %}
 
         {% endblock %}
@@ -335,6 +336,16 @@
     </div>
 
     <!--end preloader-->
+
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS.load("particles-js", "{% static 'home/js/particles.json' %}",
+            function(){
+                console.log("particles.js loaded...")
+            }
+        )
+    </script>
 
 
 

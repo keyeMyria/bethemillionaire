@@ -39,7 +39,7 @@ import simplejson
 import socket
 
 class Preregistration(View):
-    template_name = 'account/pre-registration_v_2.html'
+    template_name = 'account/pre-registration_v_3.html'
 
     def get(self, request):
 
@@ -71,6 +71,7 @@ class Preregistration(View):
         affiliate_name = request.GET.get("userid")
 
         if form.is_valid():
+            print(request.POST.get('name'))
             form.preregistration(request)
 
             if affiliate_name == None:
@@ -1204,7 +1205,7 @@ class AffiliateNetwork(View):
 
 #my membership
 class MyMembership(View):
-    template_name = 'account/my-membership.html'
+    template_name = 'account/my-membership_v_1.html'
 
     def get(self, request):
         payments = models.Payment.objects.filter(user=request.user).order_by('-creation_time').all()
@@ -1355,7 +1356,7 @@ class Welcome(View):
 
 #thank you page
 class ThankYou(View):
-    template_name = 'account/thank-you.html'
+    template_name = 'account/thank-you_v_1.html'
 
     def get(self, request):
         affiliate_name = request.GET.get("userid")
