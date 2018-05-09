@@ -574,7 +574,7 @@ class PersonalTraining(View):
 
 #passive income
 class PassiveIncome(View):
-    template_name = 'home/passive-income.html'
+    template_name = 'home/passive-income_v_1.html'
 
     def get(self, request):
         user_profile = UserProfile.objects.filter(username=request.user.username)

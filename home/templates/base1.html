@@ -152,7 +152,7 @@
                                 <!-- Dropdown Trigger -->
                                 <li><a class="dropdown-button" href="{% url 'home:index' %}">Home</a></li>
                                 <li><a class="dropdown-button " href="#!" data-activates="dropdown-member-home">BTM Dashboard</a></li>
-                                <li><a class="dropdown-button " href="{% url 'home:passive-income' %}">Passive Profits</a></li>
+                                <li><a class="dropdown-button " href="{% url 'home:passive-income' %}" data-activates="dropdown-passive-income">Passive Profits</a></li>
                                 <li><a class="dropdown-button " href="#!" data-activates="dropdown-my-account">My Account</a></li>
                                 <li><a class="dropdown-button " href="#!" data-activates="dropdown-training">Training & Marketing</a></li>
                                 <li><a class="dropdown-button " href="#!" data-activates="dropdown-support">Support</a></li>
@@ -180,6 +180,13 @@
                                     <li><a style="font-size: 12px;" href="{% url 'home:bitcoin-wallets' %}">Bitcoin Wallets</a></li>
                                     <li><a style="font-size: 12px;" href="{% url 'home:bitcoin-debit-cards' %}">Bitcoin Debit Cards</a></li>
                                 </ul>
+                        </ul>
+
+                        <ul id='dropdown-passive-income' class='dropdown-content' style="">
+                            <li><a style="font-size: 12px;" href="{% url 'home:passive-income' %}">Passive Income</a></li>
+                            <li><a style="font-size: 12px;" href="{% url 'home:recent-update' %}">Cryptocurrency Trading</a></li>
+                            <li><a style="font-size: 12px;" href="#">Bitcoin and Altcoin mining</a></li>
+                            <li><a style="font-size: 12px;" href="#">Crypto Recources</a></li>
                         </ul>
 
 
