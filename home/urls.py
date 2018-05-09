@@ -12,6 +12,14 @@ urlpatterns = [
 
     #passive profits
     url(r'^member-home/passive-income/$', views.PassiveIncome.as_view(), name='passive-income'),
+    url(r'^member-home/crypto-trading/$', views.CryptoTrading.as_view(), name='crypto-trading'),
+    url(r'^member-home/crypto-mining/$', views.CryptoMining.as_view(), name='crypto-mining'),
+    url(r'^member-home/crypto-resource/$', views.CryptoResource.as_view(), name='crypto-resource'),
+
+    #crypto resource sub url
+    url(r'^member-home/crypto-exchange/$', views.CryptoTool.as_view(), name='crypto-tool'),
+
+
 
     #payment settings
     url(r'^member-home/payment-account-setting/$', views.PaymentAccountSetting.as_view(), name='payment-account-setting'),

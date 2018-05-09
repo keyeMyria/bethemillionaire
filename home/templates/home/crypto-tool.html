@@ -1,0 +1,135 @@
+{% extends 'base1.html' %}
+
+{% block title %}BeTheMillionaire | Crypto Tools{% endblock %}
+
+{% block add-css %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home/style/index.css' %}">
+
+    <style>
+        .left_main_menu a{
+            color: orange;
+        }
+
+        .left_main_menu a:hover{
+            color: white;
+            text-decoration: underline;
+        }
+
+        #particles-js{
+            background-image: url('/static/account/style/images/reg/back-1.jpeg');
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 270vh;
+            width: 100%;
+            background-size: cover;
+        }
+    </style>
+{% endblock %}
+
+{% block main %}
+    <div class="row" id="particles-js" style="">
+        <div class="col s12 l8 offset-l2" style="position: absolute;">
+            <div class="col m4 l3 blue" style="">
+                <div class="col s12 m12 l12 #1a237e indigo orange-text darken-4 center-align" style="padding: 10px;">
+                    <h5>Passive Profits</h5>
+                </div>
+
+                <div class="col s12 m12 l12 white center-align" style="min-height: 200px;">
+                    {% if request.user.profile_picture %}
+                        <img class="col m10 offset-m1 l10 offset-l1" src="{{ request.user.profile_picture.url}}" height="100%" width="100%" style="margin-top: 20px;" alt="">
+                    {% else %}
+                        <img class="col m10 offset-m1 l10 offset-l1" src="{% static 'account/style/images/no-img.jpg' %}" height="100%" width="100%" style="margin-top: 20px;" alt="">
+                    {% endif %}
+                    <p style="margin-bottom: 10px;">@{{ request.user.username | title }}</p>
+                </div>
+
+                <div class="col s12 m12 l12 #1a237e indigo orange-text darken-4 left_main_menu" style="padding: 10px; margin-bottom: 20px;">
+                    <a class="left col s12 m12 l12" href="{% url 'home:passive-income' %}" style="padding: 10px;">Passive Income
+                        <span class="right" style=""> > </span>
+                    </a>
+
+                    <a class="left col s12 m12 l12" href="{% url 'home:crypto-trading' %}" style="padding: 10px;">Crypto Trading
+                        <span class="right" style=""> > </span>
+                    </a>
+
+                    <a class="left col s12 m12 l12" href="{% url 'home:crypto-mining' %}" style="padding: 10px;">Crypto mining
+                        <span class="right" style=""> > </span>
+                    </a>
+
+                    <a class="left col s12 m12 l12 white-text" href="{% url 'home:crypto-resource' %}" style="padding: 10px;">Crypto Recources
+                        <span class="right" style=""> > </span>
+                    </a>
+
+                    <!--crypto resource sub menu-->
+
+                    <a class="left col m10 offset-m1 l10 offset-l1" href="{% url 'home:crypto-resource' %}" style="padding: 10px;">Crypto exchange
+                        <span class="right" style=""> > </span>
+                    </a>
+
+                    <a class="left col m10 offset-m1 l10 offset-l1 white-text" href="{% url 'home:crypto-tool' %}" style="padding: 10px;">Trading tools
+                        <span class="right" style=""> > </span>
+                    </a>
+
+                    <a class="left col m10 offset-m1 l10 offset-l1" href="{% url 'home:crypto-resource' %}" style="padding: 10px;">Hardware wallet
+                        <span class="right" style=""> > </span>
+                    </a>
+
+                    <a class="left col m10 offset-m1 l10 offset-l1" href="{% url 'home:crypto-resource' %}" style="padding: 10px;">Scoial trading
+                        <span class="right" style=""> > </span>
+                    </a>
+
+                    <a class="left col m10 offset-m1 l10 offset-l1" href="{% url 'home:crypto-resource' %}" style="padding: 10px;">Useful sides
+                        <span class="right" style=""> > </span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col m8 l9" style="padding: 0px; margin-top: 0px; opacity: .9;">
+                <div class="col s12 l12 white center-align" style="">
+                    <div class="col s12 m12 l12" style="padding: 0px;">
+                        <!--crypto mining-->
+                        <div id="crypto_mining" class="col s12 m12 l12" style="margin-bottom: 20px; padding: 0px;">
+                            <h3 class="orange-text" style="text-decoration: underline;">Crypto Tools</h3>
+
+                            <h5 class="left-align col s12 m12 l12 orange-text" style="padding: 0px;">
+                                Crypto can be a field of rabbit holes - gladly we live in the era of tech and great tools. This section will bring you all the best crypto tools for day trading, portfolio management / tracking, news aggregation, and more. No matter if web apps, desktop or smartphone apps - we will show you the good stuff. Reviews with a look at the inside.
+                            </h5>
+
+                            <iframe width="100%" height="450px" src="https://www.youtube.com/embed/AajNTycAjKo" frameborder="0" gesture="media" allow="encrypted-media" autoplay="true" allowfullscreen></iframe>
+
+                            <h3 class="orange-text" style="text-decoration: underline;">Coinigy</h3>
+
+                            <h4 class="left-align orange-text" style="margin-top: 50px;">Coinigy is the best way to access the global financial markets of the future. Businesses small and large rely on our data to power their decision-making.</h4>
+
+                            <a target="_blank" href="{% url 'account:membership-level-vip' %}" class="col s12 m12 l12 btn waves-effect waves-light orange black-text" style="margin-top: 20px;">
+                                Start in coinigy
+                            </a>
+
+                            <p class="col s12 m12 l12 divider" style="margin-top: 50px; margin-bottom: 50px;"></p>
+
+                            <h3 class="orange-text" style="text-decoration: underline;">Tradingview</h3>
+
+                            <h4 class="left-align orange-text" style="margin-top: 50px;">Easy and intuitive for beginners, and powerful enough for advanced chartists – TradingView has all charting tools you need to share and view trading ideas. Real-time data and browser-based charts let you do your research from anywhere, since there are no installations or complex setups.</h4>
+
+                            <a target="_blank" href="{% url 'account:membership-level-vip' %}" class="col s12 m12 l12 btn waves-effect waves-light orange black-text" style="margin-top: 20px;">
+                                Start in tradingview
+                            </a>
+
+                        </div>
+                        <!--end crypto mining-->
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+    particlesJS.load("particles-js", "{% static 'home/js/particles.json' %}",
+        function(){
+            console.log("particles.js loaded...")
+        }
+    )
+</script>
+{% endblock %}

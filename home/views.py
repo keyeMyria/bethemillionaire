@@ -577,16 +577,66 @@ class PassiveIncome(View):
     template_name = 'home/passive-income_v_1.html'
 
     def get(self, request):
-        user_profile = UserProfile.objects.filter(username=request.user.username)
 
         variables = {
-            'user_profile': user_profile,
+
         }
 
         return render(request, self.template_name, variables)
 
-    def post(self, request):
-        pass
+
+#crypto trading
+class CryptoTrading(View):
+    template_name = 'home/crypto-trading.html'
+
+    def get(self, request):
+
+        variables = {
+
+        }
+
+        return render(request, self.template_name, variables)
+
+
+#crypto mining
+class CryptoMining(View):
+    template_name = 'home/crypto-mining.html'
+
+    def get(self, request):
+
+        variables = {
+
+        }
+
+        return render(request, self.template_name, variables)
+
+
+#crypto resource
+class CryptoResource(View):
+    template_name = 'home/crypto-resource.html'
+
+    def get(self, request):
+
+        variables = {
+
+        }
+
+        return render(request, self.template_name, variables)
+
+
+
+#crypto tools
+class CryptoTool(View):
+    template_name = 'home/crypto-tool.html'
+
+    def get(self, request):
+
+        variables = {
+
+        }
+
+        return render(request, self.template_name, variables)
+
 
 
 from django.db.models import Count
