@@ -1,6 +1,6 @@
 {% extends 'base1.html' %}
 
-{% block title %}BeTheMillionaire | Crypto Tools{% endblock %}
+{% block title %}BeTheMillionaire | Hardware Wallet{% endblock %}
 
 {% block add-css %}
     {% load staticfiles %}
@@ -20,7 +20,7 @@
             background-image: url('/static/account/style/images/reg/back-1.jpeg');
             background-repeat: no-repeat;
             background-position: center;
-            height: 270vh;
+            height: 310vh;
             width: 100%;
             background-size: cover;
         }
@@ -67,11 +67,11 @@
                         <span class="right" style=""> > </span>
                     </a>
 
-                    <a class="left col m10 offset-m1 l10 offset-l1 white-text" href="{% url 'home:crypto-tool' %}" style="padding: 10px;">Trading tools
+                    <a class="left col m10 offset-m1 l10 offset-l1" href="{% url 'home:crypto-tool' %}" style="padding: 10px;">Trading tools
                         <span class="right" style=""> > </span>
                     </a>
 
-                    <a class="left col m10 offset-m1 l10 offset-l1" href="{% url 'home:hardware-wallet' %}" style="padding: 10px;">Hardware wallet
+                    <a class="left col m10 offset-m1 l10 offset-l1 white-text" href="{% url 'home:hardware-wallet' %}" style="padding: 10px;">Hardware wallet
                         <span class="right" style=""> > </span>
                     </a>
 
@@ -90,30 +90,30 @@
                     <div class="col s12 m12 l12" style="padding: 0px;">
                         <!--crypto mining-->
                         <div id="crypto_mining" class="col s12 m12 l12" style="margin-bottom: 20px; padding: 0px;">
-                            <h3 class="orange-text" style="text-decoration: underline;">Crypto Tools</h3>
+                            <h3 class="orange-text" style="text-decoration: underline;">Hardware Wallet</h3>
 
                             <h5 class="left-align col s12 m12 l12 orange-text" style="padding: 0px;">
-                                Crypto can be a field of rabbit holes - gladly we live in the era of tech and great tools. This section will bring you all the best crypto tools for day trading, portfolio management / tracking, news aggregation, and more. No matter if web apps, desktop or smartphone apps - we will show you the good stuff. Reviews with a look at the inside.
+                                Hardware wallets are basically an electronic invention made to store your private keys offline away from the vulnerable online environment so that they can’t be hacked. This is the most secure and safest way to store your bitcoins because they are stored in an offline environment and is recommended for storing large amounts of Bitcoins. The wallets are on a physical device, they store the user’s private keys on a hardware device and connect to PC with USB. If you don’t want to risk any crypto-currency you keep it on a cold storage device! It’s the method of choice for many bitcoin holders to keep significant quantities of bitcoins. Hardware bitcoin wallets are user-friendly and portable. In case your device is destroyed, as long as you have a backup code, you can retrieve your keys and bitcoins. My top recommended hardware wallets:
                             </h5>
 
                             <iframe width="100%" height="450px" src="https://www.youtube.com/embed/AajNTycAjKo" frameborder="0" gesture="media" allow="encrypted-media" autoplay="true" allowfullscreen></iframe>
 
-                            <h3 class="orange-text" style="text-decoration: underline;">Coinigy</h3>
+                            <h3 class="orange-text" style="text-decoration: underline;">Trezor</h3>
 
-                            <h4 class="left-align orange-text" style="margin-top: 50px;">Coinigy is the best way to access the global financial markets of the future. Businesses small and large rely on our data to power their decision-making.</h4>
+                            <h4 class="left-align orange-text" style="margin-top: 50px;">The most trusted and secure way to store your bitcoins. Isolate your private keys into the safety of TREZOR & enjoy Bitcoin without risk. The best protection at no cost to your convenience.</h4>
 
-                            <a target="_blank" href="{% url 'account:membership-level-vip' %}" class="col s12 m12 l12 btn waves-effect waves-light orange black-text" style="margin-top: 20px;">
-                                Start in coinigy
+                            <a target="_blank" href="{{ trezors_account.trezor_username }}" class="col s12 m12 l12 btn waves-effect waves-light orange black-text" style="margin-top: 20px;">
+                                Trezor
                             </a>
 
                             <p class="col s12 m12 l12 divider" style="margin-top: 50px; margin-bottom: 50px;"></p>
 
-                            <h3 class="orange-text" style="text-decoration: underline;">Tradingview</h3>
+                            <h3 class="orange-text" style="text-decoration: underline;">Ledger Nano S</h3>
 
-                            <h4 class="left-align orange-text" style="margin-top: 50px;">Easy and intuitive for beginners, and powerful enough for advanced chartists – TradingView has all charting tools you need to share and view trading ideas. Real-time data and browser-based charts let you do your research from anywhere, since there are no installations or complex setups.</h4>
+                            <h4 class="left-align orange-text" style="margin-top: 50px;">Ledger Nano S is a Bitcoin, Ethereum and Altcoins hardware wallet, based on robust safety features for storing cryptographic assets and securing digital payments. It connects to any computer (USB) and embeds a secure OLED display to double-check and confirm each transaction with a single tap on its side buttons.</h4>
 
-                            <a target="_blank" href="{% url 'account:membership-level-vip' %}" class="col s12 m12 l12 btn waves-effect waves-light orange black-text" style="margin-top: 20px;">
-                                Start in tradingview
+                            <a target="_blank" href="{{ ladger_nano_s_account.ledger_nano_s_username }}" class="col s12 m12 l12 btn waves-effect waves-light orange black-text" style="margin-top: 20px;">
+                                Ledger Nano S
                             </a>
 
                         </div>

@@ -639,6 +639,69 @@ class CryptoTool(View):
 
 
 
+#crypto tools
+class HardwareWallet(View):
+    template_name = 'home/hardware-wallet.html'
+
+    def get(self, request):
+
+        trezors_accounts = account_model.TrezorSAccount.objects.get(user=request.user.sponsor)
+
+        if trezors_accounts.trezor_username:
+            trezors_account = account_model.TrezorSAccount.objects.get(user=request.user.sponsor)
+
+        else:
+            trezors_account = account_model.TrezorSAccount.objects.get(user__username='admin')
+
+
+
+        ladger_nano_s_accounts = account_model.LedgerNanoSAccount.objects.get(user=request.user.sponsor)
+
+        if ladger_nano_s_accounts.ledger_nano_s_username:
+            ladger_nano_s_account = account_model.LedgerNanoSAccount.objects.get(user=request.user.sponsor)
+
+        else:
+            ladger_nano_s_account = account_model.LedgerNanoSAccount.objects.get(user__username='admin')
+
+
+        variables = {
+            'trezors_account': trezors_account,
+            'ladger_nano_s_account': ladger_nano_s_account,
+
+        }
+
+        return render(request, self.template_name, variables)
+
+
+
+#social trading
+class SocialTrading(View):
+    template_name = 'home/social-trading.html'
+
+    def get(self, request):
+
+        variables = {
+
+        }
+
+        return render(request, self.template_name, variables)
+
+
+
+#useful sides
+class UsefulSide(View):
+    template_name = 'home/useful-side.html'
+
+    def get(self, request):
+
+        variables = {
+
+        }
+
+        return render(request, self.template_name, variables)
+
+
+
 from django.db.models import Count
 
 #leader board

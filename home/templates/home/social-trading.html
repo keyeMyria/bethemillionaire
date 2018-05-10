@@ -1,6 +1,6 @@
 {% extends 'base1.html' %}
 
-{% block title %}BeTheMillionaire | Crypto Tools{% endblock %}
+{% block title %}BeTheMillionaire | Social Trading{% endblock %}
 
 {% block add-css %}
     {% load staticfiles %}
@@ -20,7 +20,7 @@
             background-image: url('/static/account/style/images/reg/back-1.jpeg');
             background-repeat: no-repeat;
             background-position: center;
-            height: 270vh;
+            height: 210vh;
             width: 100%;
             background-size: cover;
         }
@@ -67,7 +67,7 @@
                         <span class="right" style=""> > </span>
                     </a>
 
-                    <a class="left col m10 offset-m1 l10 offset-l1 white-text" href="{% url 'home:crypto-tool' %}" style="padding: 10px;">Trading tools
+                    <a class="left col m10 offset-m1 l10 offset-l1" href="{% url 'home:crypto-tool' %}" style="padding: 10px;">Trading tools
                         <span class="right" style=""> > </span>
                     </a>
 
@@ -75,7 +75,7 @@
                         <span class="right" style=""> > </span>
                     </a>
 
-                    <a class="left col m10 offset-m1 l10 offset-l1" href="{% url 'home:social-trading' %}" style="padding: 10px;">Scoial trading
+                    <a class="left col m10 offset-m1 l10 offset-l1 white-text" href="{% url 'home:social-trading' %}" style="padding: 10px;">Scoial trading
                         <span class="right" style=""> > </span>
                     </a>
 
@@ -90,32 +90,21 @@
                     <div class="col s12 m12 l12" style="padding: 0px;">
                         <!--crypto mining-->
                         <div id="crypto_mining" class="col s12 m12 l12" style="margin-bottom: 20px; padding: 0px;">
-                            <h3 class="orange-text" style="text-decoration: underline;">Crypto Tools</h3>
+                            <h3 class="orange-text" style="text-decoration: underline;">Social Trading</h3>
 
                             <h5 class="left-align col s12 m12 l12 orange-text" style="padding: 0px;">
-                                Crypto can be a field of rabbit holes - gladly we live in the era of tech and great tools. This section will bring you all the best crypto tools for day trading, portfolio management / tracking, news aggregation, and more. No matter if web apps, desktop or smartphone apps - we will show you the good stuff. Reviews with a look at the inside.
+                                Social trading is a service that allows investors to replicate the operations of expert traders. Social trading requires little or no knowledge about financial markets, and only requires that the user make a correct selection of traders to follow, especially considering the percentage of successful operations and the diversification of the financial instruments traded by the expert, that is to say that the expert does not concentrate on a single financial instrument or, failing that, not to replicate several traders that operate only the same financial instrument.
                             </h5>
 
                             <iframe width="100%" height="450px" src="https://www.youtube.com/embed/AajNTycAjKo" frameborder="0" gesture="media" allow="encrypted-media" autoplay="true" allowfullscreen></iframe>
 
-                            <h3 class="orange-text" style="text-decoration: underline;">Coinigy</h3>
+                            <h3 class="orange-text" style="text-decoration: underline;">Etoro</h3>
 
-                            <h4 class="left-align orange-text" style="margin-top: 50px;">Coinigy is the best way to access the global financial markets of the future. Businesses small and large rely on our data to power their decision-making.</h4>
+                            <h4 class="left-align orange-text" style="margin-top: 50px;">eToro is the world’s leading social trading platform, offering a wide array of tools to invest in the capital markets. Create a portfolio with cryptocurrencies, stocks, commodities, ETFs and more.</h4>
 
-                            <a target="_blank" href="{% url 'account:membership-level-vip' %}" class="col s12 m12 l12 btn waves-effect waves-light orange black-text" style="margin-top: 20px;">
-                                Start in coinigy
+                            <a target="_blank" href="{{ trezors_account.trezor_username }}" class="col s12 m12 l12 btn waves-effect waves-light orange black-text" style="margin-top: 20px;">
+                                Etoro
                             </a>
-
-                            <p class="col s12 m12 l12 divider" style="margin-top: 50px; margin-bottom: 50px;"></p>
-
-                            <h3 class="orange-text" style="text-decoration: underline;">Tradingview</h3>
-
-                            <h4 class="left-align orange-text" style="margin-top: 50px;">Easy and intuitive for beginners, and powerful enough for advanced chartists – TradingView has all charting tools you need to share and view trading ideas. Real-time data and browser-based charts let you do your research from anywhere, since there are no installations or complex setups.</h4>
-
-                            <a target="_blank" href="{% url 'account:membership-level-vip' %}" class="col s12 m12 l12 btn waves-effect waves-light orange black-text" style="margin-top: 20px;">
-                                Start in tradingview
-                            </a>
-
                         </div>
                         <!--end crypto mining-->
                     </div>

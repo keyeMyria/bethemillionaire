@@ -17,7 +17,10 @@ urlpatterns = [
     url(r'^member-home/crypto-resource/$', views.CryptoResource.as_view(), name='crypto-resource'),
 
     #crypto resource sub url
-    url(r'^member-home/crypto-exchange/$', views.CryptoTool.as_view(), name='crypto-tool'),
+    url(r'^member-home/crypto-tool/$', views.CryptoTool.as_view(), name='crypto-tool'),
+    url(r'^member-home/hardware-wallet/$', views.HardwareWallet.as_view(), name='hardware-wallet'),
+    url(r'^member-home/social-trading/$', views.SocialTrading.as_view(), name='social-trading'),
+    url(r'^member-home/useful-side/$', views.UsefulSide.as_view(), name='useful-side'),
 
 
 

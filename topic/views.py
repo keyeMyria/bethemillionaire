@@ -164,6 +164,17 @@ class Step_2(View):
         comments = models.Comment.objects.filter(topic='step-2-setup-bitcoinwallet').all()
         subcomments = models.SubComment.objects.filter(topic='step-2-setup-bitcoinwallet').all()
 
+
+        trezors_accounts = account_model.TrezorSAccount.objects.get(user=request.user.sponsor)
+
+        if trezors_accounts.trezor_username:
+            trezors_account = account_model.TrezorSAccount.objects.get(user=request.user.sponsor)
+
+        else:
+            trezors_account = account_model.TrezorSAccount.objects.get(user__username='admin')
+
+
+
         ladger_nano_s_accounts = account_model.LedgerNanoSAccount.objects.get(user=request.user.sponsor)
 
         if ladger_nano_s_accounts.ledger_nano_s_username:
@@ -225,17 +236,6 @@ class Step_2(View):
 
         else:
             local_bitcoin_account = account_model.LocalBitcoinsAccount.objects.get(user__username='admin')
-
-
-
-        trezors_accounts = account_model.TrezorSAccount.objects.get(user=request.user.sponsor)
-
-        if trezors_accounts.trezor_username:
-            trezors_account = account_model.TrezorSAccount.objects.get(user=request.user.sponsor)
-
-        else:
-            trezors_account = account_model.TrezorSAccount.objects.get(user__username='admin')
-
 
 
         variables = {
