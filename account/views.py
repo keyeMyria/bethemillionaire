@@ -1580,7 +1580,7 @@ class PaymentAPI(APIView):
 
 #MyAutoresponderSettings
 class MyAutoresponderSettings(View):
-    template_name = 'account/my-auto-responder-settings.html'
+    template_name = 'account/my-auto-responder-settings_v_1.html'
 
     def get(self, request):
         user_profile = UserProfile.objects.filter(username=request.user.username)
