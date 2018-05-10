@@ -724,7 +724,7 @@ class LeaderBoard(View):
 
 #Payment account settings
 class PaymentAccountSetting(View):
-    template_name = 'home/payment-account-setting.html'
+    template_name = 'home/payment-account-setting_v_1.html'
 
     def get(self, request):
 
