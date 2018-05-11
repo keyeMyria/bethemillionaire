@@ -133,6 +133,16 @@
         .goog-te-menu-value{
             color: white !important;
         }
+
+
+        body > .skiptranslate {
+            display: none;
+        }
+
+        body {top: 0px !important; position: static !important; }
+        .goog-te-banner-frame {display:none !important}
+
+
     </style>
 
     {% block add-css %}
@@ -147,7 +157,7 @@
                 <div class="col s12 m12 l12 navbar-fixed" style="">
                     <nav class="black white-text z-depth-0" style="">
                         <div class="nav-wrapper">
-                            <ul class="left white-text">
+                            <ul class="left white-text" style="">
                                 <!-- Dropdown Trigger -->
                                 <li><a class="dropdown-button" href="{% url 'home:index' %}">Home</a></li>
                                 <li><a class="dropdown-button " href="#!" data-activates="dropdown-member-home">BTM Dashboard</a></li>
@@ -157,17 +167,27 @@
                                 <li><a class="dropdown-button " href="#!" data-activates="dropdown-support">Support</a></li>
                             </ul>
 
-                            <div class="col l4 right valign-wrapper" style="height: 100%;">
-                                <a class="right" style="margin-right: 10px;" id="google_translate_element"></a>
-                                <a href="{% url 'account:profile' %}" class="right waves-effect waves-light btn orange black-text pulse" style="margin-right: 20px;">{{ request.user.username | title }}</a>
-                                <a href="{% url 'account:logout' %}" class="right waves-effect waves-light btn red white-text" style="">Logout</a>
-                            </div>
+                            <ul class="right white-text" style="">
+                                <li><a class="dropdown-button waves-effect waves-light btn green white-text" data-alignment="right" data-activates="dropdown-lang">Language</a></li>
+                                <li><a class="dropdown-button waves-effect waves-light btn orange black-text pulse" href="{% url 'account:profile' %}">{{ request.user.username | title }}</a></li>
+                            </ul>
+
+
+                            <div id="google_translate_element" style="display: none;"></div>
+
+
                         </div>
                     </nav>
 
                     <!--start dropdown-->
                     <!--dropdown contents-->
                     <div class="drop_down_contents">
+
+                        <ul id='dropdown-lang' class='dropdown-content translation-links' style="">
+                            <li><a href="#" class="arabic" data-lang="Arabic">Arabic</a></li>
+                            <li><a href="#" class="arabic" data-lang="English">English</a></li>
+                        </ul>
+
                         <ul id='dropdown-member-home' class='dropdown-content' style="">
                             <li><a style="font-size: 12px;" href="{% url 'home:leader-board' %}">Leader Boards</a></li>
                             <li><a style="font-size: 12px;" href="{% url 'topic:step_1' %}">START HERE - 5 Steps To Set Up BTM!</a></li>
@@ -450,9 +470,26 @@
 
 <script type="text/javascript">
 function googleTranslateElementInit() {
-  new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'ar', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+  new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'ar,en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
 }
-</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+<script type="text/javascript">
+$('.translation-links a').click(function() {
+  var lang = $(this).data('lang');
+
+  var $frame = $('.goog-te-menu-frame:first');
+  if (!$frame.length) {
+    return false;
+  }
+  $frame.contents().find('.goog-te-menu2-item span.text:contains('+lang+')').get(0).click();
+  return false;
+});
+</script>
+
 
 
 {% block script %}
