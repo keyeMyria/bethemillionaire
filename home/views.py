@@ -512,8 +512,6 @@ class PersonalTraining(View):
     def get(self, request, owner_id, team_id):
         team = get_object_or_404(models.Team, id=team_id)
 
-        user_profile = UserProfile.objects.filter(username=request.user.username)
-
         owner = UserProfile.objects.get(id=owner_id)
 
         check_team_members = self.check_team_member(team, request.user)
@@ -529,7 +527,6 @@ class PersonalTraining(View):
             personal_training_form = forms.PersonalTrainingContentForm()
 
         variables = {
-            'user_profile': user_profile,
             'owner': owner,
             'team': team,
             'personal_training_form': personal_training_form,
@@ -541,8 +538,6 @@ class PersonalTraining(View):
 
     def post(self, request, owner_id, team_id):
         team = get_object_or_404(models.Team, id=team_id)
-
-        user_profile = UserProfile.objects.filter(username=request.user.username)
 
         owner = UserProfile.objects.get(id=owner_id)
 
@@ -561,7 +556,6 @@ class PersonalTraining(View):
                 personal_training_form.deploy(owner, team)
 
         variables = {
-            'user_profile': user_profile,
             'owner': owner,
             'team': team,
             'personal_training_form': personal_training_form,
