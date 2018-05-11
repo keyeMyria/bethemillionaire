@@ -1,0 +1,438 @@
+{% extends 'base1.html' %}
+
+{% block title %}BeTheMillionaire | Banners{% endblock %}
+
+{% block add-css %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home/style/index.css' %}">
+
+    <style>
+        .left_main_menu a{
+            color: orange;
+        }
+
+        .left_main_menu a:hover{
+            color: white;
+            text-decoration: underline;
+        }
+
+        #background-top{
+            background-image: url('/static/account/style/images/reg/back-1.jpeg');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+    </style>
+{% endblock %}
+
+{% block main %}
+    <div class="row" id="background-top" style="">
+        <div class="col s12 l8 offset-l2" style="">
+            <div class="col m4 l3 blue" style="">
+                <div class="col s12 m12 l12 #1a237e indigo orange-text darken-4 center-align" style="padding: 10px;">
+                    <h5>Marketing</h5>
+                </div>
+
+                <div class="col s12 m12 l12 white center-align" style="min-height: 200px;">
+                    {% if request.user.profile_picture %}
+                        <img class="col m10 offset-m1 l10 offset-l1" src="{{ request.user.profile_picture.url}}" height="100%" width="100%" style="margin-top: 20px;" alt="">
+                    {% else %}
+                        <img class="col m10 offset-m1 l10 offset-l1" src="{% static 'account/style/images/no-img.jpg' %}" height="100%" width="100%" style="margin-top: 20px;" alt="">
+                    {% endif %}
+                    <p style="margin-bottom: 10px;">@{{ request.user.username | title }}</p>
+                </div>
+
+                <div class="col s12 m12 l12 #1a237e indigo orange-text darken-4 left_main_menu" style="padding: 10px; margin-bottom: 20px;">
+                    <a class="left col s12 m12 l12" href="{% url 'home:affiliate_link' %}" style="padding: 10px;">Affiliate Link
+                        <span class="right" style=""> > </span>
+                    </a>
+
+                    <a class="left col s12 m12 l12 white-text" href="{% url 'home:banners' %}" style="padding: 10px;">Banners
+                        <span class="right" style=""> > </span>
+                    </a>
+
+                    <a class="left col s12 m12 l12" href="{% url 'home:email_swipes' %}" style="padding: 10px;">Email Swipes
+                        <span class="right" style=""> > </span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col m8 l9" style="padding: 0px; margin-top: 0px; opacity: 1; margin-bottom: 20px;">
+                <div class="col s12 l12 white center-align" style="padding: 20px;">
+
+                    <h4 class="left-align orange-text">Here You Will Find Banner Resources To Help You Advertise BeTheMillionaire!</h4>
+
+                    <div class="col s12 m12 l12" style="margin-top: 20px; height: 400px; padding: 0px;">
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/iWGOgcELX8Y" frameborder="0" gesture="media" allow="encrypted-media" autoplay="true" allowfullscreen></iframe>
+                    </div>
+
+                    <div class="col s12 m12 center-align" style="margin-top: 30px;">
+                        <form method="post">
+                            {% csrf_token %}
+
+                            <div class="input-field col s12 m10 offset-m1 l10 offset-l1">
+                                {{ itb_form.itb_username }}
+                                <label for="icon_prefix white-text">Your ITB Link</label>
+                            </div>
+
+                            <button class="btn waves-effect waves-light" name="itb_account" value="itb_account" type="submit" name="action">Save
+                            </button>
+
+                        </form>
+                    </div>
+
+
+                    <div class="col s12 m12 l12" style="margin-top: 20px;">
+                        <a target="_blank" href="{{ itb_account.itb_username }}"><div class="card blue" style="cursor: pointer;">
+                            <div class="card-content white-text">
+                                <h5 class="center-align">
+                                    Click Here To Create ITB Account Here
+                                </h5>
+                            </div>
+                        </div></a>
+                    </div>
+
+
+
+                    <div class="col s12 m12 center-align" style="margin-top: 30px;">
+                        <form method="post">
+                            {% csrf_token %}
+
+                            <div class="input-field col s12 m10 offset-m1 l10 offset-l1">
+                                {{ click_magic_form.clickmagic_username }}
+                                <label for="icon_prefix white-text">Your ClickMagic Link</label>
+                            </div>
+
+                            <button class="btn waves-effect waves-light" name="click_magic_account" value="click_magic_account" type="submit" name="action">Save
+                                <i class="material-icons right">send</i>
+                            </button>
+
+                        </form>
+                    </div>
+
+
+                    <div class="col s12 m12 l12" style="margin-top: 20px;">
+                        <a target="_blank" href="{{ click_magic_account.clickmagic_username }}"><div class="card blue" style="cursor: pointer;">
+                            <div class="card-content white-text">
+                                <h5 class="center-align">
+                                    Click Here To Create FREE ClickMagic Account To Track Your Banner Clicks
+                                </h5>
+                            </div>
+                        </div></a>
+                    </div>
+
+
+                    <div class="col s12 m12 l12" style="margin-top: 20px; margin-bottom: 20px;">
+                        <h4 class="center-align" style="text-decoration: underline;">
+                            Top Banner Advertising Networks
+                        </h4>
+                    </div>
+
+
+                    <div class="col s12 m10 offset-m1 l10 offset-l1 left-align">
+                        <p>
+                            1. <a href="#">a-ads.com</a>
+                        </p>
+
+                        <p>
+                            2. <a href="#">Coinad.com</a>
+                        </p>
+
+                        <p>
+                            3. <a href="#">iBotoolbox.com</a>
+                        </p>
+
+                        <p>
+                            4. <a href="#">CoinMedia.co</a>
+                        </p>
+
+                        <p>
+                            5. <a href="#">BitCoset.com</a>
+                        </p>
+
+                        <p>
+                            6. <a href="#">BitMedia.io</a>
+                        </p>
+
+                        <p>
+                            7. <a href="#">Adbit.biz</a>
+                        </p>
+                    </div>
+
+
+                    <div class="col s12 m12 l12" style="margin-top: 20px;">
+                        <h4 class="center-align" style="text-decoration: underline;">
+                            Banner Images And Links
+                        </h4>
+                    </div>
+
+
+                    <div class="col s12 m12 l12" style="margin-bottom: 20px;">
+                        <h5 class="center-align">
+                            Banner Size: (300X250)
+                        </h5>
+                    </div>
+
+                    <div class="col s12 m12 l12 center-align" style="margin-bottom: 20px;">
+                        <img src="{% static 'home/style/images/banner/300x250.gif' %}">
+                    </div>
+
+                    <div class="col s12 m12 l12 left-align" style="margin-top: 20px; padding: 20px;">
+                        <div class="card blue" style="cursor: pointer;">
+                            <div class="card-content white-text">
+                                <p class="">
+                                    COPY THIS LINK and make sure it's YOUR OWN USERNAME in the URL: <br>
+                                    &lt;a href=&#8221;<a class="white-text" href="https://www.bethemillionaire.com/?userid={{ request.user.username }}" target="_blank" class="promote" title="https://www.bethemillionaire.com/?userid={{ request.user.username }}">https://www.bethemillionaire.com/?userid={{ request.user.username }}</a>&#8221; target=&#8221;_blank&#8221;&gt;<br />
+                                    &lt;img src=&#8221;http://www.bethemillionaire.com/static/home/style/images/banner/300x250.gif&#8221; width=&#8221;300&#8243; height=&#8221;250&#8243; border=&#8221;0&#8243;&gt;<br />
+                                    &lt;/a&gt;
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col s12 m12 l12" style="margin-bottom: 20px;">
+                        <h5 class="center-align">
+                            Banner Size: (250X250)
+                        </h5>
+                    </div>
+
+                    <div class="col s12 m12 l12 center-align" style="margin-bottom: 20px;">
+                        <img src="{% static 'home/style/images/banner/250x250.gif' %}">
+                    </div>
+
+
+                    <div class="col s12 m12 l12 left-align" style="margin-top: 20px; padding: 0px;">
+                        <div class="card blue" style="cursor: pointer;">
+                            <div class="card-content white-text">
+                                <p class="">
+                                    COPY THIS LINK and make sure it's YOUR OWN USERNAME in the URL: <br>
+                                    &lt;a href=&#8221;<a class="white-text" href="https://www.bethemillionaire.com/?userid={{ request.user.username }}" target="_blank" class="promote" title="https://www.bethemillionaire.com/?userid={{ request.user.username }}">https://www.bethemillionaire.com/?userid={{ request.user.username }}</a>&#8221; target=&#8221;_blank&#8221;&gt;<br />
+                                    &lt;img src=&#8221;http://www.bethemillionaire.com/static/home/style/images/banner/250x250.gif&#8221; width=&#8221;250&#8243; height=&#8221;250&#8243; border=&#8221;0&#8243;&gt;<br />
+                                    &lt;/a&gt;
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col s12 m12 l12" style="margin-bottom: 20px;">
+                        <h5 class="center-align">
+                            Banner Size: (200X200)
+                        </h5>
+                    </div>
+
+                    <div class="col s12 m12 l12 center-align" style="margin-bottom: 20px;">
+                        <img src="{% static 'home/style/images/banner/200x200.gif' %}">
+                    </div>
+
+
+                    <div class="col s12 m12 l12 left-align" style="margin-top: 20px; padding: 0px;">
+                        <div class="card blue" style="cursor: pointer;">
+                            <div class="card-content white-text">
+                                <p class="">
+                                    COPY THIS LINK and make sure it's YOUR OWN USERNAME in the URL: <br>
+                                    &lt;a href=&#8221;<a class="white-text" href="https://www.bethemillionaire.com/?userid={{ request.user.username }}" target="_blank" class="promote" title="https://www.bethemillionaire.com/?userid={{ request.user.username }}">https://www.bethemillionaire.com/?userid={{ request.user.username }}</a>&#8221; target=&#8221;_blank&#8221;&gt;<br />
+                                    &lt;img src=&#8221;http://www.bethemillionaire.com/static/home/style/images/banner/200x200.gif&#8221; width=&#8221;200&#8243; height=&#8221;200&#8243; border=&#8221;0&#8243;&gt;<br />
+                                    &lt;/a&gt;
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col s12 m12 l12" style="margin-bottom: 20px;">
+                        <h5 class="center-align">
+                            Banner Size: (728X90)
+                        </h5>
+                    </div>
+
+                    <div class="col s12 m12 l12 center-align" style="margin-bottom: 20px;">
+                        <img src="{% static 'home/style/images/banner/728x90.gif' %}">
+                    </div>
+
+
+                    <div class="col s12 m12 l12 left-align" style="margin-top: 20px; padding: 0px;">
+                        <div class="card blue" style="cursor: pointer;">
+                            <div class="card-content white-text">
+                                <p class="">
+                                    COPY THIS LINK and make sure it's YOUR OWN USERNAME in the URL: <br>
+                                    &lt;a href=&#8221;<a class="white-text" href="https://www.bethemillionaire.com/?userid={{ request.user.username }}" target="_blank" class="promote" title="https://www.bethemillionaire.com/?userid={{ request.user.username }}">https://www.bethemillionaire.com/?userid={{ request.user.username }}</a>&#8221; target=&#8221;_blank&#8221;&gt;<br />
+                                    &lt;img src=&#8221;http://www.bethemillionaire.com/static/home/style/images/banner/728x90.gif&#8221; width=&#8221;728&#8243; height=&#8221;90&#8243; border=&#8221;0&#8243;&gt;<br />
+                                    &lt;/a&gt;
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col s12 m12 l12" style="margin-bottom: 20px;">
+                        <h5 class="center-align">
+                            Banner Size: (468x60)
+                        </h5>
+                    </div>
+
+                    <div class="col s12 m12 l12 center-align" style="margin-bottom: 20px;">
+                        <img src="{% static 'home/style/images/banner/468x60.gif' %}">
+                    </div>
+
+
+                    <div class="col s12 m12 l12 left-align" style="margin-top: 20px; padding: 0px;">
+                        <div class="card blue" style="cursor: pointer;">
+                            <div class="card-content white-text">
+                                <p class="">
+                                    COPY THIS LINK and make sure it's YOUR OWN USERNAME in the URL: <br>
+                                    &lt;a href=&#8221;<a class="white-text" href="https://www.bethemillionaire.com/?userid={{ request.user.username }}" target="_blank" class="promote" title="https://www.bethemillionaire.com/?userid={{ request.user.username }}">https://www.bethemillionaire.com/?userid={{ request.user.username }}</a>&#8221; target=&#8221;_blank&#8221;&gt;<br />
+                                    &lt;img src=&#8221;http://www.bethemillionaire.com/static/home/style/images/banner/468x60.gif&#8221; width=&#8221;468&#8243; height=&#8221;60&#8243; border=&#8221;0&#8243;&gt;<br />
+                                    &lt;/a&gt;
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col s12 m12 l12" style="margin-bottom: 20px;">
+                        <h5 class="center-align">
+                            Banner Size: (160x600)
+                        </h5>
+                    </div>
+
+                    <div class="col s12 m12 l12 center-align" style="margin-bottom: 20px;">
+                        <img src="{% static 'home/style/images/banner/160x600.gif' %}">
+                    </div>
+
+
+                    <div class="col s12 m12 l12 left-align" style="margin-top: 20px; padding: 0px;">
+                        <div class="card blue" style="cursor: pointer;">
+                            <div class="card-content white-text">
+                                <p class="">
+                                    COPY THIS LINK and make sure it's YOUR OWN USERNAME in the URL: <br>
+                                    &lt;a href=&#8221;<a class="white-text" href="https://www.bethemillionaire.com/?userid={{ request.user.username }}" target="_blank" class="promote" title="https://www.bethemillionaire.com/?userid={{ request.user.username }}">https://www.bethemillionaire.com/?userid={{ request.user.username }}</a>&#8221; target=&#8221;_blank&#8221;&gt;<br />
+                                    &lt;img src=&#8221;http://www.bethemillionaire.com/static/home/style/images/banner/160x600.gif&#8221; width=&#8221;160&#8243; height=&#8221;600&#8243; border=&#8221;0&#8243;&gt;<br />
+                                    &lt;/a&gt;
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col s12 m12 l12" style="margin-bottom: 20px;">
+                        <h5 class="center-align">
+                            Banner Size: (120x600)
+                        </h5>
+                    </div>
+
+                    <div class="col s12 m12 l12 center-align" style="margin-bottom: 20px;">
+                        <img src="{% static 'home/style/images/banner/120x600.gif' %}">
+                    </div>
+
+
+                    <div class="col s12 m12 l12 left-align" style="margin-top: 20px; padding: 0px;">
+                        <div class="card blue" style="cursor: pointer;">
+                            <div class="card-content white-text">
+                                <p class="">
+                                    COPY THIS LINK and make sure it's YOUR OWN USERNAME in the URL: <br>
+                                    &lt;a href=&#8221;<a class="white-text" href="https://www.bethemillionaire.com/?userid={{ request.user.username }}" target="_blank" class="promote" title="https://www.bethemillionaire.com/?userid={{ request.user.username }}">https://www.bethemillionaire.com/?userid={{ request.user.username }}</a>&#8221; target=&#8221;_blank&#8221;&gt;<br />
+                                    &lt;img src=&#8221;http://www.bethemillionaire.com/static/home/style/images/banner/120x600.gif&#8221; width=&#8221;120&#8243; height=&#8221;600&#8243; border=&#8221;0&#8243;&gt;<br />
+                                    &lt;/a&gt;
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block script %}
+
+<script>
+
+     $(document).ready(function() {
+        $('select').material_select();
+      });
+
+
+
+      $(document).ready(function(){
+            var username = $("#login_username").val();
+
+            $.ajax({
+                    url: '/account/api/affiliate-link/',
+                    data: { "username":username },
+                    dataType: 'json',
+                    success: function (data){
+                        console.log(data.serializer1[0]);
+                        $("#affiliate1_visitor").append(data.serializer1[0].visitors);
+                        $("#affiliate1_lead").append(data.serializer1[0].leads);
+                        $("#affiliate1_conversion_rate").append(data.serializer1[0].conversion_rate);
+
+                        $("#affiliate2_visitor").append(data.serializer2[0].visitors);
+                        $("#affiliate2_lead").append(data.serializer2[0].leads);
+                        $("#affiliate2_conversion_rate").append(data.serializer2[0].conversion_rate);
+
+                        $("#affiliate3_visitor").append(data.serializer3[0].visitors);
+                        $("#affiliate3_lead").append(data.serializer3[0].leads);
+                        $("#affiliate3_conversion_rate").append(data.serializer3[0].conversion_rate);
+
+                        $("#affiliate4_visitor").append(data.serializer4[0].visitors);
+                        $("#affiliate4_lead").append(data.serializer4[0].leads);
+                        $("#affiliate4_conversion_rate").append(data.serializer4[0].conversion_rate);
+
+                        $("#affiliate5_visitor").append(data.serializer5[0].visitors);
+                        $("#affiliate5_lead").append(data.serializer5[0].leads);
+                        $("#affiliate5_conversion_rate").append(data.serializer5[0].conversion_rate);
+
+                        $("#affiliate6_visitor").append(data.serializer6[0].visitors);
+                        $("#affiliate6_lead").append(data.serializer6[0].leads);
+                        $("#affiliate6_conversion_rate").append(data.serializer6[0].conversion_rate);
+
+                        $("#affiliate7_visitor").append(data.serializer7[0].visitors);
+                        $("#affiliate7_lead").append(data.serializer7[0].leads);
+                        $("#affiliate7_conversion_rate").append(data.serializer7[0].conversion_rate);
+
+                        $("#affiliate8_visitor").append(data.serializer8[0].visitors);
+                        $("#affiliate8_lead").append(data.serializer8[0].leads);
+                        $("#affiliate8_conversion_rate").append(data.serializer8[0].conversion_rate);
+
+                        $("#affiliate9_visitor").append(data.serializer9[0].visitors);
+                        $("#affiliate9_lead").append(data.serializer9[0].leads);
+                        $("#affiliate9_conversion_rate").append(data.serializer9[0].conversion_rate);
+
+                        $("#affiliate10_visitor").append(data.serializer10[0].visitors);
+                        $("#affiliate10_lead").append(data.serializer10[0].leads);
+                        $("#affiliate10_conversion_rate").append(data.serializer10[0].conversion_rate);
+
+                        $("#affiliate11_visitor").append(data.serializer11[0].visitors);
+                        $("#affiliate11_lead").append(data.serializer11[0].leads);
+                        $("#affiliate11_conversion_rate").append(data.serializer11[0].conversion_rate);
+
+                        $("#affiliate12_visitor").append(data.serializer12[0].visitors);
+                        $("#affiliate12_lead").append(data.serializer12[0].leads);
+                        $("#affiliate12_conversion_rate").append(data.serializer12[0].conversion_rate);
+
+                        $("#affiliate13_visitor").append(data.serializer13[0].visitors);
+                        $("#affiliate13_lead").append(data.serializer13[0].leads);
+                        $("#affiliate13_conversion_rate").append(data.serializer13[0].conversion_rate);
+
+                        $("#affiliate14_visitor").append(data.serializer14[0].visitors);
+                        $("#affiliate14_lead").append(data.serializer14[0].leads);
+                        $("#affiliate14_conversion_rate").append(data.serializer14[0].conversion_rate);
+                    }
+            });
+    })
+
+
+    $(document).ready(function(){
+        $('.modal').modal();
+     });
+
+</script>
+
+{% endblock %}

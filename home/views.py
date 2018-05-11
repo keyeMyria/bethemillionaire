@@ -56,14 +56,12 @@ class Home(View):
 
 #affiliate link
 class AffiliateLink(View):
-    template_name = 'home/affiliate-link.html'
+    template_name = 'home/affiliate-link_v_1.html'
 
     def get(self, request):
-        user_profile = UserProfile.objects.filter(username=request.user.username)
         affiliates = AffiliateLinkControl.objects.all()
 
         variables = {
-            'user_profile': user_profile,
             'affiliates': affiliates,
         }
 
@@ -74,7 +72,7 @@ class AffiliateLink(View):
 
 
 class EmailSwipes(View):
-    template_name = 'home/email-swipes.html'
+    template_name = 'home/email-swipes_v_1.html'
 
     def get(self, request):
         user_profile = UserProfile.objects.filter(username=request.user.username)
@@ -90,7 +88,7 @@ class EmailSwipes(View):
 
 
 class Banners(View):
-    template_name = 'home/banners.html'
+    template_name = 'home/banners_v_1.html'
 
     def get(self, request):
         user_profile = UserProfile.objects.filter(username=request.user.username)
