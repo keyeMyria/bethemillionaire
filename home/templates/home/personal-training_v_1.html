@@ -1,0 +1,176 @@
+{% extends 'base1.html' %}
+
+{% block title %}BeTheMillionaire | Personal Training{% endblock %}
+
+{% block add-css %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home/style/index.css' %}">
+
+    <style>
+        .left_main_menu a{
+            color: orange;
+        }
+
+        .left_main_menu a:hover{
+            color: white;
+            text-decoration: underline;
+        }
+
+        .site-background{
+            background-image: url('/static/account/style/images/reg/back-1.jpeg');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+    </style>
+{% endblock %}
+
+{% block main %}
+    <div class="row site-background" style="">
+        <div class="col s12 l8 offset-l2" style="">
+            <div class="col m4 l3 blue" style="">
+                <div class="col s12 m12 l12 #1a237e indigo orange-text darken-4 center-align" style="padding: 10px;">
+                    <h5>Personal Training</h5>
+                </div>
+
+                <div class="col s12 m12 l12 white center-align" style="min-height: 200px;">
+                    {% if request.user.profile_picture %}
+                        <img class="col m10 offset-m1 l10 offset-l1" src="{{ request.user.profile_picture.url}}" height="100%" width="100%" style="margin-top: 20px;" alt="">
+                    {% else %}
+                        <img class="col m10 offset-m1 l10 offset-l1" src="{% static 'account/style/images/no-img.jpg' %}" height="100%" width="100%" style="margin-top: 20px;" alt="">
+                    {% endif %}
+                    <p style="margin-bottom: 10px;">@{{ request.user.username | title }}</p>
+                </div>
+
+                <div class="col s12 m12 l12 #1a237e indigo orange-text darken-4 left_main_menu" style="padding: 10px; margin-bottom: 20px;">
+                    <a class="left col s12 m12 l12 white-text" href="{% url 'home:manage-team' %}" style="padding: 10px;">Manage Team
+                        <span class="right" style=""> > </span>
+                    </a>
+
+                    <a class="left col s12 m12 l12" href="{% url 'account:membership-level-vip' %}" style="padding: 10px;">Upgrade VIP
+                        <span class="right" style=""> > </span>
+                    </a>
+
+                    <a class="left col s12 m12 l12" href="{% url 'account:membership-level-premium' %}" style="padding: 10px;">Upgrade Premium
+                        <span class="right" style=""> > </span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col m8 l9" style="padding: 0px; margin-top: 0px; opacity: .9; margin-bottom: 20px;">
+                <div class="col s12 l12 white center-align" style="padding: 20px;">
+
+                    <div class="orange-text">
+                        <h4 style="text-decoration: underline;">Your trainer is : {{ owner.username | title }}</h4>
+
+                    </div>
+
+
+                    <p class="col s12 m12 l12 divider" style="margin-top: 30px; margin-bottom: 30px;"></p>
+
+
+                    {% ifequal request.user owner %}
+                    <div class="col s12 m12 l12" style="margin-top: 10px; padding: 0px;">
+                        <div class="card blue">
+                            <div class="card-content white-text">
+                                <span class="card-title">Create training topics for your trainee.</span>
+                                <p>
+                                    When create training topic, create a title and description carefully. If need
+                                    to upload video then you can upload video related to that topic otherwise not need
+                                     to upload video.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="col s12 m12 l12 white center-align" style="padding: 0px;">
+                        <form class="col s12 m12 l12" enctype="multipart/form-data" method="post" style="margin-top: 50px; margin-bottom: 50px;">
+                            {% csrf_token %}
+
+                            <div class="input-field col s12 m12 l12">
+                                {{ personal_training_form.title }}
+                                <label for="icon_prefix white-text">Title</label>
+                            </div>
+
+                            <div style="" class="input-field col s12 m12 l12">
+                                {{ personal_training_form.description }}
+                                <label for="icon_prefix white-text">Description</label>
+                            </div>
+
+                            <div class="input-field col s12 m12 l12">
+                                <div class="file-field input-field">
+                                    <div class="btn">
+                                        <span>Video</span>
+                                        {{ personal_training_form.video }}
+                                    </div>
+
+                                    <div class="file-path-wrapper">
+                                        <input class="file-path validate" type="text">
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            {% if personal_training_form.non_field_errors %}
+                                {% for error in personal_training_form.non_field_errors %}
+                                    <div class="col s12 m10 offset-m1 l10 offset-l1 valign-wrapper" style="margin-top: 20px; background-color: red; height: 40px;">
+                                        <p style="color: white; font-size: 16px;">
+                                            {{ error }}
+                                        </p>
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+
+                            <div class="col s12 m12 l12" style="margin-bottom: 20px; margin-top: 20px; padding: 0px;">
+                                <button class="btn waves-effect waves-light black" type="submit" style="">Create Topic
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    {% endifequal %}
+
+
+                    <p class="col s12 m12 l12 divider" style="margin-top: 30px; margin-bottom: 30px;"></p>
+
+
+                    {% for content in contents %}
+                    <div class="col s12 m12 l12 left-align" style="margin-top: 10px; padding: 0px;">
+                        <div class="card blue">
+                            <div class="card-content white-text">
+                                <span class="card-title" style="border-bottom: 1px solid white;">{{ content.title }}</span>
+                                <p>
+                                    {{ content.description }}
+                                </p>
+
+                                {% if content.video %}
+                                <video style="margin-top: 20px;" width="100%" height="100%" controls>
+                                    <source src="{{ content.video.url }}" type="video/mp4">
+                                </video>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block script %}
+
+<script>
+
+     $(document).ready(function() {
+        $('select').material_select();
+      });
+
+</script>
+
+{% endblock %}

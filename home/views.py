@@ -383,7 +383,7 @@ class RecentUpdate(View):
 
 #privacy policy
 class ManageTeam(View):
-    template_name = 'home/manage-team.html'
+    template_name = 'home/manage-team_v_1.html'
 
     def get(self, request):
         user_profile = UserProfile.objects.filter(username=request.user.username)
@@ -500,7 +500,7 @@ class RemoveTeamMemberOperation(View):
 
 #personal training
 class PersonalTraining(View):
-    template_name = 'home/personal-training.html'
+    template_name = 'home/personal-training_v_1.html'
 
     def check_team_member(self, team, member):
         for team_member in team.member.all():
