@@ -9,6 +9,7 @@ from django.http import JsonResponse
 from django.db.models import Q
 import datetime
 from dateutil.relativedelta import relativedelta
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger, Page
 
 import sys
 import urllib.parse
@@ -1219,7 +1220,7 @@ class MyMembership(View):
 
 
 class MyReferrals(View):
-    template_name = 'account/my-referrals.html'
+    template_name = 'account/my-referrals_v_1.html'
 
     def get(self, request):
         form = MyRefferSearchForm()
@@ -1246,12 +1247,21 @@ class MyReferrals(View):
 
         #--end search queries
 
-
-        user_profile = UserProfile.objects.filter(username=request.user.username)
-
         total_referrals = UserProfile.objects.filter(sponsor__username=request.user.username).count()
 
-        referrals = UserProfile.objects.filter(sponsor__username=request.user.username)
+        referrals = UserProfile.objects.filter(sponsor__username=request.user.username).order_by('join_date')
+
+        page = request.GET.get('page', 1)
+        paginator = Paginator(referrals, 10)
+
+        try:
+            referrals = paginator.page(page)
+        except PageNotAnInteger:
+            referrals = paginator.page(1)
+        except EmptyPage:
+            referrals = paginator.page(paginator.num_pages)
+
+
 
         referrals_referrals_count = []
         for referral in referrals:
@@ -1263,19 +1273,19 @@ class MyReferrals(View):
         lists = zip(referrals, referrals_referrals_count)
 
         variables = {
-            'user_profile': user_profile,
             'total_referrals': total_referrals,
             'lists': lists,
             'form': form,
             'user_exists': user_exists,
             's_lists': s_lists,
+
+            'referrals': referrals,
         }
 
         return render(request, self.template_name, variables)
 
     def post(self, request):
         form = MyRefferSearchForm(request.POST or None)
-        user_profile = UserProfile.objects.filter(username=request.user.username)
 
         total_referrals = UserProfile.objects.filter(sponsor__username=request.user.username).count()
 
@@ -1296,7 +1306,6 @@ class MyReferrals(View):
             return HttpResponseRedirect('/account/membership-account/my-referrals/?userid=%s' %username)
 
         variables = {
-            'user_profile': user_profile,
             'total_referrals': total_referrals,
             'lists': lists,
             'form': form,

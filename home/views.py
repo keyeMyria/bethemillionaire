@@ -758,7 +758,7 @@ class PaymentAccountSetting(View):
 
 #my commission
 class MyCommission(View):
-    template_name = 'home/my-commission.html'
+    template_name = 'home/my-commission_v_1.html'
 
     def get(self, request):
 
