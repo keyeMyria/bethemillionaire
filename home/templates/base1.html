@@ -184,8 +184,8 @@
                     <div class="drop_down_contents">
 
                         <ul id='dropdown-lang' class='dropdown-content translation-links' style="">
-                            <li><a href="#" class="arabic" data-lang="Arabic">Arabic</a></li>
-                            <li><a href="#" class="arabic" data-lang="English">English</a></li>
+                            <li><a href="#" class="" data-lang="Arabic">Arabic</a></li>
+                            <li><a href="#" class="" data-lang="English">English</a></li>
                         </ul>
 
                         <ul id='dropdown-member-home' class='dropdown-content' style="">
@@ -223,7 +223,8 @@
                             <li><a style="font-size: 12px;" href="{% url 'account:my-autoresponder-settings' %}">My Autoresponder Settings</a></li><!--
                             <li><a style="font-size: 12px;" href="#!">Affiliate Account Settings</a></li>
                             <li><a style="font-size: 12px;" href="#!">My Affiliate Earnings</a></li>-->
-                            <li><a style="font-size: 12px;" href="{% url 'account:my-referrals' %}">My Referrals</a></li><!--
+                            <li><a style="font-size: 12px;" href="{% url 'account:my-referrals' %}">My Referrals</a></li>
+                            <li><a style="font-size: 12px;" class="red-text" href="{% url 'account:logout' %}">Logout</a></li><!--
                             <li><a style="font-size: 12px;" href="#!">BWC Leaderboards</a></li>-->
                         </ul>
 
