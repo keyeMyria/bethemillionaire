@@ -290,7 +290,13 @@
                 <div class="col l7 offset-l3 sub-menu-ams" style="">
                     <ul style="font-size: 14px;">
                         <li>
-                            <span class="grey-text">MEMBERSHIP: <span class="" style="">{{ request.user.membership.name | upper }}</span></span>
+                            <span class="grey-text">MEMBERSHIP:
+                                {% if request.user.membership.name == 'free' %}
+                                    <span class="red-text">{{ request.user.membership.name | upper }}</span>
+                                {% else %}
+                                    <span>{{ request.user.membership.name | upper }}</span>
+                                {% endif %}
+                            </span>
                         </li>
 
                         <li>

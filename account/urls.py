@@ -9,6 +9,9 @@ urlpatterns = [
     url(r'^pre-registration/$', views.Preregistration.as_view(), name='preregistration'),
     url(r'^registration/$', views.Registration.as_view(), name='registration'),
 
+    #latest webinar
+    url(r'^latest-webinar/$', views.LatestWebinar.as_view(), name='latest-webinar'),
+
     #3rd affiliate link
     url(r'^pre-web/$', views.PreWeb.as_view(), name='pre-web'),
     url(r'^reg-web/$', views.RegWeb.as_view(), name='reg-web'),

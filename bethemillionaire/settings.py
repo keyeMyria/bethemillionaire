@@ -154,6 +154,8 @@ LOGIN_EXEMPT_URLS = (
  r'^account/pre-registration/$',
  r'^account/registration/$',
 
+ r'^account/latest-webinar/$',
+
 
  r'^account/pre-web/$',
  r'^account/reg-web/$',

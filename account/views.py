@@ -1735,5 +1735,44 @@ def PaypalIPN(request):
 
 
 
+#latest webinar
+class LatestWebinar(View):
+    template_name = 'account/latest-webinar.html'
+
+    def get(self, request):
+
+        affiliate_name = request.GET.get("userid")
+
+        if not affiliate_name:
+            return HttpResponseRedirect('/account/latest-webinar/?userid=Mena')
+
+
+        form = forms.PreregistrationForm()
+
+        variables = {
+            'form': form,
+        }
+
+        return render(request, self.template_name, variables)
+
+    def post(self, request):
+        affiliate_name = request.GET.get("userid")
+
+        if not affiliate_name:
+            return HttpResponseRedirect('/account/latest-webinar/?userid=Mena')
+
+
+        form = forms.PreregistrationForm(request.POST or None)
+
+        if form.is_valid():
+            form.preregistration(request)
+
+        variables = {
+            'form': form,
+        }
+
+        return render(request, self.template_name, variables)
+
+
 
 

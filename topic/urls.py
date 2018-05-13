@@ -7,7 +7,7 @@ urlpatterns = [
     url(r'^step-2-set-up-your-bitcoin-wallet-load-it-with-bitcoins/$', views.Step_2.as_view(), name='step_2'),
     url(r'^step-3-wealth-vehicles/$', views.Step_3.as_view(), name='step_3'),
     url(r'^step-4-live-mentoring/$', views.Step_4.as_view(), name='step_4'),
-    url(r'^step-5-start-promoting-bitcoins-wealth-club-system-earn-bitcoins-in-multiple-ways/$', views.Step_5.as_view(), name='step_5'),
+    url(r'^step-5-start-promoting-bethemillioniare-system-earn-bitcoins-in-multiple-ways/$', views.Step_5.as_view(), name='step_5'),
 
     #url for module - 1
     url(r'^welcome-to-bethemillionaire-system/$', views.Lesson1.as_view(), name='module-1-lesson-1'),
