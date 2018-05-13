@@ -13,14 +13,6 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 
-
-    <meta property="og:url" content="https://www.bethemillionaire.com" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="This is test title" />
-    <meta property="og:description" content="This is test description" />
-    <meta property="og:image" content="https://www.bethemillionaire.com/static/home/style/images/logo/logo.png" />
-
-
     <style>
         .container{
             min-width: 100%;
@@ -125,17 +117,6 @@
 </head>
 
 <body class="">
-
-    <div id="fb-root"></div>
-    <script>(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0&appId=135252217333448&autoLogAppEvents=1";
-    fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
-
-
     <div class="container">
         <div class="row #f5f5f5 grey lighten-4">
             <div class="col s12 m12 l9 left-side-background white-text" style="height: 680px; padding: 50px;">
@@ -187,11 +168,11 @@
                 </form>
 
 
-                <div class="fb-share-button"
-                    data-href="https://www.bethemillionaire.com/account/latest-webinar/?userid={{ request.GET.userid }}"
-                    data-layout="button_count">
-                </div>
+                <div class="col s12 m12 l12 center-align" style="margin-top: 50px;">
+                    <p class="left-align" style="color: grey;">Connect with over 7 million investors in the world's leading social trading network</p>
 
+                    <iframe src="https://www.facebook.com/plugins/share_button.php?href={{ request.build_absolute_uri }}&layout=button_count&size=large&mobile_iframe=true&appId=135252217333448&width=84&height=28" width="84" height="28" style="border:none;overflow:hidden; margin-top: 20px;" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+                </div>
 
 
             </div>
