@@ -145,7 +145,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'bethemillionaire/media')
 
-LOGIN_URL = '/account/registration/'
+LOGIN_URL = '/account/pre-registration/'
 
 LOGIN_EXEMPT_URLS = (
  r'^admin/$',
