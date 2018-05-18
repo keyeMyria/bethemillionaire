@@ -1767,6 +1767,10 @@ class LatestWebinar(View):
         if form.is_valid():
             form.preregistration(request)
 
+            return HttpResponseRedirect("/account/registration/?userid=%s&s=%s" %(affiliate_name, 'three'))
+
+
+
         variables = {
             'form': form,
         }
