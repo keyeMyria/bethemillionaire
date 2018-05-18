@@ -329,7 +329,7 @@ class BitcoinDebitCard(View):
 
 #privacy policy
 class PrivacyPolicy(View):
-    template_name = 'home/privacy-policy.html'
+    template_name = 'home/privacy-policy_v_1.html'
 
     def get(self, request):
         user_profile = UserProfile.objects.filter(username=request.user.username)
@@ -346,7 +346,7 @@ class PrivacyPolicy(View):
 
 #privacy policy
 class FAQ(View):
-    template_name = 'home/faq.html'
+    template_name = 'home/faq_v_1.html'
 
     def get(self, request):
         user_profile = UserProfile.objects.filter(username=request.user.username)
@@ -363,7 +363,7 @@ class FAQ(View):
 
 #privacy policy
 class RecentUpdate(View):
-    template_name = 'home/recent-update.html'
+    template_name = 'home/recent-update_v_1.html'
 
     def get(self, request):
         user_profile = UserProfile.objects.filter(username=request.user.username)
