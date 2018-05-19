@@ -40,7 +40,7 @@ import simplejson
 import socket
 
 class Preregistration(View):
-    template_name = 'account/pre-registration_v_4.html'
+    template_name = 'account/pre-registration_v_3.html'
 
     def get(self, request):
 
@@ -1737,7 +1737,7 @@ def PaypalIPN(request):
 
 #latest webinar
 class LatestWebinar(View):
-    template_name = 'account/latest-webinar.html'
+    template_name = 'account/latest-webinar_v_1.html'
 
     def get(self, request):
 
