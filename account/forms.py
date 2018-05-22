@@ -41,6 +41,7 @@ def add_contact_getresponse(user_id, email, username):
                 data = {
                     'name': username,
                     'email': email,
+                    'dayOfCycle': 0,
                     'campaign': c,
                     'ipAddress': ipaddress,
                 }

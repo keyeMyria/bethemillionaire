@@ -6,7 +6,7 @@ import requests
 
 campaign_id = '6rwSE'
 api_key = '75a678181ff9476176fee468f8ef587a'
-email = 'amirmubarak19@gmail.com'
+email = 'asokti@hotmail.com'
 
 ipaddress = socket.gethostbyname(socket.gethostname())
 
@@ -17,6 +17,7 @@ c = {
 data = {
     'name': 'mubarak',
     'email': email,
+    'dayOfCycle': 0,
     'campaign': c,
     'ipAddress': ipaddress,
 }
