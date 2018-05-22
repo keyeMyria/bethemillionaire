@@ -5,6 +5,10 @@ from . import views
 urlpatterns = [
     url(r'^$', views.Home.as_view(), name='index'),
 
+    #live video
+    #url(r'^live/$', views.Live.as_view(), name='live'),
+    url(r'^live/(?P<room_name>[^/]+)/$', views.Live.as_view(), name='room'),
+
     #affiliate link
     url(r'^member-home/affiliate-link/$', views.AffiliateLink.as_view(), name='affiliate_link'),
     url(r'^member-home/email-swipes/$', views.EmailSwipes.as_view(), name='email_swipes'),
@@ -53,4 +57,7 @@ urlpatterns = [
     url(r'^member-home/recent-update/$', views.RecentUpdate.as_view(), name='recent-update'),
 
     url(r'^start/$', views.Start.as_view(), name='start'),
+
+    #live chat message api
+    url(r'^live-chat-message/(?P<room_name>[A-Za-z0-9_-]+)/$', views.LiveChatMessageAPI.as_view(), name='live-chat-message-api'),
 ]

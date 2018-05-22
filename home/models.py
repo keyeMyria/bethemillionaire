@@ -76,3 +76,18 @@ class PaymentAccountSetting(models.Model):
     def __str__(self):
         return str(self.user.username)
 
+
+
+
+#live chat message
+class LiveChatMessage(models.Model):
+    room = models.CharField(max_length=100, null=True, blank=True)
+    user = models.ForeignKey(account_model.UserProfile, on_delete=models.SET_NULL, null=True, blank=True)
+    message = models.CharField(max_length=255, null=True, blank=True)
+
+
+    def __str__(self):
+        return str(self.id)
+
+
+

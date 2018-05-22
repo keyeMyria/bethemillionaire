@@ -1,6 +1,9 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import View
 from django.db.models import Q
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from django.http import JsonResponse
 
 from account.models import UserProfile
 from .models import AffiliateLinkControl
@@ -10,6 +13,14 @@ from account import models as account_model
 from account import forms as account_form
 
 from . import forms
+
+from . import serializers
+
+
+
+from django.utils.safestring import mark_safe
+import json
+
 
 """
 class LoginRequiredMixin(object):
@@ -762,3 +773,52 @@ class MyCommission(View):
 
         return render(request, self.template_name, variables)
 
+
+
+
+#live
+class Live(View):
+    template_name = 'home/live.html'
+
+    def get(self, request, room_name):
+
+        db_room_name = 'chat_%s' %(room_name)
+
+        variables = {
+            'room_name_json': mark_safe(json.dumps(room_name)),
+            'db_room_name': db_room_name,
+            'room_name': room_name,
+        }
+
+        return render(request, self.template_name, variables)
+
+    def post(self, request):
+        pass
+
+
+
+def room(request, room_name):
+    return render(request, 'home/room.html', {
+        'room_name_json': mark_safe(json.dumps(room_name))
+    })
+
+
+
+
+#api view
+class LiveChatMessageAPI(APIView):
+    def get(self, request, room_name):
+
+        serializer = None
+        x = 'User authorized'
+
+        if request.user.is_authenticated():
+            message_obj = models.LiveChatMessage.objects.filter(room=room_name)
+            serializer = serializers.LiveChatMessageSerializers(message_obj, many=True).data
+        else:
+            x = 'Error authentication'
+
+        return Response({
+            'data': serializer,
+            'x': x,
+        })
