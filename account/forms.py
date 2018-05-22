@@ -99,6 +99,13 @@ class RegistrationForm(forms.Form):
     password1 = forms.CharField(max_length=20, required=False, widget=forms.PasswordInput(attrs={'class': 'validate',}))
     password2 = forms.CharField(max_length=20, required=False, widget=forms.PasswordInput(attrs={'class': 'validate', 'id': 'password'}))
 
+    def check_space(self, username):
+        for x in username:
+            if x == ' ':
+                return True
+
+        return False
+
     def clean(self):
         username = self.cleaned_data.get('username')
         email = self.cleaned_data.get('email')
@@ -108,26 +115,31 @@ class RegistrationForm(forms.Form):
         if len(username) < 1:
             raise forms.ValidationError("Enter username!")
         else:
-            user_exist = UserProfile.objects.filter(username__iexact=username).exists()
-            if user_exist:
-                raise forms.ValidationError("Username already taken!")
+            check_username_space = self.check_space(username)
+
+            if check_username_space:
+                raise forms.ValidationError('You can not use space in username!')
             else:
-                if len(email) < 1:
-                    raise forms.ValidationError("Enter email address!")
+                user_exist = UserProfile.objects.filter(username__iexact=username).exists()
+                if user_exist:
+                    raise forms.ValidationError("Username already taken!")
                 else:
-                    email_correction = re.match('^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$', email)
-                    if email_correction == None:
-                        raise forms.ValidationError("Email not correct!")
+                    if len(email) < 1:
+                        raise forms.ValidationError("Enter email address!")
                     else:
-                        email_exist = UserProfile.objects.filter(email__iexact=email).exists()
-                        if email_exist:
-                            raise forms.ValidationError("Email already exist!")
+                        email_correction = re.match('^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$', email)
+                        if email_correction == None:
+                            raise forms.ValidationError("Email not correct!")
                         else:
-                            if len(password1) < 8:
-                                raise forms.ValidationError("Password is too short!")
+                            email_exist = UserProfile.objects.filter(email__iexact=email).exists()
+                            if email_exist:
+                                raise forms.ValidationError("Email already exist!")
                             else:
-                                if password1 != password2:
-                                    raise forms.ValidationError("Password not matched!")
+                                if len(password1) < 8:
+                                    raise forms.ValidationError("Password is too short!")
+                                else:
+                                    if password1 != password2:
+                                        raise forms.ValidationError("Password not matched!")
 
     def registration(self, user_id=None, step=None):
         username = self.cleaned_data.get('username')
@@ -224,6 +236,8 @@ class RegWebForm(forms.Form):
     password1 = forms.CharField(max_length=20, required=False, widget=forms.PasswordInput(attrs={'class': 'validate', 'id': 'password1'}))
     password2 = forms.CharField(max_length=20, required=False, widget=forms.PasswordInput(attrs={'class': 'validate', 'id': 'password2'}))
 
+
+
     def clean(self):
         username = self.cleaned_data.get('username')
         email = self.cleaned_data.get('email')
@@ -232,6 +246,7 @@ class RegWebForm(forms.Form):
 
         if len(username) < 1:
             raise forms.ValidationError("Enter username!")
+
         else:
             user_exist = UserProfile.objects.filter(username__iexact=username).exists()
             if user_exist:
