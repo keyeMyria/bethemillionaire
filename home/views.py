@@ -714,7 +714,7 @@ class LeaderBoard(View):
 
     def get(self, request):
         
-        members = admin_model.LeaderBoard.objects.filter(campaign_name='jan_2018').all()
+        members = admin_model.LeaderBoard.objects.filter(campaign_name='first_campaign').all()
 
         campaign_date = members.first()
 
