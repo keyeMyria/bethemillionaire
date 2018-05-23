@@ -768,6 +768,9 @@ class CreateLeaderBoard(View):
 
         if request.POST.get('generate_result') == 'generate_result':
             results = None
+            actual_results = None
+            start_date = None
+            end_date = None
             if form.is_valid():
                 start_date = form.cleaned_data.get('start_date')
                 end_date = form.cleaned_data.get('end_date')

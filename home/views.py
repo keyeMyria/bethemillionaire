@@ -713,8 +713,12 @@ class LeaderBoard(View):
     template_name = 'home/leader-board_v_1.html'
 
     def get(self, request):
+
+        leader_board_obj = admin_model.LeaderBoard.objects.all().last()
+
+        current_campaign_name = leader_board_obj.campaign_name
         
-        members = admin_model.LeaderBoard.objects.filter(campaign_name='first_campaign').all()
+        members = admin_model.LeaderBoard.objects.filter(campaign_name=current_campaign_name).all()
 
         campaign_date = members.first()
 
