@@ -1,0 +1,87 @@
+{% extends 'admin-base.html' %}
+
+{% block title %}Administration | BeTheMillionaire{% endblock %}
+
+{% block add-css %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home/style/index.css' %}">
+{% endblock %}
+
+{% block main %}
+    <div class="row">
+        <div class="col s12 m10 offset-m1 l8 offset-l2" style="">
+
+            <h5 style="margin-top: 20px;">View Leader Board</h5>
+            <p class="col s12 m12 l12 divider" style="margin-bottom: 20px;"></p>
+
+            {% if results %}
+            <div class="col s12 m12 l12" style="margin-top: 50px; padding: 0px;">
+                <h5>Campaign Name: {{ campaign_name }}</h5><br>
+                <h5>Campaign Date: {{ get_result_date.start_date }} - to - {{ get_result_date.end_date }}</h5><br>
+
+                <p class="col s12 m12 l12 divider" style="margin-bottom: 20px;"></p>
+
+                <div class="col s12 m12 l12 " style="margin-top: 10px; padding: 0px;">
+                    <table class="highlight centered bordered responsive-table" style="margin-bottom: 50px; margin-top: 30px;">
+                        <thead>
+                          <tr style="background-color: blue; color: white;">
+                              <th>Rank</th>
+                              <th>Member</th>
+                              <th>Referral</th>
+                              <th>Referral Sale</th>
+                          </tr>
+                        </thead>
+
+                        {% for result in results %}
+                        <tbody>
+                            <tr>
+                                <td>#{{ result.rank }}</td>
+                                <td>
+                                    <a href="{% url 'account:public-profile' %}?userid={{ result.user.username }}">{{ result.user.username | title }}</a>
+                                </td>
+
+                                <td>{{ result.referral }}</td>
+
+                                <td>{{ result.referral_sale }}</td>
+                            </tr>
+                        </tbody>
+                        {% endfor %}
+                    </table>
+                </div>
+
+                <div class="col s12 m12 l12 center-align" style="margin-bottom: 20px;">
+                    <form method="post">
+                        {% csrf_token %}
+
+                        <button class="btn red waves-effect waves-light" name="delete_result" value="delete_result" type="submit" style="">
+                            Delete This Leader Board
+                        </button>
+                    </form>
+                </div>
+
+
+            </div>
+            {% endif %}
+
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block script %}
+
+
+<script>
+    $('.datepicker').pickadate({
+        selectMonths: true, // Creates a dropdown to control month
+        selectYears: 15, // Creates a dropdown of 15 years to control year,
+        today: 'Today',
+        format: 'yyyy-mm-dd',
+        clear: 'Clear',
+        close: 'Ok',
+        closeOnSelect: false // Close upon selecting a date,
+    });
+</script>
+
+
+{% endblock %}

@@ -62,7 +62,7 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
 
     payments = models.ForeignKey('Payment', null=True, blank=True, related_name='last_payments' )
 
-    sponsor = models.ForeignKey('UserProfile', related_name='sponsors', null=True, blank=True)
+    sponsor = models.ForeignKey('UserProfile', on_delete=models.SET_NULL, related_name='sponsors', null=True, blank=True)
     referrals = models.ManyToManyField('UserProfile', related_name='referral', blank=True)
     phone_number = models.CharField(max_length=18, null=True, blank=True)
     website = models.CharField(max_length=400, null=True, blank=True)
@@ -183,7 +183,7 @@ post_save.connect(create_profile, sender=User)
 
 #table 1
 class BeTheMillionaire_3_Step_Registration_Funnel(models.Model):
-    user = models.OneToOneField(UserProfile, null=True, blank=True, related_name='user1')
+    user = models.OneToOneField(UserProfile, on_delete=models.SET_NULL, null=True, blank=True, related_name='user1')
     campaign_name = models.CharField(max_length=100, default='BeTheMillionaire 3-Step Registration Funnel', null=True)
     visitors = models.IntegerField(null=True, blank=True, default=0)
     leads = models.IntegerField(null=True, blank=True, default=0)
@@ -203,7 +203,7 @@ post_save.connect(create_affiliate1, sender=UserProfile)
 
 #table 2
 class Direct_Registration(models.Model):
-    user = models.OneToOneField(UserProfile, null=True, blank=True, related_name='user2')
+    user = models.OneToOneField(UserProfile, on_delete=models.SET_NULL, null=True, blank=True, related_name='user2')
     campaign_name = models.CharField(max_length=100, default='Direct Registration', null=True)
     visitors = models.IntegerField(null=True, blank=True, default=0)
     leads = models.IntegerField(null=True, blank=True, default=0)
@@ -456,7 +456,7 @@ post_save.connect(create_affiliate14, sender=UserProfile)
 #autoresponder setup
 #getresponse autoresponder add contacts db
 class GetResponseAutoresponderAddContact(models.Model):
-    user = models.OneToOneField(UserProfile, null=True, blank=True)
+    user = models.OneToOneField(UserProfile, on_delete=models.SET_NULL, null=True, blank=True)
     campaignId = models.CharField(max_length=30, default='', null=True, blank=True)
     api_key = models.CharField(max_length=50, default='', null=True, blank=True)
     isEnable = models.CharField(max_length=10, default='enable', null=True, blank=True)
@@ -496,16 +496,16 @@ class PaypalConfirmation(models.Model):
 
 #payment
 class Payment(models.Model):
-    user = models.ForeignKey(UserProfile, on_delete=None, null=True, blank=True)
+    user = models.ForeignKey(UserProfile, on_delete=models.SET_NULL, null=True, blank=True)
     intent = models.CharField(max_length=50, null=True, blank=True)
     payer_ID = models.CharField(max_length=100, null=True, blank=True)
     payment_ID = models.CharField(max_length=100, null=True, blank=True)
     payment_Token = models.CharField(max_length=100, null=True, blank=True)
     transaction_ID = models.CharField(max_length=100, null=True, blank=True)
 
-    paypal_confirmation = models.ForeignKey(PaypalConfirmation, on_delete=None, null=True, blank=True)
+    paypal_confirmation = models.ForeignKey(PaypalConfirmation, on_delete=models.SET_NULL, null=True, blank=True)
 
-    membership = models.ForeignKey(Membershiplevel, null=True, blank=True)
+    membership = models.ForeignKey(Membershiplevel, on_delete=models.SET_NULL, null=True, blank=True)
 
     #this is for manual verification protect fraud transaction
     is_verify = models.CharField(max_length=10, default='pending')
@@ -518,7 +518,7 @@ class Payment(models.Model):
 
 #usi tech account
 class UsiTechAccount(models.Model):
-    user = models.OneToOneField(UserProfile, on_delete=models.CASCADE)
+    user = models.OneToOneField(UserProfile, on_delete=models.SET_NULL, null=True, blank=True)
     usi_username = models.CharField(max_length=100, null=True, blank=True)
     create_on = models.DateTimeField(auto_now_add=True)
 
@@ -535,7 +535,7 @@ post_save.connect(create_UsiTechAccount, sender=UserProfile)
 
 #bitconnect account
 class BitconnectAccount(models.Model):
-    user = models.OneToOneField(UserProfile, on_delete=models.CASCADE, null=True, blank=True)
+    user = models.OneToOneField(UserProfile, on_delete=models.SET_NULL, null=True, blank=True)
     bitconnect_username = models.CharField(max_length=100, null=True, blank=True)
     create_on = models.DateTimeField(auto_now_add=True)
 
@@ -552,7 +552,7 @@ post_save.connect(create_BitconnectAccount, sender=UserProfile)
 
 #click magic account
 class ClickMagicAccount(models.Model):
-    user = models.OneToOneField(UserProfile, on_delete=models.CASCADE, null=True, blank=True)
+    user = models.OneToOneField(UserProfile, on_delete=models.SET_NULL, null=True, blank=True)
     clickmagic_username = models.CharField(max_length=100, null=True, blank=True)
     create_on = models.DateTimeField(auto_now_add=True)
 
@@ -568,7 +568,7 @@ post_save.connect(create_ClickMagicAccount, sender=UserProfile)
 
 #click funnels account
 class ClickFunnelsAccount(models.Model):
-    user = models.OneToOneField(UserProfile, on_delete=models.CASCADE, null=True, blank=True)
+    user = models.OneToOneField(UserProfile, on_delete=models.SET_NULL, null=True, blank=True)
     clickfunnels_username = models.CharField(max_length=100, null=True, blank=True)
     create_on = models.DateTimeField(auto_now_add=True)
 
@@ -585,7 +585,7 @@ post_save.connect(create_ClickFunnelsAccount, sender=UserProfile)
 
 #getresponse account
 class GetResponseAccount(models.Model):
-    user = models.OneToOneField(UserProfile, on_delete=models.CASCADE, null=True, blank=True)
+    user = models.OneToOneField(UserProfile, on_delete=models.SET_NULL, null=True, blank=True)
     getresponse_username = models.CharField(max_length=100, null=True, blank=True)
     create_on = models.DateTimeField(auto_now_add=True)
 
@@ -601,7 +601,7 @@ post_save.connect(create_GetResponseAccount, sender=UserProfile)
 
 #aweber account
 class AweberAccount(models.Model):
-    user = models.OneToOneField(UserProfile, on_delete=models.CASCADE, null=True, blank=True)
+    user = models.OneToOneField(UserProfile, on_delete=models.SET_NULL, null=True, blank=True)
     aweber_username = models.CharField(max_length=100, null=True, blank=True)
     create_on = models.DateTimeField(auto_now_add=True)
 
@@ -618,7 +618,7 @@ post_save.connect(create_AweberAccount, sender=UserProfile)
 
 #ledger nano s account
 class LedgerNanoSAccount(models.Model):
-    user = models.OneToOneField(UserProfile, on_delete=models.CASCADE, null=True, blank=True)
+    user = models.OneToOneField(UserProfile, on_delete=models.SET_NULL, null=True, blank=True)
     ledger_nano_s_username = models.CharField(max_length=100, null=True, blank=True)
     create_on = models.DateTimeField(auto_now_add=True)
 
@@ -635,7 +635,7 @@ post_save.connect(create_LedgerNanoSAccount, sender=UserProfile)
 
 #trezor account
 class TrezorSAccount(models.Model):
-    user = models.OneToOneField(UserProfile, on_delete=models.CASCADE, null=True, blank=True)
+    user = models.OneToOneField(UserProfile, on_delete=models.SET_NULL, null=True, blank=True)
     trezor_username = models.CharField(max_length=100, null=True, blank=True)
     create_on = models.DateTimeField(auto_now_add=True)
 
@@ -654,7 +654,7 @@ post_save.connect(create_TrezorSAccount, sender=UserProfile)
 
 #coin base account
 class CoinBaseAccount(models.Model):
-    user = models.OneToOneField(UserProfile, on_delete=models.CASCADE, null=True, blank=True)
+    user = models.OneToOneField(UserProfile, on_delete=models.SET_NULL, null=True, blank=True)
     coinbase_username = models.CharField(max_length=100, null=True, blank=True)
     create_on = models.DateTimeField(auto_now_add=True)
 
@@ -672,7 +672,7 @@ post_save.connect(create_CoinBaseAccount, sender=UserProfile)
 
 #spectrocoin card account
 class SpectroCoinCardAccount(models.Model):
-    user = models.OneToOneField(UserProfile, on_delete=models.CASCADE, null=True, blank=True)
+    user = models.OneToOneField(UserProfile, on_delete=models.SET_NULL, null=True, blank=True)
     spectrocoin_card_username = models.CharField(max_length=100, null=True, blank=True)
     create_on = models.DateTimeField(auto_now_add=True)
 
@@ -690,7 +690,7 @@ post_save.connect(create_SpectroCoinCardAccount, sender=UserProfile)
 
 #cryptopay card account
 class CryptoPayCardAccount(models.Model):
-    user = models.OneToOneField(UserProfile, on_delete=models.CASCADE, null=True, blank=True)
+    user = models.OneToOneField(UserProfile, on_delete=models.SET_NULL, null=True, blank=True)
     cryptopay_card_username = models.CharField(max_length=100, null=True, blank=True)
     create_on = models.DateTimeField(auto_now_add=True)
 
@@ -708,7 +708,7 @@ post_save.connect(create_CryptoPayCardAccount, sender=UserProfile)
 
 #cex.io account
 class CexIOAccount(models.Model):
-    user = models.OneToOneField(UserProfile, on_delete=models.CASCADE, null=True, blank=True)
+    user = models.OneToOneField(UserProfile, on_delete=models.SET_NULL, null=True, blank=True)
     cexio_username = models.CharField(max_length=100, null=True, blank=True)
     create_on = models.DateTimeField(auto_now_add=True)
 
@@ -726,7 +726,7 @@ post_save.connect(create_CexIOAccount, sender=UserProfile)
 
 #bitpanda account
 class BitPandaAccount(models.Model):
-    user = models.OneToOneField(UserProfile, on_delete=models.CASCADE, null=True, blank=True)
+    user = models.OneToOneField(UserProfile, on_delete=models.SET_NULL, null=True, blank=True)
     bitpanda_username = models.CharField(max_length=100, null=True, blank=True)
     create_on = models.DateTimeField(auto_now_add=True)
 
@@ -744,7 +744,7 @@ post_save.connect(create_BitPandaAccount, sender=UserProfile)
 
 #local bitcoins account
 class LocalBitcoinsAccount(models.Model):
-    user = models.OneToOneField(UserProfile, on_delete=models.CASCADE, null=True, blank=True)
+    user = models.OneToOneField(UserProfile, on_delete=models.SET_NULL, null=True, blank=True)
     local_bitcoins_username = models.CharField(max_length=100, null=True, blank=True)
     create_on = models.DateTimeField(auto_now_add=True)
 
@@ -762,7 +762,7 @@ post_save.connect(create_LocalBitcoinsAccount, sender=UserProfile)
 
 #indacoin account
 class IndaCoinAccount(models.Model):
-    user = models.OneToOneField(UserProfile, on_delete=models.CASCADE, null=True, blank=True)
+    user = models.OneToOneField(UserProfile, on_delete=models.SET_NULL, null=True, blank=True)
     indacoin_username = models.CharField(max_length=100, null=True, blank=True)
     create_on = models.DateTimeField(auto_now_add=True)
 
@@ -780,7 +780,7 @@ post_save.connect(create_IndaCoinAccount, sender=UserProfile)
 
 #coin mama account
 class CoinMamaAccount(models.Model):
-    user = models.OneToOneField(UserProfile, on_delete=models.CASCADE, null=True, blank=True)
+    user = models.OneToOneField(UserProfile, on_delete=models.SET_NULL, null=True, blank=True)
     coin_mama_username = models.CharField(max_length=100, null=True, blank=True)
     create_on = models.DateTimeField(auto_now_add=True)
 
@@ -800,7 +800,7 @@ post_save.connect(create_CoinMamaAccount, sender=UserProfile)
 
 #itb account
 class ITBAccount(models.Model):
-    user = models.OneToOneField(UserProfile, on_delete=models.CASCADE, null=True, blank=True)
+    user = models.OneToOneField(UserProfile, on_delete=models.SET_NULL, null=True, blank=True)
     itb_username = models.CharField(max_length=100, null=True, blank=True)
     create_on = models.DateTimeField(auto_now_add=True)
 
@@ -819,12 +819,12 @@ post_save.connect(create_ITBAccount, sender=UserProfile)
 
 #referral sale comission
 class ReferralSaleCommission(models.Model):
-    user = models.ForeignKey(UserProfile, on_delete=None, null=True, blank=True, related_name='sponsor_comission')
-    referred_user = models.ForeignKey(UserProfile, on_delete=None, null=True, blank=True, related_name='referred_user')
-    referred_user_payment = models.ForeignKey(Payment, on_delete=None, null=True, blank=True)
+    user = models.ForeignKey(UserProfile, on_delete=models.SET_NULL, null=True, blank=True, related_name='sponsor_comission')
+    referred_user = models.ForeignKey(UserProfile, on_delete=models.SET_NULL, null=True, blank=True, related_name='referred_user')
+    referred_user_payment = models.ForeignKey(Payment, on_delete=models.SET_NULL, null=True, blank=True)
     commission = models.FloatField(null=True, blank=True)
     is_verified = models.BooleanField(default=False)
-    verified_by = models.ForeignKey(UserProfile, on_delete=None, null=True, blank=True, related_name='verified_by_staff')
+    verified_by = models.ForeignKey(UserProfile, on_delete=models.SET_NULL, null=True, blank=True, related_name='verified_by_staff')
     creation_time = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

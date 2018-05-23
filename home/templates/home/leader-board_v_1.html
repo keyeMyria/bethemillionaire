@@ -90,7 +90,10 @@
                     </div>
 
 
-                    <div class="col s12 m12 l12 " style="margin-top: 10px; padding: 0px;">
+                    <div class="col s12 m12 l12 " style="margin-top: 20px; padding: 0px;">
+                        <h5 class="left-align orange-text">Campaign Duration: <span class="red-text" style="font-size: 16px;">{{ campaign_date.start_date }}</span>
+                            <span class="black-text" style="font-size: 16px;">to</span> <span class="red-text" style="font-size: 16px;">{{ campaign_date.end_date }}</span></h5>
+
                         <table class="highlight centered bordered responsive-table" style="margin-bottom: 50px; margin-top: 30px;">
                             <thead>
                               <tr style="background-color: blue; color: white;">
@@ -104,14 +107,14 @@
                             {% for member in members %}
                             <tbody>
                                 <tr>
-                                    <td>#{{ forloop.counter }}</td>
+                                    <td>#{{ member.rank }}</td>
                                     <td>
-                                        <a href="{% url 'account:public-profile' %}?userid={{ member.username }}">{{ member.username | title }}</a>
+                                        <a href="{% url 'account:public-profile' %}?userid={{ member.user.username }}">{{ member.user.username | title }}</a>
                                     </td>
 
-                                    <td>{{ member.referrals.all.count }}</td>
+                                    <td>{{ member.referral }}</td>
 
-                                    <td>{{ member.sales_count }}</td>
+                                    <td>{{ member.referral_sale }}</td>
                                 </tr>
                             </tbody>
                             {% endfor %}

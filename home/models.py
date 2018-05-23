@@ -15,7 +15,7 @@ class AffiliateLinkControl(models.Model):
 
 #create team
 class Team(models.Model):
-    owner = models.ForeignKey(account_model.UserProfile, related_name='team_owner', on_delete=models.CASCADE, null=True, blank=True)
+    owner = models.ForeignKey(account_model.UserProfile, related_name='team_owner', on_delete=models.SET_NULL, null=True, blank=True)
     name = models.CharField(max_length=255, null=True, blank=True)
     member = models.ManyToManyField(account_model.UserProfile, related_name='team_member', blank=True)
     creation_time = models.DateTimeField(auto_now_add=True, null=True, blank=True)
@@ -47,7 +47,7 @@ class Team(models.Model):
 
 #personal training file upload
 class PersonalTrainingContent(models.Model):
-    owner =  models.ForeignKey(account_model.UserProfile, on_delete=models.CASCADE, null=True, blank=True)
+    owner =  models.ForeignKey(account_model.UserProfile, on_delete=models.SET_NULL, null=True, blank=True)
     team = models.ForeignKey(Team, on_delete=models.CASCADE, null=True, blank=True)
 
     title = models.CharField(max_length=255, null=True, blank=True)
@@ -68,7 +68,7 @@ class PersonalTrainingContent(models.Model):
 
 #commission payment receiver account
 class PaymentAccountSetting(models.Model):
-    user = models.OneToOneField(account_model.UserProfile, on_delete=False, null=True, blank=True)
+    user = models.OneToOneField(account_model.UserProfile, on_delete=models.SET_NULL, null=True, blank=True)
     account_type = models.CharField(max_length=50, null=True, blank=True)
     account_no = models.CharField(max_length=255, null=True, blank=True)
     creation_time = models.DateTimeField(auto_now_add=True)

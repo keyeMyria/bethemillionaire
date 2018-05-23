@@ -12,7 +12,7 @@ class Module(models.Model):
 
 
 class Lesson(models.Model):
-    module = models.ForeignKey(Module, default=1)
+    module = models.ForeignKey(Module, on_delete=models.SET_NULL, default=1, null=True, blank=True)
     name = models.CharField(max_length=200, null=True, blank=True)
     short_name = models.CharField(max_length=50, blank=True, null=True)
     is_active = models.BooleanField(default=True)

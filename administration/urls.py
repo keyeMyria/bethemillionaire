@@ -49,6 +49,7 @@ urlpatterns = [
 
     #leader board creation
     url(r'^leader-board/create/$', views.CreateLeaderBoard.as_view(), name='create-leader-board'),
+    url(r'^leader-board/(?P<campaign_name>[0-9A-Za-z-_]+)/view/$', views.ViewLeaderBoard.as_view(), name='view-leader-board'),
 
 
 

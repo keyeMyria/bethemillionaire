@@ -116,18 +116,39 @@ class WebinarLinkForm(forms.ModelForm):
 class CreateLeaderBoardForm(forms.Form):
     start_date = forms.CharField(max_length=255, required=False, widget=forms.TextInput(attrs={'class': 'validate datepicker'}))
     end_date = forms.CharField(max_length=255, required=False, widget=forms.TextInput(attrs={'class': 'validate datepicker'}))
+    campaign_name = forms.CharField(max_length=100, required=False, widget=forms.TextInput(attrs={'class': 'validate'}))
 
 
     def clean(self):
         start_date = self.cleaned_data.get('start_date')
         end_date = self.cleaned_data.get('end_date')
+        campaign_name = self.cleaned_data.get('campaign_name')
 
-        if len(start_date) < 1:
-            raise forms.ValidationError('Choose start Date!')
+
+        if len(campaign_name) < 1:
+            raise forms.ValidationError('Enter Campaign Name!')
         else:
-            if len(end_date) < 1:
-                raise forms.ValidationError('Choose end date!')
+            campaign_exists = models.LeaderBoard.objects.filter(campaign_name=campaign_name).exists()
+
+            if campaign_exists:
+                raise forms.ValidationError('Campaign name already taken. Try another name!')
+            else:
+                if len(start_date) < 1:
+                    raise forms.ValidationError('Select start date!')
+                else:
+                    if len(end_date) < 1:
+                        raise forms.ValidationError('Select end date')
 
 
 
+    def deploy(self, results):
+        start_date = self.cleaned_data.get('start_date')
+        end_date = self.cleaned_data.get('end_date')
+        campaign_name = self.cleaned_data.get('campaign_name')
 
+        i = 1
+        for result in results:
+            deploy = models.LeaderBoard(user=result[0], start_date=start_date, end_date=end_date, campaign_name=campaign_name, rank=i, referral=result[2], referral_sale=result[1])
+            deploy.save()
+
+            i = i + 1

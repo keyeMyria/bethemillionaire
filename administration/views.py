@@ -19,6 +19,8 @@ from account import forms as account_form
 
 from home import models as home_model
 
+from . import models
+
 from . import forms
 
 from . import tasks
@@ -769,6 +771,8 @@ class CreateLeaderBoard(View):
             if form.is_valid():
                 start_date = form.cleaned_data.get('start_date')
                 end_date = form.cleaned_data.get('end_date')
+                campaign_name = form.cleaned_data.get('campaign_name')
+
 
                 results = self.generate_leader_board(start_date, end_date)
 
@@ -783,8 +787,9 @@ class CreateLeaderBoard(View):
 
                     if i == 15:
                         break
+                form.deploy(actual_results)
 
-
+                return redirect('administration:view-leader-board', campaign_name=campaign_name)
 
 
         variables = {
@@ -795,3 +800,41 @@ class CreateLeaderBoard(View):
         }
 
         return render(request, self.template_name, variables)
+
+
+
+
+#view leader board
+class ViewLeaderBoard(View):
+    template_name = 'administration/view-leader-board.html'
+
+    def get(self, request, campaign_name):
+        results = models.LeaderBoard.objects.filter(campaign_name=campaign_name).order_by('rank')
+
+        get_result_date = results.first()
+
+        variables = {
+            'results': results,
+            'campaign_name': campaign_name,
+            'get_result_date': get_result_date,
+        }
+
+        return render(request, self.template_name, variables)
+
+    def post(self, request, campaign_name):
+        results = models.LeaderBoard.objects.filter(campaign_name=campaign_name).order_by('rank')
+
+        if request.POST.get('delete_result') == 'delete_result':
+            for result in results:
+                models.LeaderBoard.objects.filter(id=result.id).delete()
+
+            return redirect('administration:create-leader-board')
+
+        variables = {
+            'results': results,
+            'campaign_name': campaign_name,
+        }
+
+        return render(request, self.template_name, variables)
+
+

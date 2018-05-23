@@ -17,6 +17,8 @@ from . import forms
 
 from . import serializers
 
+from administration import models as admin_model
+
 
 
 from django.utils.safestring import mark_safe
@@ -707,74 +709,22 @@ class UsefulSide(View):
 
 #leader board
 
-"""
 class LeaderBoard(View):
     template_name = 'home/leader-board_v_1.html'
 
     def get(self, request):
         
-        members = account_model.UserProfile.objects.annotate(sales_count=Count('payment')).order_by('-sales_count')[:15]
+        members = admin_model.LeaderBoard.objects.filter(campaign_name='jan_2018').all()
+
+        campaign_date = members.first()
 
         variables = {
             'members': members,
+            'campaign_date': campaign_date,
         }
 
         return render(request, self.template_name, variables)
 
-"""
-
-#test leader board
-class LeaderBoard(View):
-    template_name = 'home/leader-board_v_1.html'
-
-    def get(self, request):
-
-        members = account_model.UserProfile.objects.annotate(sales_count=Count('payment')).order_by('-sales_count')[:15]
-
-        #data range ::: year-month-date
-        referral_sales = account_model.Payment.objects.filter(creation_time__range=["2018-01-01", "2018-05-24"]).all()
-
-        sale_sponsor = []
-        final_sale = []
-
-        for sale in referral_sales:
-            if sale.user.sponsor in sale_sponsor:
-                pass
-            else:
-                sale_sponsor.append(sale.user.sponsor)
-
-
-        for sale in sale_sponsor:
-            n = 0
-
-            sponsor_referrals = []
-            for referral_sale in referral_sales:
-                if sale == referral_sale.user.sponsor:
-                    n = n + 1
-
-            sponsor_referrals.append(sale)
-            sponsor_referrals.append(n)
-
-            final_sale.append(sponsor_referrals)
-
-
-
-        s = sorted(final_sale, key = lambda x: int(x[1]))
-        p = reversed(s)
-
-        for q in p:
-            print(str(q[0]) + ":" + str(q[1]))
-
-        print(s)
-        print(p)
-
-
-        variables = {
-            'members': members,
-            'referral_sales': referral_sales,
-        }
-
-        return render(request, self.template_name, variables)
 
 
 
