@@ -712,10 +712,7 @@ class CreateLeaderBoard(View):
 
     def generate_leader_board(self, start_date, end_date):
         #data range ::: year-month-date
-        #referral_sales = account_model.Payment.objects.filter(creation_time__range=[start_date, end_date])
-        referral_sales = account_model.Payment.objects.filter(creation_time__gte=datetime.date(2018,5,1), creation_time__lte=datetime.date(2018,5,31))
-
-        print(referral_sales)
+        referral_sales = account_model.Payment.objects.filter(creation_time__range=[start_date, end_date])
 
         sale_sponsor = []
         final_sale = []
