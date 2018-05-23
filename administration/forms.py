@@ -109,3 +109,25 @@ class WebinarLinkForm(forms.ModelForm):
     class Meta:
         model = account_model.WebinarLink
         fields = ('link', )
+
+
+
+#create leaderboard form
+class CreateLeaderBoardForm(forms.Form):
+    start_date = forms.CharField(max_length=255, required=False, widget=forms.TextInput(attrs={'class': 'validate datepicker'}))
+    end_date = forms.CharField(max_length=255, required=False, widget=forms.TextInput(attrs={'class': 'validate datepicker'}))
+
+
+    def clean(self):
+        start_date = self.cleaned_data.get('start_date')
+        end_date = self.cleaned_data.get('end_date')
+
+        if len(start_date) < 1:
+            raise forms.ValidationError('Choose start Date!')
+        else:
+            if len(end_date) < 1:
+                raise forms.ValidationError('Choose end date!')
+
+
+
+

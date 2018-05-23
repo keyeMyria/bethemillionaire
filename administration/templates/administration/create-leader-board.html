@@ -1,0 +1,112 @@
+{% extends 'admin-base.html' %}
+
+{% block title %}Administration | BeTheMillionaire{% endblock %}
+
+{% block add-css %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home/style/index.css' %}">
+{% endblock %}
+
+{% block main %}
+    <div class="row">
+        <div class="col s12 m10 offset-m1 l8 offset-l2" style="">
+
+            <h5 style="margin-top: 20px;">Create Leader Board</h5>
+            <p class="col s12 m12 l12 divider" style="margin-bottom: 20px;"></p>
+
+            <h5 style="margin-top: 20px;">Choose date range</h5>
+
+            <form method="post">
+                {% csrf_token %}
+
+                <div class="input-field col s12 m6 l6">
+                    <i class="material-icons prefix">perm_contact_calendar</i>
+                    {{ form.start_date }}
+                    <label for="icon_prefix white-text">Start Date</label>
+                </div>
+
+                <div class="input-field col s12 m6 l6">
+                    <i class="material-icons prefix">perm_contact_calendar</i>
+                    {{ form.end_date }}
+                    <label for="icon_prefix white-text">End Date</label>
+                </div>
+
+                {% if form.non_field_errors %}
+                    {% for error in form.non_field_errors %}
+                        <div class="col s12 m12 l12 center-align">
+                            <p style="color: red; font-size: 20px;">
+                                {{ error }}
+                            </p>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+
+                <div class="col s12 m12 l12 center-align" style="margin-bottom: 20px;">
+                    <button class="btn waves-effect waves-light" name="generate_result" value="generate_result" type="submit" style="">Generate Leader Board
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
+
+            </form>
+
+
+            {% if actual_results %}
+            <div class="col s12 m12 l12" style="margin-top: 50px; padding: 0px;">
+                <h5>Results: {{ start_date }} to {{ end_date }}</h5><br>
+
+                <p class="col s12 m12 l12 divider" style="margin-bottom: 20px;"></p>
+
+                <div class="col s12 m12 l12 " style="margin-top: 10px; padding: 0px;">
+                    <table class="highlight centered bordered responsive-table" style="margin-bottom: 50px; margin-top: 30px;">
+                        <thead>
+                          <tr style="background-color: blue; color: white;">
+                              <th>Rank</th>
+                              <th>Member</th>
+                              <th>Referral</th>
+                              <th>Referral Sale</th>
+                          </tr>
+                        </thead>
+
+                        {% for result in actual_results %}
+                        <tbody>
+                            <tr>
+                                <td>#{{ forloop.counter }}</td>
+                                <td>
+                                    <a href="{% url 'account:public-profile' %}?userid={{ result.0.username }}">{{ result.0.username | title }}</a>
+                                </td>
+
+                                <td>{{ result.2 }}</td>
+
+                                <td>{{ result.1 }}</td>
+                            </tr>
+                        </tbody>
+                        {% endfor %}
+                    </table>
+                </div>
+
+
+            </div>
+            {% endif %}
+
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block script %}
+
+
+<script>
+    $('.datepicker').pickadate({
+        selectMonths: true, // Creates a dropdown to control month
+        selectYears: 15, // Creates a dropdown of 15 years to control year,
+        today: 'Today',
+        format: 'yyyy-mm-dd',
+        clear: 'Clear',
+        close: 'Ok',
+        closeOnSelect: false // Close upon selecting a date,
+    });
+</script>
+
+
+{% endblock %}

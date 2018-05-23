@@ -43,6 +43,13 @@ urlpatterns = [
     url(r'^video/add/$', views.AddVideo.as_view(), name='add-video'),
 
 
+    #latest webinar link
     url(r'^webinar-registration/link/$', views.WebinarRegistrationLink.as_view(), name='webinar-registration-link'),
+
+
+    #leader board creation
+    url(r'^leader-board/create/$', views.CreateLeaderBoard.as_view(), name='create-leader-board'),
+
+
 
 ]

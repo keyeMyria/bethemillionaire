@@ -1,0 +1,154 @@
+{% extends 'base1.html' %}
+
+{% block title %}BeTheMillionaire | Leader Board{% endblock %}
+
+{% block add-css %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home/style/index.css' %}">
+
+    <style>
+        .left_main_menu a{
+            color: orange;
+        }
+
+        .left_main_menu a:hover{
+            color: white;
+            text-decoration: underline;
+        }
+
+        #particles-js{
+            background-image: url('/static/account/style/images/reg/back-1.jpeg');
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 250vh;
+            width: 100%;
+            background-size: cover;
+        }
+    </style>
+{% endblock %}
+
+{% block main %}
+    <div class="row" id="particles-js" style="">
+        <div class="col s12 l8 offset-l2" style="position: absolute;">
+            <div class="col m4 l3 blue" style="">
+                <div class="col s12 m12 l12 #1a237e indigo orange-text darken-4 center-align" style="padding: 10px;">
+                    <h5>Leader Board</h5>
+                </div>
+
+                <div class="col s12 m12 l12 white center-align" style="min-height: 200px;">
+                    {% if request.user.profile_picture %}
+                        <img class="col m10 offset-m1 l10 offset-l1" src="{{ request.user.profile_picture.url}}" height="100%" width="100%" style="margin-top: 20px;" alt="">
+                    {% else %}
+                        <img class="col m10 offset-m1 l10 offset-l1" src="{% static 'account/style/images/no-img.jpg' %}" height="100%" width="100%" style="margin-top: 20px;" alt="">
+                    {% endif %}
+                    <p style="margin-bottom: 10px;">@{{ request.user.username | title }}</p>
+                </div>
+
+                <div class="col s12 m12 l12 #1a237e indigo orange-text darken-4 left_main_menu" style="padding: 10px; margin-bottom: 20px;">
+                    <a class="left col s12 m12 l12 white-text" href="{% url 'home:leader-board' %}" style="padding: 10px;">Leader Board
+                        <span class="right" style=""> > </span>
+                    </a>
+
+                    <a class="left col s12 m12 l12" href="{% url 'account:membership-level-vip' %}" style="padding: 10px;">Upgrade VIP
+                        <span class="right" style=""> > </span>
+                    </a>
+
+                    <a class="left col s12 m12 l12" href="{% url 'account:membership-level-premium' %}" style="padding: 10px;">Upgrade Premium
+                        <span class="right" style=""> > </span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col m8 l9" style="padding: 0px; margin-top: 0px; opacity: .9;">
+                <div class="col s12 l12 white center-align" style="padding: 20px;">
+
+                    <h4 class="left-align orange-text">Leader Board</h4>
+
+                    <div class="col s12 m12 l12" style="margin-top: 10px; padding: 0px;">
+                        <div class="card blue">
+                            <div class="card-content white-text">
+                                <span class="card-title left-align">BeTheMillionaire Monthly Competition</span>
+                                <p class="left-align">
+                                    Refer the most people to BeTheMillionaire each month and you will be getting the following prizes:
+                                </p>
+
+                                <p>First Place  – $1,000 in BTC </p>
+                                <p>Second Place – $500 in BTC </p>
+                                <p>Third Place – $250 in BTC </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col s12 m12 l12 left-align orange-text" style="margin-top: 10px; padding: 0px;">
+                        <a target="_blank" href="{% url 'home:affiliate_link' %}" class="col s12 m12 l12 btn waves-effect waves-light orange white-text" style="">
+                            Your Affiliate Links and Funnels To Promote BeTheMillionaire are here
+                        </a>
+
+                        <a target="_blank" href="{% url 'account:my-referrals' %}" class="col s12 m12 l12 btn waves-effect waves-light red white-text" style="margin-top: 10px;">
+                            Your Referrals Details are here
+                        </a>
+                    </div>
+
+                    <div class="col s12 m12 l12" style="border: 1px solid yellow">
+                        {% for sale in referral_sales %}
+                            {{ sale.user.sponsor }}
+                        {% endfor %}
+                    </div>
+
+
+                    <div class="col s12 m12 l12 " style="margin-top: 10px; padding: 0px;">
+                        {{ sale_count }}
+                        <table class="highlight centered bordered responsive-table" style="margin-bottom: 50px; margin-top: 30px;">
+                            <thead>
+                              <tr style="background-color: blue; color: white;">
+                                  <th>Rank</th>
+                                  <th>Member</th>
+                                  <th>Total Referral</th>
+                                  <th>Referral Sale</th>
+                              </tr>
+                            </thead>
+
+                            {% for member in members %}
+                            <tbody>
+                                <tr>
+                                    <td>#{{ forloop.counter }}</td>
+                                    <td>
+                                        <a href="{% url 'account:public-profile' %}?userid={{ member.username }}">{{ member.username | title }}</a>
+                                    </td>
+
+                                    <td>{{ member.referrals.all.count }}</td>
+
+                                    <td>{{ member.sales_count }}</td>
+                                </tr>
+                            </tbody>
+                            {% endfor %}
+                        </table>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+    particlesJS.load("particles-js", "{% static 'home/js/particles.json' %}",
+        function(){
+            console.log("particles.js loaded...")
+        }
+    )
+</script>
+{% endblock %}
+
+
+{% block script %}
+
+<script>
+
+     $(document).ready(function() {
+        $('select').material_select();
+      });
+
+</script>
+
+{% endblock %}

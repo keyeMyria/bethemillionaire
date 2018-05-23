@@ -4,6 +4,7 @@ from django.contrib.auth.mixins import PermissionRequiredMixin
 
 from datetime import datetime, timedelta
 from dateutil.relativedelta import relativedelta
+from django.db.models import Count
 
 import sys
 import urllib.parse
@@ -697,6 +698,103 @@ class WebinarRegistrationLink(AdminPermission, View):
 
         variables = {
             'webinar_link_form': webinar_link_form,
+        }
+
+        return render(request, self.template_name, variables)
+
+
+
+
+#leader board
+class CreateLeaderBoard(View):
+    template_name = 'administration/create-leader-board.html'
+
+
+    def generate_leader_board(self, start_date, end_date):
+        #data range ::: year-month-date
+        #referral_sales = account_model.Payment.objects.filter(creation_time__range=[start_date, end_date])
+        referral_sales = account_model.Payment.objects.filter(creation_time__gte=datetime.date(2018,5,1), creation_time__lte=datetime.date(2018,5,31))
+
+        print(referral_sales)
+
+        sale_sponsor = []
+        final_sale = []
+
+        for sale in referral_sales:
+            if sale.user.sponsor in sale_sponsor:
+                pass
+            else:
+                sale_sponsor.append(sale.user.sponsor)
+
+
+        for sale in sale_sponsor:
+            n = 0
+
+            sponsor_referrals = []
+            for referral_sale in referral_sales:
+                if sale == referral_sale.user.sponsor:
+                    n = n + 1
+
+            total_referral = sale.referrals.count()
+
+            sponsor_referrals.append(sale)
+            sponsor_referrals.append(n)
+            sponsor_referrals.append(total_referral)
+
+            final_sale.append(sponsor_referrals)
+
+
+
+        s = sorted(final_sale, key = lambda x: (int(x[1]), int(x[2])))
+        p = reversed(s)
+
+        return p
+
+
+
+    def get(self, request):
+
+        form = forms.CreateLeaderBoardForm()
+
+
+        variables = {
+            'form': form,
+        }
+
+        return render(request, self.template_name, variables)
+
+
+    def post(self, request):
+        form = forms.CreateLeaderBoardForm(request.POST or None)
+
+        if request.POST.get('generate_result') == 'generate_result':
+            results = None
+            if form.is_valid():
+                start_date = form.cleaned_data.get('start_date')
+                end_date = form.cleaned_data.get('end_date')
+
+                results = self.generate_leader_board(start_date, end_date)
+
+                actual_results = []
+                i = 0
+
+
+                for result in results:
+                    i = i+1
+
+                    actual_results.append(result)
+
+                    if i == 15:
+                        break
+
+
+
+
+        variables = {
+            'form': form,
+            'actual_results': actual_results,
+            'start_date': start_date,
+            'end_date': end_date,
         }
 
         return render(request, self.template_name, variables)
