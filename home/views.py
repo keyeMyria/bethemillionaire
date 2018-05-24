@@ -171,7 +171,7 @@ class Banners(View):
 
 #dashboard - bitcoin basic --> WhatIsBitcoin
 class WhatIsBitcoin(View):
-    template_name = 'home/what-is-bitcoin.html'
+    template_name = 'home/what-is-bitcoin_v_1.html'
 
     def get(self, request):
         user_profile = UserProfile.objects.filter(username=request.user.username)
@@ -188,7 +188,7 @@ class WhatIsBitcoin(View):
 
 #dashboard - bitcoin basic --> buy-bitcoins-here
 class BuyBitcoinHere(View):
-    template_name = 'home/buy-bitcoin-here.html'
+    template_name = 'home/buy-bitcoin-here_v_1.html'
 
     def get(self, request):
         user_profile = UserProfile.objects.filter(username=request.user.username)
@@ -266,7 +266,7 @@ class BuyBitcoinHere(View):
 
 #dashboard - bitcoin basic --> bitcoin-wallets
 class BitcoinWallet(View):
-    template_name = 'home/bitcoin-wallet.html'
+    template_name = 'home/bitcoin-wallet_v_1.html'
 
     def get(self, request):
         user_profile = UserProfile.objects.filter(username=request.user.username)
@@ -304,7 +304,7 @@ class BitcoinWallet(View):
 
 #dashboard - bitcoin basic --> bitcoin-debit-card
 class BitcoinDebitCard(View):
-    template_name = 'home/bitcoin-debit-card.html'
+    template_name = 'home/bitcoin-debit-card_v_1.html'
 
     def get(self, request):
         user_profile = UserProfile.objects.filter(username=request.user.username)

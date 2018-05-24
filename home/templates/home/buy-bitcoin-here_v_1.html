@@ -1,0 +1,303 @@
+{% extends 'base1.html' %}
+
+{% block title %}BeTheMillionaire | Buy Bitcoin Here{% endblock %}
+
+{% block add-css %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home/style/index.css' %}">
+
+    <style>
+        .left_main_menu a{
+            color: orange;
+        }
+
+        .left_main_menu a:hover{
+            color: white;
+            text-decoration: underline;
+        }
+
+        #particles-js{
+            background-image: url('/static/account/style/images/reg/back-1.jpeg');
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 250vh;
+            width: 100%;
+            background-size: cover;
+        }
+    </style>
+{% endblock %}
+
+{% block main %}
+    <div class="row" id="particles-js" style="">
+        <div class="col s12 l8 offset-l2" style="position: absolute;">
+            <div class="col m4 l3 blue" style="">
+                <div class="col s12 m12 l12 #1a237e indigo orange-text darken-4 center-align" style="padding: 10px;">
+                    <h5>Bitcoin</h5>
+                </div>
+
+                <div class="col s12 m12 l12 white center-align" style="min-height: 200px;">
+                    {% if request.user.profile_picture %}
+                        <img class="col m10 offset-m1 l10 offset-l1" src="{{ request.user.profile_picture.url}}" height="100%" width="100%" style="margin-top: 20px;" alt="">
+                    {% else %}
+                        <img class="col m10 offset-m1 l10 offset-l1" src="{% static 'account/style/images/no-img.jpg' %}" height="100%" width="100%" style="margin-top: 20px;" alt="">
+                    {% endif %}
+                    <p style="margin-bottom: 10px;">@{{ request.user.username | title }}</p>
+                </div>
+
+                <div class="col s12 m12 l12 #1a237e indigo orange-text darken-4 left_main_menu" style="padding: 10px; margin-bottom: 20px;">
+                    <a class="left col s12 m12 l12" href="{% url 'home:what-is-bitcoin' %}" style="padding: 10px;">What Is Bitcoin
+                        <span class="right" style=""> > </span>
+                    </a>
+
+                    <a class="left col s12 m12 l12 white-text" href="{% url 'home:buy-bitcoins-here' %}" style="padding: 10px;">Buy Bitcoin Here
+                        <span class="right" style=""> > </span>
+                    </a>
+
+                    <a class="left col s12 m12 l12" href="{% url 'home:bitcoin-wallets' %}" style="padding: 10px;">Bitcoin Wallets
+                        <span class="right" style=""> > </span>
+                    </a>
+
+                    <a class="left col s12 m12 l12" href="{% url 'home:bitcoin-debit-cards' %}" style="padding: 10px;">Bitcoin Debit Card
+                        <span class="right" style=""> > </span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col m8 l9" style="padding: 0px; margin-top: 0px; opacity: .9;">
+                <div class="col s12 l12 white center-align" style="padding: 20px;">
+
+                    <h4 class="left-align orange-text">The Ultimate Guide To Easily, Quickly & Safely Buy Bitcoins Online & Offline</h4>
+
+
+
+
+
+
+                    <div class="col s12 m12 l12" style="margin-top: 20px; height: 400px; padding: 0px;">
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/tUKOf_Otsx8" frameborder="0" gesture="media" allow="encrypted-media" autoplay="true" allowfullscreen></iframe>
+                    </div>
+
+
+                    <div class="col s12 m12 l12 left-align" style="margin-top: 50px; padding: 0px;">
+                        <div class="col s12 m10 offset-m1 l10 offset-l1" style="margin-top: 50px;">
+                            <h5 class="">
+                                How to buy bitcoins? It’s as simple as 1,2,3
+                            </h5>
+                        </div>
+
+                        <div class="col s12 m10 offset-m1 l10 offset-l1" style="margin-top: 30px; margin-bottom: 30px;">
+                            <p><b>1. Find a good Bitcoin Exchange</b></p>
+                            <p><b>2. Trade your local currency (like USD or Euro) for Bitcoins</b></p>
+                            <p><b>3. Move your Bitcoins into a secure wallet</b></p>
+                        </div>
+
+                        <div class="col s12 m12 l12"style="padding: 0px;">
+                            <ul class="tabs">
+                                <li class="tab col s4"><a style="font-size: 11px;" class="active black-text" href="#buy_bitcoins_credit_card">Buy Bitcoins With Credit Card</a></li>
+                                <li class="tab col s4"><a style="font-size: 12px;" class="black-text" href="#buy_bitcoins_cash">Buy Bitcoins With Cash</a></li>
+                                <li class="tab col s4"><a style="font-size: 11px;" class="black-text" href="#buy_bitcoins_bank_wires">Buy Bitcoins With Bank Wires</a></li>
+                            </ul>
+                        </div>
+
+                        <!--tab buy_bitcoins_credit_card-->
+                        <div class="col s12 m12 l12" id="buy_bitcoins_credit_card" style="padding: 10px;">
+                            <p>
+                                Credit cards is one of the easiest and quickest way to buy bitcoins online
+                                You’ll get Bitcoins instantly once initial verification of your identity is complete, it’s very convenient to buy.
+                                Typically cheaper fees than any Bitcoin ATM Machine.
+                                Cons: Usually you pay a little higher fees buying with a credit card, so if you're patient and not in a rush to buy then use a bank transfer to pay lower fees
+                                It’s not a private way to buy so your ID will be required to buy with a credit card
+                            </p>
+
+                            <div class="col s12 m6 l6" style="margin-top: 20px;">
+                                <a target="_blank" href="{{ coin_mama_account.coin_mama_username }}">
+                                    <div class="col s12 m12 l12 valign-wrapper message_me_fb">
+                                        <p style="width: 100%; font-size: 20px;" class="center-align">Coinmama (Worldwide)</p>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="col s12 m6 l6" style="margin-top: 20px;">
+                                <a target="_blank" href="{{ coin_base_account.coinbase_username }}">
+                                    <div class="col s12 m12 l12 valign-wrapper message_me_fb">
+                                        <p style="width: 100%; font-size: 20px;" class="center-align">Coinbase (US, CA, EU)</p>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="col s12 m6 l6" style="margin-top: 20px;">
+                                <a target="_blank" href="{{ cex_io_account.cexio_username }}">
+                                    <div class="col s12 m12 l12 valign-wrapper message_me_fb">
+                                        <p style="width: 100%; font-size: 20px;" class="center-align">Cex.io (Worldwide)</p>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="col s12 m6 l6" style="margin-top: 20px;">
+                                <a target="_blank" href="{{ bit_panda_account.bitpanda_username }}">
+                                    <div class="col s12 m12 l12 valign-wrapper message_me_fb">
+                                        <p style="width: 100%; font-size: 20px;" class="center-align">BitPanda (Europe)</p>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="col s12 m6 l6" style="margin-top: 20px;">
+                                <a target="_blank" href="{{ inda_coin_account.indacoin_username }}">
+                                    <div class="col s12 m12 l12 valign-wrapper message_me_fb">
+                                        <p style="width: 100%; font-size: 20px;" class="center-align">IndaCoins</p>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="col s12 m6 l6" style="margin-top: 20px;">
+                                <a target="_blank" href="https://www.coinjar.com/">
+                                    <div class="col s12 m12 l12 valign-wrapper message_me_fb">
+                                        <p style="width: 100%; font-size: 20px;" class="center-align">CoinJar (AUS, UK, US, EU)</p>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="col s12 m6 l6" style="margin-top: 20px;">
+                                <a target="_blank" href="https://www.quadrigacx.com/">
+                                    <div class="col s12 m12 l12 valign-wrapper message_me_fb">
+                                        <p style="width: 100%; font-size: 20px;" class="center-align">QuadrigaCX (CANADA)</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <!--end tab buy_bitcoins_credit_card-->
+
+                        <!--tab buy_bitcoins_cash wallets-->
+                        <div class="col s12 m12 l12" id="buy_bitcoins_cash" style="padding: 30px;">
+                            <p>
+                                Cash deposit is often the easiest, fastest and most private ways to buy Bitcoins. You can usually receive your bitcoins within a couple hours.
+                                Can be more private since in some cases no personal information is required, it’s very fast cause no verification is required.
+                                It’s pretty much instant, there is no need to wait 2-5 days for a bank transfer to process.
+                                There are Bitcoin ATMs all around the world that let you purchase bitcoin with cash and you may have one near your home. Cons: Privacy comes at a cost; Cash exchanges often have price 5%-15% above market rate.
+                                Cons: Can be hard to buy large amount of Bitcoins
+                                Cons: Easier to get scammed so you need to be on alert who you are buying from and follow the exchange's rules.
+                            </p>
+
+                            <div class="col s12 m12 l12" style="margin-top: 20px;">
+                                <a target="_blank" href="https://coinatmradar.com/">
+                                    <div class="col s12 m12 l12 valign-wrapper message_me_fb">
+                                        <p style="width: 100%; font-size: 20px;" class="center-align">Find Local Bitcoin ATM Machine Near You</p>
+                                    </div>
+                                </a>
+                            </div>
+
+
+                            <div class="col s12 m6 l6" style="margin-top: 20px;">
+                                <a target="_blank" href="{{ local_bitcoin_account.local_bitcoins_username }}">
+                                    <div class="col s12 m12 l12 valign-wrapper message_me_fb">
+                                        <p style="width: 100%; font-size: 20px;" class="center-align">LocalBitcoins</p>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="col s12 m6 l6" style="margin-top: 20px;">
+                                <a target="_blank" href="https://wallofcoins.com/">
+                                    <div class="col s12 m12 l12 valign-wrapper message_me_fb">
+                                        <p style="width: 100%; font-size: 20px;" class="center-align">Wall Of Coins</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <!--end tab buy_bitcoins_cash wallets-->
+
+                        <!--tab buy_bitcoins_bank_wires-->
+                        <div class="col s12 m12 l12" id="buy_bitcoins_bank_wires" style="padding: 30px;">
+                            <p>
+                                Bank transfer is one of best ways to buy bitcoins in most countries. It’s a great way to buy large amount of Bitcoins.
+                                Using a bank transfer will usually result in the lowest fees, so you can get a great price on your purchase.
+                                <br><b>CONS:</b> Usually requires ID verification, so not a good choice for privacy
+                                <br><b>CONS:</b> It’s very slow; bank transfers can take UP to 5 days to complete (depending on the exchange and country)
+                            </p>
+
+                            <div class="col s12 m6 l6" style="margin-top: 20px;">
+                                <a target="_blank" href="{{ coin_base_account.coinbase_username }}">
+                                    <div class="col s12 m12 l12 valign-wrapper message_me_fb">
+                                        <p style="width: 100%; font-size: 20px;" class="center-align">Coinbase (US, CA, EU)</p>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="col s12 m6 l6" style="margin-top: 20px;">
+                                <a target="_blank" href="https://gdax.com/">
+                                    <div class="col s12 m12 l12 valign-wrapper message_me_fb">
+                                        <p style="width: 100%; font-size: 20px;" class="center-align">GDAX</p>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="col s12 m6 l6" style="margin-top: 20px;">
+                                <a target="_blank" href="https://uphold.com/">
+                                    <div class="col s12 m12 l12 valign-wrapper message_me_fb">
+                                        <p style="width: 100%; font-size: 20px;" class="center-align">Uphold</p>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="col s12 m6 l6" style="margin-top: 20px;">
+                                <a target="_blank" href="https://gemini.com/">
+                                    <div class="col s12 m12 l12 valign-wrapper message_me_fb">
+                                        <p style="width: 100%; font-size: 20px;" class="center-align">Gemini</p>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="col s12 m6 l6" style="margin-top: 20px;">
+                                <a target="_blank" href="{{ cex_io_account.cexio_username }}">
+                                    <div class="col s12 m12 l12 valign-wrapper message_me_fb">
+                                        <p style="width: 100%; font-size: 20px;" class="center-align">CEX.IO</p>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="col s12 m6 l6" style="margin-top: 20px;">
+                                <a target="_blank" href="{{ bit_panda_account.bitpanda_username }}">
+                                    <div class="col s12 m12 l12 valign-wrapper message_me_fb">
+                                        <p style="width: 100%; font-size: 20px;" class="center-align">BitPanda (EU)</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <!--end tab buy_bitcoins_bank_wires-->
+
+                    </div>
+
+                    <!--end tab buy bitcoins-->
+
+
+
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+    particlesJS.load("particles-js", "{% static 'home/js/particles.json' %}",
+        function(){
+            console.log("particles.js loaded...")
+        }
+    )
+</script>
+{% endblock %}
+
+
+{% block script %}
+
+<script>
+
+     $(document).ready(function() {
+        $('select').material_select();
+      });
+
+</script>
+
+{% endblock %}

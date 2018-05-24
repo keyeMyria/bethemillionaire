@@ -1,0 +1,210 @@
+{% extends 'base1.html' %}
+
+{% block title %}BeTheMillionaire | Bitcoin Debit Card{% endblock %}
+
+{% block add-css %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home/style/index.css' %}">
+
+    <style>
+        .left_main_menu a{
+            color: orange;
+        }
+
+        .left_main_menu a:hover{
+            color: white;
+            text-decoration: underline;
+        }
+
+        #particles-js{
+            background-image: url('/static/account/style/images/reg/back-1.jpeg');
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 320vh;
+            width: 100%;
+            background-size: cover;
+        }
+    </style>
+{% endblock %}
+
+{% block main %}
+    <div class="row" id="particles-js" style="">
+        <div class="col s12 l8 offset-l2" style="position: absolute;">
+            <div class="col m4 l3 blue" style="">
+                <div class="col s12 m12 l12 #1a237e indigo orange-text darken-4 center-align" style="padding: 10px;">
+                    <h5>Bitcoin</h5>
+                </div>
+
+                <div class="col s12 m12 l12 white center-align" style="min-height: 200px;">
+                    {% if request.user.profile_picture %}
+                        <img class="col m10 offset-m1 l10 offset-l1" src="{{ request.user.profile_picture.url}}" height="100%" width="100%" style="margin-top: 20px;" alt="">
+                    {% else %}
+                        <img class="col m10 offset-m1 l10 offset-l1" src="{% static 'account/style/images/no-img.jpg' %}" height="100%" width="100%" style="margin-top: 20px;" alt="">
+                    {% endif %}
+                    <p style="margin-bottom: 10px;">@{{ request.user.username | title }}</p>
+                </div>
+
+                <div class="col s12 m12 l12 #1a237e indigo orange-text darken-4 left_main_menu" style="padding: 10px; margin-bottom: 20px;">
+                    <a class="left col s12 m12 l12" href="{% url 'home:what-is-bitcoin' %}" style="padding: 10px;">What Is Bitcoin
+                        <span class="right" style=""> > </span>
+                    </a>
+
+                    <a class="left col s12 m12 l12" href="{% url 'home:buy-bitcoins-here' %}" style="padding: 10px;">Buy Bitcoin Here
+                        <span class="right" style=""> > </span>
+                    </a>
+
+                    <a class="left col s12 m12 l12" href="{% url 'home:bitcoin-wallets' %}" style="padding: 10px;">Bitcoin Wallets
+                        <span class="right" style=""> > </span>
+                    </a>
+
+                    <a class="left col s12 m12 l12 white-text" href="{% url 'home:bitcoin-debit-cards' %}" style="padding: 10px;">Bitcoin Debit Card
+                        <span class="right" style=""> > </span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col m8 l9" style="padding: 0px; margin-top: 0px; opacity: .9;">
+                <div class="col s12 l12 white center-align" style="padding: 20px;">
+
+                    <h4 class="left-align orange-text">Here You Can Get Yourself A Bitcoins VISA Debit Card So That You Can Buy Anything Online And Withdraw In Any ATM Machine In The World In Local Currency</h4>
+
+
+
+
+
+
+                    <div class="col s12 m12 l12" style="margin-top: 20px; height: 400px; padding: 0px;">
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/FGFk44Dxdpw" frameborder="0" gesture="media" allow="encrypted-media" autoplay="true" allowfullscreen></iframe>
+                    </div>
+
+                    <div class="col s12 m12 l12 left-align" style="margin-top: 50px; margin-bottom: 30px; padding: 0px;">
+                        <p>With Bitcoin Debit Cards you can BUY ANYTHING you want ONLINE & Offline as well as internationally, making it simple to use Bitcoins at businesses all around the world.</p><br>
+                        <p>Go shopping with Bitcoins, pay your Bills, go on a vacation with Bitcoins and travel around the world.</p><br>
+                        <p>You can turn your Bitcoins into CASH in local currency no matter where you are located in the world using an ATM machine.</p><br>
+                        <p>You can cash out your hard earned Bitcoins.</p><br>
+                        <p>You can use the profits you are generating from BeTheMillionaire Wealth Building Vehicles and cash it out to do whatever you want with your Bitcoins.</p><br>
+                        <p>Note ** <b>Usually you will have to upload Proof of identity and proof of address to increase your limits on your debit card or have it shipped to you.</b></p><br>
+                        <p>Note: Bitcoin is both a currency and an asset, Bitcoin is a DIGITAL GOLD.</p><br>
+                        <p>Because Bitcoin value is generally going up if we look at longer periods of time, I don’t really recommend to spend all the Bitcoins you earn.</p><br>
+                        <p>Don’t kill the "GOLDEN GOOSE" that lays you golden eggs.</p><br>
+                        <p>When you save Bitcoins and invest Bitcoins and let them grow using the strategies inside BeTheMillionaire, you are going to super accelerate your wealth, because you will have MORE Bitcoins & each Bitcoin will be worth more.</p>
+                    </div>
+
+                    <div class="col s12 m12 l12" style="margin-top: 40px; margin-bottom: 30px; padding: 0px;">
+                        <h5 class="center-align">
+                            My Top Bitcoin Debit Card Recommendations
+                        </h5>
+                    </div>
+
+                    <div class="col s12 m6 l6" style="margin-top: 40px; padding: 0px;">
+                        <h5 class="center-align">
+                            Ships Worldwide (Not USA)
+                        </h5>
+                    </div>
+
+                    <div class="col s12 m6 l6" style="margin-top: 40px; padding: 0px;">
+                        <h5 class="center-align">
+                            Ships To USA As Well
+                        </h5>
+                    </div>
+
+                    <div class="col s12 m6 l6" style="margin-top: 20px; padding: 5px;">
+                        <a target="_blank" href="{{ cryptocoin_account.cryptopay_card_username }}">
+                            <div class="col s12 m12 l12 valign-wrapper message_me_fb">
+                                <p style="width: 100%; font-size: 20px;" class="center-align">Get Cryptopay Bitcoin Visa Card</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col s12 m6 l6" style="margin-top: 20px; padding: 5px;">
+                        <a target="_blank" href="{{ spectrocoin_account.spectrocoin_card_username }}">
+                            <div class="col s12 m12 l12 valign-wrapper message_me_fb">
+                                <p style="width: 100%; font-size: 20px;" class="center-align">Get Spectropay Visa Card</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col s12 m6 l6" style="margin-top: 20px; padding: 5px;">
+                        <a target="_blank" href="https://www.bitwala.com/">
+                            <div class="col s12 m12 l12 valign-wrapper message_me_fb">
+                                <p style="width: 100%; font-size: 20px;" class="center-align">Get Bitwala Bitcoin Debit Card</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col s12 m6 l6" style="margin-top: 20px; padding: 5px;">
+                        <a target="_blank" href="https://bitpay.com/card/get-started">
+                            <div class="col s12 m12 l12 valign-wrapper message_me_fb">
+                                <p style="width: 100%; font-size: 20px;" class="center-align">Get BitPay Bitcoin Visa Card</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col s12 m6 l6" style="margin-top: 20px; padding: 5px;">
+                        <a target="_blank" href="https://xapo.com/card/">
+                            <div class="col s12 m12 l12 valign-wrapper message_me_fb">
+                                <p style="width: 100%; font-size: 20px;" class="center-align">Get Xapo Bitcoin Visa Card</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col s12 m6 l6" style="margin-top: 20px; padding: 5px;">
+                        <a target="_blank" href="https://www.shiftpayments.com/card">
+                            <div class="col s12 m12 l12 valign-wrapper message_me_fb">
+                                <p style="width: 100%; font-size: 20px;" class="center-align">Get Shift Bitcoin Visa Card</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col s12 m12 l12" style="margin-top: 20px; padding: 5px;">
+                        <a target="_blank" href="https://advcash.com/">
+                            <div class="col s12 m6 l6 valign-wrapper message_me_fb">
+                                <p style="width: 100%; font-size: 20px;" class="center-align">Get ADVCash Bitcoin Visa Card</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col s12 m12 l12" style="margin-top: 20px; margin-bottom: 50px; padding: 5px;">
+                        <a target="_blank" href="https://uquid.com/account/register/">
+                            <div class="col s12 m6 l6 valign-wrapper message_me_fb">
+                                <p style="width: 100%; font-size: 20px;" class="center-align">Get Uquid Bitcoin Visa Card</p>
+                            </div>
+                        </a>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+    particlesJS.load("particles-js", "{% static 'home/js/particles.json' %}",
+        function(){
+            console.log("particles.js loaded...")
+        }
+    )
+</script>
+{% endblock %}
+
+
+{% block script %}
+
+<script>
+
+     $(document).ready(function() {
+        $('select').material_select();
+      });
+
+</script>
+
+{% endblock %}
