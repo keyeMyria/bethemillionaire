@@ -20,6 +20,7 @@
                         <th>S/N</th>
                         <th>Username</th>
                         <th>Email</th>
+                        <th>Referral</th>
                         <th>Profile</th>
                         <th>Operation</th>
                     </tr>
@@ -31,6 +32,7 @@
                         <td>{{ forloop.counter }}</td>
                         <td>{{ all_user.username | title }}</td>
                         <td>{{ all_user.email }}</td>
+                        <td>{{ all_user.referrals.count }}</td>
 
                         <td>
                             {% if all_user.is_active %}
