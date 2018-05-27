@@ -1,0 +1,33 @@
+.container{
+    min-width: 100%;
+}
+
+.container > .row {
+    margin: 0;
+}
+
+
+.container > .row > .col {
+    padding: 0;
+}
+
+*{
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Changa', 'myFont';
+}
+
+@font-face {
+    font-family: 'myFont';
+    src: url('/static/account/fonts/myFont.ttf');
+}
+
+.left-side-background{
+    background-image: url('/static/account/style/images/reg/back-1.jpeg');
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+}

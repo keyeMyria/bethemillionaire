@@ -123,7 +123,7 @@ class Login(View):
 
 #registration functionality
 class Registration(View):
-    template_name = 'account/registration_v_2.html'
+    template_name = 'account/registration_v_3.html'
 
     def get(self, request):
         affiliate_name = request.GET.get("userid")
