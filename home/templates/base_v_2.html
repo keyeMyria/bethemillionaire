@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+
+    {% load staticfiles %}
+    <link rel="shortcut icon" type="image/png" href="{% static 'home/style/images/logo/favicon.png' %}" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="google-site-verification" content="JG1CxJpUx1tAYQReDoQKHcJKXz-4Zk4UVAGOn5O9AvU" />
+    <link href="https://fonts.googleapis.com/css?family=Changa" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+
+
+    <style>
+        .container{
+            min-width: 100%;
+        }
+
+        .container > .row {
+            margin: 0;
+        }
+
+
+        .container > .row > .col {
+            padding: 0;
+        }
+
+        *{
+            padding: 0px;
+            margin: 0px;
+            font-family: 'Changa', 'myFont';
+        }
+
+        @font-face {
+            font-family: 'myFont';
+            src: url('/static/account/fonts/Changa/myFont.ttf');
+        }
+
+
+        .nav-wrapper ul li a{
+            color: orange;
+            font-size: 13px;
+        }
+
+        .nav-wrapper ul li a:hover{
+            color: white;
+        }
+
+
+
+
+        #footer-content{
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        #footer-content li{
+            float: left;
+            height: 20px;
+            line-height: 1.1em;
+            margin: 0 .5em 0 -.5em;
+            padding: 0 .5em 0 .5em;
+            color: white;
+        }
+
+        .sub-menu-ams ul{
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .sub-menu-ams ul li{
+            float: left;
+            margin-left: 20px;
+        }
+
+        .sub-menu-ams ul li a{
+            color: grey;
+        }
+
+        .sub-menu-ams ul li a:hover{
+            color: black;
+        }
+
+        footer li a{
+            color: grey;
+        }
+
+        footer li a:hover{
+            color: orange;
+            text-decoration: underline;
+        }
+
+        .preloader-background {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: white;
+
+            position: fixed;
+            z-index: 100;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+
+        .goog-te-gadget-simple{
+            background-color: black !important;
+            height: 0px !important;
+            border: none !important;
+        }
+
+        .goog-te-menu-value{
+            color: white !important;
+        }
+
+
+        body > .skiptranslate {
+            display: none;
+        }
+
+        body {top: 0px !important; position: static !important; }
+        .goog-te-banner-frame {display:none !important}
+
+
+    </style>
+
+    {% block add-css %}
+    {% endblock %}
+
+</head>
+<body>
+    <div class="container">
+
+        <div style="" class="skiptranslate">
+          <iframe frameborder="0" style="visibility:visible"
+                  src="javascript:''"
+                  class="goog-te-banner-frame skiptranslate"
+                  id=":2.container">
+          </iframe>
+        </div>
+
+
+
+        <input type="hidden" id="login_username" value="{{ request.user.username }}">
+
+        <!--start navbar-->
+
+
+
+        <!-- web sub menu -->
+        <ul id="dashboard" class="dropdown-content">
+            <li><a href="{% url 'home:leader-board' %}">Leader Board</a></li>
+            <li><a href="{% url 'topic:step_1' %}">START HERE - 5 Steps To Set Up BTM!</a></li>
+            <li><a href="{% url 'course:course' %}">Video Course: Secrets To Growing Your Wealth In Bitcoins</a></li>
+            <li class="divider"></li>
+            <li><a href="{% url 'home:what-is-bitcoin' %}">What Is Bitcoin</a></li>
+            <li><a href="{% url 'home:buy-bitcoins-here' %}">Get Bitcoin Here</a></li>
+            <li><a href="{% url 'home:bitcoin-wallets' %}">Bitcoin Wallets</a></li>
+            <li><a href="{% url 'home:bitcoin-debit-cards' %}">Bitcoin Debit Cards</a></li>
+        </ul>
+
+        <ul id="passive-profite" class="dropdown-content">
+            <li><a href="{% url 'home:passive-income' %}">Passive Income</a></li>
+            <li><a href="{% url 'home:crypto-trading' %}">Cryptocurrency Trading</a></li>
+            <li><a href="{% url 'home:crypto-mining' %}">Bitcoin and Altcoin mining</a></li>
+            <li><a href="{% url 'home:crypto-resource' %}">Crypto Recources</a></li>
+        </ul>
+
+        <ul id="my-account" class="dropdown-content">
+            <li><a href="{% url 'account:profile' %}">Profile Settings</a></li>
+            <li><a href="{% url 'home:payment-account-setting' %}">Payment Account Setting</a></li>
+            <li><a href="{% url 'home:my-commission' %}">My Commission</a></li>
+            <li class="divider"></li>
+            <li><a href="{% url 'account:membership-level-premium' %}">Premium Membership</a></li>
+            <li><a href="{% url 'account:membership-level-vip' %}">VIP Membership</a></li>
+            <li class="divider"></li>
+            <li><a href="{% url 'account:my-autoresponder-settings' %}">Autoresponder Settings</a></li>
+            <li><a href="{% url 'account:my-referrals' %}">My Referrals</a></li>
+            <li class="red white-text"><a href="{% url 'account:logout' %}">Logout</a></li>
+        </ul>
+
+
+        <ul id="training-marketing" class="dropdown-content">
+            <li><a href="{% url 'home:manage-team' %}">Manage Team</a></li>
+            <li><a href="{% url 'home:affiliate_link' %}">Your Affiliate Links & Funnels</a></li>
+            <li class="divider"></li>
+            <li><a href="{% url 'home:banners' %}">Banners</a></li>
+            <li><a href="{% url 'home:email_swipes' %}">Email Swipes</a></li>
+        </ul>
+
+
+        <ul id="support" class="dropdown-content">
+            <li><a href="{% url 'home:faq' %}">FAQ</a></li>
+            <li><a href="{% url 'home:recent-update' %}">BTM Recent Updates</a></li>
+            <li><a href="https://www.facebook.com/groups/336201610190269/">BTM Facebook Group</a></li>
+        </ul>
+
+        <!-- end web sub menu -->
+
+
+
+        <nav class="black">
+            <div class="nav-wrapper">
+
+                <!--mobile menu-->
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+
+
+                <!--main web menu-->
+                <ul class="left hide-on-med-and-down">
+                    <li><a href="{% url 'home:index' %}">Home</a></li>
+                    <li><a class="dropdown-trigger dropdown-button1" href="#!" data-target="dashboard">BTM Dashboard<i class="material-icons right">arrow_drop_down</i></a></li>
+                    <li><a class="dropdown-trigger dropdown-button1" href="#!" data-target="passive-profite">Passive Profits<i class="material-icons right">arrow_drop_down</i></a></li>
+                    <li><a class="dropdown-trigger dropdown-button1" href="#!" data-target="my-account">My Account Settings<i class="material-icons right">arrow_drop_down</i></a></li>
+                    <li><a class="dropdown-trigger dropdown-button1" href="#!" data-target="training-marketing">Training & Marketing<i class="material-icons right">arrow_drop_down</i></a></li>
+                    <li><a class="dropdown-trigger dropdown-button1" href="#!" data-target="support">Support<i class="material-icons right">arrow_drop_down</i></a></li>
+                </ul>
+                <!--main web menu-->
+            </div>
+        </nav>
+
+
+
+
+        <!--mobile menu-->
+        <div class="sidenav" id="mobile-demo">
+
+
+
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header"><i class="material-icons">arrow_forward</i>Home</div>
+                    <div class="collapsible-body">
+
+                    </div>
+                </li>
+
+                <li>
+                    <div class="collapsible-header"><i class="material-icons">arrow_forward</i>BTM Dashboard</div>
+                    <div class="collapsible-body">
+                        <p>Leader Board</p>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="collapsible-header"><i class="material-icons">arrow_forward</i>Passive Profits</div>
+                    <div class="collapsible-body">
+
+                    </div>
+                </li>
+
+                <li>
+                    <div class="collapsible-header"><i class="material-icons">arrow_forward</i>My Account</div>
+                    <div class="collapsible-body">
+
+                    </div>
+                </li>
+
+                <li>
+                    <div class="collapsible-header"><i class="material-icons">arrow_forward</i>Training & Marketing</div>
+                    <div class="collapsible-body">
+
+                    </div>
+                </li>
+
+                <li>
+                    <div class="collapsible-header"><i class="material-icons">arrow_forward</i>Support</div>
+                    <div class="collapsible-body">
+
+                    </div>
+                </li>
+            </ul>
+
+
+
+        </div>
+        <!--end mobile menu-->
+
+
+
+        <!--end start navbar-->
+
+
+        <div class="row">
+            <div class="col m12 l12 l12 white" style="padding: 5px; box-shadow: 1px 1px grey;">
+                <div class="col l7 offset-l3 sub-menu-ams" style="">
+                    <ul style="font-size: 14px;">
+                        <li>
+                            <span class="grey-text">MEMBERSHIP:
+                                {% if request.user.membership.name == 'free' %}
+                                    <span class="red-text">{{ request.user.membership.name | upper }}</span>
+                                {% else %}
+                                    <span>{{ request.user.membership.name | upper }}</span>
+                                {% endif %}
+                            </span>
+                        </li>
+
+                        <li>
+                            <p class="grey-text">SPONSOR: <a class="" href="{% url 'account:public-profile' %}?userid={{ request.user.username }}">{{ request.user.sponsor.username | upper }}</a></p>
+                        </li>
+
+                        <li>
+                            <span class="grey-text">TOTAL MEMBER: <span class="" id="left_bar_total_member" style=""></span></span>
+                        </li>
+
+                        <li>
+                            <p class="grey-text">{% now "jS F Y H:i" %}</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        {% block main %}
+
+        {% endblock %}
+
+
+        <footer class="row">
+            <div class="col s12 m12 l12" style="">
+                <div class="col l4 offset-l4" style="">
+                    <img src="{% static 'home/style/images/logo/logo.png' %}" style="height: 100%; width: 100%;" alt="">
+                </div>
+            </div>
+
+            <div class="col s12 m12 l12" style="margin-top: 20px;">
+                <div class="col s12 m10 offset-m1 l5 offset-l4 white-text center-align" style="boder: 1px solid red;">
+                    <ul id="footer-content">
+                        <li>
+                           <a class="" href="{% url 'home:faq' %}">
+                                FAQ
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="" href="{% url 'home:privacy-policy' %}">
+                                Privacy Policy
+                            </a>
+                        </li>
+
+                        <li>
+                           <a class="" href="{% url 'home:recent-update' %}">
+                                Recent Update
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="" href="https://www.facebook.com/groups/336201610190269/">
+                                Facebook
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="" href="{% url 'home:index' %}">
+                                Terms & Conditions
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col s12 m12 l12 center-align grey-text" style="margin-top: 10px; margin-bottom: 20px;">
+                &copy; 2018-2018 All right reserved Mena Refaat
+            </div>
+        </footer>
+    </div>
+
+
+    <!--preloader-->
+
+    <div class="preloader-background">
+        <div class="preloader-wrapper big active">
+            <div class="spinner-layer spinner-orange-only">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div>
+                <div class="gap-patch">
+                    <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--end preloader-->
+
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/5ac39b5b4b401e45400e4ebe/default';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+
+    </script>
+    <!--End of Tawk.to Script-->
+</body>
+</html>
+
+<!--js-->
+<script type="text/javascript" src="{% static 'home/js/jquery.min.js' %}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function(){
+        $('.preloader-background').delay(1700).fadeOut('slow');
+
+        $('.preloader-wrapper')
+            .delay(1700)
+            .fadeOut();
+    });
+
+
+    $(document).ready(function(){
+        var username = $("#login_username").val();
+
+        $.ajax({
+                url: '/account/api/user-profile/',
+                data: { "username":username },
+                dataType: 'json',
+                success: function (data) {
+
+                    $("#login_user_sponsor").append(data.data[0].sponsor_username);
+                    $("#login_user_sponsor").attr("href","/account/membership-account/public-profile/?userid="+data.data[0].sponsor_username);
+                    $("#login_user_sponsor_left").append(data.data[0].sponsor_username);
+                    $("#login_user_membership").append(data.user_membership_name);
+                    $("#login_user_sponsor_email").append(data.data[0].sponsor_email);
+                    $("#login_user_sponsor_phone").append(data.data[0].sponsor_phone);
+                    $("#login_user_sponsor_skype").append(data.data[0].sponsor_skype);
+
+                    $("#left_bar_total_member").append(data.total_member);
+
+                    //$("#login_user_sponsor_profile_picture").append(data[0].sponsor_profile_picture);
+                }
+        });
+    })
+</script>
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'ar,en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+}
+</script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+<script type="text/javascript">
+$('.translation-links a').click(function() {
+  var lang = $(this).data('lang');
+
+  var $frame = $('.goog-te-menu-frame:first');
+  if (!$frame.length) {
+    return false;
+  }
+  $frame.contents().find('.goog-te-menu2-item span.text:contains('+lang+')').get(0).click();
+  return false;
+});
+</script>
+
+
+
+{% block script %}
+
+<script>
+    $(".dropdown-trigger").dropdown();
+
+    $('.dropdown-button1').dropdown({
+          inDuration: 300,
+          outDuration: 225,
+          constrainWidth: true, // Does not change width of dropdown to that of the activator
+          hover: false, // Activate on hover
+          gutter: ($('.dropdown-content').width()*2)/3.4,
+          belowOrigin: true, // Displays dropdown below the button
+          alignment: 'left', // Displays dropdown with edge aligned to the left of button
+          stopPropagation: false // Stops event propagation
+        }
+
+
+     /*$(".dropdown-button1").dropdown({
+          inDuration: 300,
+          outDuration: 225,
+          constrain_width: true, // Does not change width of dropdown to that of the activator
+          hover: false, // Activate on click
+          alignment: "left", // Aligns dropdown to left or right edge (works with constrain_width)
+          gutter: 0, // Spacing from edge
+          belowOrigin: true,
+      }*/
+
+
+    );
+
+
+    $(document).ready(function(){
+        $('.sidenav').sidenav();
+      });
+
+      $(document).ready(function(){
+            $('.collapsible').collapsible();
+        });
+
+</script>
+{% endblock %}
