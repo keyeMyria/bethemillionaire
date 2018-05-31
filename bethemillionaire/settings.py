@@ -151,6 +151,9 @@ LOGIN_EXEMPT_URLS = (
  r'^admin/$',
  r'^account/login/$',
 
+ r'^topic/step-1-overview/$',
+ r'^topic/step-2-set-up-your-bitcoin-wallet-load-it-with-bitcoins/$',
+
  r'^account/pre-registration/$',
  r'^account/registration/$',
 

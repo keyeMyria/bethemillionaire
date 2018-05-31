@@ -45,20 +45,21 @@ class Step_1(View):
 
     def get(self, request):
 
-
         steps = StepControl.objects.filter(short_name='step-1')
+        get_step = None
+        step_complete_percents = None
+        commentForm = None
+        subcommentForm = None
+        if request.user.is_authenticated:
+            models.StepCount.objects.update_or_create(user=request.user, defaults={'step1': True})
 
-        models.StepCount.objects.update_or_create(user=request.user, defaults={'step1': True})
+            get_step = models.StepCount.objects.get(user=request.user)
 
-        get_step = models.StepCount.objects.get(user=request.user)
-
-        step_complete_percents = step_complete_percent(get_step)
+            step_complete_percents = step_complete_percent(get_step)
 
 
-        commentForm = forms.CommentForm()
-        subcommentForm = forms.SubCommentForm()
-
-        user_profile = UserProfile.objects.filter(username=request.user.username)
+            commentForm = forms.CommentForm()
+            subcommentForm = forms.SubCommentForm()
 
         total_comment = models.Comment.objects.filter(topic='step-1-overview').count()
         total_subcomment = models.SubComment.objects.filter(topic='step-1-overview').count()
@@ -69,7 +70,6 @@ class Step_1(View):
         subcomments = models.SubComment.objects.filter(topic='step-1-overview').all()
 
         variables = {
-            'user_profile': user_profile,
             'commentForm': commentForm,
             'subcommentForm': subcommentForm,
             'steps': steps,
@@ -144,17 +144,20 @@ class Step_2(View):
     def get(self, request):
         steps = StepControl.objects.filter(short_name='step-2')
 
-        get_step = models.StepCount.objects.get(user=request.user)
-        step_complete_percents = step_complete_percent(get_step)
+        get_step = None
+        step_complete_percents = None
+        commentForm = None
+        subcommentForm = None
+        if request.user.is_authenticated:
+            get_step = models.StepCount.objects.get(user=request.user)
+            step_complete_percents = step_complete_percent(get_step)
 
 
-        if not get_step.step2:
-            return redirect('topic:step_1')
+            if not get_step.step2:
+                return redirect('topic:step_1')
 
-        commentForm = forms.CommentForm()
-        subcommentForm = forms.SubCommentForm()
-
-        user_profile = UserProfile.objects.filter(username=request.user.username)
+            commentForm = forms.CommentForm()
+            subcommentForm = forms.SubCommentForm()
 
         total_comment = models.Comment.objects.filter(topic='step-2-setup-bitcoinwallet').count()
         total_subcomment = models.SubComment.objects.filter(topic='step-2-setup-bitcoinwallet').count()
@@ -165,81 +168,85 @@ class Step_2(View):
         subcomments = models.SubComment.objects.filter(topic='step-2-setup-bitcoinwallet').all()
 
 
-        trezors_accounts = account_model.TrezorSAccount.objects.get(user=request.user.sponsor)
+        if request.user.is_authenticated:
+            trezors_accounts = account_model.TrezorSAccount.objects.get(user=request.user.sponsor)
+            ladger_nano_s_accounts = account_model.LedgerNanoSAccount.objects.get(user=request.user.sponsor)
+            coin_mama_accounts = account_model.CoinMamaAccount.objects.get(user=request.user.sponsor)
+            coin_base_accounts = account_model.CoinBaseAccount.objects.get(user=request.user.sponsor)
+            cex_io_accounts = account_model.CexIOAccount.objects.get(user=request.user.sponsor)
+            bit_panda_accounts = account_model.BitPandaAccount.objects.get(user=request.user.sponsor)
+            inda_coin_accounts = account_model.IndaCoinAccount.objects.get(user=request.user.sponsor)
+            local_bitcoin_accounts = account_model.LocalBitcoinsAccount.objects.get(user=request.user.sponsor)
+
+        else:
+            trezors_accounts = account_model.TrezorSAccount.objects.get(user__username='Mena')
+            ladger_nano_s_accounts = account_model.LedgerNanoSAccount.objects.get(user__username='Mena')
+            coin_mama_accounts = account_model.CoinMamaAccount.objects.get(user__username='Mena')
+            coin_base_accounts = account_model.CoinBaseAccount.objects.get(user__username='Mena')
+            cex_io_accounts = account_model.CexIOAccount.objects.get(user__username='Mena')
+            bit_panda_accounts = account_model.BitPandaAccount.objects.get(user__username='Mena')
+            inda_coin_accounts = account_model.IndaCoinAccount.objects.get(user__username='Mena')
+            local_bitcoin_accounts = account_model.LocalBitcoinsAccount.objects.get(user__username='Mena')
+
+
 
         if trezors_accounts.trezor_username:
             trezors_account = account_model.TrezorSAccount.objects.get(user=request.user.sponsor)
 
         else:
-            trezors_account = account_model.TrezorSAccount.objects.get(user__username='admin')
+            trezors_account = account_model.TrezorSAccount.objects.get(user__username='Mena')
 
-
-
-        ladger_nano_s_accounts = account_model.LedgerNanoSAccount.objects.get(user=request.user.sponsor)
 
         if ladger_nano_s_accounts.ledger_nano_s_username:
             ladger_nano_s_account = account_model.LedgerNanoSAccount.objects.get(user=request.user.sponsor)
 
         else:
-            ladger_nano_s_account = account_model.LedgerNanoSAccount.objects.get(user__username='admin')
+            ladger_nano_s_account = account_model.LedgerNanoSAccount.objects.get(user__username='Mena')
 
-
-        coin_mama_accounts = account_model.CoinMamaAccount.objects.get(user=request.user.sponsor)
 
         if coin_mama_accounts.coin_mama_username:
             coin_mama_account = account_model.CoinMamaAccount.objects.get(user=request.user.sponsor)
 
         else:
-            coin_mama_account = account_model.CoinMamaAccount.objects.get(user__username='admin')
+            coin_mama_account = account_model.CoinMamaAccount.objects.get(user__username='Mena')
 
-
-        coin_base_accounts = account_model.CoinBaseAccount.objects.get(user=request.user.sponsor)
 
         if coin_base_accounts.coinbase_username:
             coin_base_account = account_model.CoinBaseAccount.objects.get(user=request.user.sponsor)
 
         else:
-            coin_base_account = account_model.CoinBaseAccount.objects.get(user__username='admin')
+            coin_base_account = account_model.CoinBaseAccount.objects.get(user__username='Mena')
 
-
-        cex_io_accounts = account_model.CexIOAccount.objects.get(user=request.user.sponsor)
 
         if cex_io_accounts.cexio_username:
             cex_io_account = account_model.CexIOAccount.objects.get(user=request.user.sponsor)
 
         else:
-            cex_io_account = account_model.CexIOAccount.objects.get(user__username='admin')
+            cex_io_account = account_model.CexIOAccount.objects.get(user__username='Mena')
 
-
-        bit_panda_accounts = account_model.BitPandaAccount.objects.get(user=request.user.sponsor)
 
         if bit_panda_accounts.bitpanda_username:
             bit_panda_account = account_model.BitPandaAccount.objects.get(user=request.user.sponsor)
 
         else:
-            bit_panda_account = account_model.BitPandaAccount.objects.get(user__username='admin')
+            bit_panda_account = account_model.BitPandaAccount.objects.get(user__username='Mena')
 
-
-        inda_coin_accounts = account_model.IndaCoinAccount.objects.get(user=request.user.sponsor)
 
         if inda_coin_accounts.indacoin_username:
             inda_coin_account = account_model.IndaCoinAccount.objects.get(user=request.user.sponsor)
 
         else:
-            inda_coin_account = account_model.IndaCoinAccount.objects.get(user__username='admin')
+            inda_coin_account = account_model.IndaCoinAccount.objects.get(user__username='Mena')
 
-
-        local_bitcoin_accounts = account_model.LocalBitcoinsAccount.objects.get(user=request.user.sponsor)
 
         if local_bitcoin_accounts.local_bitcoins_username:
             local_bitcoin_account = account_model.LocalBitcoinsAccount.objects.get(user=request.user.sponsor)
 
         else:
-            local_bitcoin_account = account_model.LocalBitcoinsAccount.objects.get(user__username='admin')
+            local_bitcoin_account = account_model.LocalBitcoinsAccount.objects.get(user__username='Mena')
 
 
         variables = {
-            'user_profile': user_profile,
             'commentForm': commentForm,
             'subcommentForm': subcommentForm,
             'steps': steps,

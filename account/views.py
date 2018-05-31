@@ -1355,7 +1355,7 @@ class Access(View):
 
 #welcome page
 class Welcome(View):
-    template_name = 'account/welcome.html'
+    template_name = 'account/welcome_v_1.html'
 
     def get(self, request):
 

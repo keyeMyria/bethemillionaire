@@ -167,6 +167,7 @@
                 <div class="col s12 m12 l12 navbar-fixed" style="">
                     <nav class="black white-text z-depth-0" style="">
                         <div class="nav-wrapper">
+                            {% if user.is_authenticated %}
                             <ul class="left white-text" style="">
                                 <!-- Dropdown Trigger -->
                                 <li><a class="dropdown-button" href="{% url 'home:index' %}">Home</a></li>
@@ -176,10 +177,17 @@
                                 <li><a class="dropdown-button " href="#!" data-activates="dropdown-training">Training & Marketing</a></li>
                                 <li><a class="dropdown-button " href="#!" data-activates="dropdown-support">Support</a></li>
                             </ul>
+                            {% endif %}
+
 
                             <ul class="right white-text" style="">
                                 <li><a class="dropdown-button waves-effect waves-light btn green white-text" data-alignment="right" data-activates="dropdown-lang">Language</a></li>
+
+                                {% if user.is_authenticated %}
                                 <li><a class="dropdown-button waves-effect waves-light btn orange black-text pulse" href="{% url 'account:profile' %}">{{ request.user.username | title }}</a></li>
+                                {% else %}
+                                <li><a class="dropdown-button waves-effect waves-light btn orange black-text pulse" href="{% url 'account:login' %}">Login</a></li>
+                                {% endif %}
                             </ul>
 
 
@@ -285,6 +293,7 @@
             <!--end main menu-->
         <!--end navbar-->
 
+        {% if user.is_authenticated %}
         <div class="row">
             <div class="col l12 white" style="padding: 5px; box-shadow: 1px 1px grey;">
                 <div class="col l7 offset-l3 sub-menu-ams" style="">
@@ -314,6 +323,8 @@
                 </div>
             </div>
         </div>
+        {% endif %}
+
 
         {% block main %}
 

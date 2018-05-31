@@ -28,9 +28,11 @@
                 Step 2 - Set Up Your Bitcoin Wallet Load It With Bitcoins
             </h4>
 
+            {% if user.is_authenticated %}
             <div class="chip col s12 m10 offset-m1 l10 offset-l1" style="font-size: 16px; margin-top: 20px; margin-bottom: 20px;">
                 Your Default Link to Promote BeTheMillionaire is: <a target="_blank" href="http://www.bethemillionaire.com/?userid={{ request.user.username }}">www.bethemillionaire.com/?userid={{ request.user.username }}</a>
             </div>
+            {% endif %}
 
             {% for step in steps %}
                 {% if step.is_active %}
@@ -41,10 +43,14 @@
                             IMPORTANT! Please DO NOT go to next step before completing this step first.
                         </p>
 
+                        {% if user.is_authenticated %}
                         <form method="post" style="margin-top: 10px;">
                             {% csrf_token %}
                             <button type="submit" name="step_3" value="step_3" class="waves-effect waves-light orange black-text btn">Yes, I complete</button>
                         </form>
+                        {% else %}
+                            <a href="{% url 'topic:step_3' %}" style="margin-top: 10px;" class="orange black-text waves-effect waves-light btn">Next, Step</a>
+                        {% endif %}
                     </div>
 
                     <div class="col s12 m12 l12 center-align" style="margin-top: 50px;">
@@ -360,10 +366,14 @@
                 <a href="{% url 'topic:step_1' %}" class="waves-effect waves-light black orange-text btn">Previous Step</a>
                 <br>
                 <br>
+                {% if user.is_authenticated %}
                 <form method="post">
                     {% csrf_token %}
                     <button type="submit" name="step_3" value="step_3" class="waves-effect waves-light black orange-text btn">Yes, I complete</button>
                 </form>
+                {% else %}
+                    <a href="{% url 'topic:step_3' %}" class="black orange-text waves-effect waves-light btn">Next Step</a>
+                {% endif %}
             </div>
 
 
@@ -435,7 +445,10 @@
                                 {% endifequal %}
                             {% endfor %}
 
+                            {% if user.is_authenticated %}
                             <a style="margin-left: 60px; margin-bottom: 20px; margin-top: 10px;" class="waves-effect waves-light btn modal-trigger" href="#{{ comment.id }}">Reply</a>
+                            {% endif %}
+
                             <!-- Modal Structure -->
                             <div id="{{ comment.id }}" class="modal">
                                 <div class="modal-content">
@@ -443,6 +456,7 @@
                                         <h4>Write Your Comment</h4>
                                     </div>
 
+                                   {% if user.is_authenticated %}
                                    <form method="post">
                                         {% csrf_token %}
 
@@ -469,6 +483,7 @@
                                         </div>
 
                                     </form>
+                                    {% endif %}
                                 </div>
                             </div>
 
@@ -485,13 +500,20 @@
                     Leave a Reply
                 </h5>
 
+                {% if user.is_authenticated %}
                 <p>
                     Logged in as <a href="#">{{ request.user.username }}</a>. <a href="{% url 'account:logout' %}">Logout</a>
                 </p>
+                {% else %}
+                <p>
+                    To comment please <a href="{% url 'account:login' %}?s=welcome">login</a>
+                </p>
+                {% endif %}
             </div>
 
 
             <div class="col s12 m12 l12 " style="margin-top: 20px;">
+                {% if user.is_authenticated %}
                 <form method="post">
                     {% csrf_token %}
 
@@ -516,6 +538,7 @@
                     </div>
 
                 </form>
+                {% endif %}
             </div>
 
             <!--end comment-->
