@@ -191,56 +191,56 @@ class Step_2(View):
 
 
         if trezors_accounts.trezor_username:
-            trezors_account = account_model.TrezorSAccount.objects.get(user=request.user.sponsor)
+            trezors_account = trezors_accounts
 
         else:
             trezors_account = account_model.TrezorSAccount.objects.get(user__username='Mena')
 
 
         if ladger_nano_s_accounts.ledger_nano_s_username:
-            ladger_nano_s_account = account_model.LedgerNanoSAccount.objects.get(user=request.user.sponsor)
+            ladger_nano_s_account = ladger_nano_s_accounts
 
         else:
             ladger_nano_s_account = account_model.LedgerNanoSAccount.objects.get(user__username='Mena')
 
 
         if coin_mama_accounts.coin_mama_username:
-            coin_mama_account = account_model.CoinMamaAccount.objects.get(user=request.user.sponsor)
+            coin_mama_account = coin_mama_accounts
 
         else:
             coin_mama_account = account_model.CoinMamaAccount.objects.get(user__username='Mena')
 
 
         if coin_base_accounts.coinbase_username:
-            coin_base_account = account_model.CoinBaseAccount.objects.get(user=request.user.sponsor)
+            coin_base_account = coin_base_accounts
 
         else:
             coin_base_account = account_model.CoinBaseAccount.objects.get(user__username='Mena')
 
 
         if cex_io_accounts.cexio_username:
-            cex_io_account = account_model.CexIOAccount.objects.get(user=request.user.sponsor)
+            cex_io_account = cex_io_accounts
 
         else:
             cex_io_account = account_model.CexIOAccount.objects.get(user__username='Mena')
 
 
         if bit_panda_accounts.bitpanda_username:
-            bit_panda_account = account_model.BitPandaAccount.objects.get(user=request.user.sponsor)
+            bit_panda_account = bit_panda_accounts
 
         else:
             bit_panda_account = account_model.BitPandaAccount.objects.get(user__username='Mena')
 
 
         if inda_coin_accounts.indacoin_username:
-            inda_coin_account = account_model.IndaCoinAccount.objects.get(user=request.user.sponsor)
+            inda_coin_account = inda_coin_accounts
 
         else:
             inda_coin_account = account_model.IndaCoinAccount.objects.get(user__username='Mena')
 
 
         if local_bitcoin_accounts.local_bitcoins_username:
-            local_bitcoin_account = account_model.LocalBitcoinsAccount.objects.get(user=request.user.sponsor)
+            local_bitcoin_account = local_bitcoin_accounts
 
         else:
             local_bitcoin_account = account_model.LocalBitcoinsAccount.objects.get(user__username='Mena')
