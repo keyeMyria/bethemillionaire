@@ -554,7 +554,7 @@
             $('.modal').modal();
         });
 
-
+        {% if user.is_authenticated %}
         {% if request.user.username == 'admin' %}
 
             function comment_delete(comment_id){
@@ -583,6 +583,7 @@
                     }
                 });
             }
+        {% endif %}
         {% endif %}
 
     </script>
