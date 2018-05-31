@@ -274,34 +274,36 @@
         });
 
 
-        {% if request.user.username == 'admin' %}
+        {% if user.is_authenticated %}
+            {% if request.user.username == 'admin' %}
 
-            function comment_delete(comment_id){
+                function comment_delete(comment_id){
 
-                $.ajax({
-                    url: '/topic/api/comment/',
-                    data: { "comment_id":comment_id },
-                    dataType: 'json',
-                    success: function (data) {
-                        console.log(data);
-                        document.location.href = "{{ request.get_full_path }}";
-                    }
-                });
-            }
+                    $.ajax({
+                        url: '/topic/api/comment/',
+                        data: { "comment_id":comment_id },
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data);
+                            document.location.href = "{{ request.get_full_path }}";
+                        }
+                    });
+                }
 
 
-            function subcomment_delete(subcomment_id){
+                function subcomment_delete(subcomment_id){
 
-                $.ajax({
-                    url: '/topic/api/subcomment/',
-                    data: { "subcomment_id":subcomment_id },
-                    dataType: 'json',
-                    success: function (data) {
-                        console.log(data);
-                        document.location.href = "{{ request.get_full_path }}";
-                    }
-                });
-            }
+                    $.ajax({
+                        url: '/topic/api/subcomment/',
+                        data: { "subcomment_id":subcomment_id },
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data);
+                            document.location.href = "{{ request.get_full_path }}";
+                        }
+                    });
+                }
+            {% endif %}
         {% endif %}
 
     </script>

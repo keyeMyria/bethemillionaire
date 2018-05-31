@@ -471,29 +471,32 @@
         }
     );
 
-    $(document).ready(function(){
-        var username = $("#login_username").val();
 
-        $.ajax({
-                url: '/account/api/user-profile/',
-                data: { "username":username },
-                dataType: 'json',
-                success: function (data) {
+    {% if user.is_authenticated %}
+        $(document).ready(function(){
+            var username = $("#login_username").val();
 
-                    $("#login_user_sponsor").append(data.data[0].sponsor_username);
-                    $("#login_user_sponsor").attr("href","/account/membership-account/public-profile/?userid="+data.data[0].sponsor_username);
-                    $("#login_user_sponsor_left").append(data.data[0].sponsor_username);
-                    $("#login_user_membership").append(data.user_membership_name);
-                    $("#login_user_sponsor_email").append(data.data[0].sponsor_email);
-                    $("#login_user_sponsor_phone").append(data.data[0].sponsor_phone);
-                    $("#login_user_sponsor_skype").append(data.data[0].sponsor_skype);
+            $.ajax({
+                    url: '/account/api/user-profile/',
+                    data: { "username":username },
+                    dataType: 'json',
+                    success: function (data) {
 
-                    $("#left_bar_total_member").append(data.total_member);
+                        $("#login_user_sponsor").append(data.data[0].sponsor_username);
+                        $("#login_user_sponsor").attr("href","/account/membership-account/public-profile/?userid="+data.data[0].sponsor_username);
+                        $("#login_user_sponsor_left").append(data.data[0].sponsor_username);
+                        $("#login_user_membership").append(data.user_membership_name);
+                        $("#login_user_sponsor_email").append(data.data[0].sponsor_email);
+                        $("#login_user_sponsor_phone").append(data.data[0].sponsor_phone);
+                        $("#login_user_sponsor_skype").append(data.data[0].sponsor_skype);
 
-                    //$("#login_user_sponsor_profile_picture").append(data[0].sponsor_profile_picture);
-                }
-        });
-    })
+                        $("#left_bar_total_member").append(data.total_member);
+
+                        //$("#login_user_sponsor_profile_picture").append(data[0].sponsor_profile_picture);
+                    }
+            });
+        })
+    {% endif %}
 </script>
 
 <script type="text/javascript">
