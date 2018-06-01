@@ -198,7 +198,8 @@
         <ul id="support" class="dropdown-content">
             <li><a href="{% url 'home:faq' %}">FAQ</a></li>
             <li><a href="{% url 'home:recent-update' %}">BTM Recent Updates</a></li>
-            <li><a href="https://www.facebook.com/groups/336201610190269/">BTM Facebook Group</a></li>
+            <li><a target="_blank" href="https://www.facebook.com/groups/336201610190269/">BTM Facebook Group</a></li>
+            <li><a target="_blank" href="https://www.facebook.com/Be-The-Millionaire-2158534220826913/">BTM Facebook Fan Page</a></li>
         </ul>
 
         <!-- end web sub menu -->
@@ -231,47 +232,113 @@
         <!--mobile menu-->
         <div class="sidenav" id="mobile-demo">
 
+            <div class="row" style="padding: 20px;">
+                <div class="col s4 offset-s3 center-align">
+                    <img height="100%" width="100%" src="{{ request.user.profile_picture.url }}" alt="">
+                    {{ request.user.username | title }}<br>
+                    {{ request.user.membership.name | upper }}
+                </div>
+            </div>
 
+            <div class="col s12 m12 l12 divider">
+
+            </div>
 
             <ul class="collapsible">
+                <a href="{% url 'home:index' %}" style="color: black">
                 <li>
-                    <div class="collapsible-header"><i class="material-icons">arrow_forward</i>Home</div>
+                    <div class="collapsible-header"><i class="material-icons">account_balance</i>Home</div>
                     <div class="collapsible-body">
+
+                    </div>
+                </li>
+                </a>
+
+                <li>
+                    <div class="collapsible-header"><i class="material-icons">dashboard</i>BTM Dashboard</div>
+                    <div class="row collapsible-body">
+
+                        <div class="collection">
+                            <a href="{% url 'home:leader-board' %}" class="collection-item">Leader Boards</a>
+                            <a href="{% url 'topic:step_1' %}" class="collection-item">START HERE - 5 Steps To Set Up BTM!</a>
+                            <a href="{% url 'course:course' %}" class="collection-item">Video Course: Secrets To Growing</a>
+                            <a href="{% url 'home:what-is-bitcoin' %}" class="collection-item">What Is Bitcoin</a>
+                            <a href="{% url 'home:buy-bitcoins-here' %}" class="collection-item">Get Bitcoin Here</a>
+                            <a href="{% url 'home:bitcoin-wallets' %}" class="collection-item">Bitcoin Wallets</a>
+                            <a href="{% url 'home:bitcoin-debit-cards' %}" class="collection-item">Bitcoin Debit Cards</a>
+                        </div>
+
 
                     </div>
                 </li>
 
                 <li>
-                    <div class="collapsible-header"><i class="material-icons">arrow_forward</i>BTM Dashboard</div>
-                    <div class="collapsible-body">
-                        <p>Leader Board</p>
-                    </div>
-                </li>
-
-                <li>
-                    <div class="collapsible-header"><i class="material-icons">arrow_forward</i>Passive Profits</div>
+                    <div class="collapsible-header"><i class="material-icons">device_hub</i>Passive Profits</div>
                     <div class="collapsible-body">
 
-                    </div>
-                </li>
 
-                <li>
-                    <div class="collapsible-header"><i class="material-icons">arrow_forward</i>My Account</div>
-                    <div class="collapsible-body">
+                        <div class="collection">
+                            <a href="{% url 'home:passive-income' %}" class="collection-item">Passive Income</a>
+                            <a href="{% url 'home:crypto-trading' %}" class="collection-item">Cryptocurrency Trading</a>
+                            <a href="{% url 'home:crypto-mining' %}" class="collection-item">Bitcoin and Altcoin mining</a>
+                            <a href="{% url 'home:crypto-resource' %}" class="collection-item">Crypto Recources</a>
+                        </div>
 
-                    </div>
-                </li>
 
-                <li>
-                    <div class="collapsible-header"><i class="material-icons">arrow_forward</i>Training & Marketing</div>
-                    <div class="collapsible-body">
 
                     </div>
                 </li>
 
                 <li>
-                    <div class="collapsible-header"><i class="material-icons">arrow_forward</i>Support</div>
+                    <div class="collapsible-header"><i class="material-icons">accessibility</i>My Account</div>
                     <div class="collapsible-body">
+
+
+                        <div class="collection">
+                            <a href="{% url 'account:profile' %}" class="collection-item">My Profile Settings</a>
+                            <a href="{% url 'home:payment-account-setting' %}" class="collection-item">Payment Account Setting</a>
+                            <a href="{% url 'home:my-commission' %}" class="collection-item">My Commission</a>
+                            <a href="{% url 'account:membership-level-premium' %}" class="collection-item">Premium Membership</a>
+                            <a href="{% url 'account:membership-level-vip' %}" class="collection-item">VIP Membership</a>
+                            <a href="{% url 'account:my-autoresponder-settings' %}" class="collection-item">My Autoresponder Settings</a>
+                            <a href="{% url 'account:my-referrals' %}" class="collection-item">My Referrals</a>
+                            <a href="{% url 'account:logout' %}" class="collection-item red">Logout</a>
+                        </div>
+
+
+                    </div>
+                </li>
+
+                <li>
+                    <div class="collapsible-header"><i class="material-icons">record_voice_over</i>Training & Marketing</div>
+                    <div class="collapsible-body">
+
+
+
+                        <div class="collection">
+                            <a href="{% url 'home:manage-team' %}" class="collection-item">Manage Team</a>
+                            <a href="{% url 'home:affiliate_link' %}" class="collection-item">Affiliate Links & Funnels</a>
+                            <a href="{% url 'home:banners' %}" class="collection-item">Banners</a>
+                            <a href="{% url 'home:email_swipes' %}" class="collection-item">Email Swipes</a>
+                        </div>
+
+
+                    </div>
+                </li>
+
+                <li>
+                    <div class="collapsible-header"><i class="material-icons">call</i>Support</div>
+                    <div class="collapsible-body">
+
+
+                        <div class="collection">
+                            <a href="{% url 'home:faq' %}" class="collection-item">FAQ</a>
+                            <a href="{% url 'home:recent-update' %}" class="collection-item">BTM Recent Updates</a>
+                            <a href="{% url 'home:banners' %}" class="collection-item">BTM Facebook Group</a>
+                            <a target="_blank" href="https://www.facebook.com/Be-The-Millionaire-2158534220826913/" class="collection-item">BTM Facebook Fanpage</a>
+                        </div>
+
+
 
                     </div>
                 </li>
@@ -509,7 +576,6 @@ $('.translation-links a').click(function() {
       $(document).ready(function(){
             $('.collapsible').collapsible();
         });
-
 </script>
 {% block script %}
 {% endblock %}

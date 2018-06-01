@@ -2,17 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0ba751cb-a37f-4638-b597-b9218988ff8c" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/templates/base_v_2.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/base_v_2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/home/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/home/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topic/templates/topic/step_1_v_1.html" beforeDir="false" afterPath="$PROJECT_DIR$/topic/templates/topic/step_1_v_1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topic/templates/topic/step_2_v_1.html" beforeDir="false" afterPath="$PROJECT_DIR$/topic/templates/topic/step_2_v_1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topic/templates/topic/step_3_v_1.html" beforeDir="false" afterPath="$PROJECT_DIR$/topic/templates/topic/step_3_v_1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topic/templates/topic/step_4_v_1.html" beforeDir="false" afterPath="$PROJECT_DIR$/topic/templates/topic/step_4_v_1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topic/templates/topic/step_5_v_1.html" beforeDir="false" afterPath="$PROJECT_DIR$/topic/templates/topic/step_5_v_1.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -32,11 +24,36 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="base_v_2.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="base_v_2.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/home/templates/base_v_2.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4068">
-              <caret line="226" selection-start-line="226" selection-end-line="226" />
+            <state relative-caret-position="307">
+              <caret line="238" column="59" selection-start-line="238" selection-start-column="59" selection-end-line="238" selection-end-column="59" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#ul#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/account/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="23">
+              <caret line="60" column="14" selection-start-line="60" selection-start-column="4" selection-end-line="60" selection-end-column="14" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="base1.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/home/templates/base1.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="576">
+              <caret line="498" column="15" lean-forward="true" selection-start-line="474" selection-start-column="4" selection-end-line="498" selection-end-column="15" />
             </state>
           </provider>
         </entry>
@@ -44,8 +61,8 @@
       <file leaf-file-name="step_1_v_1.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/topic/templates/topic/step_1_v_1.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="329">
-              <caret line="312" column="30" lean-forward="true" selection-start-line="310" selection-start-column="24" selection-end-line="312" selection-end-column="30" />
+            <state relative-caret-position="419">
+              <caret line="352" column="118" lean-forward="true" selection-start-line="352" selection-start-column="57" selection-end-line="352" selection-end-column="118" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -61,11 +78,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="step_2_v_1.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="step_2_v_1.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/topic/templates/topic/step_2_v_1.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="509">
-              <caret line="922" lean-forward="true" selection-start-line="922" selection-end-line="922" />
+            <state relative-caret-position="365">
+              <caret line="75" lean-forward="true" selection-start-line="75" selection-end-line="75" />
               <folding>
                 <element signature="e#36662#36697#0" expanded="true" />
                 <element signature="e#37490#37515#0" expanded="true" />
@@ -86,6 +103,22 @@
                 <element signature="e#53856#53895#0" expanded="true" />
                 <element signature="e#54349#54388#0" expanded="true" />
                 <element signature="e#54858#54897#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="step_4_v_1.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/topic/templates/topic/step_4_v_1.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15156">
+              <caret line="842" selection-start-line="842" selection-end-line="842" />
+              <folding>
+                <element signature="e#34577#34602#0" expanded="true" />
+                <element signature="e#34782#34845#0" expanded="true" />
+                <element signature="e#36524#36584#0" expanded="true" />
+                <element signature="e#43395#43455#0" expanded="true" />
+                <element signature="e#50283#50343#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -182,16 +215,16 @@
         <option value="$PROJECT_DIR$/topic/views.py" />
         <option value="$PROJECT_DIR$/bethemillionaire/asgi.py" />
         <option value="$PROJECT_DIR$/bethemillionaire/settings.py" />
-        <option value="$PROJECT_DIR$/manage.py" />
         <option value="$PROJECT_DIR$/home/templates/home/index.html" />
         <option value="$PROJECT_DIR$/home/views.py" />
-        <option value="$PROJECT_DIR$/home/templates/base_v_2.html" />
         <option value="$PROJECT_DIR$/home/templates/home/index_v_1.html" />
         <option value="$PROJECT_DIR$/topic/templates/topic/step_1_v_1.html" />
-        <option value="$PROJECT_DIR$/topic/templates/topic/step_2_v_1.html" />
         <option value="$PROJECT_DIR$/topic/templates/topic/step_3_v_1.html" />
-        <option value="$PROJECT_DIR$/topic/templates/topic/step_4_v_1.html" />
         <option value="$PROJECT_DIR$/topic/templates/topic/step_5_v_1.html" />
+        <option value="$PROJECT_DIR$/topic/templates/topic/step_2_v_1.html" />
+        <option value="$PROJECT_DIR$/topic/templates/topic/step_4_v_1.html" />
+        <option value="$PROJECT_DIR$/manage.py" />
+        <option value="$PROJECT_DIR$/home/templates/base_v_2.html" />
       </list>
     </option>
   </component>
@@ -236,6 +269,12 @@
               <item name="bethemillionaire" type="b2602c69:ProjectViewProjectNode" />
               <item name="bethemillionaire" type="462c0819:PsiDirectoryNode" />
               <item name="home" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bethemillionaire" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bethemillionaire" type="462c0819:PsiDirectoryNode" />
+              <item name="home" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="bethemillionaire" type="b2602c69:ProjectViewProjectNode" />
@@ -443,20 +482,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/home/templates/home/buy-bitcoin-here_v_1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="97" column="78" selection-start-line="97" selection-start-column="78" selection-end-line="97" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/home/templates/home/bitcoin-wallet.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="163" lean-forward="true" selection-start-line="20" selection-start-column="16" selection-end-line="163" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/home/templates/home/bitcoin-wallet_v_1.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="504">
@@ -679,13 +704,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/manage.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bethemillionaire/asgi.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
@@ -697,13 +715,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
           <caret line="153" lean-forward="true" selection-start-line="153" selection-end-line="235" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/home/templates/base1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="498" column="12" selection-start-line="498" selection-start-column="12" selection-end-line="498" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -725,13 +736,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
           <caret line="49" column="35" selection-start-line="49" selection-start-column="35" selection-end-line="49" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/home/templates/base_v_2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4068">
-          <caret line="226" selection-start-line="226" selection-end-line="226" />
         </state>
       </provider>
     </entry>
@@ -762,23 +766,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/topic/templates/topic/step_4_v_1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
-          <caret line="864" column="47" selection-start-line="864" selection-start-column="47" selection-end-line="864" selection-end-column="47" />
-          <folding>
-            <element signature="e#33897#33982#0" expanded="true" />
-            <element signature="e#34009#34048#0" expanded="true" />
-            <element signature="e#34577#34602#0" expanded="true" />
-            <element signature="e#34782#34845#0" expanded="true" />
-            <element signature="e#36727#36749#0" expanded="true" />
-            <element signature="e#36524#36584#0" expanded="true" />
-            <element signature="e#43395#43455#0" expanded="true" />
-            <element signature="e#50283#50343#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/topic/templates/topic/step_5_v_1.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -792,28 +779,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/topic/templates/topic/step_1_v_1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="312" column="30" lean-forward="true" selection-start-line="310" selection-start-column="24" selection-end-line="312" selection-end-column="30" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h4#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/topic/templates/topic/step_2_v_1.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="509">
-          <caret line="922" lean-forward="true" selection-start-line="922" selection-end-line="922" />
+        <state relative-caret-position="365">
+          <caret line="75" lean-forward="true" selection-start-line="75" selection-end-line="75" />
           <folding>
             <element signature="e#36662#36697#0" expanded="true" />
             <element signature="e#37490#37515#0" expanded="true" />
@@ -834,6 +803,76 @@
             <element signature="e#53856#53895#0" expanded="true" />
             <element signature="e#54349#54388#0" expanded="true" />
             <element signature="e#54858#54897#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/manage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="5" column="76" selection-start-line="5" selection-start-column="76" selection-end-line="5" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/topic/templates/topic/step_4_v_1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15156">
+          <caret line="842" selection-start-line="842" selection-end-line="842" />
+          <folding>
+            <element signature="e#34577#34602#0" expanded="true" />
+            <element signature="e#34782#34845#0" expanded="true" />
+            <element signature="e#36524#36584#0" expanded="true" />
+            <element signature="e#43395#43455#0" expanded="true" />
+            <element signature="e#50283#50343#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/topic/templates/topic/step_1_v_1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="419">
+          <caret line="352" column="118" lean-forward="true" selection-start-line="352" selection-start-column="57" selection-end-line="352" selection-end-column="118" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h4#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/home/templates/base1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="576">
+          <caret line="498" column="15" lean-forward="true" selection-start-line="474" selection-start-column="4" selection-end-line="498" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/account/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="60" column="14" selection-start-line="60" selection-start-column="4" selection-end-line="60" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/home/templates/base_v_2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="307">
+          <caret line="238" column="59" selection-start-line="238" selection-start-column="59" selection-end-line="238" selection-end-column="59" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#ul#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
