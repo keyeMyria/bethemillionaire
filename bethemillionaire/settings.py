@@ -76,6 +76,7 @@ DATABASES = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
+        'CONN_MAX_AGE': 0,
         'NAME': 'be_themillionaire',
         'USER': 'root',
         'PASSWORD': 'Nstu12345678~!',
