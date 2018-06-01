@@ -2,6 +2,7 @@
 
 {% block title %}BeTheMillionaire | Home{% endblock %}
 
+
 {% block add-css %}
     {% load staticfiles %}
     <meta property="og:url"           content="{{ request.build_absolute_uri }}" />
@@ -13,6 +14,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'home/style/index.css' %}">
 
 {% endblock %}
+
 
 {% block main %}
     <div class="row" style="margin-top: 10px;">
@@ -192,3 +194,4 @@
          });
     </script>
 {% endblock %}
+

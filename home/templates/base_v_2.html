@@ -473,10 +473,6 @@ $('.translation-links a').click(function() {
 });
 </script>
 
-
-
-{% block script %}
-
 <script>
     $(".dropdown-trigger").dropdown();
 
@@ -484,7 +480,7 @@ $('.translation-links a').click(function() {
           inDuration: 300,
           outDuration: 225,
           constrainWidth: true, // Does not change width of dropdown to that of the activator
-          hover: false, // Activate on hover
+          hover: true, // Activate on hover
           gutter: ($('.dropdown-content').width()*2)/3.4,
           belowOrigin: true, // Displays dropdown below the button
           alignment: 'left', // Displays dropdown with edge aligned to the left of button
@@ -515,4 +511,5 @@ $('.translation-links a').click(function() {
         });
 
 </script>
+{% block script %}
 {% endblock %}

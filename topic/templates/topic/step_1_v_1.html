@@ -1,4 +1,4 @@
-{% extends 'base1.html' %}
+{% extends 'base_v_2.html' %}
 
 {% block title %}BeTheMillionaire | Step 1 - The Foundation and Overview{% endblock %}
 
@@ -9,7 +9,7 @@
 
 {% block main %}
     <div class="row">
-        <div class="col s12 m8 offset-m2 l8 offset-l2 z-depth-2" style="margin-top: 20px; border: 1px solid #333; padding: 20px; margin-bottom: 50px;">
+        <div class="col s12 m8 offset-m2 l8 offset-l2 z-depth-2 hide-on-med-and-down" style="margin-top: 20px; border: 1px solid #333; padding: 20px; margin-bottom: 50px;">
             <nav class="black" style="margin-top: 20px; margin-bottom: 20px;">
                 <div class="nav-wrapper">
                     <div class="col s12 ">
@@ -263,6 +263,295 @@
             <!--end comment-->
 
         </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!--for mobile-->
+
+
+
+        <div class="col s12 m8 offset-m2 l8 offset-l2 z-depth-2 hide-on-large-only" style="margin-top: 20px; border: 1px solid #333; padding: 0px; margin-bottom: 50px;">
+            <div class="col s12 black center-align" style="padding: 10px; font-size: 16px;">
+                <a href="{% url 'topic:step_1' %}" class="white-text">Step-1</a><br>
+                <a href="{% url 'topic:step_2' %}" class="orange-text">Step-2</a><br>
+                <a href="{% url 'topic:step_3' %}" class="orange-text">Step-3</a><br>
+                <a href="{% url 'topic:step_4' %}" class="orange-text">Step-4</a><br>
+                <a href="{% url 'topic:step_5' %}" class="orange-text">Step-5</a><br>
+                <a href="{% url 'topic:step_5' %}" class="orange-text">  </a>
+                <a href="{% url 'topic:step_5' %}" class="orange-text">Complete {{ step_complete_percents }}%</a>
+
+            </div>
+
+            <h5 class="col s12 center-align" style="margin-top: 20px;">
+                Step 1 – The Foundation & Overview
+            </h5>
+
+            {% if user.is_authenticated %}
+            <div class="col s12" style="font-size: 16px; margin-top: 20px; margin-bottom: 30px;">
+                Your Default Link to Promote BeTheMillionaire is: <a target="_blank" href="http://www.bethemillionaire.com/?userid={{ request.user.username }}">www.bethemillionaire.com/?userid={{ request.user.username }}</a>
+            </div>
+            {% endif %}
+
+            {% for step in steps %}
+                {% if step.is_active %}
+                    <div class="col s12 black center-align" style="padding: 30px;">
+
+                        <div class="video-container" style="">
+                            <iframe width="100%" height="450px" src="https://www.youtube.com/embed/tZsOBMU6VtI" frameborder="0" gesture="media" allow="encrypted-media" autoplay="true" allowfullscreen></iframe>
+                        </div>
+
+
+                        <p class="white-text">
+                            IMPORTANT! Please DO NOT go to next step before completing this step first.
+                        </p>
+
+                        {% if user.is_authenticated %}
+                        <form method="post" style="margin-top: 10px;">
+                            {% csrf_token %}
+                            <button type="submit" name="step_2" value="step_2" class="orange black-text waves-effect waves-light btn">Yes, I complete</button>
+                        </form>
+                        {% else %}
+                            <a href="{% url 'topic:step_2' %}" style="margin-top: 10px;" class="orange black-text waves-effect waves-light btn">Next, Step</a>
+                        {% endif %}
+                    </div>
+
+
+                    <div class="col s12 m12 l12" style="padding: 0px; margin-top: 30px;">
+                        <div class="card blue">
+                            <div class="card-content white-text">
+                                <span class="card-title">1. Register For Our Weekly Live Coaching</span>
+                                <a target="_blank" href="{% url 'account:latest-webinar' %}?userid=Mena" class="orange black-text waves-effect waves-light btn">Register Now</a>
+                            </div>
+
+                            <div class="divider white">
+
+                            </div>
+
+                            <div class="card-content white-text">
+                                <span class="card-title">2. Join BTM Facebook Group</span>
+                                <a href="https://www.facebook.com/groups/336201610190269/" target="_blank" class="orange black-text waves-effect waves-light btn">Our Community</a>
+                            </div>
+
+                            <div class="divider white">
+
+                            </div>
+
+                            <div class="card-content white-text">
+                                <span class="card-title">3. Get Live Updates On BTM Fan Page</span>
+                                <a target="_blank" href="https://www.facebook.com/Be-The-Millionaire-2158534220826913/" class="orange black-text waves-effect waves-light btn">GET Live Updates</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+
+            <div class="col s12 m12 l12 center-align" style="margin-bottom: 20px; margin-top: 30px;">
+                {% if user.is_authenticated %}
+                <form method="post">
+                    {% csrf_token %}
+                    <button type="submit" name="step_2" value="step_2" class="black orange-text waves-effect waves-light btn">Yes, I complete</button>
+                </form>
+                {% else %}
+                    <a href="{% url 'topic:step_2' %}" class="black orange-text waves-effect waves-light btn">Next Step</a>
+                {% endif %}
+            </div>
+
+
+            <!--comment-->
+
+
+            <div class="col s12 m12 l12 z-depth-1" style="margin-top: 20px;">
+                <h5 class="">
+                    {{ total_comments }} Responses to "Step 1 – The Foundation & Overview"
+                </h5>
+
+                <div class="col s12 m12 l12">
+                    {% load staticfiles %}
+                    <!--main comment-->
+                    {% for comment in comments %}
+                        <div class="col s12 m12 l12" style="margin-top: 20px; padding: 0px;">
+                            {% if comment.user.profile_picture %}
+                                <div class="col s4 m3 l2" style="padding: 0px;">
+                                    <img src="{{ comment.user.profile_picture.url }}" alt="" height="100%" width="100%">
+                                </div>
+                            {% else %}
+                                <div class="col s4 m3 l2" style="padding: 0px;">
+                                    <img src="{% static 'topic/style/images/no-img.jpg' %}" alt="" height="100%" width="100%">
+                                </div>
+                            {% endif %}
+
+                            <div class="col s8 m9 l10">
+                                <a href="{% url 'account:public-profile' %}?userid={{ comment.user.username }}">{{ comment.user.username | upper }}</a>
+                            </div>
+
+                            <div class="col s8 m9 l10" style="margin-top: 10px;">
+                                {% if request.user.username == 'admin' %}
+                                    <p style="cursor: pointer;" onclick="comment_delete({{ comment.id }})">Delete</p>
+                                {% endif %}
+
+                                <p>{{ comment.comment }}</p>
+                            </div>
+                        </div>
+
+                        <div class="col s12 m12 l12" style="margin: 5px; margin-bottom: 20px;">
+                            <!--subcomment-->
+
+
+                            {% for subcomment in subcomments %}
+                                {% ifequal comment.id subcomment.comment.id %}
+                                    <div class="col s10 offset-s1 m10 offset-m1 l10 offset-l1" style="margin-top: 20px; padding: 0px;">
+                                        {% if subcomment.user.profile_picture %}
+                                            <div class="col s4 m3 l2" style="padding: 0px;">
+                                                <img src="{{ subcomment.user.profile_picture.url }}" alt="" height="100%" width="100%">
+                                            </div>
+                                        {% else %}
+                                            <div class="col s4 m3 l2" style="padding: 0px;">
+                                                <img src="{% static 'topic/style/images/no-img.jpg' %}" alt="" height="100%" width="100%">
+                                            </div>
+                                        {% endif %}
+
+                                        <div class="col s8 m9 l10">
+                                            <a href="{% url 'account:public-profile' %}?userid={{ subcomment.user.username }}">{{ subcomment.user.username | upper }}</a>
+                                        </div>
+
+                                        <div class="col s8 m9 l10" style="margin-top: 10px;">
+                                            {% if request.user.username == 'admin' %}
+                                                <p style="cursor: pointer;" onclick="subcomment_delete({{ subcomment.id }})">Delete</p>
+                                            {% endif %}
+
+                                            <p>{{ subcomment.subcomment }}</p>
+                                        </div>
+                                    </div>
+                                {% endifequal %}
+                            {% endfor %}
+
+                            {% if user.is_authenticated %}
+                            <a style="margin-left: 60px; margin-bottom: 20px; margin-top: 10px;" class="waves-effect waves-light btn modal-trigger" href="#{{ comment.id }}">Reply</a>
+                            {% endif %}
+
+                            <!-- Modal Structure -->
+                            <div id="{{ comment.id }}" class="modal">
+                                <div class="modal-content">
+                                    <div class="col s12 m12 l12">
+                                        <h4>Write Your Comment</h4>
+                                    </div>
+
+
+                                    {% if user.is_authenticated %}
+                                    <form method="post">
+                                        {% csrf_token %}
+
+                                        <input type="hidden" name="commentid" value="{{ comment.id }}">
+
+                                        <div style="" class="input-field col s12 m10 offset-m1 l10 offset-l1">
+                                            <i class="material-icons prefix">create</i>
+                                            {{ subcommentForm.subcomment }}
+                                            <label for="icon_prefix white-text">Comment</label>
+                                        </div>
+
+                                        {% if subcommentForm.non_field_errors %}
+                                            {% for error in subcommentForm.non_field_errors %}
+                                                <div class="col s12 m8 offset-m2 l8 offset-l2 collection teal lighten-2" style="border: 0px;">
+                                                    <p href="#!" class="collection-item white-text teal lighten-2">{{ error }}</p>
+                                                </div>
+                                            {% endfor %}
+                                        {% endif %}
+
+                                        <div class="col s12 m12 l12 center-align" style="margin-bottom: 20px;">
+                                            <button class="btn waves-effect waves-light center-align" type="submit" value="subcomment_form" name="subcomment_form">Reply
+                                                <i class="material-icons right">send</i>
+                                            </button>
+                                        </div>
+
+                                    </form>
+                                    {% endif %}
+                                </div>
+                            </div>
+
+                            <!--end subcomment-->
+                        </div>
+                    {% endfor %}
+
+                    <!--end maincomment -->
+                </div>
+            </div>
+
+            <div class="col s12 m12 l12" style="margin-top: 20px;">
+                <h5 class="">
+                    Leave a Reply
+                </h5>
+
+                {% if user.is_authenticated %}
+                <p>
+                    Logged in as <a href="#">{{ request.user.username }}</a>. <a href="{% url 'account:logout' %}">Logout</a>
+                </p>
+                {% else %}
+                <p>
+                    To comment please <a href="{% url 'account:login' %}?s=welcome">login</a>
+                </p>
+                {% endif %}
+            </div>
+
+
+            <div class="col s12 m12 l12 " style="margin-top: 20px;">
+                {% if user.is_authenticated %}
+                <form method="post">
+                    {% csrf_token %}
+
+                    <div style="" class="input-field col s12 m12 l12">
+                        <i class="material-icons prefix">create</i>
+                        {{ commentForm.comment }}
+                        <label for="icon_prefix white-text">Comment</label>
+                    </div>
+
+                    {% if commentForm.non_field_errors %}
+                        {% for error in commentForm.non_field_errors %}
+                            <div class="col s12 m8 offset-m2 l8 offset-l2 collection teal lighten-2" style="border: 0px;">
+                                <p href="#!" class="collection-item white-text teal lighten-2">{{ error }}</p>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+
+                    <div class="col s12 m12 l12 center-align" style="margin-bottom: 20px;">
+                        <button class="btn waves-effect waves-light center-align" value="comment_form" type="submit" name="comment_form">Comment
+                            <i class="material-icons right">send</i>
+                        </button>
+                    </div>
+
+                </form>
+                {% endif %}
+            </div>
+
+            <!--end comment-->
+
+        </div>
+
+
+
+
+        <!--end for mobile-->
+
+
+
+
+
+
+
+
+
+
     </div>
 {% endblock %}
 
