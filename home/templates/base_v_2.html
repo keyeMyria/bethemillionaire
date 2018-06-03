@@ -237,7 +237,11 @@
 
             <div class="row" style="padding: 20px;">
                 <div class="col s4 offset-s3 center-align">
-                    <img height="100%" width="100%" src="{{ request.user.profile_picture.url }}" alt="">
+                    {% if request.user.profile_picture %}
+                        <img height="100%" width="100%" src="{{ request.user.profile_picture.url }}" alt="">
+                    {% else %}
+                        <img class="col m10 offset-m1 l10 offset-l1" src="{% static 'account/style/images/no-img.jpg' %}" height="100%" width="100%" style="margin-top: 20px;" alt="">
+                    {% endif %}
                     {{ request.user.username | title }}<br>
                     {{ request.user.membership.name | upper }}
                 </div>
