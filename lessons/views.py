@@ -8,7 +8,7 @@ from lessons.models import Module, Lesson
 
 #module 1
 class Module1(View):
-    template_name = 'lessons/module-1.html'
+    template_name = 'lessons/module-1_v_2.html'
 
     def get(self, request):
         modules = Module.objects.filter(short_name='module-1')
@@ -96,7 +96,7 @@ class Module1(View):
 
 #module 2
 class Module2(View):
-    template_name = 'lessons/module-2.html'
+    template_name = 'lessons/module-2_v_1.html'
 
     def get(self, request):
         modules = Module.objects.filter(short_name='module-2')
@@ -183,7 +183,7 @@ class Module2(View):
 
 #module 3
 class Module3(View):
-    template_name = 'lessons/module-3.html'
+    template_name = 'lessons/module-3_v_1.html'
 
     def get(self, request):
         modules = Module.objects.filter(short_name='module-3')

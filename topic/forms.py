@@ -6,7 +6,7 @@ from account.models import UserProfile
 from account.models import UsiTechAccount, BitconnectAccount
 
 class CommentForm(forms.Form):
-    comment = forms.CharField( required=False, max_length= 1000 ,widget=forms.Textarea(attrs={'class': 'validate materialize-textarea', 'id': 'icon_prefix'}) )
+    comment = forms.CharField(required=False, max_length= 1000 ,widget=forms.Textarea(attrs={'class': 'validate materialize-textarea', 'id': 'main-comment'}) )
 
     def clean(self):
         comment = self.cleaned_data.get('comment')
@@ -23,7 +23,7 @@ class CommentForm(forms.Form):
 
 
 class SubCommentForm(forms.Form):
-    subcomment = forms.CharField( required=False, max_length= 1000 ,widget=forms.Textarea(attrs={'class': 'validate materialize-textarea', 'id': 'icon_prefix'}) )
+    subcomment = forms.CharField( required=False, max_length= 1000 ,widget=forms.Textarea(attrs={'class': 'validate materialize-textarea', 'id': 'sub-comment'}) )
 
     def clean(self):
         subcomment = self.cleaned_data.get('subcomment')

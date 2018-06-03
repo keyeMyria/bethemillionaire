@@ -692,7 +692,7 @@ class Step_5(View):
 ##########Module start#########
 #module - 1 :: lesson 1
 class Lesson1(View):
-    template_name = 'topic/lesson_1.html'
+    template_name = 'topic/lesson_1_v_1.html'
 
     def get(self, request):
         lessons = Lesson.objects.filter(short_name='module-1-lesson-1')
@@ -794,7 +794,7 @@ class Lesson1(View):
 
 #module - 1 :: lesson 2
 class Lesson2(View):
-    template_name = 'topic/lesson_2.html'
+    template_name = 'topic/lesson_2_v_1.html'
 
     def get(self, request):
         lessons = Lesson.objects.filter(short_name='module-1-lesson-2')
