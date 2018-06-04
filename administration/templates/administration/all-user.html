@@ -14,6 +14,82 @@
             <h5 style="margin-top: 20px;">Total {{ all_users_count }} member found</h5>
             <p class="col s12 m12 l12 divider" style="margin-bottom: 20px;"></p>
 
+
+
+            <form class="col m12 l12" method="post" style="margin-bottom: 40px;">
+                <h5 class="left-align orange-text">Search User</h5>
+
+                {% csrf_token %}
+                <div class="input-field col s12 m12 l12">
+                    {{ form.username }}
+                    <label for="icon_prefix white-text">User Name</label>
+                </div>
+
+                <button class="btn waves-effect waves-light orange white-text" type="submit" style="">
+                    Search
+                </button>
+            </form>
+
+
+
+
+            {% if s_user %}
+            <div class="col s12 m12 l12" style="margin-top: 30px; margin-bottom: 30px; border: 1px solid #333;">
+                <h5>Search Results: </h5>
+                {% if s_user %}
+                    <div class="col s12 m12 l12">
+                        <table class="centered responsive-table striped" style="margin-bottom: 20px;">
+                            <thead>
+                                <tr>
+                                    <th>S/N</th>
+                                    <th>Username</th>
+                                    <th>Email</th>
+                                    <th>Referral</th>
+                                    <th>Profile</th>
+                                    <th>Operation</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+
+                                <tr>
+                                    <td>1</td>
+                                    <td>{{ s_user.username | title }}</td>
+                                    <td>{{ s_user.email }}</td>
+                                    <td>{{ s_user.referrals.count }}</td>
+
+                                    <td>
+                                        {% if user.is_active %}
+                                            <span style="color: green;">Active</span>
+                                        {% else %}
+                                            <span style="color: red;">Deactive</span>
+                                        {% endif %}
+                                    </td>
+
+                                    <td>
+                                        <a href="{% url 'administration:user-detail' user_id=s_user.id %}">View</a>
+                                    </td>
+                                </tr>
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                {% else %}
+                    <p>User not found!</p>
+                {% endif %}
+            </div>
+            {% endif %}
+
+
+
+
+
+
+
+
+
             <table class="highlight centered responsive-table">
                 <thead>
                     <tr>

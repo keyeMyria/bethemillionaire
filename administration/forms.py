@@ -1,4 +1,5 @@
 from django import forms
+import re
 
 from django.contrib.auth.hashers import make_password, check_password
 
@@ -152,3 +153,40 @@ class CreateLeaderBoardForm(forms.Form):
             deploy.save()
 
             i = i + 1
+
+
+
+
+#user search form
+class UserSearchForm(forms.Form):
+    username = forms.CharField(max_length=30, required=False, widget=forms.TextInput(attrs={'class': 'validate', 'id': 'icon_prefix'}))
+
+    def clean(self):
+        username = self.cleaned_data.get('username')
+
+
+    def is_email(self, username):
+        email_correction = re.match('^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$', username)
+
+        if email_correction:
+            return True
+        else:
+            return False
+
+
+    def deploy(self):
+        username = self.cleaned_data.get('username')
+
+        is_email = self.is_email(username)
+
+        if is_email:
+            user = account_model.UserProfile.objects.get(email=username)
+        else:
+            user = account_model.UserProfile.objects.get(username=username)
+
+
+        return user
+
+
+
+
