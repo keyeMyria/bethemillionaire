@@ -1,6 +1,6 @@
 {% extends 'base_v_2.html' %}
 
-{% block title %}BeTheMillionaire | Lesson 1{% endblock %}
+{% block title %}Lesson 1 – 4 Ways To Produce Income & How To Become Financially Free | BeTheMillionaire{% endblock %}
 
 {% block add-css %}
     {% load staticfiles %}
@@ -44,28 +44,32 @@
                 </div>
 
                 <div class="col s12 m12 l12 #1a237e indigo orange-text darken-4 left_main_menu" style="padding: 10px; margin-bottom: 20px;">
-                    <a class="left col s12 m12 l12 white-text" href="{% url 'lessons:module_1' %}" style="padding: 10px;">Module 1
+                    <a class="left col s12 m12 l12" href="{% url 'lessons:module_1' %}" style="padding: 10px;">Module 1
                         <span class="right" style=""> > </span>
                     </a>
-
-                    <!--start module-1 submenu -->
-                    <a class="left col m10 offset-m1 l10 offset-l1 white-text" href="{% url 'topic:module-1-lesson-1' %}" style="padding: 10px;">Lesson 1
-                        <span class="right" style=""> > </span>
-                    </a>
-
-                    <a class="left col m10 offset-m1 l10 offset-l1" href="{% url 'topic:module-1-lesson-2' %}" style="padding: 10px;">Lesson 2
-                        <span class="right" style=""> > </span>
-                    </a>
-
-                    <!--end module-1 submenu -->
 
                     <a class="left col s12 m12 l12" href="{% url 'lessons:module_2' %}" style="padding: 10px;">Module 2
                         <span class="right" style=""> > </span>
                     </a>
 
-                    <a class="left col s12 m12 l12" href="{% url 'lessons:module_3' %}" style="padding: 10px;">Module 3
+                    <a class="left col s12 m12 l12 white-text" href="{% url 'lessons:module_3' %}" style="padding: 10px;">Module 3
                         <span class="right" style=""> > </span>
                     </a>
+
+                    <!--start module-3 submenu -->
+                    <a class="left col m10 offset-m1 l10 offset-l1 white-text" href="{% url 'topic:module-3-lesson-1' %}" style="padding: 10px;">Lesson 1
+                        <span class="right" style=""> > </span>
+                    </a>
+
+                    <a class="left col m10 offset-m1 l10 offset-l1" href="{% url 'topic:module-3-lesson-2' %}" style="padding: 10px;">Lesson 2
+                        <span class="right" style=""> > </span>
+                    </a>
+
+                    <a class="left col m10 offset-m1 l10 offset-l1" href="{% url 'topic:module-3-lesson-3' %}" style="padding: 10px;">Lesson 3
+                        <span class="right" style=""> > </span>
+                    </a>
+
+                    <!--end module-3 submenu -->
 
                 </div>
             </div>
@@ -73,7 +77,7 @@
             <div class="col m8 l9" style="padding: 0px; margin-top: 0px; opacity: .9;">
                 <div class="col s12 l12 white center-align" style="padding: 10px;">
 
-                    <h5 class="left-align orange-text">Lesson 1 – Welcome To BeTheMillionaire System</h5>
+                    <h5 class="left-align orange-text">Lesson 1 – 4 Ways To Produce Income & How To Become Financially Free</h5>
 
                     <div class="col s12 m12 l12" style="margin-top: 30px; margin-bottom: 40px; padding: 0px;">
                         <div class="video-container" style="">
@@ -85,30 +89,12 @@
 
 
 
-                    <div class="col s12 m10 offset-m1 l10 offset-l1" style="margin-top: 20px;">
-                        <h5 class="">
-                            Quick Links & Action Steps
-                        </h5>
+                    <div class="col s12 m12 l12 carousel carousel-slider" style="margin-top: 40px; height: 400px; padding: 0px;">
+                        <a class="carousel-item" href="#one!"><img src="{% static 'topic/style/images/slider/m_3_l_1_1.jpg' %}"></a>
+                        <a class="carousel-item" href="#two!"><img src="{% static 'topic/style/images/slider/m_3_l_1_2.jpg' %}"></a>
+                        <a class="carousel-item" href="#three!"><img src="{% static 'topic/style/images/slider/m_3_l_1_3.jpg' %}"></a>
                     </div>
 
-
-                    <div class="col s12 m12 l12 left-align" style="margin-top: 10px; padding: 0px;">
-                        <div class="card blue">
-                            <div class="card-content white-text">
-                                <span class="card-title">Step 1: Register For Our Next Weekly Live Coaching Webinar Below (Every Sunday 12pm EST)</span>
-                                <a class="waves-effect waves-light btn">Register Now</a>
-                            </div>
-
-                            <div class="divider white">
-
-                            </div>
-
-                            <div class="card-content white-text">
-                                <span class="card-title">Step 2: Join Our BeTheMillionaire Facebook Group Below</span>
-                                <a href="https://www.facebook.com/groups/336201610190269/" class="waves-effect waves-light btn">Our Community</a>
-                            </div>
-                        </div>
-                    </div>
 
 
 
@@ -155,18 +141,20 @@
                     <!--end take note-->
 
 
-                    <div class="col s12 m10 offset-m1 l10 offset-l1" style="margin-bottom: 20px; margin-top: 50px;">
-                        <a style="" href="{% url 'topic:module-1-lesson-2' %}" class="waves-effect waves-light btn">Next Lesson</a><br><br>
-                        <a href="{% url 'topic:module-1-lesson-2' %}" class="waves-effect waves-light btn">Yes, I Completed</a><br>
-                    </div>
 
+
+                    <div class="col s12 m12 l10 offset-l1" style="margin-bottom: 20px; margin-top: 50px;">
+                        <a style="" href="{% url 'topic:module-3-lesson-2' %}" class="waves-effect waves-light btn">Next Lesson</a><br><br>
+                        <a href="{% url 'topic:module-3-lesson-2' %}" class="waves-effect waves-light btn">Yes, I Completed</a><br>
+                    </div>
 
                 <!--comment section-->
 
-                <div class="col s12 m12 l12 left-align" style="margin-top: 20px;">
+                <div class="col s12 m12 l12 left-align" style="margin-top: 20px; padding: 0px;">
                     <h5 class="">
-                        {{ total_comments }} Responses to "Lesson 1 – Welcome To BeTheMillionaire System"
+                        {{ total_comments }} Responses to "Lesson 1 – 4 Ways To Produce Income & How To Become Financially Free"
                     </h5>
+
 
                     <div class="col s12 m12 l12">
                         {% load staticfiles %}
@@ -326,8 +314,10 @@
 
 <script>
 
-     $(document).ready(function() {
-        $('select').material_select();
+
+
+      $(document).ready(function(){
+        $('.tabs').tabs();
       });
 
 
@@ -337,7 +327,23 @@
 
 
 
-{% if request.user.username == 'admin' %}
+  $(document).ready(function(){
+            $('.slider').slider();
+        });
+
+        $(document).ready(function(){
+            $('.carousel').carousel();
+        });
+
+        $('.carousel.carousel-slider').carousel({fullWidth: false});
+
+        $('.carousel').carousel();
+          setInterval(function() {
+            $('.carousel').carousel('next');
+          }, 8000);
+
+
+  {% if request.user.username == 'admin' %}
 
         function comment_delete(comment_id){
 
@@ -366,6 +372,7 @@
             });
         }
   {% endif %}
+
 </script>
 
 {% endblock %}

@@ -417,6 +417,36 @@
         $('select').material_select();
       });
 
+
+{% if request.user.username == 'admin' %}
+
+        function comment_delete(comment_id){
+
+            $.ajax({
+                url: '/topic/api/comment/',
+                data: { "comment_id":comment_id },
+                dataType: 'json',
+                success: function (data) {
+                    console.log(data);
+                    document.location.href = "{{ request.get_full_path }}";
+                }
+            });
+        }
+
+
+        function subcomment_delete(subcomment_id){
+
+            $.ajax({
+                url: '/topic/api/subcomment/',
+                data: { "subcomment_id":subcomment_id },
+                dataType: 'json',
+                success: function (data) {
+                    console.log(data);
+                    document.location.href = "{{ request.get_full_path }}";
+                }
+            });
+        }
+{% endif %}
 </script>
 
 {% endblock %}

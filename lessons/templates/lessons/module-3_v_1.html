@@ -75,7 +75,7 @@
             </div>
 
             <div class="col m8 l9" style="padding: 0px; margin-top: 0px; opacity: .9;">
-                <div class="col s12 l12 white center-align" style="padding: 10px;">
+                <div class="col s12 l12 white center-align" style="padding: 0px;">
 
                     <h5 class="left-align orange-text">Module 3 – The Secret To Wealth Acceleration</h5>
 
@@ -298,7 +298,7 @@
                                             <div style="" class="input-field col s12 m10 offset-m1 l10 offset-l1">
                                                 <i class="material-icons prefix">create</i>
                                                 {{ subcommentForm.subcomment }}
-                                                <label for="icon_prefix white-text">Comment</label>
+                                                <label for="sub-comment">Comment</label>
                                             </div>
 
                                             {% if subcommentForm.non_field_errors %}
@@ -345,7 +345,7 @@
                         <div style="" class="input-field col s12 m10 offset-m1 l10 offset-l1">
                             <i class="material-icons prefix">create</i>
                             {{ commentForm.comment }}
-                            <label for="icon_prefix white-text">Comment</label>
+                            <label for="main-comment">Comment</label>
                         </div>
 
                         {% if commentForm.non_field_errors %}
@@ -384,6 +384,42 @@
      $(document).ready(function() {
         $('select').material_select();
       });
+
+
+      $(document).ready(function(){
+        $('.modal').modal();
+      });
+
+
+      {% if request.user.username == 'admin' %}
+
+            function comment_delete(comment_id){
+
+                $.ajax({
+                    url: '/topic/api/comment/',
+                    data: { "comment_id":comment_id },
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data);
+                        document.location.href = "{{ request.get_full_path }}";
+                    }
+                });
+            }
+
+
+            function subcomment_delete(subcomment_id){
+
+                $.ajax({
+                    url: '/topic/api/subcomment/',
+                    data: { "subcomment_id":subcomment_id },
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data);
+                        document.location.href = "{{ request.get_full_path }}";
+                    }
+                });
+            }
+      {% endif %}
 
 </script>
 

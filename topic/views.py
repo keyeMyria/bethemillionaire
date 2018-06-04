@@ -896,7 +896,7 @@ class Lesson2(View):
 
 #module - 2 :: lesson 1
 class Module_2_Lesson_1(View):
-    template_name = 'topic/module_2_lesson_1.html'
+    template_name = 'topic/module_2_lesson_1_v_1.html'
 
     def get(self, request):
         lessons = Lesson.objects.filter(short_name='module-2-lesson-1')
@@ -998,7 +998,7 @@ class Module_2_Lesson_1(View):
 
 #module - 2 :: lesson 2
 class Module_2_Lesson_2(View):
-    template_name = 'topic/module_2_lesson_2.html'
+    template_name = 'topic/module_2_lesson_2_v_1.html'
 
     def get(self, request):
         lessons = Lesson.objects.filter(short_name='module-2-lesson-2')
@@ -1167,7 +1167,7 @@ class Module_2_Lesson_2(View):
 
 #module - 2 :: lesson 3
 class Module_2_Lesson_3(View):
-    template_name = 'topic/module_2_lesson_3.html'
+    template_name = 'topic/module_2_lesson_3_v_1.html'
 
     def get(self, request):
         lessons = Lesson.objects.filter(short_name='module-2-lesson-3')
@@ -1391,7 +1391,7 @@ class Module_2_Lesson_3(View):
 
 #module - 2 :: lesson 4
 class Module_2_Lesson_4(View):
-    template_name = 'topic/module_2_lesson_4.html'
+    template_name = 'topic/module_2_lesson_4_v_1.html'
 
     def get(self, request):
         lessons = Lesson.objects.filter(short_name='module-2-lesson-4')
@@ -1514,7 +1514,7 @@ class Module_2_Lesson_4(View):
 
 #module - 3 :: lesson 1
 class Module_3_Lesson_1(View):
-    template_name = 'topic/module_3_lesson_1.html'
+    template_name = 'topic/module_3_lesson_1_v_1.html'
 
     def get(self, request):
         lessons = Lesson.objects.filter(short_name='module-3-lesson-1')
@@ -1616,7 +1616,7 @@ class Module_3_Lesson_1(View):
 
 #module - 3 :: lesson 2
 class Module_3_Lesson_2(View):
-    template_name = 'topic/module_3_lesson_2.html'
+    template_name = 'topic/module_3_lesson_2_v_1.html'
 
     def get(self, request):
         lessons = Lesson.objects.filter(short_name='module-3-lesson-2')
@@ -1718,7 +1718,7 @@ class Module_3_Lesson_2(View):
 
 #module - 3 :: lesson 3
 class Module_3_Lesson_3(View):
-    template_name = 'topic/module_3_lesson_3.html'
+    template_name = 'topic/module_3_lesson_3_v_1.html'
 
     def get(self, request):
         lessons = Lesson.objects.filter(short_name='module-3-lesson-3')
