@@ -1,6 +1,6 @@
 {% extends 'base1.html' %}
 
-{% block title %}{{ request.user.username }} | My Membership{% endblock %}
+{% block title %}{{ request.user.username }} | Profile{% endblock %}
 
 {% block add-css %}
     {% load staticfiles %}
@@ -20,7 +20,7 @@
             background-image: url('/static/account/style/images/reg/back-1.jpeg');
             background-repeat: no-repeat;
             background-position: center;
-            height: 130vh;
+            height: 100%;
             width: 100%;
             background-size: cover;
         }
@@ -45,7 +45,7 @@
                 </div>
 
                 <div class="col s12 m12 l12 #1a237e indigo orange-text darken-4 left_main_menu" style="padding: 10px; margin-bottom: 20px;">
-                    <a class="left col s12 m12 l12" href="{% url 'account:profile' %}" style="padding: 10px;">Profile
+                    <a class="left col s12 m12 l12 white-text" href="{% url 'account:profile' %}" style="padding: 10px;">Profile
                         <span class="right" style=""> > </span>
                     </a>
 
@@ -53,7 +53,7 @@
                         <span class="right" style=""> > </span>
                     </a>
 
-                    <a class="left col s12 m12 l12 white-text" href="{% url 'account:my-membership' %}" style="padding: 10px;">My Membership
+                    <a class="left col s12 m12 l12" href="{% url 'account:my-membership' %}" style="padding: 10px;">My Membership
                         <span class="right" style=""> > </span>
                     </a>
 
@@ -61,7 +61,7 @@
                         <span class="right" style=""> > </span>
                     </a>
 
-                    <a class="left col s12 m12 l12" href="{% url 'account:change-picture' %}" style="padding: 10px;">Change Picture
+                    <a class="left col s12 m12 l12" href="" style="padding: 10px;">Change Picture
                         <span class="right" style=""> > </span>
                     </a>
                 </div>
@@ -70,62 +70,42 @@
             <div class="col m8 l9" style="padding: 0px; margin-top: 0px; opacity: .8;">
                 <div class="col s12 l12 white center-align" style="padding: 20px;">
 
-                    <h5 class="left-align">My Membership</h5>
 
-                    <div class="col l12" style="padding: 0px;">
-                        <div class="card orange">
-                            <div class="card-content black-text">
-                                <span class="card-title">Current Membership</span>
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
 
-                                <p>
-                                    Membership Name: {{ request.user.membership.name | title }}
-                                </p>
-
-                                <p>
-                                    Membership Package: {{ request.user.membership.package | title }}
-                                </p>
-
-                                {% if request.user.payments %}
-                                    <p>
-                                        Membership Start: {{ request.user.payments.creation_time | date }}
-                                    </p>
-
-                                    <p>
-                                        Membership Expired: {{ request.user.payments.expired_time | date }}
-                                    </p>
-                                {% endif %}
-                            </div>
+                        <div class="col s12 m10 offset-m1 l10 offset-l1 left-align">
+                            <h5>Basic Information</h5>
                         </div>
-                    </div>
 
+                        <div class="input-field col s12 m10 offset-m1 l10 offset-l1">
+                            {{ user_edit_form.email }}
+                            <label for="icon_prefix white-text">Email</label>
+                        </div>
 
-                    <div class="col l12" style="padding: 0px;">
-                        <table class="highlight centered bordered responsive-table" style="margin-bottom: 50px; margin-top: 30px;">
-                            <thead>
-                              <tr style="background-color: blue; color: white;">
-                                  <th>Level</th>
-                                  <th>Billing</th>
-                                  <th>Start</th>
-                                  <th>Expired</th>
-                                  <th>Status</th>
-                              </tr>
-                            </thead>
+                        <div class="input-field col s12 m10 offset-m1 l10 offset-l1">
+                            {{ user_edit_form.phone_number }}
+                            <label for="icon_prefix white-text">Phone Number</label>
+                        </div>
 
-                            <tbody>
-                                {% for payment in payments %}
-                                    <tr>
-                                        <td>{{ payment.membership.name | title }} - {{ payment.membership.package | title }}</td>
-                                        <td>{{ payment.membership.price }}$</td>
-                                        <td>{{ payment.creation_time | date }}</td>
-                                        <td>{{ payment.expired_time | date }}</td>
-                                        <td>{{ payment.is_verify | title }}</td>
-                                    </tr>
-                                {% endfor %}
-                            </tbody>
-                        </table>
-                    </div>
+                        <div class="input-field col s12 m10 offset-m1 l10 offset-l1">
+                            {{ user_edit_form.website }}
+                            <label for="icon_prefix white-text">Website</label>
+                        </div>
 
+                        <div class="input-field col s12 m10 offset-m1 l10 offset-l1">
+                            {{ user_edit_form.facebook }}
+                            <label for="icon_prefix white-text">Facebook</label>
+                        </div>
 
+                        <div class="input-field col s12 m10 offset-m1 l10 offset-l1">
+                            {{ user_edit_form.skype }}
+                            <label for="icon_prefix white-text">Skype</label>
+                        </div>
+
+                        <button type="submit" name="account_info" value="account_info" style="margin-bottom: 20px;" class="btn">Update</button>
+
+                    </form>
                 </div>
             </div>
         </div>

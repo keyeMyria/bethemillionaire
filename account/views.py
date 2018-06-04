@@ -9,6 +9,7 @@ from django.http import JsonResponse
 from django.db.models import Q
 import datetime
 from dateutil.relativedelta import relativedelta
+from django.contrib.auth import update_session_auth_hash
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger, Page
 
 import sys
@@ -1058,6 +1059,70 @@ class Profile(View):
         }
 
         return render(request, self.template_name, variables)
+
+
+
+
+
+#change password
+class ChangePassword(View):
+    template_name = 'account/change-password.html'
+
+    def get(self, request):
+        change_password_form = forms.ChangePasswordForm(request.user)
+
+        variables = {
+            'change_password_form': change_password_form,
+        }
+
+        return render(request, self.template_name, variables)
+
+    def post(self, request):
+        change_password_form = forms.ChangePasswordForm(data=request.POST or None, user=request.user)
+
+        if change_password_form.is_valid():
+            change_password_form.save()
+            update_session_auth_hash(request, change_password_form.user)
+
+            return redirect('account:profile')
+
+        variables = {
+            'change_password_form': change_password_form,
+        }
+
+        return render(request, self.template_name, variables)
+
+
+
+
+
+#change profile picture
+class ChangePicture(View):
+    template_name = 'account/profile-picture.html'
+
+    def get(self, request):
+        pp_change_form = forms.ProfilePictureUploadForm()
+
+        variables = {
+            'pp_change_form': pp_change_form,
+        }
+        return render(request, self.template_name, variables)
+
+    def post(self, request):
+        pp_change_form = forms.ProfilePictureUploadForm(request.POST or None, request.FILES, instance=models.UserProfile.objects.get(username=request.user.username))
+
+
+        if pp_change_form.is_valid():
+            pp_change_form.save()
+            return redirect('account:profile')
+
+        variables = {
+            'pp_change_form': pp_change_form,
+        }
+        return render(request, self.template_name, variables)
+
+
+
 
 
 #affiliate Netwok

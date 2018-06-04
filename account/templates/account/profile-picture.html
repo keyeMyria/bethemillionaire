@@ -1,6 +1,6 @@
 {% extends 'base1.html' %}
 
-{% block title %}{{ request.user.username }} | My Membership{% endblock %}
+{% block title %}{{ request.user.username }} | Profile Picture{% endblock %}
 
 {% block add-css %}
     {% load staticfiles %}
@@ -20,7 +20,7 @@
             background-image: url('/static/account/style/images/reg/back-1.jpeg');
             background-repeat: no-repeat;
             background-position: center;
-            height: 130vh;
+            height: 100%;
             width: 100%;
             background-size: cover;
         }
@@ -45,7 +45,7 @@
                 </div>
 
                 <div class="col s12 m12 l12 #1a237e indigo orange-text darken-4 left_main_menu" style="padding: 10px; margin-bottom: 20px;">
-                    <a class="left col s12 m12 l12" href="{% url 'account:profile' %}" style="padding: 10px;">Profile
+                    <a class="left col s12 m12 l12 white-text" href="{% url 'account:profile' %}" style="padding: 10px;">Profile
                         <span class="right" style=""> > </span>
                     </a>
 
@@ -53,7 +53,7 @@
                         <span class="right" style=""> > </span>
                     </a>
 
-                    <a class="left col s12 m12 l12 white-text" href="{% url 'account:my-membership' %}" style="padding: 10px;">My Membership
+                    <a class="left col s12 m12 l12" href="{% url 'account:my-membership' %}" style="padding: 10px;">My Membership
                         <span class="right" style=""> > </span>
                     </a>
 
@@ -70,62 +70,28 @@
             <div class="col m8 l9" style="padding: 0px; margin-top: 0px; opacity: .8;">
                 <div class="col s12 l12 white center-align" style="padding: 20px;">
 
-                    <h5 class="left-align">My Membership</h5>
 
-                    <div class="col l12" style="padding: 0px;">
-                        <div class="card orange">
-                            <div class="card-content black-text">
-                                <span class="card-title">Current Membership</span>
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
 
-                                <p>
-                                    Membership Name: {{ request.user.membership.name | title }}
-                                </p>
+                        <div class="col s12 m12 l12 left-align" style="padding: 0px;">
+                            <h5>Change My Picture</h5>
+                        </div>
 
-                                <p>
-                                    Membership Package: {{ request.user.membership.package | title }}
-                                </p>
+                        <div class="file-field input-field">
+                            <div class="btn">
+                                <span>File</span>
+                                {{ pp_change_form.profile_picture }}
+                            </div>
 
-                                {% if request.user.payments %}
-                                    <p>
-                                        Membership Start: {{ request.user.payments.creation_time | date }}
-                                    </p>
-
-                                    <p>
-                                        Membership Expired: {{ request.user.payments.expired_time | date }}
-                                    </p>
-                                {% endif %}
+                            <div class="file-path-wrapper">
+                                <input class="file-path validate" type="text">
                             </div>
                         </div>
-                    </div>
 
+                        <button type="submit" name="account_info" value="account_info" style="margin-bottom: 20px;" class="btn">Update</button>
 
-                    <div class="col l12" style="padding: 0px;">
-                        <table class="highlight centered bordered responsive-table" style="margin-bottom: 50px; margin-top: 30px;">
-                            <thead>
-                              <tr style="background-color: blue; color: white;">
-                                  <th>Level</th>
-                                  <th>Billing</th>
-                                  <th>Start</th>
-                                  <th>Expired</th>
-                                  <th>Status</th>
-                              </tr>
-                            </thead>
-
-                            <tbody>
-                                {% for payment in payments %}
-                                    <tr>
-                                        <td>{{ payment.membership.name | title }} - {{ payment.membership.package | title }}</td>
-                                        <td>{{ payment.membership.price }}$</td>
-                                        <td>{{ payment.creation_time | date }}</td>
-                                        <td>{{ payment.expired_time | date }}</td>
-                                        <td>{{ payment.is_verify | title }}</td>
-                                    </tr>
-                                {% endfor %}
-                            </tbody>
-                        </table>
-                    </div>
-
-
+                    </form>
                 </div>
             </div>
         </div>

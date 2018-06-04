@@ -60,6 +60,8 @@ urlpatterns = [
     url(r'^membership-account/profile/$', views.Profile.as_view(), name='profile'),
     url(r'^membership-account/affiliate-network/$', views.AffiliateNetwork.as_view(), name='affiliate-network'),
     url(r'^membership-account/my-membership/$', views.MyMembership.as_view(), name='my-membership'),
+    url(r'^membership-account/change-password/$', views.ChangePassword.as_view(), name='change-password'),
+    url(r'^membership-account/change-picture/$', views.ChangePicture.as_view(), name='change-picture'),
 
 
     url(r'^membership-account/my-referrals/$', views.MyReferrals.as_view(), name='my-referrals'),
