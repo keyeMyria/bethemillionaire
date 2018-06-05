@@ -205,7 +205,7 @@
         <!-- end web sub menu -->
 
 
-
+        {% if user.is_authenticated %}
         <nav class="black">
             <div class="nav-wrapper">
 
@@ -391,6 +391,8 @@
             </div>
         </div>
 
+        {% endif %}
+
         {% block main %}
 
         {% endblock %}
@@ -499,7 +501,7 @@
             .fadeOut();
     });
 
-
+    {% if user.is_authenticated %}
     $(document).ready(function(){
         var username = $("#login_username").val();
 
@@ -523,6 +525,8 @@
                 }
         });
     })
+
+    {% endif %}
 </script>
 
 <script type="text/javascript">

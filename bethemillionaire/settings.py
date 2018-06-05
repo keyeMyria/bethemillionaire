@@ -152,6 +152,11 @@ LOGIN_EXEMPT_URLS = (
  r'^admin/$',
  r'^account/login/$',
 
+
+ r'^live/([0-9a-zA-Z.-]+)/$',
+ r'^live-chat-message/([0-9a-zA-Z.-_]+)/$',
+
+
  r'^topic/step-1-overview/$',
  r'^topic/step-2-set-up-your-bitcoin-wallet-load-it-with-bitcoins/$',
 

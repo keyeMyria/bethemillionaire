@@ -791,10 +791,14 @@ class Live(View):
 
         db_room_name = 'chat_%s' %(room_name)
 
+        path = request.get_full_path()
+
         variables = {
             'room_name_json': mark_safe(json.dumps(room_name)),
             'db_room_name': db_room_name,
             'room_name': room_name,
+
+            'path': path,
         }
 
         return render(request, self.template_name, variables)
@@ -819,11 +823,17 @@ class LiveChatMessageAPI(APIView):
         serializer = None
         x = 'User authorized'
 
+        """
         if request.user.is_authenticated():
             message_obj = models.LiveChatMessage.objects.filter(room=room_name)
             serializer = serializers.LiveChatMessageSerializers(message_obj, many=True).data
         else:
             x = 'Error authentication'
+        """
+
+        message_obj = models.LiveChatMessage.objects.filter(room=room_name)
+        serializer = serializers.LiveChatMessageSerializers(message_obj, many=True).data
+
 
         return Response({
             'data': serializer,

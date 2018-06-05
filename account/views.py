@@ -105,6 +105,7 @@ class Login(View):
         form = LoginForm(request.POST or None)
 
         s = request.GET.get('s')
+        redirect_url = request.GET.get('url')
 
         if form.is_valid():
             user = form.login(request)
@@ -113,6 +114,8 @@ class Login(View):
 
                 if s == 'welcome':
                     return redirect('topic:step_1')
+                elif redirect_url:
+                    return HttpResponseRedirect(redirect_url)
                 else:
                     return HttpResponseRedirect("/")
         variables = {
