@@ -62,8 +62,57 @@
 
                 <div class="col s12 m12 l12 center-align" style="margin-top: 30px;">
                     <h5>Share Now on Facebook</h5>
-                    <iframe src="https://www.facebook.com/plugins/share_button.php?href={{ request.build_absolute_uri }}&layout=button_count&size=large&mobile_iframe=true&appId=135252217333448&width=100&height=35" width="100" height="35" style="border:none;overflow:hidden;" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+                    <!--<iframe src="https://www.facebook.com/plugins/share_button.php?href={{ request.build_absolute_uri }}&layout=button_count&size=large&mobile_iframe=true&appId=135252217333448&width=100&height=35" width="100" height="35" style="border:none;overflow:hidden;" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+                -->
+                    <!-- Your share button code -->
+                  <div class="fb-share-button"
+                    data-href="https://www.bethemillionaire.com"
+                    data-size="large"
+                    data-layout="button_count">
+                  </div>
                 </div>
+
+
+
+
+
+
+
+                <!-- Load Facebook SDK for JavaScript -->
+                <div id="fb-root"></div>
+                <script>(function(d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(id)) return;
+                    js = d.createElement(s); js.id = id;
+                    js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0&appId=135252217333448&autoLogAppEvents=1";
+                    fjs.parentNode.insertBefore(js, fjs);
+                  }(document, 'script', 'facebook-jssdk'));
+                </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
             </div>
