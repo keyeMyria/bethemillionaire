@@ -7,8 +7,8 @@ SECRET_KEY = 'o-acz@*s1_-wixn+1f-g8to38s8h@y%=+w)hyop&xsutdg=ua4'
 
 DEBUG = True
 
-#ALLOWED_HOSTS = ['138.68.161.80', 'bethemillionaire.com', 'www.bethemillionaire.com']
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['138.68.161.80', 'bethemillionaire.com', 'www.bethemillionaire.com']
+#ALLOWED_HOSTS = []
 
 
 INSTALLED_APPS = [
