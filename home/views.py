@@ -593,7 +593,7 @@ class PassiveIncome(View):
 
 #crypto trading
 class CryptoTrading(View):
-    template_name = 'home/crypto-trading.html'
+    template_name = 'home/crypto-trading_v_1.html'
 
     def get(self, request):
 
@@ -606,7 +606,7 @@ class CryptoTrading(View):
 
 #crypto mining
 class CryptoMining(View):
-    template_name = 'home/crypto-mining.html'
+    template_name = 'home/crypto-mining_v_1.html'
 
     def get(self, request):
 
@@ -619,7 +619,7 @@ class CryptoMining(View):
 
 #crypto resource
 class CryptoResource(View):
-    template_name = 'home/crypto-resource.html'
+    template_name = 'home/crypto-resource_v_1.html'
 
     def get(self, request):
 
@@ -633,7 +633,7 @@ class CryptoResource(View):
 
 #crypto tools
 class CryptoTool(View):
-    template_name = 'home/crypto-tool.html'
+    template_name = 'home/crypto-tool_v_1.html'
 
     def get(self, request):
 
@@ -647,7 +647,7 @@ class CryptoTool(View):
 
 #crypto tools
 class HardwareWallet(View):
-    template_name = 'home/hardware-wallet.html'
+    template_name = 'home/hardware-wallet_v_1.html'
 
     def get(self, request):
 
@@ -682,7 +682,7 @@ class HardwareWallet(View):
 
 #social trading
 class SocialTrading(View):
-    template_name = 'home/social-trading.html'
+    template_name = 'home/social-trading_v_1.html'
 
     def get(self, request):
 
@@ -696,7 +696,7 @@ class SocialTrading(View):
 
 #useful sides
 class UsefulSide(View):
-    template_name = 'home/useful-side.html'
+    template_name = 'home/useful-side_v_1.html'
 
     def get(self, request):
 

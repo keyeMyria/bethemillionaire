@@ -1,0 +1,203 @@
+{% extends 'base_v_2.html' %}
+
+{% block title %}BeTheMillionaire | Useful Side{% endblock %}
+
+{% block add-css %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home/style/index.css' %}">
+
+    <style>
+        .left_main_menu a{
+            color: orange;
+        }
+
+        .left_main_menu a:hover{
+            color: white;
+            text-decoration: underline;
+        }
+
+        #particles-js1{
+            background-image: url('/static/account/style/images/reg/back-1.jpeg');
+            background-repeat: repeat;
+            background-position: center;
+            min-height: 290vh;
+            width: 100%;
+        }
+    </style>
+{% endblock %}
+
+{% block main %}
+    <div class="row" id="particles-js1" style="">
+        <div class="col s12 l8 offset-l2" style="">
+            <div class="col s12 m4 l3 blue hide-on-med-and-down" style="">
+                <div class="col s12 m12 l12 #1a237e indigo orange-text darken-4 center-align" style="padding: 10px;">
+                    <h5>Passive Profits</h5>
+                </div>
+
+                <div class="col s12 m12 l12 white center-align" style="min-height: 200px;">
+                    {% if request.user.profile_picture %}
+                        <img class="col m10 offset-m1 l10 offset-l1" src="{{ request.user.profile_picture.url}}" height="100%" width="100%" style="margin-top: 20px;" alt="">
+                    {% else %}
+                        <img class="col m10 offset-m1 l10 offset-l1" src="{% static 'account/style/images/no-img.jpg' %}" height="100%" width="100%" style="margin-top: 20px;" alt="">
+                    {% endif %}
+                    <p style="margin-bottom: 10px;">@{{ request.user.username | title }}</p>
+                </div>
+
+                <div class="col s12 m12 l12 #1a237e indigo orange-text darken-4 left_main_menu" style="padding: 10px; margin-bottom: 20px;">
+                    <a class="left col s12 m12 l12" href="{% url 'home:passive-income' %}" style="padding: 10px;">Passive Income
+                        <span class="right" style=""> > </span>
+                    </a>
+
+                    <a class="left col s12 m12 l12" href="{% url 'home:crypto-trading' %}" style="padding: 10px;">Crypto Trading
+                        <span class="right" style=""> > </span>
+                    </a>
+
+                    <a class="left col s12 m12 l12" href="{% url 'home:crypto-mining' %}" style="padding: 10px;">Crypto mining
+                        <span class="right" style=""> > </span>
+                    </a>
+
+                    <a class="left col s12 m12 l12 white-text" href="{% url 'home:crypto-resource' %}" style="padding: 10px;">Crypto Recources
+                        <span class="right" style=""> > </span>
+                    </a>
+
+                    <!--crypto resource sub menu-->
+
+                    <a class="left col m10 offset-m1 l10 offset-l1" href="{% url 'home:crypto-resource' %}" style="padding: 10px;">Crypto exchange
+                        <span class="right" style=""> > </span>
+                    </a>
+
+                    <a class="left col m10 offset-m1 l10 offset-l1" href="{% url 'home:crypto-tool' %}" style="padding: 10px;">Trading tools
+                        <span class="right" style=""> > </span>
+                    </a>
+
+                    <a class="left col m10 offset-m1 l10 offset-l1" href="{% url 'home:hardware-wallet' %}" style="padding: 10px;">Hardware wallet
+                        <span class="right" style=""> > </span>
+                    </a>
+
+                    <a class="left col m10 offset-m1 l10 offset-l1" href="{% url 'home:social-trading' %}" style="padding: 10px;">Scoial trading
+                        <span class="right" style=""> > </span>
+                    </a>
+
+                    <a class="left col m10 offset-m1 l10 offset-l1 white-text" href="{% url 'home:useful-side' %}" style="padding: 10px;">Useful sides
+                        <span class="right" style=""> > </span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col s12 m8 l9" style="padding: 0px; margin-top: 0px; opacity: .9;">
+                <div class="col s12 l12 white center-align" style="">
+                    <div class="col s12 m12 l12" style="padding: 0px;">
+
+
+
+
+
+                        <!--passive income navigation menu for mobile-->
+
+
+                        <!-- Modal Trigger -->
+
+                        <a style="margin-top: 10px;" class="left-align waves-effect waves-light btn red modal-trigger hide-on-large-only" href="#passive-menu">Passive Income Locator</a>
+
+                        <!-- Modal Structure -->
+                        <div id="passive-menu" class="modal bottom-sheet">
+                            <div class="modal-content">
+                                <div class="collection left-align">
+                                    <a href="{% url 'home:passive-income' %}" class="collection-item">Passive Income</a>
+                                    <a href="{% url 'home:crypto-trading' %}" class="collection-item">Crypto Trading</a>
+                                    <a href="{% url 'home:crypto-mining' %}" class="collection-item">Income Stream</a>
+                                    <a href="{% url 'home:crypto-resource' %}" class="collection-item">Crypto Resources</a>
+
+                                    <a href="{% url 'home:crypto-tool' %}" class="collection-item">Trading tools</a>
+                                    <a href="{% url 'home:hardware-wallet' %}" class="collection-item">Hardware wallet</a>
+                                    <a href="{% url 'home:social-trading' %}" class="collection-item">Scoial trading</a>
+                                    <a href="{% url 'home:useful-side' %}" class="collection-item orange-text">Useful sides</a>
+
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+                        <!--end passive income navigation menu for mobile-->
+
+
+
+
+
+                        <!--crypto mining-->
+                        <div id="crypto_mining" class="col s12 m12 l12" style="margin-bottom: 20px; padding: 0px;">
+                            <h3 class="orange-text hide-on-med-and-down" style="text-decoration: underline;">Useful Sides</h3>
+                            <h5 class="orange-text hide-on-large-only" style="text-decoration: underline;">Useful Sides</h5>
+
+                            <h5 class="left-align col s12 m12 l12 orange-text" style="padding: 0px;">
+                                Cryptocurrencies are one of the most profitable markets to trade. The crypto markets can be a wild roller coaster of volatility which has the potential for big gains and losses. Crypto Trading is a zero sum game, which means that not everyone can be a winner. In fact most traders lose money and only a few ever get to a point of making consistent gains.
+
+                                To be a successful trader it’s important to define a set of rules and stick to them. Trading is a game of probabilities and you need to find your edge to push the ratio in your favour.
+                            </h5>
+
+                            <div class="col s12 m12 l12" style="margin-top: 10px; margin-bottom: 40px; padding: 0px;">
+                                <div class="video-container" style="">
+                                    <iframe width="100%" height="450px" src="https://www.youtube.com/embed/AajNTycAjKo" frameborder="0" gesture="media" allow="encrypted-media" autoplay="true" allowfullscreen></iframe>
+                                </div>
+                            </div>
+
+
+                            <h5 class="left-align orange-text left-align" style="margin-top: 50px; text-decoration:underline;">
+                                Combine Fundamental and Technical Analysis
+                            </h5>
+
+                            <p class="left-align">
+                                Cryptocurrencies are a combination of finance and technology. This is a fast paced industry that is constantly evolving. From my experience, I find that the perfect trade set ups combine both fundamental and technical analysis.
+                                <br>
+                                The crypto markets can respond to information about new coin features. Many traders will panic buy for fear of missing out so it’s important to be one step ahead of the herd. You can do this by incorporating fundamental research into your daily routine.
+                                <br>
+                                From a technical standpoint it’s good to back your research by mapping out price action on the charts. Traders use charts to measure price movements for strategizing good price entries.
+                            </p>
+
+                            <h5 class="left-align orange-text left-align" style="margin-top: 50px; text-decoration:underline;">
+                                Choose Quality Over Quantity
+                            </h5>
+
+                            <p class="left-align">
+                                The biggest mistake that people make is to over trade the markets. Most of the time prices have a 50/50 probability of moving in your favour. Smart traders know how to be patient and increase the probability by exploiting price inefficiencies.
+                                <br>
+                                Usually the best time to trade is when the markets become exaggerated. There are times when you’ll want to ride strong momentum and other times when you’ll want to be a contrarian by going against the herd.
+                                <br>
+                                The recent 1500% gains in ethereum was the perfect storm to pull off some big winning trades.
+                            </p>
+
+                            <h5 class="left-align orange-text left-align" style="margin-top: 50px; text-decoration:underline;">
+                                Manage Risk
+                            </h5>
+
+                            <p class="left-align">
+                                Being a successful trader is more about managing risk than always being right. It’s not possible to be accurate 100% of the time. There will be moments where you may find yourself on the wrong side of the markets. Do you have an exit strategy for being in a bad trade?
+                                <br>
+                                Traders who stubbornly hold onto their ideas in spite of being wrong learn this lesson the hard way. There is a fine balance between sticking to your plan and being flexible. Before entering into a trade it’s a good idea to measure the risk to reward ratio and determine the area where you’ll set your stops.
+                                <br>
+                                It’s one thing knowing when to get into a trade but can be more challenging timing your exit. Close your trade too soon and you’ll cut your profits short. Hold on for too long and you may lose your gains. You can manage your trades more effectively by scaling in and out of your position along the way. There’s a maxim in the trading world that says “cut your losses short and let your winners ride.”
+                            </p>
+
+                        </div>
+                        <!--end crypto mining-->
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block script %}
+
+<script>
+
+  $(document).ready(function(){
+    $('.modal').modal();
+  });
+</script>
+
+{% endblock %}

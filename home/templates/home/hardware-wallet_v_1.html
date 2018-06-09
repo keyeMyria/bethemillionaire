@@ -1,0 +1,186 @@
+{% extends 'base_v_2.html' %}
+
+{% block title %}BeTheMillionaire | Hardware Wallet{% endblock %}
+
+{% block add-css %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home/style/index.css' %}">
+
+    <style>
+        .left_main_menu a{
+            color: orange;
+        }
+
+        .left_main_menu a:hover{
+            color: white;
+            text-decoration: underline;
+        }
+
+        #particles-js1{
+            background-image: url('/static/account/style/images/reg/back-1.jpeg');
+            background-repeat: repeat;
+            background-position: center;
+            min-height: 310vh;
+            width: 100%;
+        }
+    </style>
+{% endblock %}
+
+{% block main %}
+    <div class="row" id="particles-js1" style="">
+        <div class="col s12 l8 offset-l2" style="">
+            <div class="col s12 m4 l3 blue hide-on-med-and-down" style="">
+                <div class="col s12 m12 l12 #1a237e indigo orange-text darken-4 center-align" style="padding: 10px;">
+                    <h5>Passive Profits</h5>
+                </div>
+
+                <div class="col s12 m12 l12 white center-align" style="min-height: 200px;">
+                    {% if request.user.sponsor.profile_picture %}
+                        <img class="col m10 offset-m1 l10 offset-l1" src="{{ request.user.sponsor.profile_picture.url}}" height="100%" width="100%" style="margin-top: 20px;" alt="">
+                    {% else %}
+                        <img class="col m10 offset-m1 l10 offset-l1" src="{% static 'account/style/images/no-img.jpg' %}" height="100%" width="100%" style="margin-top: 20px;" alt="">
+                    {% endif %}
+                    <p style="margin-bottom: 10px;">@{{ request.user.sponsor.username | title }}</p>
+                </div>
+
+                <div class="col s12 m12 l12 #1a237e indigo orange-text darken-4 left_main_menu" style="padding: 10px; margin-bottom: 20px;">
+                    <a class="left col s12 m12 l12" href="{% url 'home:passive-income' %}" style="padding: 10px;">Passive Income
+                        <span class="right" style=""> > </span>
+                    </a>
+
+                    <a class="left col s12 m12 l12" href="{% url 'home:crypto-trading' %}" style="padding: 10px;">Crypto Trading
+                        <span class="right" style=""> > </span>
+                    </a>
+
+                    <a class="left col s12 m12 l12" href="{% url 'home:crypto-mining' %}" style="padding: 10px;">Crypto mining
+                        <span class="right" style=""> > </span>
+                    </a>
+
+                    <a class="left col s12 m12 l12 white-text" href="{% url 'home:crypto-resource' %}" style="padding: 10px;">Crypto Recources
+                        <span class="right" style=""> > </span>
+                    </a>
+
+                    <!--crypto resource sub menu-->
+
+                    <a class="left col m10 offset-m1 l10 offset-l1" href="{% url 'home:crypto-resource' %}" style="padding: 10px;">Crypto exchange
+                        <span class="right" style=""> > </span>
+                    </a>
+
+                    <a class="left col m10 offset-m1 l10 offset-l1" href="{% url 'home:crypto-tool' %}" style="padding: 10px;">Trading tools
+                        <span class="right" style=""> > </span>
+                    </a>
+
+                    <a class="left col m10 offset-m1 l10 offset-l1 white-text" href="{% url 'home:hardware-wallet' %}" style="padding: 10px;">Hardware wallet
+                        <span class="right" style=""> > </span>
+                    </a>
+
+                    <a class="left col m10 offset-m1 l10 offset-l1" href="{% url 'home:social-trading' %}" style="padding: 10px;">Scoial trading
+                        <span class="right" style=""> > </span>
+                    </a>
+
+                    <a class="left col m10 offset-m1 l10 offset-l1" href="{% url 'home:useful-side' %}" style="padding: 10px;">Useful sides
+                        <span class="right" style=""> > </span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col s12 m8 l9" style="padding: 0px; margin-top: 0px; opacity: .9;">
+                <div class="col s12 l12 white center-align" style="">
+                    <div class="col s12 m12 l12" style="padding: 0px;">
+
+
+
+                        <!--passive income navigation menu for mobile-->
+
+
+                        <!-- Modal Trigger -->
+
+                        <a style="margin-top: 10px;" class="left-align waves-effect waves-light btn red modal-trigger hide-on-large-only" href="#passive-menu">Passive Income Locator</a>
+
+                        <!-- Modal Structure -->
+                        <div id="passive-menu" class="modal bottom-sheet">
+                            <div class="modal-content">
+                                <div class="collection left-align">
+                                    <a href="{% url 'home:passive-income' %}" class="collection-item">Passive Income</a>
+                                    <a href="{% url 'home:crypto-trading' %}" class="collection-item">Crypto Trading</a>
+                                    <a href="{% url 'home:crypto-mining' %}" class="collection-item">Income Stream</a>
+                                    <a href="{% url 'home:crypto-resource' %}" class="collection-item">Crypto Resources</a>
+
+                                    <a href="{% url 'home:crypto-tool' %}" class="collection-item ">Trading tools</a>
+                                    <a href="{% url 'home:hardware-wallet' %}" class="collection-item orange-text">Hardware wallet</a>
+                                    <a href="{% url 'home:social-trading' %}" class="collection-item">Scoial trading</a>
+                                    <a href="{% url 'home:useful-side' %}" class="collection-item">Useful sides</a>
+
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+                        <!--end passive income navigation menu for mobile-->
+
+
+
+
+
+
+
+                        <!--crypto mining-->
+                        <div id="crypto_mining" class="col s12 m12 l12" style="margin-bottom: 20px; padding: 0px;">
+                            <h3 class="orange-text hide-on-med-and-down" style="text-decoration: underline;">Hardware Wallet</h3>
+                            <h5 class="orange-text hide-on-large-only" style="text-decoration: underline;">Hardware Wallet</h5>
+
+                            <h5 class="left-align col s12 m12 l12 orange-text" style="padding: 0px;">
+                                Hardware wallets are basically an electronic invention made to store your private keys offline away from the vulnerable online environment so that they can’t be hacked. This is the most secure and safest way to store your bitcoins because they are stored in an offline environment and is recommended for storing large amounts of Bitcoins. The wallets are on a physical device, they store the user’s private keys on a hardware device and connect to PC with USB. If you don’t want to risk any crypto-currency you keep it on a cold storage device! It’s the method of choice for many bitcoin holders to keep significant quantities of bitcoins. Hardware bitcoin wallets are user-friendly and portable. In case your device is destroyed, as long as you have a backup code, you can retrieve your keys and bitcoins. My top recommended hardware wallets:
+                            </h5>
+
+
+                            <div class="col s12 m12 l12" style="margin-top: 10px; margin-bottom: 40px; padding: 0px;">
+                                <div class="video-container" style="">
+                                    <iframe width="100%" height="450px" src="https://www.youtube.com/embed/AajNTycAjKo" frameborder="0" gesture="media" allow="encrypted-media" autoplay="true" allowfullscreen></iframe>
+                                </div>
+                            </div>
+
+
+                            <h3 class="orange-text hide-on-med-and-down" style="text-decoration: underline;">Trezor</h3>
+                            <h5 class="orange-text hide-on-large-only" style="text-decoration: underline;">Trezor</h5>
+
+                            <h5 class="left-align orange-text" style="margin-top: 50px;">The most trusted and secure way to store your bitcoins. Isolate your private keys into the safety of TREZOR & enjoy Bitcoin without risk. The best protection at no cost to your convenience.</h5>
+
+                            <a target="_blank" href="{{ trezors_account.trezor_username }}" class="col s12 m12 l12 btn waves-effect waves-light orange black-text" style="margin-top: 20px;">
+                                Trezor
+                            </a>
+
+                            <p class="col s12 m12 l12 divider" style="margin-top: 50px; margin-bottom: 50px;"></p>
+
+                            <h3 class="orange-text hide-on-med-and-down" style="text-decoration: underline;">Ledger Nano S</h3>
+                            <h5 class="orange-text hide-on-large-only" style="text-decoration: underline;">Ledger Nano S</h5>
+
+                            <h5 class="left-align orange-text" style="margin-top: 50px;">Ledger Nano S is a Bitcoin, Ethereum and Altcoins hardware wallet, based on robust safety features for storing cryptographic assets and securing digital payments. It connects to any computer (USB) and embeds a secure OLED display to double-check and confirm each transaction with a single tap on its side buttons.</h5>
+
+                            <a target="_blank" href="{{ ladger_nano_s_account.ledger_nano_s_username }}" class="col s12 m12 l12 btn waves-effect waves-light orange black-text" style="margin-top: 20px;">
+                                Ledger Nano S
+                            </a>
+
+                        </div>
+                        <!--end crypto mining-->
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block script %}
+
+<script>
+
+  $(document).ready(function(){
+    $('.modal').modal();
+  });
+</script>
+
+{% endblock %}

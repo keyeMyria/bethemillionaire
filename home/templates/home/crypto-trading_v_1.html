@@ -1,0 +1,180 @@
+{% extends 'base_v_2.html' %}
+
+{% block title %}BeTheMillionaire | Crypto Trading{% endblock %}
+
+{% block add-css %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home/style/index.css' %}">
+
+    <style>
+        .left_main_menu a{
+            color: orange;
+        }
+
+        .left_main_menu a:hover{
+            color: white;
+            text-decoration: underline;
+        }
+
+        #particles-js1{
+            background-image: url('/static/account/style/images/reg/back-1.jpeg');
+            background-repeat: repeat;
+            background-position: center;
+            min-height: 250vh;
+            width: 100%;
+
+        }
+    </style>
+{% endblock %}
+
+{% block main %}
+    <div class="row" id="particles-js1" style="">
+        <div class="col s12 m12 l8 offset-l2" style="padding: 0px;">
+            <div class="col s12 m4 l3 blue hide-on-med-and-down" style="padding: 0px;">
+                <div class="col s12 m12 l12 #1a237e indigo orange-text darken-4 center-align" style="padding: 10px;">
+                    <h5>Passive Profits</h5>
+                </div>
+
+                <div class="col s12 m12 l12 white center-align" style="min-height: 200px;">
+                    {% if request.user.sponsor.profile_picture %}
+                        <img class="col m10 offset-m1 l10 offset-l1" src="{{ request.user.sponsor.profile_picture.url}}" height="100%" width="100%" style="margin-top: 20px;" alt="">
+                    {% else %}
+                        <img class="col m10 offset-m1 l10 offset-l1" src="{% static 'account/style/images/no-img.jpg' %}" height="100%" width="100%" style="margin-top: 20px;" alt="">
+                    {% endif %}
+                    <p style="margin-bottom: 10px;">@{{ request.user.sponsor.username | title }}</p>
+                </div>
+
+                <div class="col s12 m12 l12 #1a237e indigo orange-text darken-4 left_main_menu" style="padding: 10px; margin-bottom: 20px;">
+                    <a class="left col s12 m12 l12" href="{% url 'home:passive-income' %}" style="padding: 10px;">Passive Income
+                        <span class="right" style=""> > </span>
+                    </a>
+
+                    <a class="left col s12 m12 l12 white-text" href="{% url 'home:crypto-trading' %}" style="padding: 10px;">Crypto Trading
+                        <span class="right" style=""> > </span>
+                    </a>
+
+                    <a class="left col s12 m12 l12" href="{% url 'home:crypto-mining' %}" style="padding: 10px;">Income Stream
+                        <span class="right" style=""> > </span>
+                    </a>
+
+                    <a class="left col s12 m12 l12" href="{% url 'home:crypto-resource' %}" style="padding: 10px;">Crypto Resources
+                        <span class="right" style=""> > </span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col s12 m8 l9" style="padding: 0px; margin-top: 0px; opacity: .9;">
+                <div class="col s12 m12 l12 white center-align" style="padding: 10px;">
+
+
+
+                    <!--passive income navigation menu for mobile-->
+
+
+                    <!-- Modal Trigger -->
+
+                    <a class="left-align waves-effect waves-light btn red modal-trigger hide-on-large-only" href="#passive-menu">Passive Income Locator</a>
+
+                    <!-- Modal Structure -->
+                    <div id="passive-menu" class="modal bottom-sheet">
+                        <div class="modal-content">
+                            <div class="collection left-align">
+                                <a href="{% url 'home:passive-income' %}" class="collection-item">Passive Income</a>
+                                <a href="{% url 'home:crypto-trading' %}" class="collection-item orange-text">Crypto Trading</a>
+                                <a href="{% url 'home:crypto-mining' %}" class="collection-item">Income Stream</a>
+                                <a href="{% url 'home:crypto-resource' %}" class="collection-item">Crypto Resources</a>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+
+                    <!--end passive income navigation menu for mobile-->
+
+
+
+
+
+                    <h4 class="left-align orange-text hide-on-med-and-down">Watch The Video Below And Set Up Your Passive Income Wealth Building Vehicles!</h4>
+
+                    <h5 class="left-align orange-text hide-on-large-only">Watch The Video Below And Set Up Your Passive Income Wealth Building Vehicles!</h5>
+
+                    <div class="col s12 m12 l12" style="margin-top: 10px; margin-bottom: 40px; padding: 0px;">
+                        <div class="video-container" style="">
+                            <iframe width="100%" height="450px" src="https://www.youtube.com/embed/AajNTycAjKo" frameborder="0" gesture="media" allow="encrypted-media" autoplay="true" allowfullscreen></iframe>
+                        </div>
+                    </div>
+
+
+
+                    <div class="col s12 m12 l12" style="padding: 0px; margin-top: 20px;">
+
+                        <!--trading crypto-->
+                        <div id="trading_crypto" class="col s12 m12 l12 left-align" style="margin-top: 20px; margin-bottom: 20px; padding: 0px;">
+                            <h5 class="left-align orange-text">
+                                Discover How To Trade Cryptocurrencies Like A Pro And 10X – 100X Your Bitcoin and Crypto Portfolio Learning From Crypto Millionaire Traders!
+                            </h5>
+
+                            <p style="margin-top: 20px;">
+                                <i class="material-icons">check</i> Get LIVE Weekly Trading coaching and market updates from people who 100X their Crypto portfolio and became Bitcoin millionaires
+                            </p>
+
+                            <p style="margin-top: 20px;">
+                                <i class="material-icons">check</i> Get Crypto Trading Course That Will Teach You A-Z How To Buy Low And Sell High So You Can Live The Lifestyle Of Your Dreams
+                            </p>
+
+                            <p style="margin-top: 20px;">
+                                <i class="material-icons">check</i> Get Real Time Trading Signals, Learn Which Are The Best Coins To Buy In 2018 That Will Almost Guarantee To Increase In Value For Mid To Long Term!
+                            </p>
+
+                            <a target="_blank" href="{% url 'account:membership-level-premium' %}" class="col s12 m12 l12 btn waves-effect waves-light orange black-text" style="margin-top: 20px;">
+                                crypto trading millionaire
+                            </a>
+
+                            <p class="col s12 m12 l12 divider" style="margin-top: 50px;"></p>
+
+                            <h5 class="left-align col s12 m12 l12 orange-text" style="margin-top: 50px; padding: 0px;">
+                                Discover How This Proven Automated Crypto Trading Software Connects To Your Exchanges And Does Winning Trades on Your Behalf While You Keep All Bitcoin!
+                            </h5>
+
+                            <p style="margin-top: 20px;">
+                                <i class="material-icons">check</i> Get access to the most innovative crypto trading platform on the market which specializes in automated cryptocurrency trading.
+                            </p>
+
+                            <p style="margin-top: 20px;">
+                                <i class="material-icons">check</i> Always be in control of your Bitcoin and cryptocurrencies assets at all times.
+                            </p>
+
+                            <p style="margin-top: 20px;">
+                                <i class="material-icons">check</i> Improve the performance of your trades by getting access to proprietary automatic and semiautomatic instant trading. The software connects via API to YOUR exchanges like Binance, Bittrex, HitBTC and OKex and opens and closes trades on your behalf.
+                            </p>
+
+                            <p style="margin-top: 20px;">
+                                <i class="material-icons">check</i> Trade on the go with our mobile APP – Stay connected to your favorite cryptocurrency exchanges and start trading in seconds!
+                            </p>
+
+                            <a target="_blank" href="{% url 'account:membership-level-vip' %}" class="col s12 m12 l12 btn waves-effect waves-light orange black-text" style="margin-top: 20px;">
+                                crypto trading software
+                            </a>
+                        </div>
+                        <!--end trading crypto-->
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block script %}
+
+<script>
+  $(document).ready(function(){
+    $('.modal').modal();
+  });
+</script>
+
+{% endblock %}
