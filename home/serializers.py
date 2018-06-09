@@ -3,8 +3,8 @@ from . import models
 
 
 class LiveChatMessageSerializers(serializers.ModelSerializer):
-    chat_user = serializers.CharField(source='user.username')
+    user = serializers.CharField(source='user.username')
 
     class Meta:
         model = models.LiveChatMessage
-        fields = ('room', 'message', 'chat_user')
+        fields = ('room', 'message', 'user')

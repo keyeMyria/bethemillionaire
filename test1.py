@@ -1,19 +1,11 @@
+import requests
 import pymysql
-import smtplib
-from email.mime.multipart import MIMEMultipart
-from email.mime.text import MIMEText
 
 
-def send_email(receiver):
-    fr = "support@bethemillionaire.com"
-    to = receiver
-
-    msg = MIMEMultipart('alternative')
-    msg['Subject'] = "Important Notice From BeTheMillionaire"
-    msg['From'] = 'support@bethemillionaire.com'
-    msg['To'] = "no-reply@bethemillionaire.com"
-
-    html = """\
+def send_simple_message(receiver):
+    html = """
+    
+    
     <html>
       <head></head>
       <body>
@@ -44,22 +36,23 @@ def send_email(receiver):
                 
       </body>
     </html>
+    
+    
+    
     """
 
-    part2 = MIMEText(html, 'html')
 
-    msg.attach(part2)
-
-    s = smtplib.SMTP('smtp.gmail.com', 587)
-    s.starttls()
-    s.login(fr, "menaKP00")
-    s.sendmail(fr, to, msg.as_string())
-    s.quit()
-
+    return requests.post(
+        "https://api.mailgun.net/v3/bethemillionaire.com/messages",
+        auth=("api", "8e2ff957f5281ca176f75e1089eb2af9-b892f62e-fcfd83f3"),
+        data={"from": "live@bethemillionaire.com",
+              "to": receiver,
+              "subject": "Important notice from BeTheMillionaire",
+              "html": html})
 
 
 
-def fetch_db():
+def email_list_from_db():
     db = pymysql.connect(user="root",passwd="Nstu12345678~!",host="46.101.14.199",db="be_themillionaire")
     cursor = db.cursor()
     cursor.execute("SELECT email from account_userprofile")
@@ -67,10 +60,28 @@ def fetch_db():
     email_list = []
 
     for row in data :
-        #email_list.append(row[0])
-        send_email(row[0])
-        print('email sent to : %s' %row[0])
+        email_list.append(row[0])
     db.close()
 
+    return email_list
 
-fetch_db()
+
+
+
+def email_trigger():
+    email_list = email_list_from_db()
+
+    n=1
+    for email in email_list:
+        send_simple_message(email)
+        print("%d. email send to %s" %(n, email))
+
+        n += 1
+
+
+
+if __name__ == '__main__':
+    email_trigger()
+
+
+
