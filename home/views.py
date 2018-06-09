@@ -580,7 +580,7 @@ class PersonalTraining(View):
 
 #passive income
 class PassiveIncome(View):
-    template_name = 'home/passive-income_v_1.html'
+    template_name = 'home/passive-income_v_2.html'
 
     def get(self, request):
 
