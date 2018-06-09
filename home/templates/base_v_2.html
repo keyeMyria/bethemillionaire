@@ -40,14 +40,13 @@
 
 
         .nav-wrapper ul li a{
-            color: orange;
             font-size: 13px;
+            color: orange;
         }
 
         .nav-wrapper ul li a:hover{
-            color: white;
+            color: grey;
         }
-
 
 
 
@@ -226,6 +225,29 @@
                     <li><a class="dropdown-trigger dropdown-button1" href="#!" data-target="support">Support<i class="material-icons right">arrow_drop_down</i></a></li>
                 </ul>
                 <!--main web menu-->
+
+
+
+                <ul class="right white-text" style="">
+                    <li><a class="dropdown-trigger dropdown-button1 waves-effect waves-light btn green white-text" data-alignment="right" data-target="dropdown-lang">Language</a></li>
+
+                    <ul id='dropdown-lang' class='dropdown-content translation-links' style="">
+                        <li><a href="#" class="" data-lang="Arabic">Arabic</a></li>
+                        <li><a href="#" class="" data-lang="English">English</a></li>
+                    </ul>
+
+
+                    {% if user.is_authenticated %}
+                    <li><a class="dropdown-button waves-effect waves-light btn orange black-text" href="{% url 'account:profile' %}">{{ request.user.username | title }}</a></li>
+                    {% else %}
+                    <li><a class="dropdown-button waves-effect waves-light btn orange black-text" href="{% url 'account:login' %}">Login</a></li>
+                    {% endif %}
+                </ul>
+
+
+
+
+
             </div>
         </nav>
 
@@ -655,16 +677,18 @@ $('.translation-links a').click(function() {
 <script>
     $(".dropdown-trigger").dropdown();
 
+
     $('.dropdown-button1').dropdown({
           inDuration: 300,
           outDuration: 225,
           constrainWidth: true, // Does not change width of dropdown to that of the activator
-          hover: true, // Activate on hover
+          hover: false, // Activate on hover
           gutter: ($('.dropdown-content').width()*2)/3.4,
           belowOrigin: true, // Displays dropdown below the button
           alignment: 'left', // Displays dropdown with edge aligned to the left of button
           stopPropagation: false // Stops event propagation
         }
+
 
 
      /*$(".dropdown-button1").dropdown({
