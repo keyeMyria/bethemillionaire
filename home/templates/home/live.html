@@ -166,7 +166,7 @@
                 var len = data.data.length;
 
                 for(var i=0; i<=len; i++){
-                    $('#chat-log').append('<b style="color: red;">' + data.data[i].user + '</b>' + ': ' + data.data[i].message + '\n<br>');
+                    $('#chat-log').append('<b style="color: red;">' + data.data[i].chat_user + '</b>' + ': ' + data.data[i].message + '\n<br>');
                     auto_scroll();
                 }
 
