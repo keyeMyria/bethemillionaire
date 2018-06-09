@@ -108,6 +108,8 @@
             bottom: 0;
         }
 
+
+
         .goog-te-gadget-simple{
             background-color: black !important;
             height: 0px !important;
@@ -127,6 +129,7 @@
         .goog-te-banner-frame {display:none !important}
 
 
+
     </style>
 
     {% block add-css %}
@@ -135,28 +138,17 @@
 </head>
 <body>
     <div class="container">
-
-        <div style="" class="skiptranslate">
-          <iframe frameborder="0" style="visibility:visible"
-                  src="javascript:''"
-                  class="goog-te-banner-frame skiptranslate"
-                  id=":2.container">
-          </iframe>
-        </div>
-
-
-
         <input type="hidden" id="login_username" value="{{ request.user.username }}">
 
         <!--start navbar-->
 
-
+        <div id="google_translate_element" style="display: none;"></div>
 
         <!-- web sub menu -->
         <ul id="dashboard" class="dropdown-content">
             <li><a href="{% url 'home:leader-board' %}">Leader Board</a></li>
-            <li><a href="{% url 'topic:step_1' %}">START HERE - 5 Steps To Set Up BTM!</a></li>
-            <li><a href="{% url 'course:course' %}">Video Course: Secrets To Growing Your Wealth In Bitcoins</a></li>
+            <li><a href="{% url 'topic:step_1' %}">START HERE</a></li>
+            <li><a href="{% url 'course:course' %}">Video Course</a></li>
             <li class="divider"></li>
             <li><a href="{% url 'home:what-is-bitcoin' %}">What Is Bitcoin</a></li>
             <li><a href="{% url 'home:buy-bitcoins-here' %}">Get Bitcoin Here</a></li>
@@ -166,7 +158,7 @@
 
         <ul id="passive-profite" class="dropdown-content">
             <li><a href="{% url 'home:passive-income' %}">Passive Income</a></li>
-            <li><a href="{% url 'home:crypto-trading' %}">Cryptocurrency Trading</a></li>
+            <li><a href="{% url 'home:crypto-trading' %}">Crypto Trading</a></li>
             <li><a href="{% url 'home:crypto-mining' %}">Bitcoin and Altcoin mining</a></li>
             <li><a href="{% url 'home:crypto-resource' %}">Crypto Recources</a></li>
         </ul>
@@ -187,7 +179,7 @@
 
         <ul id="training-marketing" class="dropdown-content">
             <li><a href="{% url 'home:manage-team' %}">Manage Team</a></li>
-            <li><a href="{% url 'home:affiliate_link' %}">Your Affiliate Links & Funnels</a></li>
+            <li><a href="{% url 'home:affiliate_link' %}">Affiliate Links & Funnels</a></li>
             <li class="divider"></li>
             <li><a href="{% url 'home:banners' %}">Banners</a></li>
             <li><a href="{% url 'home:email_swipes' %}">Email Swipes</a></li>
@@ -196,9 +188,9 @@
 
         <ul id="support" class="dropdown-content">
             <li><a href="{% url 'home:faq' %}">FAQ</a></li>
-            <li><a href="{% url 'home:recent-update' %}">BTM Recent Updates</a></li>
+            <li><a href="{% url 'home:recent-update' %}">BTM Updates</a></li>
             <li><a target="_blank" href="https://www.facebook.com/groups/336201610190269/">BTM Facebook Group</a></li>
-            <li><a target="_blank" href="https://www.facebook.com/Be-The-Millionaire-2158534220826913/">BTM Facebook Fan Page</a></li>
+            <li><a target="_blank" href="https://www.facebook.com/Be-The-Millionaire-2158534220826913/">BTM Facebook Page</a></li>
         </ul>
 
         <!-- end web sub menu -->
@@ -218,17 +210,17 @@
                 <!--main web menu-->
                 <ul class="left hide-on-med-and-down">
                     <li><a href="{% url 'home:index' %}">Home</a></li>
-                    <li><a class="dropdown-trigger dropdown-button1" href="#!" data-target="dashboard">BTM Dashboard<i class="material-icons right">arrow_drop_down</i></a></li>
-                    <li><a class="dropdown-trigger dropdown-button1" href="#!" data-target="passive-profite">Passive Profits<i class="material-icons right">arrow_drop_down</i></a></li>
-                    <li><a class="dropdown-trigger dropdown-button1" href="#!" data-target="my-account">My Account Settings<i class="material-icons right">arrow_drop_down</i></a></li>
-                    <li><a class="dropdown-trigger dropdown-button1" href="#!" data-target="training-marketing">Training & Marketing<i class="material-icons right">arrow_drop_down</i></a></li>
-                    <li><a class="dropdown-trigger dropdown-button1" href="#!" data-target="support">Support<i class="material-icons right">arrow_drop_down</i></a></li>
+                    <li><a class="dropdown-trigger dropdown-button" href="#!" data-target="dashboard">BTM Dashboard</a></li>
+                    <li><a class="dropdown-trigger dropdown-button" href="#!" data-target="passive-profite">Passive Profits</a></li>
+                    <li><a class="dropdown-trigger dropdown-button" href="#!" data-target="my-account">My Account Settings</a></li>
+                    <li><a class="dropdown-trigger dropdown-button" href="#!" data-target="training-marketing">Training & Marketing</a></li>
+                    <li><a class="dropdown-trigger dropdown-button" href="#!" data-target="support">Support</a></li>
                 </ul>
                 <!--main web menu-->
 
 
 
-                <ul class="right white-text" style="">
+                <ul class="right white-text hide-on-med-and-down" style="">
                     <li><a class="dropdown-trigger dropdown-button1 waves-effect waves-light btn green white-text" data-alignment="right" data-target="dropdown-lang">Language</a></li>
 
                     <ul id='dropdown-lang' class='dropdown-content translation-links' style="">
@@ -652,6 +644,47 @@
     {% endif %}
 </script>
 
+<script>
+    $(".dropdown-trigger").dropdown();
+
+
+    /*$('.dropdown-button1').dropdown({
+          inDuration: 300,
+          outDuration: 225,
+          constrainWidth: true, // Does not change width of dropdown to that of the activator
+          hover: false, // Activate on hover
+          gutter: ($('.dropdown-content').width()*2)/3.4,
+          belowOrigin: true, // Displays dropdown below the button
+          alignment: 'left', // Displays dropdown with edge aligned to the left of button
+          stopPropagation: false // Stops event propagation
+        }
+    */
+
+
+     $(".dropdown-button").dropdown({
+          inDuration: 300,
+          outDuration: 225,
+          constrainWidth: false, // Does not change width of dropdown to that of the activator
+          hover: false, // Activate on click
+          alignment: "left", // Aligns dropdown to left or right edge (works with constrain_width)
+          gutter: 0, // Spacing from edge
+          belowOrigin: true,
+      }
+
+
+    );
+
+
+    $(document).ready(function(){
+        $('.sidenav').sidenav();
+      });
+
+      $(document).ready(function(){
+            $('.collapsible').collapsible();
+        });
+</script>
+
+
 <script type="text/javascript">
 function googleTranslateElementInit() {
   new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'ar,en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
@@ -674,44 +707,12 @@ $('.translation-links a').click(function() {
 });
 </script>
 
-<script>
-    $(".dropdown-trigger").dropdown();
-
-
-    $('.dropdown-button1').dropdown({
-          inDuration: 300,
-          outDuration: 225,
-          constrainWidth: true, // Does not change width of dropdown to that of the activator
-          hover: false, // Activate on hover
-          gutter: ($('.dropdown-content').width()*2)/3.4,
-          belowOrigin: true, // Displays dropdown below the button
-          alignment: 'left', // Displays dropdown with edge aligned to the left of button
-          stopPropagation: false // Stops event propagation
-        }
 
 
 
-     /*$(".dropdown-button1").dropdown({
-          inDuration: 300,
-          outDuration: 225,
-          constrain_width: true, // Does not change width of dropdown to that of the activator
-          hover: false, // Activate on click
-          alignment: "left", // Aligns dropdown to left or right edge (works with constrain_width)
-          gutter: 0, // Spacing from edge
-          belowOrigin: true,
-      }*/
 
 
-    );
 
-
-    $(document).ready(function(){
-        $('.sidenav').sidenav();
-      });
-
-      $(document).ready(function(){
-            $('.collapsible').collapsible();
-        });
-</script>
 {% block script %}
+
 {% endblock %}

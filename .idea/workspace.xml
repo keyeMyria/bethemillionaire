@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0ba751cb-a37f-4638-b597-b9218988ff8c" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/home/templates/base_v_2.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/base_v_2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/home/index_v_1.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/home/index_v_1.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,7 +19,7 @@
         <entry file="file://$PROJECT_DIR$/manage.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="72">
-              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+              <caret line="5" column="76" selection-start-line="5" selection-start-column="76" selection-end-line="5" selection-end-column="76" />
             </state>
           </provider>
         </entry>
@@ -26,11 +27,21 @@
       <file leaf-file-name="base_v_2.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/home/templates/base_v_2.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="383">
-              <caret line="681" column="26" lean-forward="true" selection-start-line="681" selection-start-column="26" selection-end-line="681" selection-end-column="26" />
+            <state relative-caret-position="216">
+              <caret line="149" column="58" lean-forward="true" selection-start-line="149" selection-start-column="58" selection-end-line="149" selection-end-column="58" />
               <folding>
-                <element signature="n#style#0;n#span#0;n#div#0;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index_v_1.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/home/templates/home/index_v_1.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="96" selection-start-line="96" selection-end-line="96" />
             </state>
           </provider>
         </entry>
@@ -38,8 +49,11 @@
       <file leaf-file-name="base1.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/home/templates/base1.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="464">
-              <caret line="511" column="20" selection-start-line="511" selection-start-column="20" selection-end-line="511" selection-end-column="20" />
+            <state relative-caret-position="455">
+              <caret line="143" lean-forward="true" selection-start-line="126" selection-start-column="8" selection-end-line="143" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#nav#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -56,10 +70,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>https://youtu.be/cvFKgbZOTvw</find>
-      <find>chat</find>
-      <find>print</find>
-      <find>api</find>
       <find>ASGI</find>
       <find>payment</find>
       <find>count</find>
@@ -69,7 +79,7 @@
       <find>UsiTechAccount</find>
       <find>leader</find>
       <find>whatis</find>
-      <find />
+      <find>class registration</find>
       <find>login</find>
       <find>particles-js</find>
       <find>inde</find>
@@ -78,7 +88,7 @@
       <find>dropdown-button2</find>
       <find>authen</find>
       <find>welcome</find>
-      <find />
+      <find>!ابدا من هنا</find>
       <find>login_username</find>
       <find>profile</find>
       <find>change</find>
@@ -86,6 +96,10 @@
       <find>myre</find>
       <find>livecha</find>
       <find>live</find>
+      <find>dropdown-lang</find>
+      <find>drop_down_contents</find>
+      <find>translation-links</find>
+      <find>google_translate_element</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -135,7 +149,6 @@
         <option value="$PROJECT_DIR$/account/views.py" />
         <option value="$PROJECT_DIR$/home/views.py" />
         <option value="$PROJECT_DIR$/bethemillionaire/local_settings.py" />
-        <option value="$PROJECT_DIR$/home/templates/home/index_v_1.html" />
         <option value="$PROJECT_DIR$/home/templates/home/crypto-resource.html" />
         <option value="$PROJECT_DIR$/account/templates/account/welcome_v_1.html" />
         <option value="$PROJECT_DIR$/bethemillionaire/settings.py" />
@@ -144,6 +157,7 @@
         <option value="$PROJECT_DIR$/home/serializers.py" />
         <option value="$PROJECT_DIR$/home/templates/home/live.html" />
         <option value="$PROJECT_DIR$/manage.py" />
+        <option value="$PROJECT_DIR$/home/templates/home/index_v_1.html" />
         <option value="$PROJECT_DIR$/home/templates/base_v_2.html" />
       </list>
     </option>
@@ -603,13 +617,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/home/templates/home/index_v_1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="71" column="24" selection-start-line="71" selection-start-column="24" selection-end-line="71" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/home/templates/home/crypto-resource.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="581">
@@ -709,23 +716,34 @@
     <entry file="file://$PROJECT_DIR$/manage.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <caret line="5" column="76" selection-start-line="5" selection-start-column="76" selection-end-line="5" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/home/templates/home/index_v_1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="96" selection-start-line="96" selection-end-line="96" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/home/templates/base1.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="511" column="20" selection-start-line="511" selection-start-column="20" selection-end-line="511" selection-end-column="20" />
+        <state relative-caret-position="455">
+          <caret line="143" lean-forward="true" selection-start-line="126" selection-start-column="8" selection-end-line="143" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#nav#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/home/templates/base_v_2.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
-          <caret line="681" column="26" lean-forward="true" selection-start-line="681" selection-start-column="26" selection-end-line="681" selection-end-column="26" />
+        <state relative-caret-position="216">
+          <caret line="149" column="58" lean-forward="true" selection-start-line="149" selection-start-column="58" selection-end-line="149" selection-end-column="58" />
           <folding>
-            <element signature="n#style#0;n#span#0;n#div#0;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
