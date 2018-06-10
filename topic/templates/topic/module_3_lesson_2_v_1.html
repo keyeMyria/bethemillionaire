@@ -35,12 +35,12 @@
                 </div>
 
                 <div class="col s12 m12 l12 white center-align" style="min-height: 200px;">
-                    {% if request.user.profile_picture %}
-                        <img class="col s6 offset-s3 m4 offset-m4 l10 offset-l1" src="{{ request.user.profile_picture.url}}" height="100%" width="100%" style="margin-top: 20px;" alt="">
+                    {% if request.user.sponsor.profile_picture %}
+                        <img class="col s6 offset-s3 m4 offset-m4 l10 offset-l1" src="{{ request.user.sponsor.profile_picture.url}}" height="100%" width="100%" style="margin-top: 20px;" alt="">
                     {% else %}
                         <img class="col s6 offset-s3 m4 offset-m4 l10 offset-l1" src="{% static 'account/style/images/no-img.jpg' %}" height="100%" width="100%" style="margin-top: 20px;" alt="">
                     {% endif %}
-                    <p style="margin-bottom: 10px;">@{{ request.user.username | title }}</p>
+                    <p style="margin-bottom: 10px;">@{{ request.user.sponsor.username | title }}</p>
                 </div>
 
                 <div class="col s12 m12 l12 #1a237e indigo orange-text darken-4 left_main_menu" style="padding: 10px; margin-bottom: 20px;">
@@ -76,6 +76,44 @@
 
             <div class="col m8 l9" style="padding: 0px; margin-top: 0px; opacity: .9;">
                 <div class="col s12 l12 white center-align" style="padding: 10px;">
+
+
+
+
+
+                    <!--course navigation menu for mobile-->
+
+
+                    <!-- Modal Trigger -->
+
+                    <a style="margin-top: 10px;" class="left-align waves-effect waves-light btn red modal-trigger hide-on-large-only" href="#navigate-menu">Navigate Course</a>
+
+                    <!-- Modal Structure -->
+                    <div id="navigate-menu" class="modal bottom-sheet">
+                        <div class="modal-content">
+                            <div class="collection left-align">
+                                <a href="{% url 'course:course' %}" class="collection-item">Course Outline</a>
+                                <a href="{% url 'lessons:module_1' %}" class="collection-item">Module 1</a>
+                                <a href="{% url 'lessons:module_2' %}" class="collection-item">Module 2</a>
+
+
+                                <a href="{% url 'lessons:module_3' %}" class="collection-item orange-text">Module 3</a>
+                                <a href="{% url 'topic:module-3-lesson-1' %}" class="collection-item">Lesson 1</a>
+                                <a href="{% url 'topic:module-3-lesson-2' %}" class="collection-item orange-text">Lesson 2</a>
+                                <a href="{% url 'topic:module-3-lesson-3' %}" class="collection-item">Lesson 3</a>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!--end course navigation menu for mobile-->
+
+
+
+
+
+
 
                     <h5 class="left-align orange-text">Lesson 2 – Why Banks Are Biggest Scammers & Why Typical Investment Vehicles SUCK</h5>
 

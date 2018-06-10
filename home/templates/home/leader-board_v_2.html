@@ -1,0 +1,145 @@
+{% extends 'base_v_2.html' %}
+
+{% block title %}BeTheMillionaire | Leader Board{% endblock %}
+
+{% block add-css %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home/style/index.css' %}">
+
+    <style>
+        .left_main_menu a{
+            color: orange;
+        }
+
+        .left_main_menu a:hover{
+            color: white;
+            text-decoration: underline;
+        }
+
+        #particles-js1{
+            background-image: url('/static/account/style/images/reg/back-1.jpeg');
+            background-repeat: repeat;
+            background-position: center;
+            min-height: 150vh;
+            width: 100%;
+        }
+    </style>
+{% endblock %}
+
+{% block main %}
+    <div class="row" id="particles-js1" style="">
+        <div class="col s12 l8 offset-l2" style="margin-bottom: 20px;">
+            <div class="col s12 m4 l3 blue hide-on-med-and-down" style="">
+                <div class="col s12 m12 l12 #1a237e indigo orange-text darken-4 center-align" style="padding: 10px;">
+                    <h5>Leader Board</h5>
+                </div>
+
+                <div class="col s12 m12 l12 white center-align" style="min-height: 200px;">
+                    {% if request.user.sponsor.profile_picture %}
+                        <img class="col m10 offset-m1 l10 offset-l1" src="{{ request.user.sponsor.profile_picture.url}}" height="100%" width="100%" style="margin-top: 20px;" alt="">
+                    {% else %}
+                        <img class="col m10 offset-m1 l10 offset-l1" src="{% static 'account/style/images/no-img.jpg' %}" height="100%" width="100%" style="margin-top: 20px;" alt="">
+                    {% endif %}
+                    <p style="margin-bottom: 10px;">@{{ request.user.sponsor.username | title }}</p>
+                </div>
+
+                <div class="col s12 m12 l12 #1a237e indigo orange-text darken-4 left_main_menu" style="padding: 10px; margin-bottom: 20px;">
+                    <a class="left col s12 m12 l12 white-text" href="{% url 'home:leader-board' %}" style="padding: 10px;">Leader Board
+                        <span class="right" style=""> > </span>
+                    </a>
+
+                    <a class="left col s12 m12 l12" href="{% url 'account:membership-level-vip' %}" style="padding: 10px;">Upgrade VIP
+                        <span class="right" style=""> > </span>
+                    </a>
+
+                    <a class="left col s12 m12 l12" href="{% url 'account:membership-level-premium' %}" style="padding: 10px;">Upgrade Premium
+                        <span class="right" style=""> > </span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col s12 m8 l9" style="padding: 0px; margin-top: 0px; opacity: .9;">
+                <div class="col s12 l12 white center-align" style="padding: 10px;">
+
+                    <h4 class="left-align orange-text">Leader Board</h4>
+
+                    <div class="col s12 m12 l12" style="margin-top: 10px; padding: 0px;">
+                        <div class="card blue">
+                            <div class="card-content white-text">
+                                <span style="text-decoration: underline;" class="card-title left-align">BeTheMillionaire Monthly Competition</span>
+                                <p class="left-align">
+                                    Refer the most people to BeTheMillionaire each month and you will be getting the following prizes:
+                                </p>
+                                <br>
+
+                                <p>First Place  – $1,000 in BTC </p>
+                                <p>Second Place – $500 in BTC </p>
+                                <p>Third Place – $250 in BTC </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col s12 m12 l12 left-align orange-text" style="margin-top: 10px; padding: 0px;">
+                        <a target="_blank" href="{% url 'home:affiliate_link' %}" class="col s12 m12 l12 btn waves-effect waves-light orange white-text" style="">
+                            Your Affiliate Links and Funnels To Promote BeTheMillionaire are here
+                        </a>
+
+                        <a target="_blank" href="{% url 'account:my-referrals' %}" class="col s12 m12 l12 btn waves-effect waves-light red white-text" style="margin-top: 10px;">
+                            Your Referrals Details are here
+                        </a>
+                    </div>
+
+
+                    <div class="col s12 m12 l12 " style="margin-top: 20px; padding: 0px;">
+                        {% if members %}
+                        <h5 class="left-align orange-text">Campaign Duration: <span class="red-text" style="font-size: 16px;">{{ campaign_date.start_date }}</span>
+                            <span class="black-text" style="font-size: 16px;">to</span> <span class="red-text" style="font-size: 16px;">{{ campaign_date.end_date }}</span></h5>
+
+                        <table class="responsive-table highlight centered" style="margin-bottom: 50px; margin-top: 30px;">
+                            <thead>
+                              <tr style="background-color: blue; color: white;">
+                                  <th>Rank</th>
+                                  <th>Member</th>
+                                  <th>Total Referral</th>
+                                  <th>Referral Sale</th>
+                              </tr>
+                            </thead>
+
+                            <tbody>
+                                {% for member in members %}
+                                <tr>
+                                    <td>#{{ member.rank }}</td>
+                                    <td>
+                                        <a href="{% url 'account:public-profile' %}?userid={{ member.user.username }}">{{ member.user.username | title }}</a>
+                                    </td>
+
+                                    <td>{{ member.referral }}</td>
+
+                                    <td>{{ member.referral_sale }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+
+                        {% else %}
+                            <h5>Leader board not generated yet!</h5>
+                        {% endif %}
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block script %}
+
+<script>
+
+
+
+</script>
+
+{% endblock %}

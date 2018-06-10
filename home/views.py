@@ -171,13 +171,12 @@ class Banners(View):
 
 #dashboard - bitcoin basic --> WhatIsBitcoin
 class WhatIsBitcoin(View):
-    template_name = 'home/what-is-bitcoin_v_1.html'
+    template_name = 'home/what-is-bitcoin_v_2.html'
 
     def get(self, request):
-        user_profile = UserProfile.objects.filter(username=request.user.username)
 
         variables = {
-            'user_profile': user_profile,
+
         }
 
         return render(request, self.template_name, variables)
@@ -191,8 +190,6 @@ class BuyBitcoinHere(View):
     template_name = 'home/buy-bitcoin-here_v_1.html'
 
     def get(self, request):
-        user_profile = UserProfile.objects.filter(username=request.user.username)
-
         coin_mama_accounts = account_model.CoinMamaAccount.objects.get(user=request.user.sponsor)
 
         if coin_mama_accounts.coin_mama_username:
@@ -248,8 +245,6 @@ class BuyBitcoinHere(View):
 
 
         variables = {
-            'user_profile': user_profile,
-
             'coin_mama_account': coin_mama_account,
             'coin_base_account': coin_base_account,
             'cex_io_account': cex_io_account,
@@ -266,11 +261,9 @@ class BuyBitcoinHere(View):
 
 #dashboard - bitcoin basic --> bitcoin-wallets
 class BitcoinWallet(View):
-    template_name = 'home/bitcoin-wallet_v_1.html'
+    template_name = 'home/bitcoin-wallet_v_2.html'
 
     def get(self, request):
-        user_profile = UserProfile.objects.filter(username=request.user.username)
-
         ladger_nano_s_accounts = account_model.LedgerNanoSAccount.objects.get(user=request.user.sponsor)
 
         if ladger_nano_s_accounts.ledger_nano_s_username:
@@ -290,8 +283,6 @@ class BitcoinWallet(View):
 
 
         variables = {
-            'user_profile': user_profile,
-
             'ladger_nano_s_account': ladger_nano_s_account,
             'coin_base_account': coin_base_account,
         }
@@ -304,10 +295,9 @@ class BitcoinWallet(View):
 
 #dashboard - bitcoin basic --> bitcoin-debit-card
 class BitcoinDebitCard(View):
-    template_name = 'home/bitcoin-debit-card_v_1.html'
+    template_name = 'home/bitcoin-debit-card_v_2.html'
 
     def get(self, request):
-        user_profile = UserProfile.objects.filter(username=request.user.username)
 
         cryptocoin_accounts = account_model.CryptoPayCardAccount.objects.get(user=request.user.sponsor)
 
@@ -328,8 +318,6 @@ class BitcoinDebitCard(View):
 
 
         variables = {
-            'user_profile': user_profile,
-
             'cryptocoin_account': cryptocoin_account,
             'spectrocoin_account': spectrocoin_account,
         }
@@ -710,7 +698,7 @@ class UsefulSide(View):
 #leader board
 
 class LeaderBoard(View):
-    template_name = 'home/leader-board_v_1.html'
+    template_name = 'home/leader-board_v_2.html'
 
     def get(self, request):
 

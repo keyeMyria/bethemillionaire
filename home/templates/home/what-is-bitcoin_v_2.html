@@ -1,0 +1,172 @@
+{% extends 'base_v_2.html' %}
+
+{% block title %}BeTheMillionaire | What Is Bitcoin{% endblock %}
+
+{% block add-css %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home/style/index.css' %}">
+
+    <style>
+        .left_main_menu a{
+            color: orange;
+        }
+
+        .left_main_menu a:hover{
+            color: white;
+            text-decoration: underline;
+        }
+
+        #particles-js1{
+            background-image: url('/static/account/style/images/reg/back-1.jpeg');
+            background-repeat: repeat;
+            background-position: center;
+            min-height: 200vh;
+            width: 100%;
+        }
+    </style>
+{% endblock %}
+
+{% block main %}
+    <div class="row" id="particles-js1" style="">
+        <div class="col s12 l8 offset-l2" style="margin-bottom: 20px;">
+            <div class="col s12 m4 l3 blue hide-on-med-and-down" style="">
+                <div class="col s12 m12 l12 #1a237e indigo orange-text darken-4 center-align" style="padding: 10px;">
+                    <h5>Bitcoin</h5>
+                </div>
+
+                <div class="col s12 m12 l12 white center-align" style="min-height: 200px;">
+                    {% if request.user.sponsor.profile_picture %}
+                        <img class="col m10 offset-m1 l10 offset-l1" src="{{ request.user.sponsor.profile_picture.url}}" height="100%" width="100%" style="margin-top: 20px;" alt="">
+                    {% else %}
+                        <img class="col m10 offset-m1 l10 offset-l1" src="{% static 'account/style/images/no-img.jpg' %}" height="100%" width="100%" style="margin-top: 20px;" alt="">
+                    {% endif %}
+                    <p style="margin-bottom: 10px;">@{{ request.user.sponsor.username | title }}</p>
+                </div>
+
+                <div class="col s12 m12 l12 #1a237e indigo orange-text darken-4 left_main_menu" style="padding: 10px; margin-bottom: 20px;">
+                    <a class="left col s12 m12 l12 white-text" href="{% url 'home:what-is-bitcoin' %}" style="padding: 10px;">What Is Bitcoin
+                        <span class="right" style=""> > </span>
+                    </a>
+
+                    <a class="left col s12 m12 l12" href="{% url 'home:buy-bitcoins-here' %}" style="padding: 10px;">Buy Bitcoin Here
+                        <span class="right" style=""> > </span>
+                    </a>
+
+                    <a class="left col s12 m12 l12" href="{% url 'home:bitcoin-wallets' %}" style="padding: 10px;">Bitcoin Wallets
+                        <span class="right" style=""> > </span>
+                    </a>
+
+                    <a class="left col s12 m12 l12" href="{% url 'home:bitcoin-debit-cards' %}" style="padding: 10px;">Bitcoin Debit Card
+                        <span class="right" style=""> > </span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col s12 m8 l9" style="padding: 0px; margin-top: 0px; opacity: .9;">
+                <div class="col s12 l12 white center-align" style="padding: 10px;">
+
+
+
+                    <!--bitcoin basic navigation menu for mobile-->
+
+
+                        <!-- Modal Trigger -->
+
+                        <a style="margin-top: 10px;" class="left-align waves-effect waves-light btn red modal-trigger hide-on-large-only" href="#navigate-menu">Navigate</a>
+
+                        <!-- Modal Structure -->
+                        <div id="navigate-menu" class="modal bottom-sheet">
+                            <div class="modal-content">
+                                <div class="collection left-align">
+                                    <a href="{% url 'home:what-is-bitcoin' %}" class="collection-item orange-text">What Is Bitcoin?</a>
+                                    <a href="{% url 'home:buy-bitcoins-here' %}" class="collection-item">Get Bitcoin Here</a>
+                                    <a href="{% url 'home:bitcoin-wallets' %}" class="collection-item">Bitcoin Wallets</a>
+                                    <a href="{% url 'home:bitcoin-debit-cards' %}" class="collection-item">Bitcoin Debit Cards</a>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+                        <!--end bitcoin basic navigation menu for mobile-->
+
+
+
+
+                    <h4 class="left-align orange-text hide-on-med-and-down">What Is Bitcoin And Why It's Completely Revolutionizing Money</h4>
+                    <h5 class="left-align orange-text hide-on-large-only">What Is Bitcoin And Why It's Completely Revolutionizing Money</h5>
+
+
+                    <div class="col s12 m12 l12" style="margin-top: 30px; margin-bottom: 40px; padding: 0px;">
+
+
+                        <div class="col s12 m12 l12" style="margin-top: 20px; margin-bottom: 20px; padding: 0px;">
+                            <div class="video-container" style="">
+                                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/ByROUKc2qHY" frameborder="0" gesture="media" allow="encrypted-media" autoplay="true" allowfullscreen></iframe>
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="col s12 m12 l12 center-align" style="margin-top: 30px; margin-bottom: 20px; padding: 0px;">
+                            <h4 class="hide-on-med-and-down">
+                                If you're brand new to Bitcoin the 4 short videos below will get you up to speed fast.
+                            </h4>
+
+                            <h5 class="hide-on-large-only">
+                                If you're brand new to Bitcoin the 4 short videos below will get you up to speed fast.
+                            </h5>
+                        </div>
+
+
+                        <div class="col s12 m12 l12" style="margin-top: 20px; margin-bottom: 20px; padding: 0px;">
+                            <div class="video-container" style="">
+                                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/Gc2en3nHxA4" frameborder="0" gesture="media" allow="encrypted-media" autoplay="true" allowfullscreen></iframe>
+                            </div>
+                        </div>
+
+
+                        <div class="col s12 m12 l12" style="margin-top: 20px; margin-bottom: 20px; padding: 0px;">
+                            <div class="video-container" style="">
+                                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/uike95OzlNk" frameborder="0" gesture="media" allow="encrypted-media" autoplay="true" allowfullscreen></iframe>
+                            </div>
+                        </div>
+
+                        <div class="col s12 m12 l12" style="margin-top: 20px; margin-bottom: 20px; padding: 0px;">
+                            <div class="video-container" style="">
+                                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/2UC_8NdR1To" frameborder="0" gesture="media" allow="encrypted-media" autoplay="true" allowfullscreen></iframe>
+                            </div>
+                        </div>
+
+
+                        <div class="col s12 m12 l12" style="margin-top: 20px; margin-bottom: 20px; padding: 0px;">
+                            <div class="video-container" style="">
+                                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/7u6wK5pi7Ec" frameborder="0" gesture="media" allow="encrypted-media" autoplay="true" allowfullscreen></iframe>
+                            </div>
+                        </div>
+
+
+
+
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+
+<script>
+
+  $(document).ready(function(){
+    $('.modal').modal();
+  });
+</script>
+
+{% endblock %}

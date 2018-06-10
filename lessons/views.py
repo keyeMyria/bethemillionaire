@@ -21,8 +21,6 @@ class Module1(View):
         commentForm = forms.CommentForm(request.POST or None)
         subcommentForm = forms.SubCommentForm(request.POST or None)
 
-        user_profile = UserProfile.objects.filter(username=request.user.username)
-
         total_comment = models.Comment.objects.filter(topic='module-1').count()
         total_subcomment = models.SubComment.objects.filter(topic='module-1').count()
 
@@ -32,7 +30,6 @@ class Module1(View):
         subcomments = models.SubComment.objects.filter(topic='module-1').all()
 
         variables = {
-            'user_profile': user_profile,
             'commentForm': commentForm,
             'subcommentForm': subcommentForm,
             'modules': modules,
@@ -56,7 +53,6 @@ class Module1(View):
         commentForm = forms.CommentForm(request.POST or None)
         subcommentForm = forms.SubCommentForm(request.POST or None)
 
-        user_profile = UserProfile.objects.filter(username=request.user.username)
 
         if request.method == 'POST' and request.POST.get('comment_form') == 'comment_form':
             if commentForm.is_valid():
@@ -81,7 +77,6 @@ class Module1(View):
         subcomments = models.SubComment.objects.filter(topic='module-1').all()
 
         variables = {
-            'user_profile': user_profile,
             'commentForm': commentForm,
             'subcommentForm': subcommentForm,
             'modules': modules,
@@ -109,8 +104,6 @@ class Module2(View):
         commentForm = forms.CommentForm(request.POST or None)
         subcommentForm = forms.SubCommentForm(request.POST or None)
 
-        user_profile = UserProfile.objects.filter(username=request.user.username)
-
         total_comment = models.Comment.objects.filter(topic='module-2').count()
         total_subcomment = models.SubComment.objects.filter(topic='module-2').count()
 
@@ -120,7 +113,6 @@ class Module2(View):
         subcomments = models.SubComment.objects.filter(topic='module-2').all()
 
         variables = {
-            'user_profile': user_profile,
             'commentForm': commentForm,
             'subcommentForm': subcommentForm,
             'modules': modules,
@@ -142,8 +134,6 @@ class Module2(View):
 
         commentForm = forms.CommentForm(request.POST or None)
         subcommentForm = forms.SubCommentForm(request.POST or None)
-
-        user_profile = UserProfile.objects.filter(username=request.user.username)
 
         if request.method == 'POST' and request.POST.get('comment_form') == 'comment_form':
             if commentForm.is_valid():
@@ -168,7 +158,6 @@ class Module2(View):
         subcomments = models.SubComment.objects.filter(topic='module-2').all()
 
         variables = {
-            'user_profile': user_profile,
             'commentForm': commentForm,
             'subcommentForm': subcommentForm,
             'modules': modules,
@@ -196,8 +185,6 @@ class Module3(View):
         commentForm = forms.CommentForm(request.POST or None)
         subcommentForm = forms.SubCommentForm(request.POST or None)
 
-        user_profile = UserProfile.objects.filter(username=request.user.username)
-
         total_comment = models.Comment.objects.filter(topic='module-3').count()
         total_subcomment = models.SubComment.objects.filter(topic='module-3').count()
 
@@ -207,7 +194,6 @@ class Module3(View):
         subcomments = models.SubComment.objects.filter(topic='module-3').all()
 
         variables = {
-            'user_profile': user_profile,
             'commentForm': commentForm,
             'subcommentForm': subcommentForm,
             'modules': modules,
@@ -229,8 +215,6 @@ class Module3(View):
 
         commentForm = forms.CommentForm(request.POST or None)
         subcommentForm = forms.SubCommentForm(request.POST or None)
-
-        user_profile = UserProfile.objects.filter(username=request.user.username)
 
         if request.method == 'POST' and request.POST.get('comment_form') == 'comment_form':
             if commentForm.is_valid():
@@ -255,7 +239,6 @@ class Module3(View):
         subcomments = models.SubComment.objects.filter(topic='module-3').all()
 
         variables = {
-            'user_profile': user_profile,
             'commentForm': commentForm,
             'subcommentForm': subcommentForm,
             'modules': modules,

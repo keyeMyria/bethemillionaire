@@ -6,15 +6,13 @@ from lessons.models import Module, Lesson
 
 
 class Course(View):
-    template_name = 'course/course_v_2.html'
+    template_name = 'course/course_v_3.html'
 
     def get(self, request):
-        user_profile = UserProfile.objects.filter(username=request.user.username)
         modules = Module.objects.all()
         lessons = Lesson.objects.all()
 
         variables = {
-            'user_profile': user_profile,
             'modules': modules,
             'lessons': lessons,
         }

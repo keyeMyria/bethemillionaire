@@ -35,12 +35,12 @@
                 </div>
 
                 <div class="col s12 m12 l12 white center-align" style="min-height: 200px;">
-                    {% if request.user.profile_picture %}
-                        <img class="col s6 offset-s3 m4 offset-m4 l10 offset-l1" src="{{ request.user.profile_picture.url}}" height="100%" width="100%" style="margin-top: 20px;" alt="">
+                    {% if request.user.sponsor.profile_picture %}
+                        <img class="col s6 offset-s3 m4 offset-m4 l10 offset-l1" src="{{ request.user.sponsor.profile_picture.url}}" height="100%" width="100%" style="margin-top: 20px;" alt="">
                     {% else %}
                         <img class="col s6 offset-s3 m4 offset-m4 l10 offset-l1" src="{% static 'account/style/images/no-img.jpg' %}" height="100%" width="100%" style="margin-top: 20px;" alt="">
                     {% endif %}
-                    <p style="margin-bottom: 10px;">@{{ request.user.username | title }}</p>
+                    <p style="margin-bottom: 10px;">@{{ request.user.sponsor.username | title }}</p>
                 </div>
 
                 <div class="col s12 m12 l12 #1a237e indigo orange-text darken-4 left_main_menu" style="padding: 10px; margin-bottom: 20px;">
@@ -73,6 +73,36 @@
             <div class="col m8 l9" style="padding: 0px; margin-top: 0px; opacity: .9;">
                 <div class="col s12 l12 white center-align" style="padding: 10px;">
 
+
+
+                    <!--course navigation menu for mobile-->
+
+
+                    <!-- Modal Trigger -->
+
+                    <a style="margin-top: 10px;" class="left-align waves-effect waves-light btn red modal-trigger hide-on-large-only" href="#navigate-menu">Navigate Course</a>
+
+                    <!-- Modal Structure -->
+                    <div id="navigate-menu" class="modal bottom-sheet">
+                        <div class="modal-content">
+                            <div class="collection left-align">
+                                <a href="{% url 'course:course' %}" class="collection-item">Course Outline</a>
+                                <a href="{% url 'lessons:module_1' %}" class="collection-item orange-text">Module 1</a>
+                                <a href="{% url 'topic:module-1-lesson-1' %}" class="collection-item">Lesson 1</a>
+                                <a href="{% url 'topic:module-1-lesson-2' %}" class="collection-item">Lesson 2</a>
+
+
+                                <a href="{% url 'lessons:module_2' %}" class="collection-item">Module 2</a>
+                                <a href="{% url 'lessons:module_3' %}" class="collection-item">Module 3</a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!--end course navigation menu for mobile-->
+
+
+
                     <h5 class="left-align orange-text">Module 1 – How BeTheMillionaire system can help you</h5>
 
                     <div class="col s12 m12 l12" style="margin-top: 30px; margin-bottom: 40px; padding: 0px;">
@@ -96,7 +126,7 @@
                                         <div class="row">
                                             <a href="{% url 'lessons:module_1' %}">
                                                 <div class="white-text">
-                                                    <span class="card-title">Module 1 – How BeTheMillionaire Can Help You Massively Grow Your Wealth</span>
+                                                    <span class="card-title left-align">Module 1 – How BeTheMillionaire Can Help You Massively Grow Your Wealth</span>
                                                     <p class="left-align" style="font-size: 14px; margin-top: 20px;">
                                                         In module 1 we'll dive into the foundation of BeTheMillionaire, how it works and how you can leverage it to massively grow your wealth
                                                     </p>
@@ -120,7 +150,7 @@
                                                                 <div class="card-content black-text">
                                                                     <a href="{% url 'topic:module-1-lesson-1' %}">
                                                                         <div class="black-text">
-                                                                            <span class="card-title">Lesson 1 - Welcome To BeTheMillionaire System</span>
+                                                                            <span class="card-title left-align">Lesson 1 - Welcome To BeTheMillionaire System</span>
                                                                             <p class="left-align" style="font-size: 14px; margin-top: 20px;">
                                                                                 Congratulations! In this lesson I'll share with you why I created BeTheMillionaire system and what we stand for!
                                                                             </p>
@@ -149,7 +179,7 @@
                                                                 <div class="card-content black-text">
                                                                     <a href="{% url 'topic:module-1-lesson-2' %}">
                                                                         <div class="black-text">
-                                                                            <span class="card-title">Lesson 2 - Foundation & Overview Of BeTheMillionaire System</span>
+                                                                            <span class="card-title left-align">Lesson 2 - Foundation & Overview Of BeTheMillionaire System</span>
                                                                             <p class="left-align" style="font-size: 14px; margin-top: 20px;">
                                                                                 Why you can benifit for the rest of your life by completing this course and plugging into BeTheMillionaire System
                                                                             </p>
@@ -389,6 +419,13 @@
             });
         }
   {% endif %}
+
+
+   $(document).ready(function(){
+    $('.modal').modal();
+  });
+
+
 </script>
 
 {% endblock %}

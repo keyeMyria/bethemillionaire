@@ -147,7 +147,7 @@
         <!-- web sub menu -->
         <ul id="dashboard" class="dropdown-content">
             <li><a href="{% url 'home:leader-board' %}">Leader Board</a></li>
-            <li><a href="{% url 'topic:step_1' %}">START HERE</a></li>
+            <li><a href="{% url 'topic:step_1' %}">5 Steps Quick Start</a></li>
             <li><a href="{% url 'course:course' %}">Video Course</a></li>
             <li class="divider"></li>
             <li><a href="{% url 'home:what-is-bitcoin' %}">What Is Bitcoin</a></li>
@@ -173,7 +173,7 @@
             <li class="divider"></li>
             <li><a href="{% url 'account:my-autoresponder-settings' %}">Autoresponder Settings</a></li>
             <li><a href="{% url 'account:my-referrals' %}">My Referrals</a></li>
-            <li class="red white-text"><a href="{% url 'account:logout' %}">Logout</a></li>
+            <li class=""><a class="red-text" href="{% url 'account:logout' %}">Logout</a></li>
         </ul>
 
 
@@ -376,7 +376,7 @@
 
 
         <div class="row">
-            <div class="col m12 l12 l12 white" style="padding: 5px; box-shadow: 1px 1px grey;">
+            <div class="col m12 l12 l12" style="padding: 5px; box-shadow: 1px 1px grey; background-color: #333;">
                 <div class="col l7 offset-l3 sub-menu-ams" style="">
                     <ul style="font-size: 14px;">
                         <li>
@@ -602,7 +602,10 @@
 </html>
 
 <!--js-->
-<script type="text/javascript" src="{% static 'home/js/jquery.min.js' %}"></script>
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 
 
@@ -704,8 +707,8 @@ $(document).ready(function(){
 
 
   $(document).ready(function(){
-            $('.collapsible').collapsible();
-        });
+        $('.collapsible').collapsible();
+    });
 </script>
 
 
