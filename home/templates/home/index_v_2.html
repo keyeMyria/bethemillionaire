@@ -23,6 +23,16 @@
             width: 100%;
             background-size: cover;
         }
+
+
+        .table_laptop_pic{
+            background-image: url('/static/home/style/images/image/table_laptop.jpg');
+            background-position: center;
+            height: 100%;
+            width: 100%;
+            background-size: cover;
+            background-attachment: fixed;
+        }
     </style>
 
 
@@ -191,6 +201,297 @@
         </div>
     </div>
 
+
+
+
+    <div class="row col s12 m12 l12 #f1f8e9 light-green lighten-5 table_laptop_pic" style="padding: 0px; min-height: 650px;">
+
+        <div class="col l4 right" style="padding: 40px;">
+
+            <div class="card orange" style="opacity: .7;">
+                <div class="card-content white-text">
+                    <span class="card-title">Top Crypto Resource</span>
+                    <p></p>
+                </div>
+            </div>
+
+            <div class="card grey" style="opacity: .7;">
+                <div class="card-content white-text">
+                    <span class="card-title">Higher Crypto Education</span>
+                    <p></p>
+                </div>
+            </div>
+
+            <div class="card red" style="opacity: .7;">
+                <div class="card-content white-text">
+                    <span class="card-title">Best Tutor based on Crypto Market</span>
+                    <p></p>
+                </div>
+            </div>
+
+
+            <div class="card green" style="opacity: .7;">
+                <div class="card-content white-text">
+                    <span class="card-title">Great Start to Trade in Crypto</span>
+                    <p></p>
+                </div>
+            </div>
+
+            <div class="card yellow" style="opacity: .7;">
+                <div class="card-content black-text">
+                    <span class="card-title">Everything in One Place</span>
+                    <p></p>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <div class="row col s12 m12 l12 center-align" style="min-height: 500px;">
+
+
+        <h5 style="margin-top: 40px;">Your sponsor is great, Learn from your sponsor</h5>
+
+        <div class="col s12 m12 l8 offset-l2" style="margin-top: 20px; padding: 0px;">
+            <div class="col s8 offset-s2 m4 offset-m4 l5 center-align" style="">
+                {% if request.user.sponsor.profile_picture %}
+                    <img src="{{ request.user.sponsor.profile_picture.url }}" width="100%" style="">
+                {% else %}
+                    <img src="{% static 'account/style/images/no-img.jpg' %}"  width="100%" style="">
+                {% endif %}
+            </div>
+
+            <div class="col s8 offset-s2 m12 l6 left-align" style="padding: 10px;">
+                <p style="font-size: 16px;">@name: {{ request.user.sponsor.username | title }}</p>
+                <p style="font-size: 16px;">@email: {{ request.user.sponsor.email }}</p>
+                <p style="font-size: 16px;">@phone: {{ request.user.sponsor.phone_number }}</p>
+                <p style="font-size: 16px;">@skype: {{ request.user.sponsor.skype }}</p>
+                <p style="font-size: 16px;">@facebook: <a target="_blank" href="{{ request.user.sponsor.facebook }}">click</a></p>
+                <p style="font-size: 16px; text-decoration: underline;">@sponsor manage team</p>
+
+                {% for sponsor_team in sponsor_teams %}
+                <a href="{% url 'home:personal-training' owner_id=sponsor_team.owner.id team_id=sponsor_team.id %}" class="btn black orange-text" style="margin-top: 10px;">
+                    {{ sponsor_team.name }}
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="row col s12 m12 l12 #f1f8e9 light-green lighten-5 center-align" style="border: 1px solid white; min-height: 200px; padding: 20px;">
+
+
+        <h5 class="hide-on-med-and-down" style="margin-top: 40px;">Start from step 1, success is <span class="red white-text" style="padding: 10px;">guaranteed</span></h5>
+
+        <h5 class="hide-on-large-only" style="margin-top: 40px;">Start from step 1, success is guaranteed</h5>
+
+
+        <div class="col s12 m2 l8 offset-l2 left-align hide-on-med-and-down" style="border: 4px solid #333; margin-top: 30px; padding: 20px; margin-bottom: 30px;">
+            <h5>
+                Success is in your hand, just follow these steps!
+            </h5>
+
+            <a href="{% url 'topic:step_1' %}" class="btn orange black-text" style="margin-top: 10px;">
+                Step 1 – The Foundation & Overview
+            </a><br>
+
+            <a href="{% url 'topic:step_2' %}" class="btn orange black-text" style="margin-top: 10px;">
+                Step 2 – Set Up Your Bitcoin Wallet Load It With Bitcoins
+            </a><br>
+
+            <a href="{% url 'topic:step_3' %}" class="btn orange black-text" style="margin-top: 10px;">
+                Step 3 – Set Up Your Multiple Passive Profits Wealth Building Vehicles Inside The System
+            </a><br>
+
+            <a href="{% url 'topic:step_4' %}" class="btn orange black-text" style="margin-top: 10px;">
+                Step 4 - How To Earn Extra $20K A Month, Get Access To 7 Figures Live Mentoring
+            </a><br>
+
+            <a href="{% url 'topic:step_5' %}" class="btn orange black-text" style="margin-top: 10px;">
+                Step 5 – Start Promoting BeTheMillionaire System & Earn Bitcoins In Multiple Ways!
+            </a>
+        </div>
+
+
+        <div class="col s12 m2 l8 offset-l2 left-align hide-on-large-only" style="border: 4px solid #333; margin-top: 30px; padding: 10px;">
+            <h5>
+                Success is in your hand, just follow these steps!
+            </h5>
+
+            <a href="{% url 'topic:step_1' %}" class="btn orange black-text" style="margin-top: 10px;">
+                Step 1 – The Foundation
+            </a><br>
+
+            <a href="{% url 'topic:step_2' %}" class="btn orange black-text" style="margin-top: 10px;">
+                Step 2 – Bitcoin Wallet
+            </a><br>
+
+            <a href="{% url 'topic:step_3' %}" class="btn orange black-text" style="margin-top: 10px;">
+                Step 3 – Multiple Passive
+            </a><br>
+
+            <a href="{% url 'topic:step_4' %}" class="btn orange black-text" style="margin-top: 10px;">
+                Step 4 - How To Earn $20K
+            </a><br>
+
+            <a href="{% url 'topic:step_5' %}" class="btn orange black-text" style="margin-top: 10px;">
+                Step 5 – Start Promoting
+            </a>
+        </div>
+
+
+    </div>
+
+
+
+
+    <div class="row">
+        <div class="col s12 m12 l10 offset-l1 center-align hide-on-med-and-down" style="padding: 20px; margin-top: 20px;">
+
+            <h5 style="margin-top: 40px; margin-bottom: 50px;">Promotion & Affiliating</h5>
+
+            <div class="col s12 m6 l6" style="padding: 20px;">
+                <h5>Promote BeTheMillionaire in the <span class="blue-text" style="padding: 10px;">Social Media</span>,
+                    its help you to get member and referrals point. More referral point chance you to win monthly <span class="red-text">competetion</span>.
+                    Join our facebook group.
+                </h5>
+            </div>
+
+            <div class="col s12 m6 l6" style="padding: 20px;">
+                <a target="_blank" href="https://www.facebook.com/groups/336201610190269/" class="btn blue white-text" style="margin-top: 10px;">
+                    Join BeTheMillionaire Facebook Group
+                </a><br><br>
+
+                <a href="#affiliate_link" class="btn orange black-text modal-trigger" style="margin-top: 10px;">
+                    Click To Get Your Default Affiliate Link
+                </a>
+
+                <div id="affiliate_link" class="modal">
+                    <div class="modal-content">
+                        <h4 style="margin-bottom: 40px; color: blue;">Default Affiliate Link</h4>
+
+                        <p><b>Here Is Your Capture Page ( Copy Below )</b></p>
+
+                        <div class="chip col s12 m12 l12" style="font-size: 16px; margin-top: 10px; margin-bottom: 50px;">
+                            <p>http://www.bethemillionaire.com/account/registration/?userid={{ user.username }}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <p style="font-size: 16px; margin-top: 10px;">Promote this link to your friends and family</p>
+                <a href="{% url 'home:affiliate_link' %}" style="font-size: 16px; margin-top: 10px; text-decoration: underline;">My all affiliate link</a>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="row">
+        <div class="col s12 m12 l12 center-align hide-on-large-only" style="padding: 0px; margin-top: 20px;">
+            <h5 style="margin-top: 40px; margin-bottom: 50px; text-decoration: underline;">Promotion & Affiliating</h5>
+
+            <div class="col s12 m6 l6" style="padding: 0px;">
+                <h5>Promote BeTheMillionaire in the <span class="blue-text" style="padding: 10px;">Social Media</span>,
+                    its help you to get member and referrals point. More referral point chance you to win monthly <span class="red-text">competetion</span>.
+                    Join our facebook group.
+                </h5>
+            </div>
+
+            <div class="col s12 m12 l6" style="padding: 0px;">
+                <a target="_blank" href="https://www.facebook.com/groups/336201610190269/" class="btn blue white-text" style="margin-top: 10px;">
+                    Join Facebook Group
+                </a>
+
+                <a href="#affiliate_link" class="btn orange black-text modal-trigger" style="margin-top: 10px;">
+                    Get Affiliate Link
+                </a>
+
+                <div id="affiliate_link" class="modal">
+                    <div class="modal-content">
+                        <h4 style="margin-bottom: 40px; color: blue;">Default Affiliate Link</h4>
+
+                        <p><b>Here Is Your Capture Page ( Copy Below )</b></p>
+
+                        <div class="chip col s12 m12 l12" style="font-size: 16px; margin-top: 10px; margin-bottom: 50px;">
+                            <p>http://www.bethemillionaire.com/account/registration/?userid={{ user.username }}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <p style="font-size: 16px; margin-top: 10px;">Promote this link to your friends and family</p>
+                <a href="{% url 'home:affiliate_link' %}" style="font-size: 16px; margin-top: 10px; text-decoration: underline;">My all affiliate link</a>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="row">
+        <div class="col s12 m12 l12 center-align hide-on-med-and-down" style="padding: 40px; margin-top: 20px;">
+            <p class="col s12 m12 l12 divider"></p>
+
+            <h5 style="margin-top: 40px; margin-bottom: 50px;">Upgrade Membership and get Our Extra-ordinary courses</h5>
+
+            <div class="col s12 m10 offset-m1 l8 offset-l2">
+                <img src="{% static 'home/style/images/image/cd_cover1.png' %}" height="100%" width="100%">
+                <img src="{% static 'home/style/images/image/cd_cover2.png' %}" height="100%" width="100%">
+
+                <a href="{% url 'course:course' %}" class="btn orange black-text pulse" style="margin-top: 10px;">
+                    Visit Course
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col s12 m12 l12 center-align hide-on-large-only" style="padding: 0px; margin-top: 20px;">
+            <p class="col s12 m12 l12 divider"></p>
+
+            <h5 style="margin-top: 40px; margin-bottom: 50px;">Upgrade Membership and get Our Extra-ordinary courses</h5>
+
+            <div class="col s12 m10 offset-m1 l8 offset-l2">
+                <img src="{% static 'home/style/images/image/cd_cover1.png' %}" height="100%" width="100%">
+                <img src="{% static 'home/style/images/image/cd_cover2.png' %}" height="100%" width="100%">
+
+                <a href="{% url 'course:course' %}" class="btn orange black-text pulse" style="margin-top: 10px;">
+                    Visit Course
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="row">
+        <div class="col s12 m12 l12 center-align hide-on-med-and-down" style="padding: 30px; margin-top: 20px;">
+            <p class="col s12 m12 l12 divider"></p>
+
+            <h5 style="padding: 40px;">WE ARE INCRESING <span class="red white-text" style="padding: 10px;">{{ total_member }}+</span>
+            </h5>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col s12 m12 l12 center-align hide-on-large-only" style="padding: 0px; margin-top: 20px;">
+            <p class="col s12 m12 l12 divider"></p>
+
+            <h5 style="padding: 20px;">WE ARE <span class="red white-text" style="padding: 0px;">{{ total_member }}+</span>
+            </h5>
+
+            <p class="col s12 m12 l12 divider"></p>
+        </div>
+    </div>
 
 
 
