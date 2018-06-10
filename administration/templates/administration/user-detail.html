@@ -37,6 +37,8 @@
                         {% else %}
                             <p style="font-size: 14px;">@profile : <span style="color: red;">Deactive</span></p>
                         {% endif %}
+
+                        <p>Sponsor : {{ user.sponsor.username | title }}</p>
                     </div>
                 </div>
             </div>
@@ -50,7 +52,6 @@
                     <p class="col s12 m12 l12 divider" style="margin-top: 5px;"></p>
 
                     <div class="col s12 m12 l12" style="padding: 10px; margin-top: 5px;">
-                        <p>Sponsor : {{ user.sponsor.username | title }}</p>
                         <p>Username : {{ user.username | title }}</p>
                         <p>Email : {{ user.email }}</p>
                         {% if user.phone_number %}

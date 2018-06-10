@@ -1,0 +1,211 @@
+{% extends 'base_v_2.html' %}
+
+{% block title %}BeTheMillionaire | Home{% endblock %}
+
+
+{% block add-css %}
+    {% load staticfiles %}
+    <meta property="og:url"           content="{{ request.build_absolute_uri }}" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="Latest Webinar" />
+    <meta property="og:description"   content="bethemillionaire" />
+    <meta property="og:image"         content="https://www.bethemillionaire.com/static/home/style/images/logo/logo.png" />
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'home/style/index.css' %}">
+
+
+
+    <style>
+        .top-section-background{
+            background-image: url('/static/home/style/images/image/index_page_wallpaper_top.jpg');
+            background-position: center;
+            height: 100%;
+            width: 100%;
+            background-size: cover;
+        }
+    </style>
+
+
+{% endblock %}
+
+
+{% block main %}
+    <div class="row" style="margin-top: 0px;">
+        <div class="col s12 m12 l12 top-section-background hide-on-med-and-down" style="height: 560px;">
+
+            <div class="col s12 m12 l12 white-text right-align" style="padding: 50px;">
+                <a href="{% url 'topic:step_1' %}" class="btn waves-effect waves-light orange white-text">
+                    go to 5 Steps
+                </a>
+
+                <br><br>
+
+                <a href="{% url 'course:course' %}" class="btn waves-effect waves-light orange white-text">
+                    go to exclusive course
+                </a>
+            </div>
+
+
+            <div class="col s12 m12 l3" style="margin-top: 140px; padding: 10px;">
+                <div class="col s12 m12 l12 black center-align" style="padding: 20px; opacity: .7;">
+                    <h5 class="white-text">Click to webinar registration</h5>
+                    <a href="{{ webinar_registration_link.link }}" class="btn waves-effect waves-light orange black-text pulse">
+                        webinar registration
+                    </a>
+                </div>
+            </div>
+
+            <div class="col s12 m12 l3 right" style="margin-top: 140px; padding: 10px;">
+                <div class="col s12 m12 l12 blue center-align" style="padding: 20px; opacity: .9;">
+                    <h5 class="white-text">Share On Facebook</h5>
+
+
+
+                    <div class="fb-share-button"
+                        data-href="https://www.bethemillionaire.com"
+                        data-size="large"
+                        data-layout="button_count">
+                    </div>
+
+
+                    <!-- Load Facebook SDK for JavaScript -->
+                    <div id="fb-root"></div>
+                    <script>(function(d, s, id) {
+                        var js, fjs = d.getElementsByTagName(s)[0];
+                        if (d.getElementById(id)) return;
+                        js = d.createElement(s); js.id = id;
+                        js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0&appId=135252217333448&autoLogAppEvents=1";
+                        fjs.parentNode.insertBefore(js, fjs);
+                      }(document, 'script', 'facebook-jssdk'));
+                    </script>
+
+
+
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+
+
+        <!--mobile head-->
+
+
+
+        <div class="col s12 m12 l12 top-section-background hide-on-large-only center-align" style="height: 500px;">
+
+
+            <div class="col s12 m12 l3" style="margin-top: 10px; padding: 10px;">
+                <div class="col s12 m12 l12 black center-align" style="padding: 10px; opacity: .9;">
+                    <h5 class="white-text">Click to webinar registration</h5>
+                    <a style="margin-bottom: 20px;" href="{{ webinar_registration_link.link }}" class="btn waves-effect waves-light orange black-text pulse">
+                        webinar registration
+                    </a>
+                </div>
+            </div>
+
+
+            <div class="col s12 m12 l12 white-text cente-align" style="padding: 30px;">
+                <a href="{% url 'topic:step_1' %}" class="btn waves-effect waves-light orange white-text">
+                    go to 5 Steps
+                </a>
+
+                <br><br>
+
+                <a href="{% url 'course:course' %}" class="btn waves-effect waves-light orange white-text">
+                    go to exclusive course
+                </a>
+            </div>
+
+
+
+            <div class="col s12 m12 l3 right" style="margin-top: 10px; padding: 10px;">
+                <div class="col s12 m12 l12 blue center-align" style="padding: 20px; opacity: .9;">
+                    <h5 class="white-text">Share On Facebook</h5>
+
+
+
+                    <div class="fb-share-button"
+                        data-href="https://www.bethemillionaire.com"
+                        data-size="large"
+                        data-layout="button_count">
+                    </div>
+
+
+                    <!-- Load Facebook SDK for JavaScript -->
+                    <div id="fb-root"></div>
+                    <script>(function(d, s, id) {
+                        var js, fjs = d.getElementsByTagName(s)[0];
+                        if (d.getElementById(id)) return;
+                        js = d.createElement(s); js.id = id;
+                        js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0&appId=135252217333448&autoLogAppEvents=1";
+                        fjs.parentNode.insertBefore(js, fjs);
+                      }(document, 'script', 'facebook-jssdk'));
+                    </script>
+
+
+
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+
+
+        <!--mobile head-->
+    </div>
+
+
+
+    <div class="row col s12 m12 l12 black center-align orange-text hide-on-med-and-down" style="min-height: 200px; padding: 50px;">
+
+        <div class="col s12 l8 offset-l2" style="min-height:450px;">
+            <h5>Welcome to BeTheMillionaire</h5>
+            <div class="video-container" style="">
+                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/mjhE6uSkOqg" frameborder="0" gesture="media" allow="encrypted-media" autoplay="true" allowfullscreen></iframe>
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <div class="row col s12 m12 l12 black center-align orange-text hide-on-large-only" style="min-height: 200px; padding: 20px;">
+
+        <div class="col s12 l8 offset-l2" style="">
+            <h5>Welcome to BeTheMillionaire</h5>
+            <div class="video-container" style="">
+                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/mjhE6uSkOqg" frameborder="0" gesture="media" allow="encrypted-media" autoplay="true" allowfullscreen></iframe>
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+
+
+{% endblock %}
+
+{% block script %}
+    <script>
+        $(document).ready(function(){
+            $('.modal').modal();
+         });
+
+         $(document).ready(function(){
+    $('.modal').modal();
+  });
+    </script>
+{% endblock %}
+

@@ -47,7 +47,7 @@ class Start(View):
 
 
 class Home(View):
-    template_name = 'home/index_v_1.html'
+    template_name = 'home/index_v_2.html'
 
     def get(self, request):
         sponsor_teams = models.Team.objects.filter(owner=request.user.sponsor)

@@ -197,51 +197,53 @@
 
 
         {% if user.is_authenticated %}
-        <nav class="black">
-            <div class="nav-wrapper">
+        <div class="navbar-fixed">
+            <nav class="black">
+                <div class="nav-wrapper">
 
-                <!--mobile menu-->
-                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                    <!--mobile menu-->
+                    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 
-                <span style="font-size: 20px;" class="hide-on-large-only">
-                    BeTheMillionaire
-                </span>
+                    <span style="font-size: 20px;" class="hide-on-large-only">
+                        BeTheMillionaire
+                    </span>
 
-                <!--main web menu-->
-                <ul class="left hide-on-med-and-down">
-                    <li><a href="{% url 'home:index' %}">Home</a></li>
-                    <li><a class="dropdown-trigger dropdown-button" href="#!" data-target="dashboard">BTM Dashboard</a></li>
-                    <li><a class="dropdown-trigger dropdown-button" href="#!" data-target="passive-profite">Passive Profits</a></li>
-                    <li><a class="dropdown-trigger dropdown-button" href="#!" data-target="my-account">My Account Settings</a></li>
-                    <li><a class="dropdown-trigger dropdown-button" href="#!" data-target="training-marketing">Training & Marketing</a></li>
-                    <li><a class="dropdown-trigger dropdown-button" href="#!" data-target="support">Support</a></li>
-                </ul>
-                <!--main web menu-->
+                    <!--main web menu-->
+                    <ul class="left hide-on-med-and-down">
+                        <li><a href="{% url 'home:index' %}">Home</a></li>
+                        <li><a class="dropdown-trigger dropdown-button" href="#!" data-target="dashboard">BTM Dashboard</a></li>
+                        <li><a class="dropdown-trigger dropdown-button" href="#!" data-target="passive-profite">Passive Profits</a></li>
+                        <li><a class="dropdown-trigger dropdown-button" href="#!" data-target="my-account">My Account Settings</a></li>
+                        <li><a class="dropdown-trigger dropdown-button" href="#!" data-target="training-marketing">Training & Marketing</a></li>
+                        <li><a class="dropdown-trigger dropdown-button" href="#!" data-target="support">Support</a></li>
+                    </ul>
+                    <!--main web menu-->
 
 
 
-                <ul class="right white-text hide-on-med-and-down" style="">
-                    <li><a class="dropdown-trigger dropdown-button1 waves-effect waves-light btn green white-text" data-alignment="right" data-target="dropdown-lang">Language</a></li>
+                    <ul class="right white-text hide-on-med-and-down" style="">
+                        <li><a class="dropdown-trigger dropdown-button1 waves-effect waves-light btn green white-text" data-alignment="right" data-target="dropdown-lang">Language</a></li>
 
-                    <ul id='dropdown-lang' class='dropdown-content translation-links' style="">
-                        <li><a href="#" class="" data-lang="Arabic">Arabic</a></li>
-                        <li><a href="#" class="" data-lang="English">English</a></li>
+                        <ul id='dropdown-lang' class='dropdown-content translation-links' style="">
+                            <li><a href="#" class="" data-lang="Arabic">Arabic</a></li>
+                            <li><a href="#" class="" data-lang="English">English</a></li>
+                        </ul>
+
+
+                        {% if user.is_authenticated %}
+                        <li><a class="dropdown-button waves-effect waves-light btn orange black-text" href="{% url 'account:profile' %}">{{ request.user.username | title }}</a></li>
+                        {% else %}
+                        <li><a class="dropdown-button waves-effect waves-light btn orange black-text" href="{% url 'account:login' %}">Login</a></li>
+                        {% endif %}
                     </ul>
 
 
-                    {% if user.is_authenticated %}
-                    <li><a class="dropdown-button waves-effect waves-light btn orange black-text" href="{% url 'account:profile' %}">{{ request.user.username | title }}</a></li>
-                    {% else %}
-                    <li><a class="dropdown-button waves-effect waves-light btn orange black-text" href="{% url 'account:login' %}">Login</a></li>
-                    {% endif %}
-                </ul>
 
 
 
-
-
-            </div>
-        </nav>
+                </div>
+            </nav>
+        </div>
 
 
 
