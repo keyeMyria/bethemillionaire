@@ -716,11 +716,17 @@ class LeaderBoard(View):
 
         leader_board_obj = admin_model.LeaderBoard.objects.all().last()
 
-        current_campaign_name = leader_board_obj.campaign_name
+        if leader_board_obj:
+            current_campaign_name = leader_board_obj.campaign_name
+        else:
+            current_campaign_name = ''
         
         members = admin_model.LeaderBoard.objects.filter(campaign_name=current_campaign_name).all()
 
-        campaign_date = members.first()
+        if members:
+            campaign_date = members.first()
+        else:
+            campaign_date = None
 
         variables = {
             'members': members,

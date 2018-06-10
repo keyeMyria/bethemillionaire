@@ -58,9 +58,9 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(max_length=50, unique=True)
     email = models.EmailField(max_length=255, unique=True)
 
-    membership = models.ForeignKey('Membershiplevel', related_name='membership_level', default=1, null=True, blank=True)
+    membership = models.ForeignKey('Membershiplevel', on_delete=models.SET_NULL, related_name='membership_level', default=1, null=True, blank=True)
 
-    payments = models.ForeignKey('Payment', null=True, blank=True, related_name='last_payments' )
+    payments = models.ForeignKey('Payment', on_delete=models.SET_NULL, null=True, blank=True, related_name='last_payments' )
 
     sponsor = models.ForeignKey('UserProfile', on_delete=models.SET_NULL, related_name='sponsors', null=True, blank=True)
     referrals = models.ManyToManyField('UserProfile', related_name='referral', blank=True)

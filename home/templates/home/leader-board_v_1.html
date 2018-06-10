@@ -91,6 +91,7 @@
 
 
                     <div class="col s12 m12 l12 " style="margin-top: 20px; padding: 0px;">
+                        {% if members %}
                         <h5 class="left-align orange-text">Campaign Duration: <span class="red-text" style="font-size: 16px;">{{ campaign_date.start_date }}</span>
                             <span class="black-text" style="font-size: 16px;">to</span> <span class="red-text" style="font-size: 16px;">{{ campaign_date.end_date }}</span></h5>
 
@@ -119,6 +120,9 @@
                             </tbody>
                             {% endfor %}
                         </table>
+                        {% else %}
+                            <h5>Leader board not generated yet!</h5>
+                        {% endif %}
                     </div>
 
 
