@@ -511,11 +511,19 @@ class AddMemberToTeam(View):
 
         my_teams = models.Team.objects.filter(owner=request.user)
 
-        #member_obj = account_model.UserProfile.objects.get(id=member_id)
+        member_obj = account_model.UserProfile.objects.get(id=member_id)
+
+
+        if member_obj in my_referrals:
+            member_obj = member_obj
+        else:
+            member_obj = None
 
 
         variables = {
             'my_teams': my_teams,
+
+            'member_obj': member_obj,
         }
 
         return render(request, self.template_name, variables)
@@ -540,7 +548,7 @@ class AddTeamMemberOperation(View):
         else:
             pass
 
-        return redirect('home:manage-team')
+        return redirect('account:my-referrals')
 
 
 #remove team member

@@ -113,7 +113,7 @@
                                                 <td>{{ referral.email }}</td>
                                                 <td>{{ referral.membership }}</td>
                                                 <td>{{ referrals_referrals }}</td>
-                                                <td><a href="{% url 'home:remove-team-member' %}" style="font-size: 12px;">Add</a></td>
+                                                <td><a href="{% url 'home:add-member-to-team' member_id=referral.id %}" style="font-size: 12px;">Add</a></td>
                                             </tr>
 
                                             {% endfor %}
@@ -152,7 +152,7 @@
                                     <td>{{ referral.email }}</td>
                                     <td>{{ referral.membership }}</td>
                                     <td>{{ referrals_referrals }}</td>
-                                    <td><a href="{% url 'home:remove-team-member' %}" style="font-size: 12px;">Add</a></td>
+                                    <td><a href="{% url 'home:add-member-to-team' member_id=referral.id %}" style="font-size: 12px;">Add</a></td>
                                 </tr>
 
                                 {% endfor %}

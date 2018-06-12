@@ -46,7 +46,7 @@
                         <span class="right" style=""> > </span>
                     </a>
 
-                    <a class="left col s12 m12 l12" href="{% url 'account:membership-level-vip' %}" style="padding: 10px;">Upgrade VIP
+                    <a class="left col s12 m12 l12" href="{% url 'account:my-referrals' %}" style="padding: 10px;">My Referrals
                         <span class="right" style=""> > </span>
                     </a>
 
@@ -58,10 +58,20 @@
 
             <div class="col m8 l9" style="padding: 0px; margin-top: 0px; opacity: .9; margin-bottom: 20px;">
                 <div class="col s12 l12 white center-align" style="padding: 20px;">
-
+                    {% if member_obj %}
                     <h4 class="left-align orange-text">My Team</h4>
 
                     <p class="col s12 m12 l12 divider" style="margin-top: 30px; margin-bottom: 30px;"></p>
+
+
+                    <div class="col s12 m12 l12 left-align" style="margin-bottom: 20px;">
+                        <h5 style="text-decoration: underline;">About Member</h5>
+                        <p>Selected Member: {{ member_obj.username | title }}</p>
+                        <p>Email: {{ member_obj.email }}</p>
+                        <p>Membership: {{ member_obj.membership | title }}</p>
+
+                        <h5>You can add this member to your following team: </h5>
+                    </div>
 
 
                     <div class="col s12 m12 l12">
@@ -84,7 +94,7 @@
                                     <td>{{ my_team.name | title }}</td>
                                     <td>{{ my_team.owner.username | title }}</td>
                                     <td>{{ my_team.member.all.count }}</td>
-                                    <td><a href="" style="font-size: 12px;">Remove</a></td>
+                                    <td><a href="{% url 'home:add-team-member' %}?new_member={{ member_obj.id }}&team_id={{ my_team.id }}" style="font-size: 12px;">Add Here</a></td>
                                 </tr>
 
                                 {% endfor %}
@@ -97,8 +107,11 @@
 
                     </div>
 
-
+                    {% else %}
+                    <h5>You have not any permission to see this user!</h5>
+                    {% endif %}
                 </div>
+
             </div>
         </div>
     </div>
