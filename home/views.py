@@ -530,9 +530,6 @@ class AddMemberToTeam(View):
 
 
 
-
-
-
 #add team member
 class AddTeamMemberOperation(View):
     def get(self, request):
