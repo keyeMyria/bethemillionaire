@@ -16,20 +16,19 @@
             text-decoration: underline;
         }
 
-        #particles-js{
+        #particles-js1{
             background-image: url('/static/account/style/images/reg/back-1.jpeg');
-            background-repeat: no-repeat;
+            background-repeat: repeat;
             background-position: center;
-            height: 230vh;
+            min-height: 230vh;
             width: 100%;
-            background-size: cover;
         }
     </style>
 {% endblock %}
 
 {% block main %}
-    <div class="row" id="particles-js" style="">
-        <div class="col s12 l8 offset-l2" style="position: absolute;">
+    <div class="row" id="particles-js1" style="">
+        <div class="col s12 l8 offset-l2" style="">
             <div class="col m4 l3 blue" style="">
                 <div class="col s12 m12 l12 #1a237e indigo orange-text darken-4 center-align" style="padding: 10px;">
                     <h5>My Referral</h5>
@@ -99,8 +98,9 @@
                                                 <th>Date</th>
                                                 <th>Username</th>
                                                 <th>Email</th>
-                                                <th>Membership-Status</th>
+                                                <th>Membership</th>
                                                 <th>Referred</th>
+                                                <th>Team</th>
                                             </tr>
                                         </thead>
 
@@ -113,6 +113,7 @@
                                                 <td>{{ referral.email }}</td>
                                                 <td>{{ referral.membership }}</td>
                                                 <td>{{ referrals_referrals }}</td>
+                                                <td><a href="{% url 'home:remove-team-member' %}" style="font-size: 12px;">Add</a></td>
                                             </tr>
 
                                             {% endfor %}
@@ -137,8 +138,9 @@
                                 <tr>
                                     <th>Username</th>
                                     <th>Email</th>
-                                    <th>Membership-Status</th>
+                                    <th>Membership</th>
                                     <th>Referred</th>
+                                    <th>Team</th>
                                 </tr>
                             </thead>
 
@@ -150,6 +152,7 @@
                                     <td>{{ referral.email }}</td>
                                     <td>{{ referral.membership }}</td>
                                     <td>{{ referrals_referrals }}</td>
+                                    <td><a href="{% url 'home:remove-team-member' %}" style="font-size: 12px;">Add</a></td>
                                 </tr>
 
                                 {% endfor %}
@@ -198,14 +201,6 @@
             </div>
         </div>
     </div>
-<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-<script>
-    particlesJS.load("particles-js", "{% static 'home/js/particles.json' %}",
-        function(){
-            console.log("particles.js loaded...")
-        }
-    )
-</script>
 {% endblock %}
 
 

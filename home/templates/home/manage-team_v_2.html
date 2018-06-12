@@ -1,0 +1,167 @@
+{% extends 'base_v_2.html' %}
+
+{% block title %}BeTheMillionaire | Manage Team{% endblock %}
+
+{% block add-css %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home/style/index.css' %}">
+
+    <style>
+        .left_main_menu a{
+            color: orange;
+        }
+
+        .left_main_menu a:hover{
+            color: white;
+            text-decoration: underline;
+        }
+
+        .site-background{
+            background-image: url('/static/account/style/images/reg/back-1.jpeg');
+            background-repeat: repeat;
+            background-position: center;
+        }
+    </style>
+{% endblock %}
+
+{% block main %}
+    <div class="row site-background" style="">
+        <div class="col s12 l8 offset-l2" style="">
+            <div class="col m4 l3 blue" style="">
+                <div class="col s12 m12 l12 #1a237e indigo orange-text darken-4 center-align" style="padding: 10px;">
+                    <h5>Manage Team</h5>
+                </div>
+
+                <div class="col s12 m12 l12 white center-align" style="min-height: 200px;">
+                    {% if request.user.sponsor.profile_picture %}
+                        <img class="col m10 offset-m1 l10 offset-l1" src="{{ request.user.sponsor.profile_picture.url}}" height="100%" width="100%" style="margin-top: 20px;" alt="">
+                    {% else %}
+                        <img class="col m10 offset-m1 l10 offset-l1" src="{% static 'account/style/images/no-img.jpg' %}" height="100%" width="100%" style="margin-top: 20px;" alt="">
+                    {% endif %}
+                    <p style="margin-bottom: 10px;">@{{ request.user.sponsor.username | title }}</p>
+                </div>
+
+                <div class="col s12 m12 l12 #1a237e indigo orange-text darken-4 left_main_menu" style="padding: 10px; margin-bottom: 20px;">
+                    <a class="left col s12 m12 l12 white-text" href="{% url 'home:manage-team' %}" style="padding: 10px;">Manage Team
+                        <span class="right" style=""> > </span>
+                    </a>
+
+                    <a class="left col s12 m12 l12" href="{% url 'account:membership-level-vip' %}" style="padding: 10px;">Upgrade VIP
+                        <span class="right" style=""> > </span>
+                    </a>
+
+                    <a class="left col s12 m12 l12" href="{% url 'account:membership-level-premium' %}" style="padding: 10px;">Upgrade Premium
+                        <span class="right" style=""> > </span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col m8 l9" style="padding: 0px; margin-top: 0px; opacity: .9; margin-bottom: 20px;">
+                <div class="col s12 l12 white center-align" style="padding: 20px;">
+
+                    <h4 class="left-align orange-text">Manage Team</h4>
+                    <div class="left-align">
+                        <p>
+                            Your sponsors team where you can join
+                        </p>
+
+                        <br>
+                        <p>
+                            You can join in your sponsors teaching team and know how he start in BeTheMillionaire and
+                             know how he success. If you not seen any team then contact with your sponsor to join you in his team.
+                        </p>
+
+                        {% for my_join_team in my_join_teams %}
+                            <a href="{% url 'home:personal-training' owner_id=my_join_team.owner.id team_id=my_join_team.id %}" class="btn red white-text" style="margin-top: 10px;">
+                                {{ my_join_team.name }}
+                            </a>
+                        {% endfor %}
+                    </div>
+
+
+                    <p class="col s12 m12 l12 divider" style="margin-top: 30px; margin-bottom: 30px;"></p>
+
+
+                    <div class="col s12 m12 l12 left-align" style="margin-top: 10px; padding: 0px;">
+                        <div class="card blue">
+                            <div class="card-content white-text">
+                                <span class="card-title">Create your own teaching team for your trainee</span>
+                                <p>
+                                    You can create one or several team and you can add your follower to that team
+                                    and start teaching them.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <form class="col s12 m12 l12 center-align" method="post">
+                        <h5 class="col s12 m10 offset-m1 l10 offset-l1 left-align">Create Team</h5>
+                        {% csrf_token %}
+
+                        <div class="input-field col s12 m10 offset-m1 l10 offset-l1">
+                            {{ tean_form.name }}
+                            <label for="icon_prefix white-text">Team Name</label>
+                        </div>
+
+                        {% if tean_form.non_field_errors %}
+                            {% for error in tean_form.non_field_errors %}
+                                <div class="col s12 m8 offset-m2 l8 offset-l2 collection teal lighten-2" style="border: 0px;">
+                                    <p href="#!" class="collection-item white-text teal lighten-2">{{ error }}</p>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+
+                        <button type="submit" class="waves-effect waves-light btn green white-text" style="margin-top: 20px;">Create Team</button>
+
+                    </form>
+
+
+                    <div class="col s12 m12 l12 left-align" style="margin-top: 30px; padding: 0px;">
+
+                        <table class="centered responsive-table striped" style="margin-bottom: 20px;">
+                            <thead>
+                                <tr>
+                                    <th>S/N</th>
+                                    <th>Team Name</th>
+                                    <th>Owner</th>
+                                    <th>Total Member</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                {% for team in teams %}
+                                <tr>
+                                    <td><b>{{ forloop.counter }}. </b></td>
+                                    <td>{{ team.name | title }}</td>
+                                    <td>{{ team.owner.username | title }}</td>
+                                    <td>{{ team.member.all.count }}</td>
+                                    <td><a href="{% url 'home:all-team-member' team_id=team.id %}" style="font-size: 12px;">View</a></td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+
+                    </div>
+
+
+                    <div class="col s12 m12 l12" style="margin-top: 30px; margin-bottom: 40px;">
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block script %}
+
+<script>
+
+</script>
+
+{% endblock %}

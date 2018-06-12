@@ -40,8 +40,17 @@ urlpatterns = [
 
     #training by sponsor
     url(r'^member-home/manage-team/$', views.ManageTeam.as_view(), name='manage-team'),
+
+    #referral user with all team to add in the team
+    url(r'^member-home/manage-team/(?P<member_id>[0-9]+)/$', views.AddMemberToTeam.as_view(), name='add-member-to-team'),
+
     url(r'^member-home/add-team-member/$', views.AddTeamMemberOperation.as_view(), name='add-team-member'),
     url(r'^member-home/remove-team-member/$', views.RemoveTeamMemberOperation.as_view(), name='remove-team-member'),
+
+
+    url(r'^member-home/manage-team/(?P<team_id>[0-9]+)/all-member/$', views.AllTeamMember.as_view(), name='all-team-member'),
+
+
 
     url(r'^member-home/training/(?P<owner_id>[0-9]+)/(?P<team_id>[0-9]+)/$', views.PersonalTraining.as_view(), name='personal-training'),
 

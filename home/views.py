@@ -381,9 +381,9 @@ class RecentUpdate(View):
 
 
 
-#privacy policy
+#manage-team
 class ManageTeam(View):
-    template_name = 'home/manage-team_v_1.html'
+    template_name = 'home/manage-team_v_2.html'
 
     def get(self, request):
         user_profile = UserProfile.objects.filter(username=request.user.username)
@@ -460,6 +460,71 @@ class ManageTeam(View):
 
 
 
+#all team member
+class AllTeamMember(View):
+    template_name = 'home/all-team-member.html'
+
+    def get(self, request, team_id):
+
+        team = get_object_or_404(models.Team, id=team_id, owner=request.user)
+        #team = models.Team.objects.get(Q(id=team_id) & Q(owner=request.user))
+
+        team_members = team.member.all()
+
+        variables = {
+            'team': team,
+            'team_members': team_members,
+        }
+
+        return render(request, self.template_name, variables)
+
+
+    def post(self, request, team_id):
+        team = get_object_or_404(models.Team, id=team_id, owner=request.user)
+        #team = models.Team.objects.get(Q(id=team_id) & Q(owner=request.user))
+
+        team_members = team.member.all()
+
+
+        if request.POST.get('remove-team') == 'remove-team':
+            team.delete()
+            return redirect('home:manage-team')
+
+
+        variables = {
+            'team': team,
+            'team_members': team_members,
+        }
+
+        return render(request, self.template_name, variables)
+
+
+
+
+#add member to team
+class AddMemberToTeam(View):
+    template_name = 'home/add-member-to-team.html'
+
+    def get(self, request, member_id):
+
+        my_referrals = request.user.referrals.all()
+
+        my_teams = models.Team.objects.filter(owner=request.user)
+
+        #member_obj = account_model.UserProfile.objects.get(id=member_id)
+
+
+        variables = {
+            'my_teams': my_teams,
+        }
+
+        return render(request, self.template_name, variables)
+
+
+
+
+
+
 #add team member
 class AddTeamMemberOperation(View):
     def get(self, request):
@@ -493,7 +558,7 @@ class RemoveTeamMemberOperation(View):
         else:
             pass
 
-        return redirect('home:manage-team')
+        return redirect('home:all-team-member', team_id=team_id)
 
 
 
