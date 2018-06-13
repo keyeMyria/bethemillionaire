@@ -53,6 +53,8 @@ class Home(View):
         sponsor_teams = models.Team.objects.filter(owner=request.user.sponsor)
         total_member = account_model.UserProfile.objects.all().count()
 
+        recent_update_posts = admin_model.RecentUpdatePost.objects.all().order_by('-date')[:5]
+
         webinar_registration_link = account_model.WebinarLink.objects.get(id=1)
 
         variables = {
@@ -60,6 +62,8 @@ class Home(View):
             'total_member': total_member,
 
             'webinar_registration_link': webinar_registration_link,
+
+            'recent_update_posts': recent_update_posts,
         }
 
         return render(request, self.template_name, variables)

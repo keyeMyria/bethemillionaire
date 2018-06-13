@@ -679,7 +679,7 @@ class AddVideo(AdminPermission, View):
 
 
 #pending commission payment
-class CommissionPayment(View):
+class CommissionPayment(AdminPermission, View):
     template_name = 'administration/commission-payout-list.html'
 
     def get(self, request):
@@ -695,7 +695,7 @@ class CommissionPayment(View):
 
 
 #pending commission payment
-class CommissionPaymentDetail(View):
+class CommissionPaymentDetail(AdminPermission, View):
     template_name = 'administration/commission-payout-detail.html'
 
     def get(self, request, commission_id):
@@ -761,7 +761,7 @@ class WebinarRegistrationLink(AdminPermission, View):
 
 
 #leader board
-class CreateLeaderBoard(View):
+class CreateLeaderBoard(AdminPermission, View):
     template_name = 'administration/create-leader-board.html'
 
 
@@ -861,7 +861,7 @@ class CreateLeaderBoard(View):
 
 
 #view leader board
-class ViewLeaderBoard(View):
+class ViewLeaderBoard(AdminPermission, View):
     template_name = 'administration/view-leader-board.html'
 
     def get(self, request, campaign_name):
@@ -898,23 +898,111 @@ class ViewLeaderBoard(View):
 
 
 #recent update post
-class RecentUpdatePost(View):
+class RecentUpdatePost(AdminPermission, View):
     template_name = 'administration/recent-update-post.html'
 
     def get(self, request):
 
-        variables = {
+        form = forms.RecentUpdatePostForm()
 
+        variables = {
+            'form': form,
         }
 
         return render(request, self.template_name, variables)
 
+
+    def post(self, request):
+
+        form = forms.RecentUpdatePostForm(request.POST or None)
+
+        if form.is_valid():
+            form.deploy(request)
+
+
+        variables = {
+            'form': form,
+        }
+
+        return render(request, self.template_name, variables)
+
+
+
+#recent update post all
+class RecentUpdatePostAll(AdminPermission, View):
+    template_name = 'administration/recent-update-post-all.html'
 
     def get(self, request):
 
+        all_posts = models.RecentUpdatePost.objects.all().order_by('-date')
 
         variables = {
-
+            'all_posts': all_posts,
         }
 
         return render(request, self.template_name, variables)
+
+
+
+#recent update post detail
+class RecentUpdatePostDetail(AdminPermission, View):
+    template_name = 'administration/recent-update-post-detail.html'
+
+    def get(self, request, post_id):
+        post = get_object_or_404(models.RecentUpdatePost, id=post_id)
+
+        variables = {
+            'post': post,
+        }
+
+        return render(request, self.template_name, variables)
+
+
+
+#recent update post
+class RecentUpdateEditPost(AdminPermission, View):
+    template_name = 'administration/recent-update-post-edit.html'
+
+    def get(self, request, post_id):
+        post = get_object_or_404(models.RecentUpdatePost, id=post_id)
+
+        form = forms.RecentUpdatePostEditForm(instance=post)
+
+        variables = {
+            'form': form,
+            'post': post,
+        }
+
+        return render(request, self.template_name, variables)
+
+
+    def post(self, request, post_id):
+        post = get_object_or_404(models.RecentUpdatePost, id=post_id)
+
+        form = forms.RecentUpdatePostEditForm(request.POST or None, instance=post)
+
+        if form.is_valid():
+            form.save()
+
+            return redirect('administration:recent-update-post-detail', post_id=post_id)
+
+
+        variables = {
+            'form': form,
+            'post': post,
+        }
+
+        return render(request, self.template_name, variables)
+
+
+
+#recent update post detail
+class RecentUpdateDeletePost(AdminPermission, View):
+
+    def get(self, request, post_id):
+        post = get_object_or_404(models.RecentUpdatePost, id=post_id)
+
+        if request.user.is_superuser:
+            post.delete()
+
+            return redirect('administration:recent-update-post-all')

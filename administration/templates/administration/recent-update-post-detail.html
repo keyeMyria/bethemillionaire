@@ -1,0 +1,56 @@
+{% extends 'admin-base.html' %}
+
+{% block title %}Administration | BeTheMillionaire{% endblock %}
+
+{% block add-css %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home/style/index.css' %}">
+{% endblock %}
+
+{% block main %}
+    <div class="row">
+        <div class="col s12 m10 offset-m1 l8 offset-l2" style="">
+            <div class="col s12 m12 l12" style="margin-top: 20px; margin-bottom: 20px;">
+                <h5 class="">
+                    Recent Update Post - {{ post.id }}
+                </h5>
+            </div>
+
+
+            <div class="col m12 l12 left-align">
+
+                <h5>Title</h5>
+                <p>
+                    {{ post.title }}
+                </p>
+
+
+                <h5>Post</h5>
+                <p>
+                    {{ post.post }}
+                </p>
+
+            </div>
+
+
+            <a style="margin-top: 20px; margin-bottom: 50px;" href="{% url 'administration:recent-update-post-all' %}" class="waves-effect waves-light btn">Back to all post</a>
+            <a style="margin-top: 20px; margin-bottom: 50px;" href="{% url 'administration:recent-update-post-edit' post_id=post.id %}" class="waves-effect waves-light btn">Edit This Post</a>
+            <a style="margin-top: 20px; margin-bottom: 50px;" href="{% url 'administration:recent-update-post-delete' post_id=post.id %}" class="waves-effect waves-light btn">Delete This Post</a>
+
+
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block script %}
+
+<script>
+
+     $(document).ready(function() {
+        $('select').material_select();
+      });
+
+</script>
+
+{% endblock %}

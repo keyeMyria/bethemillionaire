@@ -192,21 +192,41 @@ class UserSearchForm(forms.Form):
 
 #RecentUpdatePost
 class RecentUpdatePostForm(forms.Form):
-    post = forms.CharField(max_length=255, required=False, widget=forms.TextInput(attrs={'class': 'validate', 'id': 'icon_prefix'}))
+    title = forms.CharField(max_length=255, required=False, widget=forms.TextInput(attrs={'class': 'validate', 'id': 'icon_prefix'}))
+    post = forms.CharField( required=False, max_length= 5000 ,widget=forms.Textarea(attrs={'class': 'validate materialize-textarea'}) )
 
 
     def clean(self):
+        title = self.cleaned_data.get('title')
         post = self.cleaned_data.get('post')
 
-        if len(post) < 10:
-            raise forms.ValidationError('Enter post text more than 10 words!')
+
+        if len(title) < 5:
+            raise forms.ValidationError('Enter post title! Not less than 5 words!')
+        else:
+            if len(post) < 10:
+                raise forms.ValidationError('Enter post text less than 10 words!')
 
 
     def deploy(self, request):
+        title = self.cleaned_data.get('title')
         post = self.cleaned_data.get('post')
 
 
-        deploy = models.RecentUpdatePost(post=post)
+        deploy = models.RecentUpdatePost(user=request.user, title=title, post=post)
         deploy.save()
 
 
+
+
+
+#edit recent update post
+class RecentUpdatePostEditForm(forms.ModelForm):
+
+    title = forms.CharField(max_length=255, required=False, widget=forms.TextInput(attrs={'class': 'validate', 'id': 'icon_prefix'}))
+    post = forms.CharField( required=False, max_length= 5000 ,widget=forms.Textarea(attrs={'class': 'validate materialize-textarea'}) )
+
+
+    class Meta:
+        model = models.RecentUpdatePost
+        fields = ('title', 'post')

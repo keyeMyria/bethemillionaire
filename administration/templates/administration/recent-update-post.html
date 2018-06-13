@@ -1,0 +1,72 @@
+{% extends 'admin-base.html' %}
+
+{% block title %}Administration | BeTheMillionaire{% endblock %}
+
+{% block add-css %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home/style/index.css' %}">
+{% endblock %}
+
+{% block main %}
+    <div class="row">
+        <div class="col s12 m10 offset-m1 l8 offset-l2" style="">
+            <div class="col s12 m12 l12" style="margin-top: 20px; margin-bottom: 20px;">
+                <h5 class="">
+                    Add Recent Update
+                </h5>
+            </div>
+
+
+            <div class="col m12 l12 center-align">
+
+                <form method="post" style="">
+                    {% csrf_token %}
+
+                    <div style="" class="input-field col s12 m12 l12">
+                        <i class="material-icons prefix">create</i>
+                        {{ form.title }}
+                        <label for="icon_prefix white-text">Title</label>
+                    </div>
+
+
+                    <div style="" class="input-field col s12 m12 l12">
+                        <i class="material-icons prefix">create</i>
+                        {{ form.post }}
+                        <label for="icon_prefix white-text">Post</label>
+                    </div>
+
+                    {% if form.non_field_errors %}
+                        {% for error in form.non_field_errors %}
+                            <div class="col s12 m12 l12 center-align valign-wrapper red" style="height: 40px; border: 1px solid red; margin-bottom: 20px; margin-top: 10px;">
+                                <p class="col s12 m12 l12 white-text" style="font-size: 14px;">
+                                    {{ error }}
+                                </p>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+
+                    <div style="margin-bottom: 50px; margin-top: 50px;" class="col s12 m12 l12 center-align">
+                        <button class="btn waves-effect waves-light" type="submit" style="">Add
+                        </button>
+                    </div>
+                </form>
+
+            </div>
+
+
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block script %}
+
+<script>
+
+     $(document).ready(function() {
+        $('select').material_select();
+      });
+
+</script>
+
+{% endblock %}

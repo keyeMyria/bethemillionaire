@@ -197,18 +197,25 @@
             <!--left side bar-->
             <div class="col s12 m12 l4" style="padding: 0px;">
 
-                <!--
+
                 <div class="col s12 m12 l12">
-                    <div class="card white" style="min-height: 500px;">
+                    <div class="card white" style="max-height: 500px;">
                         <div class="card-content grey-text">
                             <span class="card-title">Recent Updates</span>
                             <p class="divider"></p>
 
-
+                            <div class="row" style="margin-top: 30px;">
+                                {% for recent_update_post in recent_update_posts %}
+                                <div class="col s12 m12 l12 valign-wrapper" style="padding: 10px;">
+                                    <p class="col l8">{{ forloop.counter }}. {{ recent_update_post.title }}</p>
+                                    <p class="col l4" style="font-size: 13px;">{{ recent_update_post.date | date }}</p>
+                                </div>
+                                {% endfor %}
+                            </div>
 
                         </div>
                     </div>
-                </div>-->
+                </div>
 
 
 

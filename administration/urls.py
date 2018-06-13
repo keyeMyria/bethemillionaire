@@ -55,6 +55,10 @@ urlpatterns = [
 
     #recent update post for dashboard
     url(r'^recent-update/post/$', views.RecentUpdatePost.as_view(), name='recent-update-post'),
+    url(r'^recent-update/post/all/$', views.RecentUpdatePostAll.as_view(), name='recent-update-post-all'),
+    url(r'^recent-update/post/(?P<post_id>[0-9]+)/detail/$', views.RecentUpdatePostDetail.as_view(), name='recent-update-post-detail'),
+    url(r'^recent-update/post/(?P<post_id>[0-9]+)/edit/$', views.RecentUpdateEditPost.as_view(), name='recent-update-post-edit'),
+    url(r'^recent-update/post/(?P<post_id>[0-9]+)/delete/$', views.RecentUpdateDeletePost.as_view(), name='recent-update-post-delete'),
 
 
 ]
