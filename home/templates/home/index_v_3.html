@@ -1,0 +1,354 @@
+{% extends 'base_v_2.html' %}
+
+{% block title %}BeTheMillionaire | Home{% endblock %}
+
+
+{% block add-css %}
+    {% load staticfiles %}
+    <meta property="og:url"           content="{{ request.build_absolute_uri }}" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="Latest Webinar" />
+    <meta property="og:description"   content="bethemillionaire" />
+    <meta property="og:image"         content="https://www.bethemillionaire.com/static/home/style/images/logo/logo.png" />
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'home/style/index.css' %}">
+
+
+
+    <style>
+        .top-section-background{
+            background-image: url('/static/home/style/images/image/index_page_wallpaper_top.jpg');
+            background-position: center;
+            height: 100%;
+            width: 100%;
+            background-size: cover;
+        }
+
+
+        .table_laptop_pic{
+            background-image: url('/static/home/style/images/image/table_laptop.jpg');
+            background-position: center;
+            height: 100%;
+            width: 100%;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+    </style>
+
+
+{% endblock %}
+
+
+{% block main %}
+    <div class="row #e0f7fa cyan lighten-5" style="margin-top: 0px;">
+
+
+        <div class="col s12 m12 l10 offset-l1" style="margin-top: 20px; margin-bottom: 20px;">
+
+
+            <div class="col s12 m4 l4">
+                <div class="card white" style="height: 500px;">
+                    <div class="card-content grey-text">
+                        <span class="card-title">Watch this First!</span>
+                        <p class="divider"></p>
+
+
+                        <div class="video-container" style="margin-top: 30px;">
+                            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/mjhE6uSkOqg" frameborder="0" gesture="media" allow="encrypted-media" autoplay="true" allowfullscreen></iframe>
+                        </div>
+
+
+                        <p class="col s12 m12 l12" style="margin-top: 30px; center-align">
+                            Here you found how you can build your wealth with BeTheMillionaire system.
+                            Here you can find how to trade crypto currency safely and correctly. You will be
+                            millionaire.
+                        </p>
+
+                        <p class="col s12 m12 l12 black-text center-align" style="margin-top: 20px;">
+                            <b><i>- Mena Refaat</i></b>
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="col s12 m4 l4">
+                <div class="card white" style="height: 500px;">
+                    <div class="card-content grey-text">
+                        <span class="card-title">Five Steps Fast Start</span>
+                        <p class="divider"></p>
+
+                        <p style="margin-top: 30px;">
+                            Five steps are your foundation in BeTheMillionaire System. Please complete
+                            all of these steps one by one. Don't skip any step, its not clever to skip.
+                             You can find here lots of good things.
+                        </p>
+
+
+                        <a style="margin-top: 50px;" href="{% url 'topic:step_1' %}" class="col s12 m12 l12 btn waves-effect waves-light orange white-text">
+                            go to 5 Steps fast start
+                        </a>
+
+
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="col s12 m4 l4">
+                <div class="card white" style="height: 500px;">
+                    <div class="card-content grey-text">
+                        <span class="card-title">Core Products Status</span>
+                        <p class="divider"></p>
+
+
+                        <div class="col s12 m12 l12" style="padding: 0px; margin-top: 30px;">
+                            <div class="col l2" style="padding: 0px;">
+                                <img height="100%" width="100%" src="{% static 'home/style/images/image/cd_cover1.png' %}">
+                            </div>
+
+                            <div class="col l6 center-align" style="">
+                                <a class="grey-text" href="{% url 'topic:step_1' %}">The 5 Steps Fast Start</a>
+                            </div>
+
+                            <div class="col l4 center-align green-text" style="">
+                                Active
+                            </div>
+                        </div>
+
+                        <p class="col s12 m12 l12 divider" style="margin-top: 20px;">
+
+                        </p>
+
+
+
+
+                        <div class="col s12 m12 l12" style="padding: 0px; margin-top: 30px;">
+                            <div class="col l2" style="padding: 0px;">
+                                <img height="100%" width="100%" src="{% static 'home/style/images/image/cd_cover2.png' %}">
+                            </div>
+
+                            <div class="col l6 center-align" style="">
+                                <a class="grey-text" href="{% url 'course:course' %}">Secret wealth growing course</a>
+                            </div>
+
+                            <div class="col l4 center-align green-text" style="">
+                                Active
+                            </div>
+                        </div>
+
+                        <p class="col s12 m12 l12 divider" style="margin-top: 20px;">
+
+                        </p>
+
+
+
+
+                        <div class="col s12 m12 l12" style="padding: 0px; margin-top: 30px;">
+                            <div class="col l2" style="padding: 0px;">
+                                <img height="100%" width="100%" src="{% static 'home/style/images/image/cd_cover2.png' %}">
+                            </div>
+
+                            <div class="col l6 center-align" style="">
+                                <a class="grey-text">Crypto wealth building course</a>
+                            </div>
+
+                            <div class="col l4 center-align red-text" style="">
+                                Inactive
+                            </div>
+                        </div>
+
+                        <p class="col s12 m12 l12 divider" style="margin-top: 20px;">
+
+                        </p>
+
+
+                        <div class="col s12 m12 l12" style="padding: 0px; margin-top: 30px;">
+                            <div class="col l2 center-align" style="padding: 15px; border: 2px solid #333;">
+                                VIP
+                            </div>
+
+                            <div class="col l6 center-align" style="">
+                                <a class="grey-text">Crypto secret course only for VIP</a>
+                            </div>
+
+                            <div class="col l4 center-align red-text" style="">
+                                Inactive
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div class="col s12 m4 l4">
+                <div class="card white" style="height: 500px;">
+                    <div class="card-content grey-text">
+                        <span class="card-title">Your Sponsor</span>
+                        <p class="divider"></p>
+
+                        <div class="col l6 offset-l3" style="margin-top: 30px;">
+                            <img class="responsive-img" src="{{ request.user.sponsor.profile_picture.url }}">
+                        </div>
+
+                        <div class="col s12 m12 l12 center-align" style="margin-top: 20px;">
+                            <p>@{{ request.user.sponsor.username | title }}</p>
+                            <p>{{ request.user.sponsor.email }}</p>
+                        </div>
+
+                        <p class="col s12 m12 l12" style="margin-top: 20px;">
+                            Learn from your sponsor. Learn how he grow wealth in BeTheMillionaire System.
+                             You can see in which team you are in your sponsor managed team.
+                        </p>
+
+
+                        <a style="margin-top: 30px;" href="{% url 'home:manage-team' %}" class="col s12 m12 l12 btn waves-effect waves-light orange white-text">
+                            Sponsor managed team
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+            <div class="col l8">
+                <div class="card white" style="height: 500px;">
+                    <div class="card-content grey-text">
+                        <span class="card-title">Affiliating and promoting</span>
+                        <p class="divider"></p>
+
+                        <div class="col s12 m12 l12 center-align" style="padding: 30px; margin-top: 30px;">
+                            <p style="font-size: 20px;">Promote BeTheMillionaire in the <span class="blue-text" style="padding: 10px;">Social Media</span>,
+                            its help you to get member and referrals point. More referral point chance you to win monthly <span class="red-text">competetion</span>.
+                                Join our facebook group.</p>
+
+
+
+                            <a target="_blank" href="https://www.facebook.com/groups/336201610190269/" class="btn blue white-text" style="margin-top: 20px;">
+                                Join Facebook Group
+                            </a>
+
+                            <a href="#affiliate_link" class="btn orange black-text modal-trigger" style="margin-top: 20px;">
+                                Get default Affiliate Link
+                            </a>
+
+                            <a href="{% url 'home:affiliate_link' %}" class="btn orange black-text" style="margin-top: 20px;">
+                                all affiliate link
+                            </a>
+
+
+                            <div id="affiliate_link" class="modal">
+                                <div class="modal-content">
+                                    <h4 style="margin-bottom: 40px; color: blue;">Default Affiliate Link</h4>
+
+                                    <p><b>Here Is Your Capture Page ( Copy Below )</b></p>
+
+                                    <div class="chip col s12 m12 l12" style="font-size: 16px; margin-top: 10px; margin-bottom: 50px;">
+                                        <p>http://www.bethemillionaire.com/account/registration/?userid={{ user.username }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="col s12 m12 l12" style="margin-top: 20px; padding: 10px;">
+                            <div class="col s12 m12 l12 blue center-align" style="padding: 20px; opacity: .8;">
+                                <h5 class="white-text">Share On Facebook</h5>
+
+
+
+                                <div class="fb-share-button"
+                                    data-href="https://www.bethemillionaire.com"
+                                    data-size="large"
+                                    data-layout="button_count">
+                                </div>
+
+
+                                <!-- Load Facebook SDK for JavaScript -->
+                                <script>(function(d, s, id) {
+                                    var js, fjs = d.getElementsByTagName(s)[0];
+                                    if (d.getElementById(id)) return;
+                                    js = d.createElement(s); js.id = id;
+                                    js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0&appId=135252217333448&autoLogAppEvents=1";
+                                    fjs.parentNode.insertBefore(js, fjs);
+                                  }(document, 'script', 'facebook-jssdk'));
+                                </script>
+
+
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div class="col s12 m12 l12">
+                <div class="card white" style="">
+                    <div class="card-content grey-text">
+                        <span class="card-title">Welcome To BeTheMillionaire Family - Please Introduce Yourself!</span>
+                        <p class="divider"></p>
+
+
+                        <div class="row" style="padding: 10px; margin-top: 20px;">
+                            <div class="col s12 m12 l12 fb-comments" data-href="https://localhost:8000" data-width="100%" data-numposts="5"></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+
+
+    </div>
+
+
+
+{% endblock %}
+
+{% block script %}
+
+    <!--fb comment-->
+
+        <div id="fb-root"></div>
+        <script>
+        (function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0&appId=135252217333448&autoLogAppEvents=1';
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+        </script>
+
+
+    <script>
+        $(document).ready(function(){
+            $('.modal').modal();
+         });
+
+         $(document).ready(function(){
+    $('.modal').modal();
+  });
+    </script>
+{% endblock %}
+

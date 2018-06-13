@@ -198,7 +198,7 @@
 
         {% if user.is_authenticated %}
         <div class="navbar-fixed">
-            <nav class="black" style="opacity: .9;">
+            <nav class="black" style="">
                 <div class="nav-wrapper">
 
                     <!--mobile menu-->
@@ -464,7 +464,18 @@
         </footer>-->
 
 
-        <footer class="row col s12 m12 l12 hide-on-med-and-down" style="background-color: #33363f; height: 600px; padding: 100px; border-top: 4px solid black;">
+
+        <!--- footer color
+
+        cyan: #e0f7fa cyan lighten-5
+        grey: #33363f
+
+        -->
+
+
+
+
+        <footer class="row col s12 m12 l12 hide-on-med-and-down #e0f7fa cyan lighten-5" style="height: 600px; padding: 100px; border-top: 4px solid black; box-shadow: 6px 6px 6px 6px grey;">
             <div class="col l3 center-align" style="padding: 30px;">
                 <img src="{% static 'home/style/images/logo/logo.png' %}" style="height: 100%; width: 100%;" alt="">
                 <h5 class="" style="color: #666a65;">BeTheMillionaire</h5>
@@ -620,9 +631,7 @@
     <!-- Your customer chat code -->
     <div class="fb-customerchat"
       attribution="setup_tool"
-      page_id="2158534220826913"
-      logged_in_greeting="Hi! How can we help you?"
-      logged_out_greeting="Hi! How can we help you?">
+      page_id="2158534220826913">
     </div>
 
 
