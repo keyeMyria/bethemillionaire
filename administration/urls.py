@@ -53,4 +53,8 @@ urlpatterns = [
 
 
 
+    #recent update post for dashboard
+    url(r'^recent-update/post/$', views.RecentUpdatePost.as_view(), name='recent-update-post'),
+
+
 ]

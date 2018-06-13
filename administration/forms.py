@@ -190,3 +190,23 @@ class UserSearchForm(forms.Form):
 
 
 
+#RecentUpdatePost
+class RecentUpdatePostForm(forms.Form):
+    post = forms.CharField(max_length=255, required=False, widget=forms.TextInput(attrs={'class': 'validate', 'id': 'icon_prefix'}))
+
+
+    def clean(self):
+        post = self.cleaned_data.get('post')
+
+        if len(post) < 10:
+            raise forms.ValidationError('Enter post text more than 10 words!')
+
+
+    def deploy(self, request):
+        post = self.cleaned_data.get('post')
+
+
+        deploy = models.RecentUpdatePost(post=post)
+        deploy.save()
+
+

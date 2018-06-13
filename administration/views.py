@@ -894,3 +894,27 @@ class ViewLeaderBoard(View):
         return render(request, self.template_name, variables)
 
 
+
+
+
+#recent update post
+class RecentUpdatePost(View):
+    template_name = 'administration/recent-update-post.html'
+
+    def get(self, request):
+
+        variables = {
+
+        }
+
+        return render(request, self.template_name, variables)
+
+
+    def get(self, request):
+
+
+        variables = {
+
+        }
+
+        return render(request, self.template_name, variables)

@@ -30,3 +30,18 @@ class LeaderBoard(models.Model):
 
     def __str__(self):
         return self.campaign_name
+
+
+
+#recent update post
+class RecentUpdatePost(models.Model):
+    user = models.ForeignKey(account_model.UserProfile, on_delete=models.SET_NULL, null=True, blank=True)
+
+    post = models.CharField(max_length=255, null=True, blank=True)
+
+    date = models.DateTimeField(auto_now_add=True)
+
+
+    def __str__(self):
+        return str(self.id)
+
