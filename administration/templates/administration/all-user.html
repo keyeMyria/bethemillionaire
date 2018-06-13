@@ -31,12 +31,10 @@
             </form>
 
 
-
-
-            {% if s_user %}
+            {% if s_users %}
             <div class="col s12 m12 l12" style="margin-top: 30px; margin-bottom: 30px; border: 1px solid #333;">
                 <h5>Search Results: </h5>
-                {% if s_user %}
+                {% if s_users %}
                     <div class="col s12 m12 l12">
                         <table class="centered responsive-table striped" style="margin-bottom: 20px;">
                             <thead>
@@ -52,25 +50,26 @@
 
                             <tbody>
 
+                                {% for s_user in s_users %}
+                                    <tr>
+                                        <td>1</td>
+                                        <td>{{ s_user.username | title }}</td>
+                                        <td>{{ s_user.email }}</td>
+                                        <td>{{ s_user.referrals.count }}</td>
 
-                                <tr>
-                                    <td>1</td>
-                                    <td>{{ s_user.username | title }}</td>
-                                    <td>{{ s_user.email }}</td>
-                                    <td>{{ s_user.referrals.count }}</td>
+                                        <td>
+                                            {% if user.is_active %}
+                                                <span style="color: green;">Active</span>
+                                            {% else %}
+                                                <span style="color: red;">Deactive</span>
+                                            {% endif %}
+                                        </td>
 
-                                    <td>
-                                        {% if user.is_active %}
-                                            <span style="color: green;">Active</span>
-                                        {% else %}
-                                            <span style="color: red;">Deactive</span>
-                                        {% endif %}
-                                    </td>
-
-                                    <td>
-                                        <a href="{% url 'administration:user-detail' user_id=s_user.id %}">View</a>
-                                    </td>
-                                </tr>
+                                        <td>
+                                            <a href="{% url 'administration:user-detail' user_id=s_user.id %}">View</a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
 
 
                             </tbody>
@@ -125,6 +124,48 @@
                     {% endfor %}
                 </tbody>
             </table>
+
+
+
+
+
+            <div class="col s12 m12 l12" style="margin-top: 40px; margin-bottom: 40px;">
+            {% if all_users.has_other_pages %}
+                <ul class="pagination">
+                    {% if all_users.has_previous %}
+                        <!--<li><a href="?page={{ three_pieces.previous_page_number }}">&laquo;</a></li>-->
+                        <li class=""><a href="?page={{ all_users.previous_page_number }}"><i class="material-icons">chevron_left</i></a></li>
+                    {% else %}
+                        <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+                    {% endif %}
+
+                    {% for i in all_users.paginator.page_range %}
+                        {% if all_users.number == i %}
+                            <li class="waves-effect grey white-text"><a class="white-text" href="#!">{{ i }}</a></li>
+                        {% else %}
+                            <!--<li><a href="?page={{ i }}">{{ i }}</a></li>-->
+                            <li class="waves-effect red white-text"><a class="white-text" href="?page={{ i }}">{{ i }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+
+                    {% if referrals.has_next %}
+                        <!--<li><a href="?page={{ three_pieces.next_page_number }}">&raquo;</a></li>-->
+                        <li class="waves-effect"><a href="?page={{ all_users.next_page_number }}"><i class="material-icons">chevron_right</i></a></li>
+
+                    {% else %}
+                        <!--<li class="disabled"><span>&raquo;</span></li>-->
+                        <li class="disabled"><i class="material-icons">chevron_right</i></li>
+                    {% endif %}
+                </ul>
+            {% endif %}
+            </div>
+
+
+
+
+
+
+
         </div>
     </div>
 {% endblock %}

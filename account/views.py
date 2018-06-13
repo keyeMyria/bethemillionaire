@@ -1319,6 +1319,8 @@ class MyReferrals(View):
 
         referrals = UserProfile.objects.filter(sponsor__username=request.user.username).order_by('join_date')
 
+
+
         page = request.GET.get('page', 1)
         paginator = Paginator(referrals, 10)
 
@@ -1358,6 +1360,20 @@ class MyReferrals(View):
         total_referrals = UserProfile.objects.filter(sponsor__username=request.user.username).count()
 
         referrals = UserProfile.objects.filter(sponsor__username=request.user.username)
+
+
+
+        page = request.GET.get('page', 1)
+        paginator = Paginator(referrals, 10)
+
+        try:
+            referrals = paginator.page(page)
+        except PageNotAnInteger:
+            referrals = paginator.page(1)
+        except EmptyPage:
+            referrals = paginator.page(paginator.num_pages)
+
+
 
         referrals_referrals_count = []
         for referral in referrals:

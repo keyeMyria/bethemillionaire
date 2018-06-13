@@ -5,6 +5,7 @@ from django.contrib.auth.mixins import PermissionRequiredMixin
 from datetime import datetime, timedelta
 from dateutil.relativedelta import relativedelta
 from django.db.models import Count
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger, Page
 
 import sys
 import urllib.parse
@@ -58,6 +59,20 @@ class AllUser(AdminPermission, View):
         all_users = account_model.UserProfile.objects.all()
         all_users_count = account_model.UserProfile.objects.all().count()
 
+
+
+        page = request.GET.get('page', 1)
+        paginator = Paginator(all_users, 100)
+
+        try:
+            all_users = paginator.page(page)
+        except PageNotAnInteger:
+            all_users = paginator.page(1)
+        except EmptyPage:
+            all_users = paginator.page(paginator.num_pages)
+
+
+
         variables = {
             'all_users': all_users,
             'all_users_count': all_users_count,
@@ -73,15 +88,29 @@ class AllUser(AdminPermission, View):
         all_users = account_model.UserProfile.objects.all()
         all_users_count = account_model.UserProfile.objects.all().count()
 
+
+        page = request.GET.get('page', 1)
+        paginator = Paginator(all_users, 100)
+
+        try:
+            all_users = paginator.page(page)
+        except PageNotAnInteger:
+            all_users = paginator.page(1)
+        except EmptyPage:
+            all_users = paginator.page(paginator.num_pages)
+
+
+
+
         if form.is_valid():
-            s_user = form.deploy()
+            s_users = form.deploy()
 
         variables = {
             'all_users': all_users,
             'all_users_count': all_users_count,
 
             'form': form,
-            's_user': s_user,
+            's_users': s_users,
         }
 
         return render(request, self.template_name, variables)

@@ -180,9 +180,9 @@ class UserSearchForm(forms.Form):
         is_email = self.is_email(username)
 
         if is_email:
-            user = account_model.UserProfile.objects.get(email=username)
+            user = account_model.UserProfile.objects.filter(email=username)
         else:
-            user = account_model.UserProfile.objects.get(username=username)
+            user = account_model.UserProfile.objects.filter(username=username)
 
 
         return user
