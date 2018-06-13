@@ -56,7 +56,7 @@ class AllUser(AdminPermission, View):
 
         form = forms.UserSearchForm()
 
-        all_users = account_model.UserProfile.objects.all()
+        all_users = account_model.UserProfile.objects.all().order_by('-join_date')
         all_users_count = account_model.UserProfile.objects.all().count()
 
 
