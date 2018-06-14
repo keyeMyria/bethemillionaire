@@ -1,0 +1,227 @@
+{% extends 'base_v_2.html' %}
+
+{% block title %}{{ request.user.username }} | Affiliate Network{% endblock %}
+
+{% block add-css %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home/style/index.css' %}">
+
+    <style>
+        .left_main_menu a{
+            color: orange;
+        }
+
+        .left_main_menu a:hover{
+            color: white;
+            text-decoration: underline;
+        }
+
+        #particles-js1{
+            background-image: url('/static/account/style/images/reg/back-1.jpeg');
+            background-repeat: repeat;
+            background-position: center;
+            min-height: 150vh;
+            width: 100%;
+        }
+    </style>
+{% endblock %}
+
+{% block main %}
+    <div class="row" id="particles-js1" style="">
+        <div class="col s12 l8 offset-l2" style="">
+            <div class="col m4 l3 blue" style="">
+                <div class="col s12 m12 l12 #1a237e indigo orange-text darken-4 center-align" style="padding: 10px;">
+                    <h5>My Profile</h5>
+                </div>
+
+                <div class="col s12 m12 l12 white center-align" style="min-height: 200px;">
+                    {% if request.user.sponsor.profile_picture %}
+                        <img class="col m10 offset-m1 l10 offset-l1" src="{{ request.user.sponsor.profile_picture.url}}" height="100%" width="100%" style="margin-top: 20px;" alt="">
+                    {% else %}
+                        <img class="col m10 offset-m1 l10 offset-l1" src="{% static 'account/style/images/no-img.jpg' %}" height="100%" width="100%" style="margin-top: 20px;" alt="">
+                    {% endif %}
+                    <p style="margin-bottom: 10px;">@{{ request.user.sponsor.username | title }}</p>
+                    <p style="margin-bottom: 10px;">{{ request.user.sponsor.email }}</p>
+                </div>
+
+                <div class="col s12 m12 l12 #1a237e indigo orange-text darken-4 left_main_menu" style="padding: 10px; margin-bottom: 20px;">
+                    <a class="left col s12 m12 l12" href="{% url 'account:profile' %}" style="padding: 10px;">Profile
+                        <span class="right" style=""> > </span>
+                    </a>
+
+                    <a class="left col s12 m12 l12 white-text" href="{% url 'account:affiliate-network' %}" style="padding: 10px;">Affiliate Network
+                        <span class="right" style=""> > </span>
+                    </a>
+
+                    <a class="left col s12 m12 l12" href="{% url 'account:my-membership' %}" style="padding: 10px;">My Membership
+                        <span class="right" style=""> > </span>
+                    </a>
+
+                    <a class="left col s12 m12 l12" href="{% url 'account:change-password' %}" style="padding: 10px;">Change Password
+                        <span class="right" style=""> > </span>
+                    </a>
+
+                    <a class="left col s12 m12 l12" href="{% url 'account:change-picture' %}" style="padding: 10px;">Change Picture
+                        <span class="right" style=""> > </span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col m8 l9" style="padding: 0px; margin-top: 0px; opacity: .8;">
+                <div class="col s12 l12 white center-align" style="padding: 5px;">
+
+                    <div class="col s12 m12 l6" style="padding: 0px;">
+                        <form class="col s12 m12 l12" method="post" style="margin-top: 20px;">
+                            {% csrf_token %}
+                            <div class="input-field col s8 m8 l8">
+                                {{ click_magic_form.clickmagic_username }}
+                                <label for="icon_prefix white-text">ClickMagic</label>
+                            </div>
+
+                            <button class="btn" type="submit" name="click_magic" value="click_magic" style="margin-top: 20px;">Save</button>
+                        </form>
+
+                        <form class="col s12 m12 l12" method="post" style="margin-top: 10px;">
+                            {% csrf_token %}
+                            <div class="input-field col s8 m8 l8">
+                                {{ click_funnels_form.clickfunnels_username }}
+                                <label for="icon_prefix white-text">ClickFunnels</label>
+                            </div>
+
+                            <button class="btn" type="submit" name="click_funnels" value="click_funnels" style="margin-top: 20px;">Save</button>
+                        </form>
+
+                        <form class="col s12 m12 l12" method="post" style="margin-top: 10px;">
+                            {% csrf_token %}
+                            <div class="input-field col s8 m8 l8">
+                                {{ getresponse_form.getresponse_username }}
+                                <label for="icon_prefix white-text">Getresponse</label>
+                            </div>
+
+                            <button class="btn" type="submit" name="getresponse" value="getresponse" style="margin-top: 20px;">Save</button>
+                        </form>
+
+                        <form class="col s12 m12 l12" method="post" style="margin-top: 10px;">
+                            {% csrf_token %}
+                            <div class="input-field col s8 m8 l8">
+                                {{ aweber_form.aweber_username }}
+                                <label for="icon_prefix white-text">Aweber</label>
+                            </div>
+
+                            <button class="btn" type="submit" name="aweber" value="aweber" style="margin-top: 20px;">Save</button>
+                        </form>
+                    </div>
+                    <!--end left-->
+
+                    <!--right side-->
+                    <div class="col s12 m12 l6">
+                        <form class="col s12 m12 l12" method="post" style="margin-top: 20px;">
+                            {% csrf_token %}
+                            <div class="input-field col s8 m8 l8">
+                                {{ ledger_nano_s_form.ledger_nano_s_username }}
+                                <label for="icon_prefix white-text">Ledger Nano S</label>
+                            </div>
+
+                            <button class="btn" type="submit" name="ledger_nano_s" value="ledger_nano_s" style="margin-top: 20px;">Save</button>
+                        </form>
+
+                        <form class="col s12 m12 l12" method="post" style="margin-top: 10px;">
+                            {% csrf_token %}
+                            <div class="input-field col s8 m8 l8">
+                                {{ trezor_s_form.trezor_username }}
+                                <label for="icon_prefix white-text">Trezor S</label>
+                            </div>
+
+                            <button class="btn" type="submit" name="trezor_s" value="trezor_s" style="margin-top: 20px;">Save</button>
+                        </form>
+
+                        <form class="col s12 m12 l12" method="post" style="margin-top: 10px;">
+                            {% csrf_token %}
+                            <div class="input-field col s8 m8 l8">
+                                {{ coin_base_form.coinbase_username }}
+                                <label for="icon_prefix white-text">CoinBase</label>
+                            </div>
+
+                            <button class="btn" type="submit" name="coin_base" value="coin_base" style="margin-top: 20px;">Save</button>
+                        </form>
+
+                        <form class="col s12 m12 l12" method="post" style="margin-top: 10px;">
+                            {% csrf_token %}
+                            <div class="input-field col s8 m8 l8">
+                                {{ spectrocoin_card_form.spectrocoin_card_username }}
+                                <label for="icon_prefix white-text">SpectroCoin Card</label>
+                            </div>
+
+                            <button class="btn" type="submit" name="spectro_coin_card" value="spectro_coin_card" style="margin-top: 20px;">Save</button>
+                        </form>
+
+
+
+                        <form class="col s12 m12 l12" method="post" style="margin-top: 10px;">
+                            {% csrf_token %}
+                            <div class="input-field col s8 m8 l8">
+                                {{ cryptopay_card_form.cryptopay_card_username }}
+                                <label for="icon_prefix white-text">CryptoPay Card</label>
+                            </div>
+
+                            <button class="btn" type="submit" name="cryptopay_card" value="cryptopay_card" style="margin-top: 20px;">Save</button>
+                        </form>
+
+                        <form class="col s12 m12 l12" method="post" style="margin-top: 10px;">
+                            {% csrf_token %}
+                            <div class="input-field col s8 m8 l8">
+                                {{ cex_io_form.cexio_username }}
+                                <label for="icon_prefix white-text">Cex.IO</label>
+                            </div>
+
+                            <button class="btn" type="submit" name="cex_io" value="cex_io" style="margin-top: 20px;">Save</button>
+                        </form>
+
+                        <form class="col s12 m12 l12" method="post" style="margin-top: 10px;">
+                            {% csrf_token %}
+                            <div class="input-field col s8 m8 l8">
+                                {{ bitpanda_form.bitpanda_username }}
+                                <label for="icon_prefix white-text">BitPanda</label>
+                            </div>
+
+                            <button class="btn" type="submit" name="bit_panda" value="bit_panda" style="margin-top: 20px;">Save</button>
+                        </form>
+
+                        <form class="col s12 m12 l12" method="post" style="margin-top: 10px;">
+                            {% csrf_token %}
+                            <div class="input-field col s8 m8 l8">
+                                {{ local_bitcoins_form.local_bitcoins_username }}
+                                <label for="icon_prefix white-text">LocalBitcoins</label>
+                            </div>
+
+                            <button class="btn" type="submit" name="local_bitcoins" value="local_bitcoins" style="margin-top: 20px;">Save</button>
+                        </form>
+
+                        <form class="col s12 m12 l12" method="post" style="margin-top: 10px;">
+                            {% csrf_token %}
+                            <div class="input-field col s8 m8 l8">
+                                {{ inda_coin_form.indacoin_username }}
+                                <label for="icon_prefix white-text">IndaCoin</label>
+                            </div>
+
+                            <button class="btn" type="submit" name="inda_coin" value="inda_coin" style="margin-top: 20px;">Save</button>
+                        </form>
+
+                        <form class="col s12 m12 l12" method="post" style="margin-top: 10px;">
+                            {% csrf_token %}
+                            <div class="input-field col s8 m8 l8">
+                                {{ coin_mama_form.coin_mama_username }}
+                                <label for="icon_prefix white-text">CoinMama</label>
+                            </div>
+
+                            <button class="btn" type="submit" name="coin_mama" value="coin_mama" style="margin-top: 20px;">Save</button>
+                        </form>
+                    </div>
+                    <!--end right-->
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

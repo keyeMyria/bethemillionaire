@@ -826,7 +826,7 @@ class LeaderBoard(View):
 
 #Payment account settings
 class PaymentAccountSetting(View):
-    template_name = 'home/payment-account-setting_v_1.html'
+    template_name = 'home/payment-account-setting_v_2.html'
 
     def get(self, request):
 
@@ -860,7 +860,7 @@ class PaymentAccountSetting(View):
 
 #my commission
 class MyCommission(View):
-    template_name = 'home/my-commission_v_1.html'
+    template_name = 'home/my-commission_v_2.html'
 
     def get(self, request):
 

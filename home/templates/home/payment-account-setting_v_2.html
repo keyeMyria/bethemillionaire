@@ -1,0 +1,173 @@
+{% extends 'base_v_2.html' %}
+
+{% block title %}BeTheMillionaire | Payment Account Setting{% endblock %}
+
+{% block add-css %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home/style/index.css' %}">
+
+    <style>
+        .left_main_menu a{
+            color: orange;
+        }
+
+        .left_main_menu a:hover{
+            color: white;
+            text-decoration: underline;
+        }
+
+        #particles-js1{
+            background-image: url('/static/account/style/images/reg/back-1.jpeg');
+            background-repeat: repeat;
+            background-position: center;
+            min-height: 210vh;
+            width: 100%;
+        }
+    </style>
+{% endblock %}
+
+{% block main %}
+    <div class="row" id="particles-js1" style="">
+        <div class="col s12 l8 offset-l2" style="">
+            <div class="col m4 l3 blue" style="">
+                <div class="col s12 m12 l12 #1a237e indigo orange-text darken-4 center-align" style="padding: 10px;">
+                    <h5>Payment Account</h5>
+                </div>
+
+                <div class="col s12 m12 l12 white center-align" style="min-height: 200px;">
+                    {% if request.user.sponsor.profile_picture %}
+                        <img class="col m10 offset-m1 l10 offset-l1" src="{{ request.user.sponsor.profile_picture.url}}" height="100%" width="100%" style="margin-top: 20px;" alt="">
+                    {% else %}
+                        <img class="col m10 offset-m1 l10 offset-l1" src="{% static 'account/style/images/no-img.jpg' %}" height="100%" width="100%" style="margin-top: 20px;" alt="">
+                    {% endif %}
+                    <p style="margin-bottom: 10px;">@{{ request.user.sponsor.username | title }}</p>
+                    <p style="margin-bottom: 10px;">{{ request.user.sponsor.email }}</p>
+                </div>
+
+                <div class="col s12 m12 l12 #1a237e indigo orange-text darken-4 left_main_menu" style="padding: 10px; margin-bottom: 20px;">
+                    <a class="left col s12 m12 l12 white-text" href="{% url 'home:payment-account-setting' %}" style="padding: 10px;">Payout Account
+                        <span class="right" style=""> > </span>
+                    </a>
+
+                    <a class="left col s12 m12 l12" href="{% url 'account:membership-level-vip' %}" style="padding: 10px;">Upgrade VIP
+                        <span class="right" style=""> > </span>
+                    </a>
+
+                    <a class="left col s12 m12 l12" href="{% url 'account:membership-level-premium' %}" style="padding: 10px;">Upgrade Premium
+                        <span class="right" style=""> > </span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col s12 m12 l9" style="padding: 0px; margin-top: 0px; opacity: .9;">
+                <div class="col s12 l12 white center-align" style="padding: 20px;">
+
+                    <h4 class="left-align orange-text">Commissions Payout Notice</h4>
+                    <div class="left-align">
+                        <p>
+                            -All Commissions for Premium and VIP memberships are paid out twice a month on the 15th and 30th of the month and all profit sharing pools commissions paid out every 30th of the month.
+                        </p><br>
+
+                        <p>
+                            -Free members are eligible for 10% commissions from Premium and VIP sales, Premium members are eligible for 40% commissions from all Premium and VIP sales and VIP members are eligible for 70% commissions for all Premium and VIP sales!
+                        </p><br>
+
+                        <p>
+                            -VIP members are eligible to share 20% of the profits of BeTheMillionaire every month on the 30th of the month.
+                        </p><br>
+
+                        <p>
+                            -You can choose to choose to receive your commissions via Bitcoin or Paypal. I would recommend that you choose Bitcoin!
+                        </p><br>
+
+                        <p>
+                            -You can save 17% by paying for 6 months in advance and you can save 25% by paying 12 months in advance on Premium or VIP memberships.
+                        </p>
+                    </div>
+
+                    <p class="col s12 m12 l12 divider" style="margin-top: 50px; margin-bottom: 50px;"></p>
+
+
+                    {% if current_payment_account %}
+                        <div class="col s12 m12 l12 left-align" style="padding: 0px; margin-top: 10px; margin-bottom: 20px;">
+                            <h5>Your current payout account details are below:</h5>
+                            <br>
+
+                            {% for current_payment in current_payment_account %}
+                                <p>
+                                    <b>Receiving payment method:</b> {{ current_payment.account_type | title }}
+                                </p>
+
+                                <p>
+                                    {% if current_payment.account_type == 'paypal' %}
+                                        <b>Paypal email:</b> {{ current_payment.account_no }}
+                                    {% endif %}
+
+                                    {% if current_payment.account_type == 'bitcoin' %}
+                                        <b>Bitcoin wallet address:</b> {{ current_payment.account_no }}
+                                    {% endif %}
+                                </p>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <div class="col s12 m12 l10 offset-l1" style="margin-top: 10px;">
+                            <h5>You have not yet setup your payout account!</h5>
+                        </div>
+                    {% endif %}
+
+
+                    <p class="col s12 m12 l12 divider" style="margin-top: 30px; margin-bottom: 30px;"></p>
+
+
+                    <div class="col s12 m12 l12 left-align" style="margin-top: 10px; padding: 0px;">
+                        <h5>Update Your Commission Payout Method</h5>
+                    </div>
+
+
+                    <div class="col s12 m12 l12" style="padding: 0px; margin-top: 30px; margin-bottom: 30px;">
+                        <form method="post">
+                            {% csrf_token %}
+
+                            <div style="" class="input-field col s12 m12 l12">
+                                {{ payment_account_form.account_type }}
+                                <label for="icon_prefix">Select receiving payment method</label>
+                            </div>
+
+                            <div style="" class="input-field col s12 m12 l12">
+                                {{ payment_account_form.account_no }}
+                                <label for="icon_prefix">Bitcoin wallet address / Paypal email</label>
+                            </div>
+
+                            {% if payment_account_form.non_field_errors %}
+                                {% for error in payment_account_form.non_field_errors %}
+                                    <div class="col s12 m12 l12 center-align valign-wrapper red" style="height: 40px; border: 1px solid red; margin-bottom: 20px; margin-top: 10px;">
+                                        <p class="col s12 m12 l12 white-text" style="font-size: 14px;">
+                                            {{ error }}
+                                        </p>
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+
+                            <button class="waves-effect waves-light btn red white-text" style="margin-top: 20px;">Save Settings</button>
+                        </form>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block script %}
+
+<script>
+
+    $(document).ready(function(){
+    $('select').formSelect();
+  });
+
+</script>
+
+{% endblock %}

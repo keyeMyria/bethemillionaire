@@ -1037,7 +1037,7 @@ class SevenFigurePlan(View):
 
 #profile
 class Profile(View):
-    template_name = 'account/profile_v_1.html'
+    template_name = 'account/profile_v_2.html'
 
     def get(self, request):
         user_edit_form = UserEditForm(instance=UserProfile.objects.get(username=request.user.username))
@@ -1069,7 +1069,7 @@ class Profile(View):
 
 #change password
 class ChangePassword(View):
-    template_name = 'account/change-password.html'
+    template_name = 'account/change-password_v_1.html'
 
     def get(self, request):
         change_password_form = forms.ChangePasswordForm(request.user)
@@ -1101,7 +1101,7 @@ class ChangePassword(View):
 
 #change profile picture
 class ChangePicture(View):
-    template_name = 'account/profile-picture.html'
+    template_name = 'account/profile-picture_v_1.html'
 
     def get(self, request):
         pp_change_form = forms.ProfilePictureUploadForm()
@@ -1130,7 +1130,7 @@ class ChangePicture(View):
 
 #affiliate Netwok
 class AffiliateNetwork(View):
-    template_name = 'account/affiliate-network.html'
+    template_name = 'account/affiliate-network_v_1.html'
 
     def get(self, request):
 
@@ -1274,7 +1274,7 @@ class AffiliateNetwork(View):
 
 #my membership
 class MyMembership(View):
-    template_name = 'account/my-membership_v_1.html'
+    template_name = 'account/my-membership_v_2.html'
 
     def get(self, request):
         payments = models.Payment.objects.filter(user=request.user).order_by('-creation_time').all()
@@ -1673,7 +1673,7 @@ class PaymentAPI(APIView):
 
 #MyAutoresponderSettings
 class MyAutoresponderSettings(View):
-    template_name = 'account/my-auto-responder-settings_v_1.html'
+    template_name = 'account/my-auto-responder-settings_v_2.html'
 
     def get(self, request):
         user_profile = UserProfile.objects.filter(username=request.user.username)
