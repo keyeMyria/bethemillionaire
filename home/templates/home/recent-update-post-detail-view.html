@@ -1,0 +1,102 @@
+{% extends 'base1.html' %}
+
+{% block title %}BeTheMillionaire | Recent Update{% endblock %}
+
+{% block add-css %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home/style/index.css' %}">
+
+    <style>
+        .left_main_menu a{
+            color: orange;
+        }
+
+        .left_main_menu a:hover{
+            color: white;
+            text-decoration: underline;
+        }
+
+        #particles-js1{
+            background-image: url('/static/account/style/images/reg/back-1.jpeg');
+            background-repeat: repeat;
+            background-position: center;
+            min-height: 210vh;
+            width: 100%;
+        }
+    </style>
+{% endblock %}
+
+{% block main %}
+    <div class="row" id="particles-js1" style="">
+        <div class="col s12 l8 offset-l2" style="">
+            <div class="col m4 l3 blue" style="">
+                <div class="col s12 m12 l12 #1a237e indigo orange-text darken-4 center-align" style="padding: 10px;">
+                    <h5>Payment Account</h5>
+                </div>
+
+                <div class="col s12 m12 l12 white center-align" style="min-height: 200px;">
+                    {% if request.user.sponsor.profile_picture %}
+                        <img class="col m10 offset-m1 l10 offset-l1" src="{{ request.user.sponsor.profile_picture.url}}" height="100%" width="100%" style="margin-top: 20px;" alt="">
+                    {% else %}
+                        <img class="col m10 offset-m1 l10 offset-l1" src="{% static 'account/style/images/no-img.jpg' %}" height="100%" width="100%" style="margin-top: 20px;" alt="">
+                    {% endif %}
+                    <p style="margin-bottom: 10px;">@{{ request.user.sponsor.username | title }}</p>
+                </div>
+
+                <div class="col s12 m12 l12 #1a237e indigo orange-text darken-4 left_main_menu" style="padding: 10px; margin-bottom: 20px;">
+                    <a class="left col s12 m12 l12 white-text" href="{% url 'home:recent-update-post-detail-view' %}" style="padding: 10px;">Recent Update
+                        <span class="right" style=""> > </span>
+                    </a>
+
+                    <a class="left col s12 m12 l12" href="{% url 'account:membership-level-vip' %}" style="padding: 10px;">Upgrade VIP
+                        <span class="right" style=""> > </span>
+                    </a>
+
+                    <a class="left col s12 m12 l12" href="{% url 'account:membership-level-premium' %}" style="padding: 10px;">Upgrade Premium
+                        <span class="right" style=""> > </span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col m8 l9" style="padding: 0px; margin-top: 0px; opacity: .9;">
+                <div class="col s12 l12 white center-align" style="padding: 20px;">
+
+                    <h4 class="left-align orange-text">Recent Update Anouncement</h4>
+
+                    <p class="col s12 m12 l12 divider" style="margin-top: 10px; margin-bottom: 50px;"></p>
+
+
+                    <div class="col s12 m12 l12 left-align" >
+                        <h5 style="text-decoration: underline;">#{{ post.user.username | title }} @ {{ post.date | date }}</h5>
+
+                        <p style="font-size: 20px; margin-top: 30px;"><span style="text-decoration: underline;">Title:</span>
+                            {{ post.title }}
+                        </p>
+
+
+                        <p style="font-size: 20px; margin-top: 30px;"><span style="text-decoration: underline;">Description:</span><br>
+                            {{ post.post | safe }}
+                        </p>
+
+                    </div>
+
+                    <a style="margin-top: 30px; margin-bottom: 30px;" href="{% url 'home:index' %}" class="btn waves-effect waves-light orange white-text">
+                        Back
+                    </a>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block script %}
+
+<script>
+
+
+</script>
+
+{% endblock %}

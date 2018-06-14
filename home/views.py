@@ -72,6 +72,30 @@ class Home(View):
         pass
 
 
+
+
+
+#recent update post detail view
+class RecentUpdatePostDetailView(View):
+    template_name = 'home/recent-update-post-detail-view.html'
+
+    def get(self, request, post_id):
+        post = get_object_or_404(admin_model.RecentUpdatePost, id=post_id)
+
+        variables = {
+            'post': post,
+        }
+
+        return render(request, self.template_name, variables)
+
+    def post(self, request):
+        pass
+
+
+
+
+
+
 #affiliate link
 class AffiliateLink(View):
     template_name = 'home/affiliate-link_v_1.html'

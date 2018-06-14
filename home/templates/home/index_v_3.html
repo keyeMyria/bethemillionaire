@@ -207,7 +207,9 @@
                             <div class="row" style="margin-top: 30px;">
                                 {% for recent_update_post in recent_update_posts %}
                                 <div class="col s12 m12 l12 valign-wrapper" style="padding: 10px;">
-                                    <p class="col l8">{{ forloop.counter }}. {{ recent_update_post.title }}</p>
+                                    <p class="col l8">
+                                        {{ forloop.counter }}. <a class="grey-text" href="{% url 'home:recent-update-post-detail-view' post_id=recent_update_post.id %}">{{ recent_update_post.title }}</a>
+                                    </p>
                                     <p class="col l4" style="font-size: 13px;">{{ recent_update_post.date | date }}</p>
                                 </div>
                                 {% endfor %}

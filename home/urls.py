@@ -5,6 +5,8 @@ from . import views
 urlpatterns = [
     url(r'^$', views.Home.as_view(), name='index'),
 
+    url(r'^recent-update/(?P<post_id>[0-9]+)/$', views.RecentUpdatePostDetailView.as_view(), name='recent-update-post-detail-view'),
+
     #live video
     #url(r'^live/$', views.Live.as_view(), name='live'),
     url(r'^live/(?P<room_name>[^/]+)/$', views.Live.as_view(), name='room'),
