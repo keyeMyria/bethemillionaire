@@ -917,7 +917,11 @@ class RecentUpdatePost(AdminPermission, View):
         form = forms.RecentUpdatePostForm(request.POST or None)
 
         if form.is_valid():
-            form.deploy(request)
+
+            text_post = request.POST.get('post')
+
+            print(text_post)
+            form.deploy(request, text_post)
 
 
         variables = {
