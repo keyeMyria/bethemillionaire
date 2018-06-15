@@ -411,7 +411,7 @@ class RecentUpdate(View):
 
 #manage-team
 class ManageTeam(View):
-    template_name = 'home/manage-team_v_2.html'
+    template_name = 'home/manage-team_v_3.html'
 
     def get(self, request):
         user_profile = UserProfile.objects.filter(username=request.user.username)
@@ -885,12 +885,16 @@ class Live(View):
 
         path = request.get_full_path()
 
+        video_link = admin_model.LiveVideoLinkUpdate.objects.last()
+
         variables = {
             'room_name_json': mark_safe(json.dumps(room_name)),
             'db_room_name': db_room_name,
             'room_name': room_name,
 
             'path': path,
+
+            'video_link': video_link,
         }
 
         return render(request, self.template_name, variables)

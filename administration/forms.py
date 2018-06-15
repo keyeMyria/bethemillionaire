@@ -222,3 +222,30 @@ class RecentUpdatePostEditForm(forms.ModelForm):
     class Meta:
         model = models.RecentUpdatePost
         fields = ('title', 'post')
+
+
+
+
+#update live video link
+class LiveVideoLinkUpdateForm(forms.Form):
+    link = forms.CharField( required=False, max_length= 1000 ,widget=forms.Textarea(attrs={'class': 'validate materialize-textarea'}) )
+
+
+    def clean(self):
+        link = self.cleaned_data.get('link')
+
+        if len(link) < 10:
+            raise forms.ValidationError('Insert valid link!')
+
+
+
+    def deploy(self, request):
+        link = self.cleaned_data.get('link')
+
+        deploy = models.LiveVideoLinkUpdate(link=link, user=request.user)
+        deploy.save()
+
+
+
+
+

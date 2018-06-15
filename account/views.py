@@ -1288,7 +1288,7 @@ class MyMembership(View):
 
 
 class MyReferrals(View):
-    template_name = 'account/my-referrals_v_1.html'
+    template_name = 'account/my-referrals_v_2.html'
 
     def get(self, request):
         form = MyRefferSearchForm()
@@ -1717,7 +1717,7 @@ class MyAutoresponderSettings(View):
 
 
 class MembershipLevelPremium(View):
-    template_name = 'account/membership-levels_v_1.html'
+    template_name = 'account/membership-levels_v_2.html'
 
     def get(self, request):
 
@@ -1731,7 +1731,7 @@ class MembershipLevelPremium(View):
 
 
 class MembershipLevelVIP(View):
-    template_name = 'account/membership-level-vip-members.html'
+    template_name = 'account/membership-level-vip-members_v_1.html'
 
     def get(self, request):
 

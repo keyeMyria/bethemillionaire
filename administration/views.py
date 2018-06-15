@@ -1010,3 +1010,34 @@ class RecentUpdateDeletePost(AdminPermission, View):
             post.delete()
 
             return redirect('administration:recent-update-post-all')
+
+
+
+
+#live video link update
+class LiveVideoLinkUpdate(AdminPermission, View):
+    template_name = 'administration/live-video-link-update.html'
+
+    def get(self, request):
+
+        form = forms.LiveVideoLinkUpdateForm()
+
+        variables = {
+            'form': form,
+        }
+
+        return render(request, self.template_name, variables)
+
+
+    def post(self, request):
+
+        form = forms.LiveVideoLinkUpdateForm(request.POST or None)
+
+        if form.is_valid():
+            form.deploy(request)
+
+        variables = {
+            'form': form,
+        }
+
+        return render(request, self.template_name, variables)

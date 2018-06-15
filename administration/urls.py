@@ -61,4 +61,8 @@ urlpatterns = [
     url(r'^recent-update/post/(?P<post_id>[0-9]+)/delete/$', views.RecentUpdateDeletePost.as_view(), name='recent-update-post-delete'),
 
 
+    #update live video link
+    url(r'^live-stream/link/add/$', views.LiveVideoLinkUpdate.as_view(), name='live-video-link-update'),
+
+
 ]

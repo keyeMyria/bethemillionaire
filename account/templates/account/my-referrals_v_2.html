@@ -1,0 +1,218 @@
+{% extends 'base_v_2.html' %}
+
+{% block title %}BeTheMillionaire | My Referrals{% endblock %}
+
+{% block add-css %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home/style/index.css' %}">
+
+    <style>
+        .left_main_menu a{
+            color: orange;
+        }
+
+        .left_main_menu a:hover{
+            color: white;
+            text-decoration: underline;
+        }
+
+        #particles-js1{
+            background-image: url('/static/account/style/images/reg/back-1.jpeg');
+            background-repeat: repeat;
+            background-position: center;
+            min-height: 100%;
+            width: 100%;
+        }
+    </style>
+{% endblock %}
+
+{% block main %}
+    <div class="row" id="particles-js1" style="">
+        <div class="col s12 l8 offset-l2" style="">
+            <div class="col s12 m12 l3 blue" style="">
+                <div class="col s12 m12 l12 #1a237e indigo orange-text darken-4 center-align" style="padding: 10px;">
+                    <h5>My Referral</h5>
+                </div>
+
+                <div class="col s12 m12 l12 white center-align" style="min-height: 200px;">
+                    {% if request.user.sponsor.profile_picture %}
+                        <img class="col m10 offset-m1 l10 offset-l1" src="{{ request.user.sponsor.profile_picture.url}}" height="100%" width="100%" style="margin-top: 20px;" alt="">
+                    {% else %}
+                        <img class="col m10 offset-m1 l10 offset-l1" src="{% static 'account/style/images/no-img.jpg' %}" height="100%" width="100%" style="margin-top: 20px;" alt="">
+                    {% endif %}
+                    <p style="margin-bottom: 10px;">@{{ request.user.sponsor.username | title }}</p>
+                    <p style="margin-bottom: 10px;">{{ request.user.sponsor.email }}</p>
+                </div>
+
+                <div class="col s12 m12 l12 #1a237e indigo orange-text darken-4 left_main_menu" style="padding: 10px; margin-bottom: 20px;">
+                    <a class="left col s12 m12 l12 white-text" href="{% url 'account:my-referrals' %}" style="padding: 10px;">My Referral
+                        <span class="right" style=""> > </span>
+                    </a>
+
+                    <a class="left col s12 m12 l12" href="{% url 'account:membership-level-vip' %}" style="padding: 10px;">Upgrade VIP
+                        <span class="right" style=""> > </span>
+                    </a>
+
+                    <a class="left col s12 m12 l12" href="{% url 'account:membership-level-premium' %}" style="padding: 10px;">Upgrade Premium
+                        <span class="right" style=""> > </span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col s12 m12 l9" style="padding: 0px; margin-top: 0px; opacity: .9;">
+                <div class="col s12 l12 white center-align" style="padding: 20px;">
+
+                    <h4 class="left-align orange-text">Referral Programme</h4>
+
+                    <div class="left-align">
+                        <p>
+                            Referred Users - {{ total_referrals }}
+                        </p>
+                    </div>
+
+                    <p class="col s12 m12 l12 divider" style="margin-top: 30px; margin-bottom: 30px;"></p>
+
+
+                    <form class="col m12 l12" method="post">
+                        <h5 class="left-align orange-text">Search Your Referral</h5>
+
+                        {% csrf_token %}
+                        <div class="input-field col s12 m12 l12">
+                            {{ form.username }}
+                            <label for="icon_prefix white-text">User Name</label>
+                        </div>
+
+                        <button class="btn waves-effect waves-light orange white-text" type="submit" style="">
+                            Search
+                        </button>
+                    </form>
+
+
+                    {% if request.GET.userid %}
+                        <div class="col s12 m12 l12" style="margin-top: 30px; margin-bottom: 30px; border: 1px solid #333;">
+                            <h5>Search Results: </h5>
+                            {% if user_exists %}
+                                <div class="col s12 m12 l12">
+                                    <table class="centered responsive-table striped" style="margin-bottom: 20px;">
+                                        <thead>
+                                            <tr>
+                                                <th>Date</th>
+                                                <th>Username</th>
+                                                <th>Email</th>
+                                                <th>Membership</th>
+                                                <th>Referred</th>
+                                                <th>Team</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            {% for referral, referrals_referrals in s_lists %}
+
+                                            <tr>
+                                                <td><b>{{ forloop.counter }}. </b>{{ referral.date_joined.date }}</td>
+                                                <td>{{ referral.username }}</td>
+                                                <td>{{ referral.email }}</td>
+                                                <td>{{ referral.membership }}</td>
+                                                <td>{{ referrals_referrals }}</td>
+                                                <td><a href="{% url 'home:add-member-to-team' member_id=referral.id %}" style="font-size: 12px;">Add</a></td>
+                                            </tr>
+
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            {% else %}
+                                <p>User not found!</p>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+
+
+                    <p class="col s12 m12 l12 divider" style="margin-top: 30px; margin-bottom: 30px;"></p>
+
+
+
+                    <div class="col s12 m12 l12">
+                        <h5 class="left-align orange-text">My Referrals</h5>
+                        <table class="centered responsive-table striped">
+                            <thead>
+                                <tr>
+                                    <th>Username</th>
+                                    <th>Email</th>
+                                    <th>Membership</th>
+                                    <th>Referred</th>
+                                    <th>Team</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                {% for referral, referrals_referrals in lists %}
+
+                                <tr>
+                                    <td>{{ referral.username }}</td>
+                                    <td>{{ referral.email }}</td>
+                                    <td>{{ referral.membership }}</td>
+                                    <td>{{ referrals_referrals }}</td>
+                                    <td><a href="{% url 'home:add-member-to-team' member_id=referral.id %}" style="font-size: 12px;">Add</a></td>
+                                </tr>
+
+                                {% endfor %}
+                            </tbody>
+                        </table>
+
+
+
+
+                        <div class="col s12 m12 l12" style="margin-top: 40px; margin-bottom: 40px;">
+                        {% if referrals.has_other_pages %}
+                            <ul class="pagination">
+                                {% if referrals.has_previous %}
+                                    <!--<li><a href="?page={{ three_pieces.previous_page_number }}">&laquo;</a></li>-->
+                                    <li class=""><a href="?page={{ referrals.previous_page_number }}"><i class="material-icons">chevron_left</i></a></li>
+                                {% else %}
+                                    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+                                {% endif %}
+
+                                {% for i in referrals.paginator.page_range %}
+                                    {% if referrals.number == i %}
+                                        <li class="waves-effect grey white-text"><a class="white-text" href="#!">{{ i }}</a></li>
+                                    {% else %}
+                                        <!--<li><a href="?page={{ i }}">{{ i }}</a></li>-->
+                                        <li class="waves-effect red white-text"><a class="white-text" href="?page={{ i }}">{{ i }}</a></li>
+                                    {% endif %}
+                                {% endfor %}
+
+                                {% if referrals.has_next %}
+                                    <!--<li><a href="?page={{ three_pieces.next_page_number }}">&raquo;</a></li>-->
+                                    <li class="waves-effect"><a href="?page={{ referrals.next_page_number }}"><i class="material-icons">chevron_right</i></a></li>
+
+                                {% else %}
+                                    <!--<li class="disabled"><span>&raquo;</span></li>-->
+                                    <li class="disabled"><i class="material-icons">chevron_right</i></li>
+                                {% endif %}
+                            </ul>
+                        {% endif %}
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block script %}
+
+<script>
+
+     $(document).ready(function() {
+        $('select').material_select();
+      });
+
+</script>
+
+{% endblock %}

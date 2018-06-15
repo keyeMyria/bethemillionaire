@@ -46,3 +46,20 @@ class RecentUpdatePost(models.Model):
     def __str__(self):
         return str(self.id)
 
+
+
+
+
+#live video link update
+class LiveVideoLinkUpdate(models.Model):
+    link = models.TextField(max_length=1000, null=True, blank=True)
+    date = models.DateTimeField(auto_now_add=True)
+    user = models.ForeignKey(account_model.UserProfile, on_delete=models.SET_NULL, null=True, blank=True)
+
+
+    def __str__(self):
+        return str(self.id)
+
+
+
+
