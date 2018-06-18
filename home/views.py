@@ -935,3 +935,18 @@ class LiveChatMessageAPI(APIView):
             'data': serializer,
             'x': x,
         })
+
+
+
+
+#webinar replay
+class WebinarReplay(View):
+    template_name = 'home/webinar-replay.html'
+
+    def get(self, request):
+
+        return render(request, self.template_name)
+
+
+
+
