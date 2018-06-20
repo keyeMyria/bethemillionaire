@@ -1,0 +1,282 @@
+{% extends 'base_v_2.html' %}
+
+{% block title %}BeTheMillionaire | Email Swipes{% endblock %}
+
+{% block add-css %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home/style/index.css' %}">
+
+    <style>
+        .left_main_menu a{
+            color: orange;
+        }
+
+        .left_main_menu a:hover{
+            color: white;
+            text-decoration: underline;
+        }
+
+        #particles-js1{
+            background-image: url('/static/account/style/images/reg/back-1.jpeg');
+            background-repeat: repeat;
+            background-position: center;
+            min-height: 100%;
+            width: 100%;
+        }
+    </style>
+{% endblock %}
+
+{% block main %}
+    <div class="row" id="particles-js1" style="">
+        <div class="col s12 l8 offset-l2" style="">
+            <div class="col s12 m12 l3 blue" style="">
+                <div class="col s12 m12 l12 #1a237e indigo orange-text darken-4 center-align" style="padding: 10px;">
+                    <h5>Marketing</h5>
+                </div>
+
+                <div class="col s12 m12 l12 white center-align" style="min-height: 200px;">
+                    {% if request.user.sponsor.profile_picture %}
+                        <img class="col m10 offset-m1 l10 offset-l1" src="{{ request.user.sponsor.profile_picture.url}}" height="100%" width="100%" style="margin-top: 20px;" alt="">
+                    {% else %}
+                        <img class="col m10 offset-m1 l10 offset-l1" src="{% static 'account/style/images/no-img.jpg' %}" height="100%" width="100%" style="margin-top: 20px;" alt="">
+                    {% endif %}
+                    <p style="margin-bottom: 10px;">@{{ request.user.sponsor.username | title }}</p>
+                    <p style="margin-bottom: 10px;">@{{ request.user.sponsor.email }}</p>
+                </div>
+
+                <div class="col s12 m12 l12 #1a237e indigo orange-text darken-4 left_main_menu" style="padding: 10px; margin-bottom: 20px;">
+                    <a class="left col s12 m12 l12" href="{% url 'home:affiliate_link' %}" style="padding: 10px;">Affiliate Link
+                        <span class="right" style=""> > </span>
+                    </a>
+
+                    <a class="left col s12 m12 l12" href="{% url 'home:banners' %}" style="padding: 10px;">Banners
+                        <span class="right" style=""> > </span>
+                    </a>
+
+                    <a class="left col s12 m12 l12 white-text" href="{% url 'home:email_swipes' %}" style="padding: 10px;">Email Swipes
+                        <span class="right" style=""> > </span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col s12 m12 l9" style="padding: 0px; margin-top: 0px; opacity: .8; margin-bottom: 20px;">
+                <div class="col s12 l12 white center-align" style="padding: 5px;">
+                    <h4 class="center-align orange-text">
+                        Here Are Sample Email Swipes That You Can Send To Your Email List
+                    </h4>
+
+
+
+                    <div class="col s12 m12 l12" style="padding: 0px;">
+                        <div class="center-align">
+                             <i class="large material-icons">email</i>
+                        </div>
+
+                        <div class="center-align" style="font-size: 30px; margin-bottom: 20px;">
+                             Email Swipe #1
+                        </div>
+
+                        <div class="left-align" style="font-size: 18px;">
+                            الموضوع الرئيسي:كيف يمكن ان تصبح غنيا مع البيتكوين؟ <br><br>
+
+                            الموضوع:<br><br>
+
+                            كم انه مذهل ، لقد وجدت ان البيتكوين نظام رائع حقا،  كما انه يظهر كيفيه كسب مصادر متعدده من الدخل المتنوع وان الانضمام بها 100% مجاناً!<br><br>
+
+                             ولقد زادت قيمة البتكوين من 1 دولار الي 19.700 دولار لكل 1 بيتكوين وبالفعل العديد حققوا الملايين.
+                            <br><br>
+                            ولكنها مجرد بداية،
+                            <br>
+                            يوما ما سيصل البيتكوين الي اكثر من 50.000دولارا
+                            <br><br>
+                            الان هو الوقت المناسب لكسب اكبر عدد ممكن من البيتكوين كما تريد،  ولكن كيف تفعل ذلك؟
+                            <br><br>
+                            >>>انقر هنا هذا النظام يظهر كل شئ خطوه بخطوه <br>
+                            ===> https://www.bethemillionaire.com/?userid={{ request.user.username }}
+                            <br><br>
+
+
+
+                            اذا كنت من العلامات التجاريه الجديدة ، سوف تتعلم "ما هو البيتكوين"؟<br>
+                            وكيفيه البدء ف استخدامه الان ، والاهم من ذلك انها سوف تعلمك كيفيه مضاعفه اموالك ل 5 مرات ف السنه كحد ادني وكسب مصادر متعدده من الدخل المتنوع. <br>
+
+                            هناك العديد من الاعضاء الذين يبدأوا كسب اليوم الاول.<br><br>
+
+                            الجميع يفوز هنا ، وان الانضمام الي مشروع كريبتو مليونير 100% مجانا!
+                            <br><br>
+                            >>>انقر هنا لإنشاء حساب مجاني 100% الان!
+                            <br><br>
+                            ==> https://www.bethemillionaire.com/?userid={{ request.user.username }}
+                            <br><br>
+                            نتكلم قريبا،
+                            <br>
+                            -الاسم<br>
+
+                        </div>
+                    </div>
+
+
+                    <p class="col s12 m12 l12 divider" style="margin-top: 30px; margin-bottom: 30px;"></p>
+
+
+
+                    <div class="col s12 m12 l12" style="padding: 0px;">
+                        <div class="center-align">
+                             <i class="large material-icons">email</i>
+                        </div>
+
+                        <div class="center-align" style="font-size: 30px; margin-bottom: 20px;">
+                             Email Swipe #2
+                        </div>
+
+                        <div class="left-align" style="font-size: 18px;">
+                            الموضوع الاساسي : كيفيه كسب 10 اضعاف لمصادر الدخل المتعدد بالكامل اوتوماتيك ..<br><br>
+
+                            الموضوع:<br><br>
+
+
+
+                            مذهل حقا شيئا لا يصدق،  انضممت مؤخرا الي نظام مدهش يظهر كيفيه زياده ثروتك ف مشروع كريبتو مليونير  بطرق عديده.<br><br>
+
+
+                            الا اذا كنت تعيش تحت صخره،  كما تعلم ان هناك انتقال ضخم ف الثروه ، والثوره الماليه التي تحدث الان.
+                            الملايين من الدولارات تتدفق الي البيتكوين.<br><br>
+
+
+                            ما هو البيتكوين؟  <br>
+                            _انه افضل من المال ، <br><br>
+                            ف الحقيقه اليوم 1 بيتكوين يساوي حوالي 10000 دولار امريكي ، وكما يقول الناس انها سوف تزداد الي 50.000 دولار او حتي الي 100.000 دولار.
+                            <br><br>
+
+
+                            الكثير من الناس يسارعون للحصول على اكبر عدد ممكن من البيتكوين،  <br><br>
+                            ف البدايه كنت متشككا ان يكونوا صادقين معى،  كما ان هناك الكثير من الخداعات علي مواقع الانترنت .
+                            <br><br>
+
+                            لكن هذه هي الصفقة الحقيقية،  والجانب المجذب لها هي مجانيه الانضمام اليها 100%ـ!<br><br>
+
+                            >>>انقر هنا للتحقق من ذلك
+                            <br><br>
+                            ===> https://www.bethemillionaire.com/?userid={{ request.user.username }}
+                            <br><br>
+
+                            اذا كنت من العلامات التجارية الجديدة سوف لن تتعلم فقط ماهو البيتكوين وكيفيه البدء ف استخدامه اليوم ، ولكن الأكثر أهمية انها سوف تعلمك كيفية مضاعفة اموالك ل 5 مرات ف السنه كحد ادني وكيفيه كسب مصادر متعدده للدخل المتنوع.
+                            <br><br>
+                            لم اري شئ من قبل مثل هذا القبيل ف اي مكان.
+                            <br><br>
+
+                            >>>انقر هنا لإنشاء حساب مجانا 100% الان!
+                            <br><br>
+                            ==> https://www.bethemillionaire.com/?userid={{ request.user.username }}
+                            <br><br>
+
+                            نتكلم قريبا،
+                            <br>
+                            -الاسم<br>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+    particlesJS.load("particles-js", "{% static 'home/js/particles.json' %}",
+        function(){
+            console.log("particles.js loaded...")
+        }
+    )
+</script>
+
+{% endblock %}
+
+
+{% block script %}
+
+<script>
+
+     $(document).ready(function() {
+        $('select').material_select();
+      });
+
+
+
+      $(document).ready(function(){
+            var username = $("#login_username").val();
+
+            $.ajax({
+                    url: '/account/api/affiliate-link/',
+                    data: { "username":username },
+                    dataType: 'json',
+                    success: function (data){
+                        console.log(data.serializer1[0]);
+                        $("#affiliate1_visitor").append(data.serializer1[0].visitors);
+                        $("#affiliate1_lead").append(data.serializer1[0].leads);
+                        $("#affiliate1_conversion_rate").append(data.serializer1[0].conversion_rate);
+
+                        $("#affiliate2_visitor").append(data.serializer2[0].visitors);
+                        $("#affiliate2_lead").append(data.serializer2[0].leads);
+                        $("#affiliate2_conversion_rate").append(data.serializer2[0].conversion_rate);
+
+                        $("#affiliate3_visitor").append(data.serializer3[0].visitors);
+                        $("#affiliate3_lead").append(data.serializer3[0].leads);
+                        $("#affiliate3_conversion_rate").append(data.serializer3[0].conversion_rate);
+
+                        $("#affiliate4_visitor").append(data.serializer4[0].visitors);
+                        $("#affiliate4_lead").append(data.serializer4[0].leads);
+                        $("#affiliate4_conversion_rate").append(data.serializer4[0].conversion_rate);
+
+                        $("#affiliate5_visitor").append(data.serializer5[0].visitors);
+                        $("#affiliate5_lead").append(data.serializer5[0].leads);
+                        $("#affiliate5_conversion_rate").append(data.serializer5[0].conversion_rate);
+
+                        $("#affiliate6_visitor").append(data.serializer6[0].visitors);
+                        $("#affiliate6_lead").append(data.serializer6[0].leads);
+                        $("#affiliate6_conversion_rate").append(data.serializer6[0].conversion_rate);
+
+                        $("#affiliate7_visitor").append(data.serializer7[0].visitors);
+                        $("#affiliate7_lead").append(data.serializer7[0].leads);
+                        $("#affiliate7_conversion_rate").append(data.serializer7[0].conversion_rate);
+
+                        $("#affiliate8_visitor").append(data.serializer8[0].visitors);
+                        $("#affiliate8_lead").append(data.serializer8[0].leads);
+                        $("#affiliate8_conversion_rate").append(data.serializer8[0].conversion_rate);
+
+                        $("#affiliate9_visitor").append(data.serializer9[0].visitors);
+                        $("#affiliate9_lead").append(data.serializer9[0].leads);
+                        $("#affiliate9_conversion_rate").append(data.serializer9[0].conversion_rate);
+
+                        $("#affiliate10_visitor").append(data.serializer10[0].visitors);
+                        $("#affiliate10_lead").append(data.serializer10[0].leads);
+                        $("#affiliate10_conversion_rate").append(data.serializer10[0].conversion_rate);
+
+                        $("#affiliate11_visitor").append(data.serializer11[0].visitors);
+                        $("#affiliate11_lead").append(data.serializer11[0].leads);
+                        $("#affiliate11_conversion_rate").append(data.serializer11[0].conversion_rate);
+
+                        $("#affiliate12_visitor").append(data.serializer12[0].visitors);
+                        $("#affiliate12_lead").append(data.serializer12[0].leads);
+                        $("#affiliate12_conversion_rate").append(data.serializer12[0].conversion_rate);
+
+                        $("#affiliate13_visitor").append(data.serializer13[0].visitors);
+                        $("#affiliate13_lead").append(data.serializer13[0].leads);
+                        $("#affiliate13_conversion_rate").append(data.serializer13[0].conversion_rate);
+
+                        $("#affiliate14_visitor").append(data.serializer14[0].visitors);
+                        $("#affiliate14_lead").append(data.serializer14[0].leads);
+                        $("#affiliate14_conversion_rate").append(data.serializer14[0].conversion_rate);
+                    }
+            });
+    })
+
+
+    $(document).ready(function(){
+        $('.modal').modal();
+     });
+
+</script>
+
+{% endblock %}

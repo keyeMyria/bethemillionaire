@@ -1,0 +1,598 @@
+{% extends 'base_v_2.html' %}
+
+{% block title %}BeTheMillionaire | Affiliate Link{% endblock %}
+
+{% block add-css %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home/style/index.css' %}">
+
+    <style>
+        .left_main_menu a{
+            color: orange;
+        }
+
+        .left_main_menu a:hover{
+            color: white;
+            text-decoration: underline;
+        }
+
+        #particles-js1{
+            background-image: url('/static/account/style/images/reg/back-1.jpeg');
+            background-repeat: repeat;
+            background-position: center;
+            min-height: 100%;
+            width: 100%;
+        }
+    </style>
+{% endblock %}
+
+{% block main %}
+    <div class="row" id="particles-js1" style="">
+        <div class="col s12 l8 offset-l2" style="margin-bottom: 20px;">
+            <div class="col s12 m12 l3 blue" style="">
+                <div class="col s12 m12 l12 #1a237e indigo orange-text darken-4 center-align" style="padding: 10px;">
+                    <h5>Marketing</h5>
+                </div>
+
+                <div class="col s12 m12 l12 white center-align" style="min-height: 200px;">
+                    {% if request.user.sponsor.profile_picture %}
+                        <img class="col m10 offset-m1 l10 offset-l1" src="{{ request.user.sponsor.profile_picture.url}}" height="100%" width="100%" style="margin-top: 20px;" alt="">
+                    {% else %}
+                        <img class="col m10 offset-m1 l10 offset-l1" src="{% static 'account/style/images/no-img.jpg' %}" height="100%" width="100%" style="margin-top: 20px;" alt="">
+                    {% endif %}
+                    <p style="margin-bottom: 10px;">@{{ request.user.sponsor.username | title }}</p>
+                    <p style="margin-bottom: 10px;">{{ request.user.sponsor.email }}</p>
+                </div>
+
+                <div class="col s12 m12 l12 #1a237e indigo orange-text darken-4 left_main_menu" style="padding: 10px; margin-bottom: 20px;">
+                    <a class="left col s12 m12 l12 white-text" href="{% url 'home:affiliate_link' %}" style="padding: 10px;">Affiliate Link
+                        <span class="right" style=""> > </span>
+                    </a>
+
+                    <a class="left col s12 m12 l12" href="{% url 'home:banners' %}" style="padding: 10px;">Banners
+                        <span class="right" style=""> > </span>
+                    </a>
+
+                    <a class="left col s12 m12 l12" href="{% url 'home:email_swipes' %}" style="padding: 10px;">Email Swipes
+                        <span class="right" style=""> > </span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col s12 m12 l9" style="padding: 0px; margin-top: 0px; opacity: 1;">
+                <div class="col s12 l12 white center-align" style="padding: 5px;">
+
+                    <h4 class="left-align orange-text">Affiliate Link</h4>
+                    <div class="left-align">
+                        <div class="chip col s12 m12 l12 hide-on-med-and-down" style="font-size: 14px; margin-top: 30px;">
+                            Your Default Link : <a target="_blank" href="http://www.bethemillionaire.com/?userid={{ request.user.username }}">http://www.bethemillionaire.com/?userid={{ request.user.username }}</a>
+                        </div>
+
+                        <div class="col s12 m12 l12 hide-on-large-only" style="font-size: 14px; margin-top: 10px; border: 2px solid #333;">
+                            Your Default Link : <a target="_blank" href="http://www.bethemillionaire.com/?userid={{ request.user.username }}">http://www.bethemillionaire.com/?userid={{ request.user.username }}</a>
+                        </div>
+                    </div>
+
+                    <div class="col s12 m12 l12" style="margin-top: 20px; height: 400px; padding: 0px;">
+                        <div class="video-container" style="margin-top: 30px;">
+                            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/iWGOgcELX8Y" frameborder="0" gesture="media" allow="encrypted-media" autoplay="true" allowfullscreen></iframe>
+                        </div>
+                    </div>
+
+
+
+                    <div class="col s12 m12 l12" style="margin-top: 10px; padding: 0px;">
+                        <div class="card blue">
+                            <div class="card-content white-text">
+                                <span class="card-title">Your Affiliate Links & Funnels For Your Campaigns</span>
+                                <p class="left-align">
+                                    Below are all the campaigns and funnels available to you to promote BeTheMillionaire system. Click on “Get your links” and copy the link in the Pop-Up window, or copy the default link to promote above on this page. To add your referrals into your Autoresponder integrate it with BeTheMillionaire here, or use your own capture pages with Direct Registration funnels below (or alternatively download the list of your referred users and upload it to your Autoresponder)
+                                </p>
+                            </div>
+
+                            <div class="divider white">
+
+                            </div>
+
+                            <div class="card-content white-text">
+                                <span class="card-title">*** Special Weekly Competition With Prizes Win Up To 0.05 Bitcoins! Click For Details ***</span>
+                                <p class="left-align">
+                                    The rules to win Bitcoins are simple – members who will refer the most people to BeTheMillionaire each week wins! Every Wednesday @3pm EST we start a new competition. The current competition is run from November 8th and ends on November 15th @12pm EST. Check here for more info how you can win each week up to 0.05 Bitcoins!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+                    <div class="col s12 m12 l12" style="margin-top: 20px; padding: 0px;">
+
+                        <!--mobile-->
+                        <div class="col s12 m12 l12 left-align hide-on-large-only" style="padding: 0px;">
+                            <h5 style="text-decoration: underline;">BeTheMillionaire 3-Step Registration Funnel</h5>
+                            <p>Visitors: <span id="affiliate_m_1_visitor"></span></p>
+                            <p>Leads: <span id="affiliate_m_1_lead"></span></p>
+                            <p>Campaign Link: <span>http://www.bethemillionaire.com/account/pre-registration/?userid={{ user.username }}</span></p>
+
+
+
+                            <h5 style="text-decoration: underline;">Direct Registration</h5>
+                            <p>Visitors: <span id="affiliate_m_2_visitor"></span></p>
+                            <p>Leads: <span id="affiliate_m_2_lead"></span></p>
+                            <p>Campaign Link: <span>http://www.bethemillionaire.com/account/registration/?userid={{ user.username }}</span></p>
+
+                        </div>
+                        <!--end mobile-->
+
+
+
+                        <table class="highlight centered bordered responsive-table hide-on-med-and-down" style="margin-bottom: 50px; margin-top: 30px;">
+                            <thead>
+                              <tr style="background-color: blue; color: white;">
+                                  <th>Campaign Name</th>
+                                  <th>Visitors</th>
+                                  <th>Leads</th>
+                                  <th>Conversion Rate</th>
+                                  <th>Campaign Links</th>
+                              </tr>
+                            </thead>
+
+
+
+                            <tbody>
+                                {% for affiliate in affiliates %}
+                                    {% ifequal affiliate.short_name 'affiliate-link-1' %}
+                                        {% if affiliate.is_active %}
+                                            <tr>
+                                                <td>BeTheMillionaire 3-Step Registration Funnel</td>
+                                                <td id="affiliate1_visitor"></td>
+                                                <td id="affiliate1_lead"></td>
+                                                <td id="affiliate1_conversion_rate"></td>
+                                                <td><a class="modal-trigger" href="#affiliate_link1">Get Your Link</a></td>
+
+                                                    <div id="affiliate_link1" class="modal ">
+                                                        <div class="modal-content">
+                                                            <h4 style="margin-bottom: 40px; color: blue;">Campaign Links</h4>
+                                                            <h5 style="margin-bottom: 20px; color: red;">BeTheMillionaire 3-Step Registration Funnel</h5>
+
+                                                            <p><b>Here Is Your Capture Page Link( Copy Below )</b></p>
+
+                                                            <div class="chip col s12 m12 l12" style="font-size: 16px; margin-top: 10px; margin-bottom: 50px;">
+                                                                <p>http://www.bethemillionaire.com/account/pre-registration/?userid={{ user.username }}</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                            </tr>
+                                        {% endif %}
+                                    {% endifequal %}
+
+                                    {% ifequal affiliate.short_name 'affiliate-link-2' %}
+                                        {% if affiliate.is_active %}
+                                            <tr>
+                                                <td>Direct Registration</td>
+                                                <td id="affiliate2_visitor"></td>
+                                                <td id="affiliate2_lead"></td>
+                                                <td id="affiliate2_conversion_rate"></td>
+                                                <td><a class="modal-trigger" href="#affiliate_link2">Get Your Link</a></td>
+
+                                                    <div id="affiliate_link2" class="modal">
+                                                        <div class="modal-content">
+                                                            <h4 style="margin-bottom: 40px; color: blue;">Campaign Links</h4>
+                                                            <h5 style="margin-bottom: 20px; color: red;">Direct Registration</h5>
+
+                                                            <p><b>Here Is Your Capture Page Link2( Copy Below )</b></p>
+
+                                                            <div class="chip col s12 m12 l12" style="font-size: 16px; margin-top: 10px; margin-bottom: 50px;">
+                                                                <p>http://www.bethemillionaire.com/account/registration/?userid={{ user.username }}</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                            </tr>
+                                        {% endif %}
+                                    {% endifequal %}
+
+                                    {% ifequal affiliate.short_name 'affiliate-link-3' %}
+                                        {% if affiliate.is_active %}
+                                            <tr>
+                                                <td>Automated Webinar Funnel Version 1</td>
+                                                <td id="affiliate3_visitor"></td>
+                                                <td id="affiliate3_lead"></td>
+                                                <td id="affiliate3_conversion_rate"></td>
+                                                <td><a class="modal-trigger" href="#affiliate_link3">Get Your Link</a></td>
+
+                                                <div id="affiliate_link3" class="modal">
+                                                        <div class="modal-content">
+                                                            <h4 style="margin-bottom: 40px; color: blue;">Campaign Links</h4>
+                                                            <h5 style="margin-bottom: 20px; color: red;">Automated Webinar Funnel Version 1</h5>
+
+                                                            <p><b>Here Is Your Capture Page Link2( Copy Below )</b></p>
+
+                                                            <div class="chip col s12 m12 l12" style="font-size: 16px; margin-top: 10px; margin-bottom: 50px;">
+                                                                <p>http://www.bethemillionaire.com/account/pre-web/?userid={{ user.username }}</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                            </tr>
+                                        {% endif %}
+                                    {% endifequal %}
+
+
+                                    {% ifequal affiliate.short_name 'affiliate-link-4' %}
+                                        {% if affiliate.is_active %}
+                                            <tr>
+                                                <td>Automated Webinar Funnel Version 2</td>
+                                                <td id="affiliate4_visitor"></td>
+                                                <td id="affiliate4_lead"></td>
+                                                <td id="affiliate4_conversion_rate"></td>
+                                                <td><a class="modal-trigger" href="#affiliate_link4">Get Your Link</a></td>
+
+                                                <div id="affiliate_link4" class="modal">
+                                                        <div class="modal-content">
+                                                            <h4 style="margin-bottom: 40px; color: blue;">Campaign Links</h4>
+                                                            <h5 style="margin-bottom: 20px; color: red;">Automated Webinar Funnel Version 2</h5>
+
+                                                            <p><b>Here Is Your Capture Page Link2( Copy Below )</b></p>
+
+                                                            <div class="chip col s12 m12 l12" style="font-size: 16px; margin-top: 10px; margin-bottom: 50px;">
+                                                                <p>http://www.bethemillionaire.com/account/webinar/?userid={{ user.username }}</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                            </tr>
+                                        {% endif %}
+                                    {% endifequal %}
+
+                                    {% ifequal affiliate.short_name 'affiliate-link-5' %}
+                                        {% if affiliate.is_active %}
+                                            <tr>
+                                                <td>Course Giveaway Direct Registration</td>
+                                                <td id="affiliate5_visitor"></td>
+                                                <td id="affiliate5_lead"></td>
+                                                <td id="affiliate5_conversion_rate"></td>
+                                                <td><a class="modal-trigger" href="#affiliate_link5">Get Your Link</a></td>
+
+                                                <div id="affiliate_link5" class="modal">
+                                                        <div class="modal-content">
+                                                            <h4 style="margin-bottom: 40px; color: blue;">Campaign Links</h4>
+                                                            <h5 style="margin-bottom: 20px; color: red;">Course Giveaway Direct Registration</h5>
+
+                                                            <p><b>Here Is Your Capture Page Link2( Copy Below )</b></p>
+
+                                                            <div class="chip col s12 m12 l12" style="font-size: 16px; margin-top: 10px; margin-bottom: 50px;">
+                                                                <p>http://www.bethemillionaire.com/account/get-your-course/?userid={{ user.username }}</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                            </tr>
+                                        {% endif %}
+                                    {% endifequal %}
+
+
+                                    {% ifequal affiliate.short_name 'affiliate-link-6' %}
+                                        {% if affiliate.is_active %}
+                                            <tr>
+                                                <td>Course Giveaway 3 Steps Funnel</td>
+                                                <td id="affiliate6_visitor"></td>
+                                                <td id="affiliate6_lead"></td>
+                                                <td id="affiliate6_conversion_rate"></td>
+                                                <td><a class="modal-trigger" href="#affiliate_link6">Get Your Link</a></td>
+
+                                                <div id="affiliate_link6" class="modal">
+                                                        <div class="modal-content">
+                                                            <h4 style="margin-bottom: 40px; color: blue;">Campaign Links</h4>
+                                                            <h5 style="margin-bottom: 20px; color: red;">Course Giveaway 3 Steps Funnel</h5>
+
+                                                            <p><b>Here Is Your Capture Page Link2( Copy Below )</b></p>
+
+                                                            <div class="chip col s12 m12 l12" style="font-size: 16px; margin-top: 10px; margin-bottom: 50px;">
+                                                                <p>http://www.bethemillionaire.com/account/secrets-to-wealth/?userid={{ user.username }}</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                            </tr>
+                                        {% endif %}
+                                    {% endifequal %}
+
+
+                                    {% ifequal affiliate.short_name 'affiliate-link-7' %}
+                                        {% if affiliate.is_active %}
+                                            <tr>
+                                                <td>Latest Webinar Replay BTM</td>
+                                                <td id="affiliate7_visitor"></td>
+                                                <td id="affiliate7_lead"></td>
+                                                <td id="affiliate7_conversion_rate"></td>
+                                                <td><a class="modal-trigger" href="#affiliate_link7">Get Your Link</a></td>
+
+                                                    <div id="affiliate_link7" class="modal">
+                                                        <div class="modal-content">
+                                                            <h4 style="margin-bottom: 40px; color: blue;">Campaign Links</h4>
+                                                            <h5 style="margin-bottom: 20px; color: red;">Latest Webinar Replay BWC</h5>
+
+                                                            <p><b>Here Is Your Capture Page Link2( Copy Below )</b></p>
+
+                                                            <div class="chip col s12 m12 l12" style="font-size: 16px; margin-top: 10px; margin-bottom: 50px;">
+                                                                <p>http://www.bethemillionaire.com/account/webinar-replay/?userid={{ user.username }}</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                            </tr>
+                                        {% endif %}
+                                    {% endifequal %}
+
+
+                                    {% ifequal affiliate.short_name 'affiliate-link-8' %}
+                                        {% if affiliate.is_active %}
+                                            <tr>
+                                                <td>Usi-Tech Funnel</td>
+                                                <td id="affiliate8_visitor"></td>
+                                                <td id="affiliate8_lead"></td>
+                                                <td id="affiliate8_conversion_rate"></td>
+                                                <td><a class="modal-trigger" href="#affiliate_link8">Get Your Link</a></td>
+
+                                                    <div id="affiliate_link8" class="modal">
+                                                        <div class="modal-content">
+                                                            <h4 style="margin-bottom: 40px; color: blue;">Campaign Links</h4>
+                                                            <h5 style="margin-bottom: 20px; color: red;">Usi-Tech Funnel</h5>
+
+                                                            <p><b>Here Is Your Capture Page Link2( Copy Below )</b></p>
+
+                                                            <div class="chip col s12 m12 l12" style="font-size: 16px; margin-top: 10px; margin-bottom: 50px;">
+                                                                <p>http://www.bethemillionaire.com/account/pre-usi/?userid={{ user.username }}</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                            </tr>
+                                        {% endif %}
+                                    {% endifequal %}
+
+
+                                    {% ifequal affiliate.short_name 'affiliate-link-9' %}
+                                        {% if affiliate.is_active %}
+                                            <tr>
+                                                <td>Usi-Tech Direct Funnel</td>
+                                                <td id="affiliate9_visitor"></td>
+                                                <td id="affiliate9_lead"></td>
+                                                <td id="affiliate9_conversion_rate"></td>
+                                                <td><a class="modal-trigger" href="#affiliate_link9">Get Your Link</a></td>
+
+                                                    <div id="affiliate_link9" class="modal">
+                                                        <div class="modal-content">
+                                                            <h4 style="margin-bottom: 40px; color: blue;">Campaign Links</h4>
+                                                            <h5 style="margin-bottom: 20px; color: red;">Usi-Tech Direct Funnel</h5>
+
+                                                            <p><b>Here Is Your Capture Page Link2( Copy Below )</b></p>
+
+                                                            <div class="chip col s12 m12 l12" style="font-size: 16px; margin-top: 10px; margin-bottom: 50px;">
+                                                                <p>http://www.bethemillionaire.com/account/usi/?userid={{ user.username }}</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                            </tr>
+                                        {% endif %}
+                                    {% endifequal %}
+
+                                    {% ifequal affiliate.short_name 'affiliate-link-10' %}
+                                        {% if affiliate.is_active %}
+                                            <tr>
+                                                <td>Usi-Tech BTC-Packages Calculator</td>
+                                                <td id="affiliate10_visitor"></td>
+                                                <td id="affiliate10_lead"></td>
+                                                <td id="affiliate10_conversion_rate"></td>
+                                                <td><a class="modal-trigger" href="#affiliate_link10">Get Your Link</a></td>
+
+                                                    <div id="affiliate_link10" class="modal">
+                                                        <div class="modal-content">
+                                                            <h4 style="margin-bottom: 40px; color: blue;">Campaign Links</h4>
+                                                            <h5 style="margin-bottom: 20px; color: red;">Usi-Tech BTC-Packages Calculator</h5>
+
+                                                            <p><b>Here Is Your Capture Page Link2( Copy Below )</b></p>
+
+                                                            <div class="chip col s12 m12 l12" style="font-size: 16px; margin-top: 10px; margin-bottom: 50px;">
+                                                                <p>http://www.bethemillionaire.com/?userid={{ user.username }}</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                            </tr>
+                                        {% endif %}
+                                    {% endifequal %}
+
+                                    {% ifequal affiliate.short_name 'affiliate-link-11' %}
+                                        {% if affiliate.is_active %}
+                                            <tr>
+                                                <td>Bitconnect Direct Funnel</td>
+                                                <td id="affiliate11_visitor"></td>
+                                                <td id="affiliate11_lead"></td>
+                                                <td id="affiliate11_conversion_rate"></td>
+                                                <td><a class="modal-trigger" href="#affiliate_link11">Get Your Link</a></td>
+
+                                                    <div id="affiliate_link11" class="modal">
+                                                        <div class="modal-content">
+                                                            <h4 style="margin-bottom: 40px; color: blue;">Campaign Links</h4>
+                                                            <h5 style="margin-bottom: 20px; color: red;">Bitconnect Direct Funnel</h5>
+
+                                                            <p><b>Here Is Your Capture Page Link2( Copy Below )</b></p>
+
+                                                            <div class="chip col s12 m12 l12" style="font-size: 16px; margin-top: 10px; margin-bottom: 50px;">
+                                                                <p>http://www.bethemillionaire.com/account/bitconnect/?userid={{ user.username }}</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                            </tr>
+                                        {% endif %}
+                                    {% endifequal %}
+
+                                    {% ifequal affiliate.short_name 'affiliate-link-12' %}
+                                        {% if affiliate.is_active %}
+                                            <tr>
+                                                <td>Mike Hobbs Usi-Tech Team Webinar (90 bitcoins in 6 months)</td>
+                                                <td id="affiliate12_visitor"></td>
+                                                <td id="affiliate12_lead"></td>
+                                                <td id="affiliate12_conversion_rate"></td>
+                                                <td><a class="modal-trigger" href="#affiliate_link12">Get Your Link</a></td>
+
+                                                    <div id="affiliate_link12" class="modal">
+                                                        <div class="modal-content">
+                                                            <h4 style="margin-bottom: 40px; color: blue;">Campaign Links</h4>
+                                                            <h5 style="margin-bottom: 20px; color: red;">Mike Hobbs Usi-Tech Team Webinar (90 bitcoins in 6 months)</h5>
+
+                                                            <p><b>Here Is Your Capture Page Link2( Copy Below )</b></p>
+
+                                                            <div class="chip col s12 m12 l12" style="font-size: 16px; margin-top: 10px; margin-bottom: 50px;">
+                                                                <p>http://www.bethemillionaire.com/account/7-figure-strategies/?userid={{ user.username }}</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                            </tr>
+                                        {% endif %}
+                                    {% endifequal %}
+
+                                    {% ifequal affiliate.short_name 'affiliate-link-13' %}
+                                        {% if affiliate.is_active %}
+                                            <tr>
+                                                <td>How To Set Up Your BeTheMillionaire System</td>
+                                                <td id="affiliate13_visitor"></td>
+                                                <td id="affiliate13_lead"></td>
+                                                <td id="affiliate13_conversion_rate"></td>
+                                                <td><a class="modal-trigger" href="#affiliate_link13">Get Your Link</a></td>
+
+                                                    <div id="affiliate_link13" class="modal">
+                                                        <div class="modal-content">
+                                                            <h4 style="margin-bottom: 40px; color: blue;">Campaign Links</h4>
+                                                            <h5 style="margin-bottom: 20px; color: red;">How To Set Up Your Bitcoins Wealth Club System</h5>
+
+                                                            <p><b>Here Is Your Capture Page Link2( Copy Below )</b></p>
+
+                                                            <div class="chip col s12 m12 l12" style="font-size: 16px; margin-top: 10px; margin-bottom: 50px;">
+                                                                <p>http://www.bethemillionaire.com/account/how-to-set-up-your-btm-system/?userid={{ user.username }}</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                            </tr>
+                                        {% endif %}
+                                    {% endifequal %}
+
+                                    {% ifequal affiliate.short_name 'affiliate-link-14' %}
+                                        {% if affiliate.is_active %}
+                                            <tr>
+                                                <td>Usi Tech 7 Figure Plan In 2018!</td>
+                                                <td id="affiliate14_visitor"></td>
+                                                <td id="affiliate14_lead"></td>
+                                                <td id="affiliate14_conversion_rate"></td>
+                                                <td><a class="modal-trigger" href="#affiliate_link14">Get Your Link</a></td>
+
+                                                    <div id="affiliate_link14" class="modal">
+                                                        <div class="modal-content">
+                                                            <h4 style="margin-bottom: 40px; color: blue;">Campaign Links</h4>
+                                                            <h5 style="margin-bottom: 20px; color: red;">Usi Tech 7 Figure Plan In 2018!</h5>
+
+                                                            <p><b>Here Is Your Capture Page Link2( Copy Below )</b></p>
+
+                                                            <div class="chip col s12 m12 l12" style="font-size: 16px; margin-top: 10px; margin-bottom: 50px;">
+                                                                <p>http://www.bethemillionaire.com/account/7-figure-plan/?userid={{ user.username }}</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                            </tr>
+                                        {% endif %}
+                                    {% endifequal %}
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block script %}
+
+<script>
+      $(document).ready(function(){
+            var username = $("#login_username").val();
+
+            $.ajax({
+                    url: '/account/api/affiliate-link/',
+                    data: { "username":username },
+                    dataType: 'json',
+                    success: function (data){
+                        $("#affiliate1_visitor").append(data.serializer1[0].visitors);
+                        $("#affiliate_m_1_visitor").append(data.serializer1[0].visitors);
+                        $("#affiliate1_lead").append(data.serializer1[0].leads);
+                        $("#affiliate_m_1_lead").append(data.serializer1[0].leads);
+                        $("#affiliate1_conversion_rate").append(data.serializer1[0].conversion_rate);
+
+                        $("#affiliate2_visitor").append(data.serializer2[0].visitors);
+                        $("#affiliate_m_2_visitor").append(data.serializer2[0].visitors);
+                        $("#affiliate2_lead").append(data.serializer2[0].leads);
+                        $("#affiliate_m_2_lead").append(data.serializer2[0].leads);
+                        $("#affiliate2_conversion_rate").append(data.serializer2[0].conversion_rate);
+
+                        /*
+                        $("#affiliate3_visitor").append(data.serializer3[0].visitors);
+                        $("#affiliate3_lead").append(data.serializer3[0].leads);
+                        $("#affiliate3_conversion_rate").append(data.serializer3[0].conversion_rate);
+
+                        $("#affiliate4_visitor").append(data.serializer4[0].visitors);
+                        $("#affiliate4_lead").append(data.serializer4[0].leads);
+                        $("#affiliate4_conversion_rate").append(data.serializer4[0].conversion_rate);
+
+                        $("#affiliate5_visitor").append(data.serializer5[0].visitors);
+                        $("#affiliate5_lead").append(data.serializer5[0].leads);
+                        $("#affiliate5_conversion_rate").append(data.serializer5[0].conversion_rate);
+
+                        $("#affiliate6_visitor").append(data.serializer6[0].visitors);
+                        $("#affiliate6_lead").append(data.serializer6[0].leads);
+                        $("#affiliate6_conversion_rate").append(data.serializer6[0].conversion_rate);
+
+                        $("#affiliate7_visitor").append(data.serializer7[0].visitors);
+                        $("#affiliate7_lead").append(data.serializer7[0].leads);
+                        $("#affiliate7_conversion_rate").append(data.serializer7[0].conversion_rate);
+
+                        $("#affiliate8_visitor").append(data.serializer8[0].visitors);
+                        $("#affiliate8_lead").append(data.serializer8[0].leads);
+                        $("#affiliate8_conversion_rate").append(data.serializer8[0].conversion_rate);
+
+                        $("#affiliate9_visitor").append(data.serializer9[0].visitors);
+                        $("#affiliate9_lead").append(data.serializer9[0].leads);
+                        $("#affiliate9_conversion_rate").append(data.serializer9[0].conversion_rate);
+
+                        $("#affiliate10_visitor").append(data.serializer10[0].visitors);
+                        $("#affiliate10_lead").append(data.serializer10[0].leads);
+                        $("#affiliate10_conversion_rate").append(data.serializer10[0].conversion_rate);
+
+                        $("#affiliate11_visitor").append(data.serializer11[0].visitors);
+                        $("#affiliate11_lead").append(data.serializer11[0].leads);
+                        $("#affiliate11_conversion_rate").append(data.serializer11[0].conversion_rate);
+
+                        $("#affiliate12_visitor").append(data.serializer12[0].visitors);
+                        $("#affiliate12_lead").append(data.serializer12[0].leads);
+                        $("#affiliate12_conversion_rate").append(data.serializer12[0].conversion_rate);
+
+                        $("#affiliate13_visitor").append(data.serializer13[0].visitors);
+                        $("#affiliate13_lead").append(data.serializer13[0].leads);
+                        $("#affiliate13_conversion_rate").append(data.serializer13[0].conversion_rate);
+
+                        $("#affiliate14_visitor").append(data.serializer14[0].visitors);
+                        $("#affiliate14_lead").append(data.serializer14[0].leads);
+                        $("#affiliate14_conversion_rate").append(data.serializer14[0].conversion_rate);
+
+                        */
+                    }
+            });
+    })
+
+
+    $(document).ready(function(){
+        $('.modal').modal();
+     });
+
+</script>
+
+{% endblock %}

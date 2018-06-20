@@ -1,0 +1,148 @@
+{% extends 'base_v_2.html' %}
+
+{% block title %}BeTheMillionaire | FAQ{% endblock %}
+
+{% block add-css %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home/style/index.css' %}">
+
+    <style>
+        .left_main_menu a{
+            color: orange;
+        }
+
+        .left_main_menu a:hover{
+            color: white;
+            text-decoration: underline;
+        }
+
+        #particles-js1{
+            background-image: url('/static/account/style/images/reg/back-1.jpeg');
+            background-repeat: repeat;
+            background-position: center;
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+{% endblock %}
+
+{% block main %}
+    <div class="row" id="particles-js1" style="">
+        <div class="col s12 l8 offset-l2" style="">
+            <div class="col s12 m12 l3 blue" style="">
+                <div class="col s12 m12 l12 #1a237e indigo orange-text darken-4 center-align" style="padding: 10px;">
+                    <h5>BTM Support</h5>
+                </div>
+
+                <div class="col s12 m12 l12 white center-align" style="min-height: 200px;">
+                    {% if request.user.sponsor.profile_picture %}
+                        <img class="col m10 offset-m1 l10 offset-l1" src="{{ request.user.sponsor.profile_picture.url}}" height="100%" width="100%" style="margin-top: 20px;" alt="">
+                    {% else %}
+                        <img class="col m10 offset-m1 l10 offset-l1" src="{% static 'account/style/images/no-img.jpg' %}" height="100%" width="100%" style="margin-top: 20px;" alt="">
+                    {% endif %}
+                    <p style="margin-bottom: 10px;">@{{ request.user.sponsor.username | title }}</p>
+                    <p style="margin-bottom: 10px;">@{{ request.user.sponsor.email }}</p>
+                </div>
+
+                <div class="col s12 m12 l12 #1a237e indigo orange-text darken-4 left_main_menu" style="padding: 10px; margin-bottom: 20px;">
+                    <a class="left col s12 m12 l12" href="{% url 'home:faq' %}" style="padding: 10px;">FAQ
+                        <span class="right" style=""> > </span>
+                    </a>
+
+                    <a class="left col s12 m12 l12 white-text" href="{% url 'home:recent-update' %}" style="padding: 10px;">Recent Update
+                        <span class="right" style=""> > </span>
+                    </a>
+
+                    <a class="left col s12 m12 l12" href="{% url 'home:privacy-policy' %}" style="padding: 10px;">Privacy Policy
+                        <span class="right" style=""> > </span>
+                    </a>
+
+                    <a class="left col s12 m12 l12" target="_blank" href="https://www.facebook.com/groups/336201610190269/" style="padding: 10px;">Facebook Group
+                        <span class="right" style=""> > </span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col s12 m12 l9" style="padding: 0px; margin-top: 0px; opacity: .9;">
+                <div class="col s12 l12 white center-align" style="padding: 5px;">
+
+                    <div class="col s12 m12 l12 right-align" style="margin-top: 30px; margin-bottom: 40px;">
+
+
+
+                    ونحن نعمل باستمرار على تحسين نظام مشروع كريبتو مليونير،  وليس دائما سيتم تحديث هذه الصفحة مع جميع التحديثات الأخيرة والتغيرات التي تحدث داخل مشروع كريبتو مليونير،   لذا يرجى تفقد مجموعتنا لدي الفيسبوك كثيرا حيث يتم عاده نشر كل تحديث بها!
+                    <br>
+
+                    التحديثات الاخيره   - الإعلان عن مسابقة أسبوعية بالجوائز! *** الإعلان عن مسابقة أسبوعية وقد تم إنشاء مشروع كريبتو مليونير لمساعدتك على كسب البيتكوين بطرق متعددة ،   والعمل على سرعه زياده ثروتك بالبيتكوين،   ويسمح لك بمساعدة  الاخرين بطريقه سهله  على القيام بنفس الشيء في حين يتم. القيام ب90٪ من عملك!
+                    <br>
+
+                    ونحن في طريقنا لعمل  مسابقة أسبوعية لدي مشروع كريبتو مليونير ابتداءا من هذا الاسبوع ويمكن للجميع الفوز بالبيتكوين كل اسبوع!
+                    <br>
+
+                    تبدا المسابقه كل يوم أربعاء في تمام الساعة 12 مساء بتوقيت شرق الولايات المتحدة وتنتهي يوم الأربعاء التالي في. تمام الساعة 12 مساء بتوقيت شرق الولايات المتحدة.
+                    <br>
+
+                    تبدأ المسابقة الأولى في 20 سبتمبر وتنتهي في 27 سبتمبر. قواعد للفوز بسيطة - هؤلاء الأعضاء الذين يحيلون معظم الناس إلى مشروع كريبتو مليونير  للفوز بكل جوائز الأسبوع.
+                    <br>
+
+                    يمكنك أن ترى أين كان مكانك من المتصدرين الكتاب ف 7أيام الماضية بالنسبة للعملاء المحتملين المشار إليهم: /https://www.bethemillionaire.com/home/member-home/leader-board/ يمكنك الاطلاع على روابطك للترويج من هنا:
+                    <br>
+
+
+                    https://www.bethemillionaire.com/home/member-home/affiliate-links/ يمكنك التحقق من جميع الإحالات الخاصة بك من هنا: https://www.bethemillionaire.com/membership-account/my-referrals/ إليك الجوائز لهذا الأسبوع: 1st مكان - 0.05btc المركز الثاني - 0.025btc المركز الثالث - 0.015btc المركز الرابع - 0.01  بيتكوين ومن  المركز الخامس - المركز العاشر - 0.003 بتك
+                    <br>
+
+
+                    لن يتم احتساب سوى أشخاص حقيقيين بحسابات حقيقية - لا يمكنك تسجيل عناوين بريد إلكتروني مزيفة للفوز بالجوائز وأي شخص سيحاول أن يفعل ذلك سوف يكون محظورا من المجموعة والنظام.
+يمكنك الترويج عبر الفيسبوك، يوتيوب، إينستاجرام، تويتر، لافتات، إعلانات منفردة، أي استراتيجية تسويق واي  طريقة متاحة حيث يوجد أشخاص.
+                     <br>
+
+
+                    هذه مجرد مكافأة لكل عمل قمت به للكسب من خلال تعزيز المشروع،  ومساعدة الآخرين ، وصنع جداول متعددة للدخل باي حال على طول الطريق!
+                    <br>
+
+
+                     حظا سعيدا !  ويمكن أن تنتظر لمعرفة من هو الفائز بجوائز الأسبوع المقبل!  -  2 من المسارات الجديدة متاحة لبدء الدورة `` أسرار لزيادة ثروتك الخاصة بالبيتكوين
+                    <br>
+
+
+                     ` ******** تم إضافة مسابقتين جديدتين **********
+                    <br>
+
+
+                    وهناك الكثير من يتساءل عن مسار الدورة  "أسرار تزيد ثروتك بالبيتكوين" والانطلاق منها، وبالنسبه اليكم يا شباب  لقد أنشأت 2 من مسارات التحويل الجديدة(funnels) التي يمكنكم استخدامها على الفور!
+                    <br>
+
+
+                    وبالطبع لم تنته الدوره بعد  ولكن يمكنك البدء في بناء جمهورك وزيادة الإحالات الخاصة بك عن طريق كثير من العرض والاقلاع  عن الدورة مجانا!
+                    <br>
+
+                    المسار للاحالة/للتحويل الواحد هو المسار  المباشر المستقيم إلى صفحة التسجيل - إذا كنت ترغب في استخدام capture page/صفحة التقاط الخاصة بك أمامها.
+                    <br>
+
+
+                     مسار التحويل الثاني هو عبارة عن 3 خطوات للمسار. يمكنك استخدامها على الفور لجمع العملاء المحتملين باستخدام capture page/صفحة الالتقاط التي تم إجراؤها من أجلك. يمكنك العثور عليها تحت روابط التابعة لها!
+                        <br>
+
+
+                    استمتع!
+
+
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block script %}
+
+<script>
+
+</script>
+
+{% endblock %}

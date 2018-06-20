@@ -98,7 +98,7 @@ class RecentUpdatePostDetailView(View):
 
 #affiliate link
 class AffiliateLink(View):
-    template_name = 'home/affiliate-link_v_1.html'
+    template_name = 'home/affiliate-link_v_2.html'
 
     def get(self, request):
         affiliates = AffiliateLinkControl.objects.all()
@@ -114,7 +114,7 @@ class AffiliateLink(View):
 
 
 class EmailSwipes(View):
-    template_name = 'home/email-swipes_v_1.html'
+    template_name = 'home/email-swipes_v_2.html'
 
     def get(self, request):
         user_profile = UserProfile.objects.filter(username=request.user.username)
@@ -130,7 +130,7 @@ class EmailSwipes(View):
 
 
 class Banners(View):
-    template_name = 'home/banners_v_1.html'
+    template_name = 'home/banners_v_2.html'
 
     def get(self, request):
         user_profile = UserProfile.objects.filter(username=request.user.username)
@@ -359,7 +359,7 @@ class BitcoinDebitCard(View):
 
 #privacy policy
 class PrivacyPolicy(View):
-    template_name = 'home/privacy-policy_v_1.html'
+    template_name = 'home/privacy-policy_v_2.html'
 
     def get(self, request):
         user_profile = UserProfile.objects.filter(username=request.user.username)
@@ -376,7 +376,7 @@ class PrivacyPolicy(View):
 
 #privacy policy
 class FAQ(View):
-    template_name = 'home/faq_v_1.html'
+    template_name = 'home/faq_v_2.html'
 
     def get(self, request):
         user_profile = UserProfile.objects.filter(username=request.user.username)
@@ -393,7 +393,7 @@ class FAQ(View):
 
 #privacy policy
 class RecentUpdate(View):
-    template_name = 'home/recent-update_v_1.html'
+    template_name = 'home/recent-update_v_2.html'
 
     def get(self, request):
         user_profile = UserProfile.objects.filter(username=request.user.username)
@@ -941,7 +941,7 @@ class LiveChatMessageAPI(APIView):
 
 #webinar replay
 class WebinarReplay(View):
-    template_name = 'home/webinar-replay.html'
+    template_name = 'home/webinar-replay_v_1.html'
 
     def get(self, request):
 
