@@ -12,6 +12,7 @@
     <meta property="og:image"         content="https://www.bethemillionaire.com/static/home/style/images/logo/logo.png" />
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="{% static 'home/style/index.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'home/fullcalendar/fullcalendar.min.css' %}">
 
 
 
@@ -321,6 +322,30 @@
             <!--right side bar-->
             <div class="col s12 m12 l8" style="padding: 0px;">
 
+
+                <div class="col l12">
+                    <div class="card white" style="min-height: 500px;">
+                        <div class="card-content grey-text">
+                            <span class="card-title">Events Calender</span>
+                            <p class="divider"></p>
+
+                            <div class="row" style="padding: 0px;">
+                                <div class="col s12 m12 l12 center-align" style="margin-top: 30px;">
+
+
+                                    <div id='calendar'></div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
                 <div class="col l12">
                     <div class="card white" style="min-height: 500px;">
                         <div class="card-content grey-text">
@@ -465,12 +490,13 @@
 
 
     </div>
-
-
-
 {% endblock %}
 
 {% block script %}
+
+<script src="{% static 'home/fullcalendar/moment.js' %}"></script>
+<script src="{% static 'home/fullcalendar/fullcalendar.min.js' %}"></script>
+
 
     <!--fb comment-->
 
@@ -492,8 +518,10 @@
          });
 
          $(document).ready(function(){
-    $('.modal').modal();
-  });
+            $('#calendar').fullCalendar({
+
+             })
+         });
     </script>
 {% endblock %}
 

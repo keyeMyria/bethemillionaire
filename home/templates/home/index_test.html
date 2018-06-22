@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home/fullcalendar/fullcalendar.min.css' %}">
+</head>
+<body>
+
+
+
+
+<div id='calendar'></div>
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="{% static 'home/fullcalendar/moment.js' %}"></script>
+<script src="{% static 'home/fullcalendar/fullcalendar.min.js' %}"></script>
+
+
+<script>
+    $(document).ready(function(){
+            $('#calendar').fullCalendar({
+
+
+
+             })
+         });
+</script>
+
+</body>
+</html>
