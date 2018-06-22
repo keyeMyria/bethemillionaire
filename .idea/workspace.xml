@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0ba751cb-a37f-4638-b597-b9218988ff8c" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/base_v_2.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/base_v_2.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/templates/home/index_v_3.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/home/index_v_3.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
     </list>
@@ -17,16 +14,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index_v_3.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index_v_3.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/home/templates/home/index_v_3.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
-              <caret line="328" column="60" selection-start-line="328" selection-start-column="60" selection-end-line="328" selection-end-column="60" />
+            <state relative-caret-position="441">
+              <caret line="514" selection-start-line="514" selection-end-line="514" />
               <folding>
                 <element signature="e#13851#13877#0" expanded="true" />
                 <element signature="e#14117#14138#0" expanded="true" />
                 <element signature="e#14214#14239#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="calendar_events.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/home/static/home/js/calendar_events.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="5" selection-start-column="5" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -111,7 +117,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/home/templates/home/passive-income_v_2.html" />
         <option value="$PROJECT_DIR$/account/templates/account/my-referrals_v_1.html" />
         <option value="$PROJECT_DIR$/home/templates/home/add-member-to-team.html" />
         <option value="$PROJECT_DIR$/home/templates/home/manage-team_v_2.html" />
@@ -156,12 +161,13 @@
         <option value="$PROJECT_DIR$/home/templates/home/faq_v_2.html" />
         <option value="$PROJECT_DIR$/home/templates/home/recent-update_v_2.html" />
         <option value="$PROJECT_DIR$/home/templates/home/privacy-policy_v_2.html" />
-        <option value="$PROJECT_DIR$/manage.py" />
         <option value="$PROJECT_DIR$/home/templates/base_v_2.html" />
         <option value="$PROJECT_DIR$/home/static/home/fullcalendar/moment.js" />
         <option value="$PROJECT_DIR$/home/templates/home/index_test.html" />
         <option value="$PROJECT_DIR$/home/views.py" />
+        <option value="$PROJECT_DIR$/manage.py" />
         <option value="$PROJECT_DIR$/home/templates/home/index_v_3.html" />
+        <option value="$PROJECT_DIR$/home/static/home/js/calendar_events.js" />
       </list>
     </option>
   </component>
@@ -209,6 +215,14 @@
               <item name="static" type="462c0819:PsiDirectoryNode" />
               <item name="home" type="462c0819:PsiDirectoryNode" />
               <item name="fullcalendar" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bethemillionaire" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bethemillionaire" type="462c0819:PsiDirectoryNode" />
+              <item name="home" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="home" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="bethemillionaire" type="b2602c69:ProjectViewProjectNode" />
@@ -434,13 +448,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/account/templates/account/my-auto-responder-settings_v_2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="277" column="127" selection-start-line="277" selection-start-column="127" selection-end-line="277" selection-end-column="127" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/account/templates/account/my-referrals_v_2.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -669,13 +676,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/manage.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/home/templates/home/privacy-policy_v_2.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="311">
@@ -771,15 +771,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/manage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/home/templates/home/index_v_3.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="328" column="60" selection-start-line="328" selection-start-column="60" selection-end-line="328" selection-end-column="60" />
+        <state relative-caret-position="441">
+          <caret line="514" selection-start-line="514" selection-end-line="514" />
           <folding>
             <element signature="e#13851#13877#0" expanded="true" />
             <element signature="e#14117#14138#0" expanded="true" />
             <element signature="e#14214#14239#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/home/static/home/js/calendar_events.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="5" selection-start-column="5" selection-end-column="5" />
         </state>
       </provider>
     </entry>
