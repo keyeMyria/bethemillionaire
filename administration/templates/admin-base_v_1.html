@@ -59,7 +59,7 @@
                     {% endif %}
                 </div>
 
-                <p class="col s12 m12 l12 center-align" style="margin-top: 10px;">@{{ user.username | title }}</p>
+                <p class="col s12 m12 l12 center-align" style="margin-top: 10px;">@{{ request.user.username | title }}</p>
 
 
                 {% block left_menu %}
