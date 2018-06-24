@@ -235,7 +235,11 @@
 
                             <div class="row" style="padding: 0px;">
                                 <div class="col l6 offset-l3" style="margin-top: 30px;">
+                                    {% if request.user.sponsor.profile_picture %}
                                     <img class="responsive-img" src="{{ request.user.sponsor.profile_picture.url }}">
+                                    {% else %}
+                                    <img class="responsive-img" src="{% static 'account/style/images/no-img.jpg' %}">
+                                    {% endif %}
                                 </div>
 
                                 <div class="col s12 m12 l12 center-align" style="margin-top: 20px;">
