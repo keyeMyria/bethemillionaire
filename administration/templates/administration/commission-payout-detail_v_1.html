@@ -1,0 +1,147 @@
+{% extends 'admin-base_v_1.html' %}
+
+{% block title %}Pending Commission Payout | BeTheMillionaire{% endblock %}
+
+{% block add-css %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home/style/index.css' %}">
+{% endblock %}
+
+
+{% block left_menu %}
+    <div class="col s12 m12 l12 #1a237e indigo orange-text darken-4 left_main_menu" style="padding: 10px; margin-bottom: 20px; margin-top: 30px;">
+        <a class="left col s12 m12 l12" href="{% url 'administration:index' %}" style="padding: 10px;">Dashboard
+            <span class="right" style=""> > </span>
+        </a>
+
+        <a class="left col s12 m12 l12" href="{% url 'administration:all-user' %}" style="padding: 10px;">User management
+            <span class="right" style=""> > </span>
+        </a>
+
+        <a class="left col s12 m12 l12 white-text" href="{% url 'administration:payment-management' %}" style="padding: 10px;">Payment management
+            <span class="right" style=""> > </span>
+        </a>
+
+        <!--payment submenu-->
+        <a class="left col s12 m12 l10 offset-l1" href="{% url 'administration:payment-pending' %}" style="padding: 10px;">Pending Payment
+            <span class="right" style=""> > </span>
+        </a>
+
+        <a class="left col s12 m12 l10 offset-l1 white-text" href="{% url 'administration:commission-payment' %}" style="padding: 10px;">Pending Commission
+            <span class="right" style=""> > </span>
+        </a>
+        <!--payment submenu-->
+
+        <a class="left col s12 m12 l12" href="{% url 'administration:course-management' %}" style="padding: 10px;">Course management
+            <span class="right" style=""> > </span>
+        </a>
+
+        <a class="left col s12 m12 l12" href="{% url 'administration:affiliate-link-control' %}" style="padding: 10px;">Affiliate link
+            <span class="right" style=""> > </span>
+        </a>
+
+        <a class="left col s12 m12 l12" href="{% url 'administration:webinar-registration-link' %}" style="padding: 10px;">Webinar reg link
+            <span class="right" style=""> > </span>
+        </a>
+
+        <a class="left col s12 m12 l12" href="{% url 'administration:create-leader-board' %}" style="padding: 10px;">Leader board
+            <span class="right" style=""> > </span>
+        </a>
+
+
+        <a class="left col s12 m12 l12" href="{% url 'administration:recent-update-home' %}" style="padding: 10px;">Recent Update
+            <span class="right" style=""> > </span>
+        </a>
+
+        <a class="left col s12 m12 l12" href="{% url 'administration:live-video-link-update' %}" style="padding: 10px;">Live video link
+            <span class="right" style=""> > </span>
+        </a>
+    </div>
+{% endblock %}
+
+
+{% block admin_content %}
+
+
+
+<div class="col s12 l10 offset-l1" style="">
+
+    <div class="col s12 l6 white" style="">
+
+        <div class="col s12 m12 l12" style="margin-bottom: 50px; margin-top: 40px;">
+            <p class="left" style="font-size: 22px;">Payout User</p>
+
+            <p class="col s12 m12 l12 divider" style="margin-top: 5px;"></p>
+
+            <div class="col s12 m12 l12" style="padding: 10px; margin-top: 5px;">
+                <p>Username : {{ commission.user.username | title }}</p>
+                <p>Email : {{ commission.user.email }}</p>
+                <p>Commission : {{ commission.commission }}$</p>
+
+
+                {% if current_payment_account %}
+                    <h5>Payout Method</h5>
+
+
+                    {% for current_payment in current_payment_account %}
+                        <p>
+                            Receiving payment method: {{ current_payment.account_type | title }}
+                        </p>
+
+                        <p>
+                            {% if current_payment.account_type == 'paypal' %}
+                                Paypal email: {{ current_payment.account_no }}
+                            {% endif %}
+
+                            {% if current_payment.account_type == 'bitcoin' %}
+                                Bitcoin wallet address: {{ current_payment.account_no }}
+                            {% endif %}
+                        </p>
+                    {% endfor %}
+                {% else %}
+                    <h5>You have not yet setup your payment settings!</h5>
+                {% endif %}
+
+                <form method="post">
+                    {% csrf_token %}
+
+                    {% if not commission.is_verified %}
+                        <button type="submit" name="authorize" value="authorize" class="waves-effect waves-light btn red white-text" style="margin-top: 20px;">Authorize</button>
+                    {% else %}
+                        <h5>Already authorized</h5>
+                        <h5>Authorized by: {{ commission.verified_by }}</h5>
+                    {% endif %}
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col s12 l6 white" style="">
+        <div class="col s12 m12 l12" style="margin-bottom: 50px; margin-top: 40px;">
+            <p class="left" style="font-size: 22px;">Referred User</p>
+
+            <p class="col s12 m12 l12 divider" style="margin-top: 5px;"></p>
+
+            <div class="col s12 m12 l12" style="padding: 10px; margin-top: 5px;">
+                <p>Username : {{ commission.referred_user.username | title }}</p>
+                <p>Email : {{ commission.referred_user.email }}</p>
+
+                <h5>Payment on</h5>
+
+                <p>Membership: {{ commission.referred_user_payment.membership.name }}</p>
+                <p>Package: {{ commission.referred_user_payment.membership.package }}</p>
+                <p>Price: {{ commission.referred_user_payment.membership.price }}$</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+{% endblock %}
+
+
+
+
+

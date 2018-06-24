@@ -1,0 +1,99 @@
+{% extends 'admin-base_v_1.html' %}
+
+{% block title %}Payment Management | BeTheMillionaire{% endblock %}
+
+{% block add-css %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home/style/index.css' %}">
+{% endblock %}
+
+
+{% block left_menu %}
+    <div class="col s12 m12 l12 #1a237e indigo orange-text darken-4 left_main_menu" style="padding: 10px; margin-bottom: 20px; margin-top: 30px;">
+        <a class="left col s12 m12 l12" href="{% url 'administration:index' %}" style="padding: 10px;">Dashboard
+            <span class="right" style=""> > </span>
+        </a>
+
+        <a class="left col s12 m12 l12" href="{% url 'administration:all-user' %}" style="padding: 10px;">User management
+            <span class="right" style=""> > </span>
+        </a>
+
+        <a class="left col s12 m12 l12 white-text" href="{% url 'administration:payment-management' %}" style="padding: 10px;">Payment management
+            <span class="right" style=""> > </span>
+        </a>
+
+        <!--payment submenu-->
+        <a class="left col s12 m12 l10 offset-l1" href="{% url 'administration:payment-pending' %}" style="padding: 10px;">Pending Payment
+            <span class="right" style=""> > </span>
+        </a>
+
+        <a class="left col s12 m12 l10 offset-l1" href="{% url 'administration:commission-payment' %}" style="padding: 10px;">Pending Commission
+            <span class="right" style=""> > </span>
+        </a>
+        <!--payment submenu-->
+
+
+        <a class="left col s12 m12 l12" href="{% url 'administration:course-management' %}" style="padding: 10px;">Course management
+            <span class="right" style=""> > </span>
+        </a>
+
+        <a class="left col s12 m12 l12" href="{% url 'administration:affiliate-link-control' %}" style="padding: 10px;">Affiliate link
+            <span class="right" style=""> > </span>
+        </a>
+
+        <a class="left col s12 m12 l12" href="{% url 'administration:webinar-registration-link' %}" style="padding: 10px;">Webinar reg link
+            <span class="right" style=""> > </span>
+        </a>
+
+        <a class="left col s12 m12 l12" href="{% url 'administration:create-leader-board' %}" style="padding: 10px;">Leader board
+            <span class="right" style=""> > </span>
+        </a>
+
+
+        <a class="left col s12 m12 l12" href="{% url 'administration:recent-update-home' %}" style="padding: 10px;">Recent Update
+            <span class="right" style=""> > </span>
+        </a>
+
+        <a class="left col s12 m12 l12" href="{% url 'administration:live-video-link-update' %}" style="padding: 10px;">Live video link
+            <span class="right" style=""> > </span>
+        </a>
+    </div>
+{% endblock %}
+
+
+{% block admin_content %}
+
+
+    <div class="col l12">
+        <div class="z-depth-1 center-align valign-wrapper" style="height: 250px; background-color: #D3D3D3;">
+            <div class="col s12 m12 l12 center-align">
+                <p style="font-size: 30px;">{{ total_member }}</p>
+                <h5>Total Pending Payments ( {{ pending_payment_count }} )</h5>
+
+                <p>
+                    <a href="{% url 'administration:payment-pending' %}">Manage</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col l12">
+        <div class="z-depth-1 center-align valign-wrapper teal" style="height: 250px; margin-top: 20px;">
+            <div class="col s12 m12 l12 center-align">
+                <p style="font-size: 30px;">{{ total_member }}</p>
+                <h5>Total Pending commissions ( {{ pending_commission_count }} )</h5>
+
+                <p>
+                    <a class="white-text" href="{% url 'administration:all-user' %}">Manage</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+
+
+
+

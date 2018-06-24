@@ -1,0 +1,177 @@
+{% extends 'admin-base_v_1.html' %}
+
+{% block title %}Lesson Control | BeTheMillionaire{% endblock %}
+
+{% block add-css %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home/style/index.css' %}">
+{% endblock %}
+
+
+{% block left_menu %}
+    <div class="col s12 m12 l12 #1a237e indigo orange-text darken-4 left_main_menu" style="padding: 10px; margin-bottom: 20px; margin-top: 30px;">
+        <a class="left col s12 m12 l12" href="{% url 'administration:index' %}" style="padding: 10px;">Dashboard
+            <span class="right" style=""> > </span>
+        </a>
+
+        <a class="left col s12 m12 l12" href="{% url 'administration:all-user' %}" style="padding: 10px;">User management
+            <span class="right" style=""> > </span>
+        </a>
+
+        <a class="left col s12 m12 l12" href="{% url 'administration:payment-management' %}" style="padding: 10px;">Payment management
+            <span class="right" style=""> > </span>
+        </a>
+
+        <a class="left col s12 m12 l12 white-text" href="{% url 'administration:course-management' %}" style="padding: 10px;">Course management
+            <span class="right" style=""> > </span>
+        </a>
+
+        <!--course submenu-->
+        <a class="left col s12 m12 l10 offset-l1" href="{% url 'administration:module-control' %}" style="padding: 10px;">Module control
+            <span class="right" style=""> > </span>
+        </a>
+
+        <a class="left col s12 m12 l10 offset-l1 white-text" href="{% url 'administration:lesson-control' %}" style="padding: 10px;">Lesson control
+            <span class="right" style=""> > </span>
+        </a>
+
+        <a class="left col s12 m12 l10 offset-l1" href="{% url 'administration:step-control' %}" style="padding: 10px;">Step control
+            <span class="right" style=""> > </span>
+        </a>
+
+        <a class="left col s12 m12 l10 offset-l1" href="{% url 'administration:add-video' %}" style="padding: 10px;">Add lessons video
+            <span class="right" style=""> > </span>
+        </a>
+        <!--course submenu-->
+
+        <a class="left col s12 m12 l12" href="{% url 'administration:affiliate-link-control' %}" style="padding: 10px;">Affiliate link
+            <span class="right" style=""> > </span>
+        </a>
+
+        <a class="left col s12 m12 l12" href="{% url 'administration:webinar-registration-link' %}" style="padding: 10px;">Webinar reg link
+            <span class="right" style=""> > </span>
+        </a>
+
+        <a class="left col s12 m12 l12" href="{% url 'administration:create-leader-board' %}" style="padding: 10px;">Leader board
+            <span class="right" style=""> > </span>
+        </a>
+
+
+        <a class="left col s12 m12 l12" href="{% url 'administration:recent-update-home' %}" style="padding: 10px;">Recent Update
+            <span class="right" style=""> > </span>
+        </a>
+
+        <a class="left col s12 m12 l12" href="{% url 'administration:live-video-link-update' %}" style="padding: 10px;">Live video link
+            <span class="right" style=""> > </span>
+        </a>
+    </div>
+{% endblock %}
+
+
+{% block admin_content %}
+
+
+
+<div class="col s12 m10 offset-m1 l10 offset-l1" style="">
+    <!--module 1-->
+    <div class="col s12 m12 l12">
+        <div class="card blue">
+            <div class="card-content white-text">
+                <div class="row">
+                    <div class="white-text">
+                        <span class="card-title">Active Module</span>
+                        <p style="font-size: 14px; margin-top: 20px;">
+                            Here are the list of Active Lesson Under Module
+                        </p>
+                    </div>
+
+                    <div class="col s12 m12 l12" style="margin-top: 10px;">
+                        <div class="card white">
+                            {% for module in modules %}
+                                {% if module.is_active %}
+                                    <div class="card-content black-text">
+                                        <div class="black-text">
+                                            <span class="card-title">{{ module.short_name }}</span>
+                                            <p style="font-size: 14px; margin-top: 20px;">
+                                                {{ module.name }}
+                                            </p>
+
+                                            <p style="font-size: 14px; margin-top: 20px;">
+                                                Module Status : <span style="color: red">Active</span>
+                                            </p>
+
+                                            <p style="font-size: 14px; margin-top: 20px;">
+                                                <a href="{% url 'administration:lesson-detail' module_id=module.id %}" class="waves-effect waves-light btn">Lesson Details</a>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="divider #333">
+
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--end active module-->
+
+        <div class="card blue">
+            <div class="card-content white-text">
+                <div class="row">
+                    <div class="white-text">
+                        <span class="card-title">Disabled Module</span>
+                        <p style="font-size: 14px; margin-top: 20px;">
+                            Here are the list of Disabled Module
+                        </p>
+                    </div>
+
+                    <div class="col s12 m12 l12" style="margin-top: 10px;">
+                        <div class="card white">
+                            {% for module in modules %}
+                                {% if not module.is_active %}
+                                    <div class="card-content black-text">
+                                        <div class="black-text">
+                                            <span class="card-title">{{ module.short_name }}</span>
+                                            <p style="font-size: 14px; margin-top: 20px;">
+                                                {{ module.name }}
+                                            </p>
+
+                                            <p style="font-size: 14px; margin-top: 20px;">
+                                                Module Status : <span style="color: red">Disable</span>
+                                            </p>
+
+                                            <p style="font-size: 14px; margin-top: 20px;">
+                                                <a href="{% url 'administration:lesson-detail' module_id=module.id %}" class="waves-effect waves-light btn">Lesson Details</a>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="divider #333">
+
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!--end module 1-->
+
+</div>
+
+
+
+{% endblock %}
+
+
+
+
+

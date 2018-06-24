@@ -17,6 +17,7 @@ urlpatterns = [
 
 
     #payment operations
+    url(r'^payment/$', views.PaymentManagement.as_view(), name='payment-management'),
     url(r'^payment/pending/$', views.PaymentPending.as_view(), name='payment-pending'),
     url(r'^payment/(?P<payment_id>[0-9]+)/detail/$', views.PaymentDetail.as_view(), name='payment-detail'),
 
@@ -24,6 +25,10 @@ urlpatterns = [
     url(r'^commission-payment/$', views.CommissionPayment.as_view(), name='commission-payment'),
     url(r'^commission-payment/(?P<commission_id>[0-9]+)/detail/$', views.CommissionPaymentDetail.as_view(), name='commission-payment-detail'),
 
+
+
+    #course management home
+    url(r'^course/$', views.CourseManagement.as_view(), name='course-management'),
 
 
     #url for module control
@@ -54,6 +59,7 @@ urlpatterns = [
 
 
     #recent update post for dashboard
+    url(r'^recent-update/$', views.RecentUpdateHome.as_view(), name='recent-update-home'),
     url(r'^recent-update/post/$', views.RecentUpdatePost.as_view(), name='recent-update-post'),
     url(r'^recent-update/post/all/$', views.RecentUpdatePostAll.as_view(), name='recent-update-post-all'),
     url(r'^recent-update/post/(?P<post_id>[0-9]+)/detail/$', views.RecentUpdatePostDetail.as_view(), name='recent-update-post-detail'),

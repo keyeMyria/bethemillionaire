@@ -1,0 +1,172 @@
+{% extends 'admin-base_v_1.html' %}
+
+{% block title %}Home Admin | BeTheMillionaire{% endblock %}
+
+{% block add-css %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home/style/index.css' %}">
+{% endblock %}
+
+
+{% block left_menu %}
+    <div class="col s12 m12 l12 #1a237e indigo orange-text darken-4 left_main_menu" style="padding: 10px; margin-bottom: 20px; margin-top: 30px;">
+        <a class="left col s12 m12 l12 white-text" href="{% url 'administration:index' %}" style="padding: 10px;">Dashboard
+            <span class="right" style=""> > </span>
+        </a>
+
+        <a class="left col s12 m12 l12" href="{% url 'administration:all-user' %}" style="padding: 10px;">User management
+            <span class="right" style=""> > </span>
+        </a>
+
+        <a class="left col s12 m12 l12" href="{% url 'administration:payment-management' %}" style="padding: 10px;">Payment management
+            <span class="right" style=""> > </span>
+        </a>
+
+        <a class="left col s12 m12 l12" href="{% url 'administration:course-management' %}" style="padding: 10px;">Course management
+            <span class="right" style=""> > </span>
+        </a>
+
+        <a class="left col s12 m12 l12" href="{% url 'administration:affiliate-link-control' %}" style="padding: 10px;">Affiliate link
+            <span class="right" style=""> > </span>
+        </a>
+
+        <a class="left col s12 m12 l12" href="{% url 'administration:webinar-registration-link' %}" style="padding: 10px;">Webinar reg link
+            <span class="right" style=""> > </span>
+        </a>
+
+        <a class="left col s12 m12 l12" href="{% url 'administration:create-leader-board' %}" style="padding: 10px;">Leader board
+            <span class="right" style=""> > </span>
+        </a>
+
+
+        <a class="left col s12 m12 l12" href="{% url 'administration:recent-update-home' %}" style="padding: 10px;">Recent Update
+            <span class="right" style=""> > </span>
+        </a>
+
+        <a class="left col s12 m12 l12" href="{% url 'administration:live-video-link-update' %}" style="padding: 10px;">Live video link
+            <span class="right" style=""> > </span>
+        </a>
+    </div>
+{% endblock %}
+
+
+{% block admin_content %}
+
+
+    <div class="col l4">
+        <div class="z-depth-1 center-align valign-wrapper teal" style="height: 250px; background-color: #D3D3D3;">
+            <div class="col s12 m12 l12 center-align">
+                <p style="font-size: 30px;">{{ total_member }}</p>
+                <p>Members</p>
+
+                <p>
+                    <a class="white-text" href="{% url 'administration:all-user' %}">Manage</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col l8">
+        <div class="z-depth-1 center-align valign-wrapper teal" style="height: 250px;">
+            <div class="col s12 m12 l12 center-align">
+                <h5><a class="black-text" href="{% url 'administration:payment-pending' %}">Pending Payment</a> | <a class="orange-text" href="{% url 'administration:commission-payment' %}">Commission Payment</a></h5>
+
+                <p>
+                    <a class="white-text" href="{% url 'administration:payment-management' %}">Manage</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col l4" style="margin-top: 20px;">
+        <div class="z-depth-1 center-align valign-wrapper teal" style="height: 250px;">
+            <div class="col s12 m12 l12 center-align">
+                <h5>Course Management</h5>
+
+                <p>
+                    <a class="white-text" href="{% url 'administration:course-management' %}">Manage</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col l4">
+        <div class="z-depth-1 center-align valign-wrapper teal" style="margin-top: 20px; height: 250px; background-color: #D3D3D3;">
+            <div class="col s12 m12 l12 center-align">
+                <h5 class="black-text" style="font-size: 30px;">Affiliate link control</h5>
+
+                <p>
+                    <a class="white-text" href="{% url 'administration:affiliate-link-control' %}">Manage</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col l4">
+        <div class="z-depth-1 center-align valign-wrapper teal" style="margin-top: 20px; height: 250px; background-color: #D3D3D3;">
+            <div class="col s12 m12 l12 center-align">
+                <h5 class="black-text" style="font-size: 30px;">Webinar registration link</h5>
+
+                <p>
+                    <a class="white-text" href="{% url 'administration:webinar-registration-link' %}">Manage</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col l12" style="margin-top: 20px;">
+        <div class="z-depth-1 center-align valign-wrapper teal" style="height: 250px;">
+            <div class="col s12 m12 l12 center-align">
+                <h4>Generate Leader Board</h4>
+
+                <p>
+                    <a class="white-text" href="{% url 'administration:create-leader-board' %}">Manage</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col l6">
+        <div class="z-depth-1 center-align valign-wrapper teal" style="margin-top: 20px; height: 250px; background-color: #D3D3D3;">
+            <div class="col s12 m12 l12 center-align">
+                <h5 class="black-text" style="font-size: 30px;">Post Recent Update</h5>
+
+                <p>
+                    <a class="white-text" href="{% url 'administration:webinar-registration-link' %}">Manage</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col l6">
+        <div class="z-depth-1 center-align valign-wrapper teal" style="margin-top: 20px; height: 250px; background-color: #D3D3D3;">
+            <div class="col s12 m12 l12 center-align">
+                <h5 class="black-text" style="font-size: 30px;">Live Video Link</h5>
+
+                <p>
+                    <a class="white-text" href="{% url 'administration:live-video-link-update' %}">Manage</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}
+
+
+
+
+

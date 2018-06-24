@@ -1,0 +1,233 @@
+{% extends 'admin-base_v_1.html' %}
+
+{% block title %}User Management | BeTheMillionaire{% endblock %}
+
+{% block add-css %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home/style/index.css' %}">
+{% endblock %}
+
+
+{% block left_menu %}
+    <div class="col s12 m12 l12 #1a237e indigo orange-text darken-4 left_main_menu" style="padding: 10px; margin-bottom: 20px; margin-top: 30px;">
+        <a class="left col s12 m12 l12" href="{% url 'administration:index' %}" style="padding: 10px;">Dashboard
+            <span class="right" style=""> > </span>
+        </a>
+
+        <a class="left col s12 m12 l12 white-text" href="{% url 'administration:all-user' %}" style="padding: 10px;">User management
+            <span class="right" style=""> > </span>
+        </a>
+
+        <a class="left col s12 m12 l12" href="{% url 'administration:payment-management' %}" style="padding: 10px;">Payment management
+            <span class="right" style=""> > </span>
+        </a>
+
+        <a class="left col s12 m12 l12" href="{% url 'administration:course-management' %}" style="padding: 10px;">Course management
+            <span class="right" style=""> > </span>
+        </a>
+
+        <a class="left col s12 m12 l12" href="{% url 'administration:affiliate-link-control' %}" style="padding: 10px;">Affiliate link
+            <span class="right" style=""> > </span>
+        </a>
+
+        <a class="left col s12 m12 l12" href="{% url 'administration:webinar-registration-link' %}" style="padding: 10px;">Webinar reg link
+            <span class="right" style=""> > </span>
+        </a>
+
+        <a class="left col s12 m12 l12" href="{% url 'administration:create-leader-board' %}" style="padding: 10px;">Leader board
+            <span class="right" style=""> > </span>
+        </a>
+
+
+        <a class="left col s12 m12 l12" href="{% url 'administration:recent-update-home' %}" style="padding: 10px;">Recent Update
+            <span class="right" style=""> > </span>
+        </a>
+
+        <a class="left col s12 m12 l12" href="{% url 'administration:live-video-link-update' %}" style="padding: 10px;">Live video link
+            <span class="right" style=""> > </span>
+        </a>
+    </div>
+{% endblock %}
+
+
+{% block admin_content %}
+
+
+    <div class="col l12" style="">
+
+            <h5 class="orange white-text" style="margin-top: 20px; padding: 20px;">Total {{ all_users_count }} member found</h5>
+            <p class="col s12 m12 l12 divider" style="margin-bottom: 20px;"></p>
+
+
+
+            <form class="col m12 l12 center-align" method="post" style="margin-bottom: 40px; border: 2px solid #333; padding: 20px;">
+                <h5 class=" orange-text">Search User</h5>
+
+                {% csrf_token %}
+                <div class="input-field col s12 m12 l8 offset-l2">
+                    {{ form.username }}
+                    <label for="username">Username or Email</label>
+                </div>
+
+                <div class="col l12 center-align">
+                    <button class="btn waves-effect waves-light orange white-text" type="submit" style="">
+                        Search
+                    </button>
+                </div>
+
+
+
+
+
+
+
+                {% if s_users %}
+                <div class="col s12 m12 l12" style="margin-top: 30px; margin-bottom: 30px;">
+                    <h5 style="text-decoration: underline;">Search Results </h5>
+                    {% if s_users %}
+                        <div class="col s12 m12 l12">
+                            <table class="centered responsive-table striped" style="margin-bottom: 20px;">
+                                <thead>
+                                    <tr>
+                                        <th>S/N</th>
+                                        <th>Username</th>
+                                        <th>Email</th>
+                                        <th>Referral</th>
+                                        <th>Profile</th>
+                                        <th>Operation</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+
+                                    {% for s_user in s_users %}
+                                        <tr>
+                                            <td>1</td>
+                                            <td>{{ s_user.username | title }}</td>
+                                            <td>{{ s_user.email }}</td>
+                                            <td>{{ s_user.referrals.count }}</td>
+
+                                            <td>
+                                                {% if user.is_active %}
+                                                    <span style="color: green;">Active</span>
+                                                {% else %}
+                                                    <span style="color: red;">Deactive</span>
+                                                {% endif %}
+                                            </td>
+
+                                            <td>
+                                                <a href="{% url 'administration:user-detail' user_id=s_user.id %}">View</a>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    {% else %}
+                        <p>User not found!</p>
+                    {% endif %}
+                </div>
+                {% endif %}
+
+
+
+
+
+
+
+
+
+
+
+            </form>
+
+
+
+            <table class="highlight centered responsive-table">
+                <thead>
+                    <tr>
+                        <th>S/N</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Referral</th>
+                        <th>Profile</th>
+                        <th>Operation</th>
+                    </tr>
+                </thead>
+
+                <tbody class="table_data">
+                    {% for all_user in all_users %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ all_user.username | title }}</td>
+                        <td>{{ all_user.email }}</td>
+                        <td>{{ all_user.referrals.count }}</td>
+
+                        <td>
+                            {% if all_user.is_active %}
+                                <span style="color: green;">Active</span>
+                            {% else %}
+                                <span style="color: red;">Deactive</span>
+                            {% endif %}
+                        </td>
+
+                        <td>
+                            <a href="{% url 'administration:user-detail' user_id=all_user.id %}">View</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+
+
+
+
+            <div class="col s12 m12 l12" style="margin-top: 40px; margin-bottom: 40px;">
+            {% if all_users.has_other_pages %}
+                <ul class="pagination">
+                    {% if all_users.has_previous %}
+                        <!--<li><a href="?page={{ three_pieces.previous_page_number }}">&laquo;</a></li>-->
+                        <li class=""><a href="?page={{ all_users.previous_page_number }}"><i class="material-icons">chevron_left</i></a></li>
+                    {% else %}
+                        <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+                    {% endif %}
+
+                    {% for i in all_users.paginator.page_range %}
+                        {% if all_users.number == i %}
+                            <li class="waves-effect grey white-text"><a class="white-text" href="#!">{{ i }}</a></li>
+                        {% else %}
+                            <!--<li><a href="?page={{ i }}">{{ i }}</a></li>-->
+                            <li class="waves-effect red white-text"><a class="white-text" href="?page={{ i }}">{{ i }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+
+                    {% if referrals.has_next %}
+                        <!--<li><a href="?page={{ three_pieces.next_page_number }}">&raquo;</a></li>-->
+                        <li class="waves-effect"><a href="?page={{ all_users.next_page_number }}"><i class="material-icons">chevron_right</i></a></li>
+
+                    {% else %}
+                        <!--<li class="disabled"><span>&raquo;</span></li>-->
+                        <li class="disabled"><i class="material-icons">chevron_right</i></li>
+                    {% endif %}
+                </ul>
+            {% endif %}
+            </div>
+
+
+
+
+
+
+
+        </div>
+
+
+{% endblock %}
+
+
+
+
+

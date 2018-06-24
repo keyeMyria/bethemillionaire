@@ -159,7 +159,7 @@ class CreateLeaderBoardForm(forms.Form):
 
 #user search form
 class UserSearchForm(forms.Form):
-    username = forms.CharField(max_length=30, required=False, widget=forms.TextInput(attrs={'class': 'validate', 'id': 'icon_prefix'}))
+    username = forms.CharField(max_length=30, required=False, widget=forms.TextInput(attrs={'class': 'validate', 'id': 'username'}))
 
     def clean(self):
         username = self.cleaned_data.get('username')

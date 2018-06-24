@@ -38,19 +38,29 @@ class AdminPermission(PermissionRequiredMixin, View):
 
 
 class Index(AdminPermission, View):
-    template_name = 'administration/index.html'
+    template_name = 'administration/index_v_1.html'
 
     def get(self, request):
-        return render(request, self.template_name)
+        total_member = account_model.UserProfile.objects.all().count()
 
-    def post(self, request):
-        pass
+        pending_payment_count = account_model.Payment.objects.filter(is_verify='pending').count()
+
+        commissions_payment_count = account_model.ReferralSaleCommission.objects.filter(is_verified=False).count()
+
+
+        variables = {
+            'total_member': total_member,
+            'pending_payment_count': pending_payment_count,
+            'commissions_payment_count': commissions_payment_count,
+        }
+
+        return render(request, self.template_name, variables)
 
 
 
 #all user
 class AllUser(AdminPermission, View):
-    template_name = 'administration/all-user.html'
+    template_name = 'administration/all-user_v_1.html'
 
     def get(self, request):
 
@@ -119,7 +129,7 @@ class AllUser(AdminPermission, View):
 
 #user detail
 class UserDetail(AdminPermission, View):
-    template_name = 'administration/user-detail.html'
+    template_name = 'administration/user-detail_v_1.html'
 
     def get(self, request, user_id):
 
@@ -142,7 +152,7 @@ class UserDetail(AdminPermission, View):
 
 #edit user
 class EditUser(AdminPermission, View):
-    template_name = 'administration/user-edit.html'
+    template_name = 'administration/user-edit_v_1.html'
 
     def get(self, request, user_id):
 
@@ -178,7 +188,7 @@ class EditUser(AdminPermission, View):
 
 #change user password
 class ChangeUserPassword(View):
-    template_name = 'administration/change-user-password.html'
+    template_name = 'administration/change-user-password_v_1.html'
 
     def get(self, request, user_id):
 
@@ -215,7 +225,7 @@ class ChangeUserPassword(View):
 
 #active or deactive user
 class ActiveDeactiveUser(AdminPermission, View):
-    template_name = 'administration/activate-deactivate-user.html'
+    template_name = 'administration/activate-deactivate-user_v_1.html'
 
     def get(self, request, profile_status, user_id):
 
@@ -259,7 +269,7 @@ class ActiveDeactiveUser(AdminPermission, View):
 
 #delete user
 class DeleteUser(AdminPermission, View):
-    template_name = 'administration/delete-user.html'
+    template_name = 'administration/delete-user_v_1.html'
 
     def get(self, request, user_id):
 
@@ -293,7 +303,7 @@ class DeleteUser(AdminPermission, View):
 
 #change membership
 class ChangeMembership(AdminPermission, View):
-    template_name = 'administration/change-membership.html'
+    template_name = 'administration/change-membership_v_1.html'
 
     def get(self, request, user_id):
 
@@ -332,9 +342,27 @@ class ChangeMembership(AdminPermission, View):
 
 
 #payment
+class PaymentManagement(AdminPermission, View):
+    template_name = 'administration/payment-management-home.html'
+
+    def get(self, request):
+        pending_payment_count = account_model.Payment.objects.filter(is_verify='pending').count()
+
+        pending_commission_count = account_model.ReferralSaleCommission.objects.filter(is_verified=False).all().count()
+
+
+        variables = {
+            'pending_payment_count': pending_payment_count,
+            'pending_commission_count': pending_commission_count,
+        }
+
+        return render(request, self.template_name, variables)
+
+
+
 #pending payment
 class PaymentPending(AdminPermission, View):
-    template_name = 'administration/pending-payment.html'
+    template_name = 'administration/pending-payment_v_1.html'
 
     def get(self, request):
 
@@ -348,15 +376,13 @@ class PaymentPending(AdminPermission, View):
 
         return render(request, self.template_name, variables)
 
-    def post(self, request):
-        pass
 
 
 
 
 #payment detail
 class PaymentDetail(AdminPermission, View):
-    template_name = 'administration/payment-detail.html'
+    template_name = 'administration/payment-detail_v_1.html'
 
     def get(self, request, payment_id):
 
@@ -478,11 +504,24 @@ class PaymentDetail(AdminPermission, View):
 
 
 
+#course management
+class CourseManagement(AdminPermission, View):
+    template_name = 'administration/course-management-home.html'
+
+    def get(self, request):
+
+        variables = {
+
+        }
+
+        return render(request, self.template_name, variables)
+
+
 
 
 #module control view
 class ModuleControl(AdminPermission, View):
-    template_name = 'administration/module-control.html'
+    template_name = 'administration/module-control_v_1.html'
 
     def get(self, request):
 
@@ -530,7 +569,7 @@ class ModuleControl(AdminPermission, View):
 
 #lesson control view
 class LessonControl(AdminPermission, View):
-    template_name = 'administration/lesson-control.html'
+    template_name = 'administration/lesson-control_v_1.html'
 
     def get(self, request):
         modules = Module.objects.all()
@@ -547,7 +586,7 @@ class LessonControl(AdminPermission, View):
 
 #lesson detail view
 class LessonDetail(AdminPermission, View):
-    template_name = 'administration/lesson-detail.html'
+    template_name = 'administration/lesson-detail_v_1.html'
 
     def get(self, request, module_id):
 
@@ -587,7 +626,7 @@ class LessonDetail(AdminPermission, View):
 
 #affiliate link control
 class AffiliateLinkControls(AdminPermission, View):
-    template_name = 'administration/affiliate-link-control.html'
+    template_name = 'administration/affiliate-link-control_v_1.html'
 
     def get(self, request):
 
@@ -620,7 +659,7 @@ class AffiliateLinkControls(AdminPermission, View):
 
 #step control
 class StepControls(AdminPermission, View):
-    template_name = 'administration/step-control.html'
+    template_name = 'administration/step-control_v_1.html'
 
     def get(self, request):
 
@@ -654,7 +693,7 @@ class StepControls(AdminPermission, View):
 
 #lesson control view
 class AddVideo(AdminPermission, View):
-    template_name = 'administration/add-video.html'
+    template_name = 'administration/add-video-lesson_v_1.html'
 
     def get(self, request):
         form = forms.VideoLinkForm()
@@ -680,14 +719,18 @@ class AddVideo(AdminPermission, View):
 
 #pending commission payment
 class CommissionPayment(AdminPermission, View):
-    template_name = 'administration/commission-payout-list.html'
+    template_name = 'administration/commission-payout-list_v_1.html'
 
     def get(self, request):
 
         commissions = account_model.ReferralSaleCommission.objects.filter(is_verified=False).all()
 
+        pending_commission_count = account_model.ReferralSaleCommission.objects.filter(is_verified=False).all().count()
+
+
         variables = {
             'commissions': commissions,
+            'pending_commission_count': pending_commission_count,
         }
 
         return render(request, self.template_name, variables)
@@ -696,7 +739,7 @@ class CommissionPayment(AdminPermission, View):
 
 #pending commission payment
 class CommissionPaymentDetail(AdminPermission, View):
-    template_name = 'administration/commission-payout-detail.html'
+    template_name = 'administration/commission-payout-detail_v_1.html'
 
     def get(self, request, commission_id):
         commission = get_object_or_404(account_model.ReferralSaleCommission, pk=commission_id)
@@ -734,7 +777,7 @@ class CommissionPaymentDetail(AdminPermission, View):
 
 #lesson control view
 class WebinarRegistrationLink(AdminPermission, View):
-    template_name = 'administration/webinar-registration.html'
+    template_name = 'administration/webinar-registration_v_1.html'
 
     def get(self, request):
         webinar_link_form = forms.WebinarLinkForm(instance=account_model.WebinarLink.objects.get(id=1))
@@ -762,7 +805,7 @@ class WebinarRegistrationLink(AdminPermission, View):
 
 #leader board
 class CreateLeaderBoard(AdminPermission, View):
-    template_name = 'administration/create-leader-board.html'
+    template_name = 'administration/create-leader-board_v_1.html'
 
 
     def generate_leader_board(self, start_date, end_date):
@@ -862,7 +905,7 @@ class CreateLeaderBoard(AdminPermission, View):
 
 #view leader board
 class ViewLeaderBoard(AdminPermission, View):
-    template_name = 'administration/view-leader-board.html'
+    template_name = 'administration/view-leader-board_v_1.html'
 
     def get(self, request, campaign_name):
         results = models.LeaderBoard.objects.filter(campaign_name=campaign_name).order_by('rank')
@@ -896,10 +939,25 @@ class ViewLeaderBoard(AdminPermission, View):
 
 
 
+#recent update home
+class RecentUpdateHome(AdminPermission, View):
+    template_name = 'administration/recent-update-home.html'
+
+    def get(self, request):
+        modules = Module.objects.all()
+
+        variables = {
+            'modules': modules,
+        }
+
+        return render(request, self.template_name, variables)
+
+
+
 
 #recent update post
 class RecentUpdatePost(AdminPermission, View):
-    template_name = 'administration/recent-update-post.html'
+    template_name = 'administration/recent-update-post_v_1.html'
 
     def get(self, request):
 
@@ -934,7 +992,7 @@ class RecentUpdatePost(AdminPermission, View):
 
 #recent update post all
 class RecentUpdatePostAll(AdminPermission, View):
-    template_name = 'administration/recent-update-post-all.html'
+    template_name = 'administration/recent-update-post-all_v_1.html'
 
     def get(self, request):
 
@@ -950,7 +1008,7 @@ class RecentUpdatePostAll(AdminPermission, View):
 
 #recent update post detail
 class RecentUpdatePostDetail(AdminPermission, View):
-    template_name = 'administration/recent-update-post-detail.html'
+    template_name = 'administration/recent-update-post-detail_v_1.html'
 
     def get(self, request, post_id):
         post = get_object_or_404(models.RecentUpdatePost, id=post_id)
@@ -965,7 +1023,7 @@ class RecentUpdatePostDetail(AdminPermission, View):
 
 #recent update post
 class RecentUpdateEditPost(AdminPermission, View):
-    template_name = 'administration/recent-update-post-edit.html'
+    template_name = 'administration/recent-update-post-edit_v_1.html'
 
     def get(self, request, post_id):
         post = get_object_or_404(models.RecentUpdatePost, id=post_id)
@@ -1016,7 +1074,7 @@ class RecentUpdateDeletePost(AdminPermission, View):
 
 #live video link update
 class LiveVideoLinkUpdate(AdminPermission, View):
-    template_name = 'administration/live-video-link-update.html'
+    template_name = 'administration/live-video-link-update_v_1.html'
 
     def get(self, request):
 

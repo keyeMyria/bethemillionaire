@@ -1,0 +1,129 @@
+{% extends 'admin-base_v_1.html' %}
+
+{% block title %}Recent Update Home | BeTheMillionaire{% endblock %}
+
+{% block add-css %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home/style/index.css' %}">
+    <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=9iouxileo7sg0otbhbz15yltnwkwcyu72bpe309iblgg852v"></script>
+
+    <script>
+    tinymce.init({
+      selector: "textarea",  // change this value according to your HTML
+      plugins: "link",
+      menubar: "insert",
+      height: 200
+    });
+    </script>
+{% endblock %}
+
+
+{% block left_menu %}
+    <div class="col s12 m12 l12 #1a237e indigo orange-text darken-4 left_main_menu" style="padding: 10px; margin-bottom: 20px; margin-top: 30px;">
+        <a class="left col s12 m12 l12" href="{% url 'administration:index' %}" style="padding: 10px;">Dashboard
+            <span class="right" style=""> > </span>
+        </a>
+
+        <a class="left col s12 m12 l12" href="{% url 'administration:all-user' %}" style="padding: 10px;">User management
+            <span class="right" style=""> > </span>
+        </a>
+
+        <a class="left col s12 m12 l12" href="{% url 'administration:payment-management' %}" style="padding: 10px;">Payment management
+            <span class="right" style=""> > </span>
+        </a>
+
+        <a class="left col s12 m12 l12" href="{% url 'administration:course-management' %}" style="padding: 10px;">Course management
+            <span class="right" style=""> > </span>
+        </a>
+
+        <a class="left col s12 m12 l12" href="{% url 'administration:affiliate-link-control' %}" style="padding: 10px;">Affiliate link
+            <span class="right" style=""> > </span>
+        </a>
+
+        <a class="left col s12 m12 l12" href="{% url 'administration:webinar-registration-link' %}" style="padding: 10px;">Webinar reg link
+            <span class="right" style=""> > </span>
+        </a>
+
+        <a class="left col s12 m12 l12" href="{% url 'administration:create-leader-board' %}" style="padding: 10px;">Leader board
+            <span class="right" style=""> > </span>
+        </a>
+
+
+        <a class="left col s12 m12 l12 white-text" href="{% url 'administration:recent-update-home' %}" style="padding: 10px;">Recent Update
+            <span class="right" style=""> > </span>
+        </a>
+
+
+        <!--recent update submenu-->
+        <a class="left col s12 m12 l10 offset-l1 white-text" href="{% url 'administration:recent-update-post' %}" style="padding: 10px;">Post
+            <span class="right" style=""> > </span>
+        </a>
+
+        <a class="left col s12 m12 l10 offset-l1" href="{% url 'administration:recent-update-post-all' %}" style="padding: 10px;">View
+            <span class="right" style=""> > </span>
+        </a>
+        <!--end recent update submenu-->
+
+        <a class="left col s12 m12 l12" href="{% url 'administration:live-video-link-update' %}" style="padding: 10px;">Live video link
+            <span class="right" style=""> > </span>
+        </a>
+    </div>
+{% endblock %}
+
+
+{% block admin_content %}
+
+
+<div class="col s12 m10 offset-m1 l10 offset-l1" style="">
+    <div class="col s12 m12 l12" style="margin-top: 20px; margin-bottom: 20px;">
+        <h5 class="">
+            Add Recent Update
+        </h5>
+    </div>
+
+
+    <div class="col m12 l12 center-align">
+
+        <form method="post" style="">
+            {% csrf_token %}
+
+            <div style="" class="input-field col s12 m12 l12">
+                <i class="material-icons prefix">create</i>
+                {{ form.title }}
+                <label for="icon_prefix white-text">Title</label>
+            </div>
+
+
+            <div style="" class="input-field col s12 m12 l12 left-align">
+                <p>Post Description: </p>
+                <textarea name="post" id="id_post"></textarea>
+            </div>
+
+            {% if form.non_field_errors %}
+                {% for error in form.non_field_errors %}
+                    <div class="col s12 m12 l12 center-align valign-wrapper red" style="height: 40px; border: 1px solid red; margin-bottom: 20px; margin-top: 10px;">
+                        <p class="col s12 m12 l12 white-text" style="font-size: 14px;">
+                            {{ error }}
+                        </p>
+                    </div>
+                {% endfor %}
+            {% endif %}
+
+            <div style="margin-bottom: 20px; margin-top: 10px;" class="col s12 m12 l12 center-align">
+                <button class="btn waves-effect waves-light" type="submit" style="">Add
+                </button>
+            </div>
+        </form>
+
+    </div>
+
+
+</div>
+
+
+{% endblock %}
+
+
+
+
+

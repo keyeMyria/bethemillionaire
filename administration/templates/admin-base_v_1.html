@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+
+    {% load staticfiles %}
+    <link rel="shortcut icon" type="image/png" href="{% static 'home/style/images/logo/favicon.png' %}" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link href="https://fonts.googleapis.com/css?family=Changa" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+
+
+    <style>
+        .container{
+            min-width: 100%;
+        }
+
+        .container > .row {
+            margin: 0;
+        }
+
+
+        .container > .row > .col {
+            padding: 0;
+        }
+
+        *{
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .left_main_menu a{
+
+        }
+
+        .left_main_menu a:hover{
+            color: white;
+            text-decoration: underline;
+        }
+    </style>
+
+    {% block add-css %}
+    {% endblock %}
+
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <!--left side bar-->
+            <div class="col l2 white-text" style="min-height: 1200px; background-color: black;">
+                <p style="padding: 20px;"></p>
+                <div class="col s12 m12 l12 center-align" style="">
+                    {% if request.user.profile_picture %}
+                    <img class="col l8 offset-l2" height="100%" width="100%" src="{{ request.user.profile_picture.url }}">
+                    {% else %}
+                    <img class="col l8 offset-l2" height="100%" width="100%" src="{% static 'account/style/images/no-img.jpg' %}">
+                    {% endif %}
+                </div>
+
+                <p class="col s12 m12 l12 center-align" style="margin-top: 10px;">@{{ user.username | title }}</p>
+
+
+                {% block left_menu %}
+
+                {% endblock %}
+
+
+
+
+            </div>
+            <!--end left side bar-->
+
+
+            <!--main body-->
+            <div class="col l10" style="min-height: 700px;">
+
+                <!--nav bar-->
+                <nav class="black">
+                    <div class="nav-wrapper">
+                        <a href="{% url 'administration:index' %}" style="font-size: 20px;" class="brand-logo grey-text">BTM Administration</a>
+                            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                                <li><a class="grey-text" href="{% url 'administration:user-detail' user_id=request.user.id %}">{{ request.user.username | title }}</a></li>
+                                <li><a class="grey-text" href="{% url 'account:logout' %}">Logout</a></li>
+                            </ul>
+                    </div>
+                </nav>
+                <!--nav bar-->
+
+
+                <!--main content area -->
+
+
+                <div class="col s12 m12 l12" style="min-height: 700px; padding: 20px;">
+
+                    {% block admin_content %}
+
+                    {% endblock %}
+
+                </div>
+
+
+
+                <!--end main content area -->
+
+            </div>
+            <!--end main body-->
+        </div>
+    </div>
+
+<!--js-->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+</body>
+</html>
+{% block script %}
+{% endblock %}
