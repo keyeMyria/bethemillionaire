@@ -13,6 +13,8 @@ urlpatterns = [
     url(r'^user/(?P<profile_status>[a-zA-z]+)/(?P<user_id>[0-9]+)/$', views.ActiveDeactiveUser.as_view(), name='active-deactive-user'),
     url(r'^user/(?P<user_id>[0-9]+)/delete/$', views.DeleteUser.as_view(), name='delete-user'),
 
+    url(r'^user/(?P<user_id>[0-9]+)/referral/$', views.UserReferral.as_view(), name='user-referral'),
+
     url(r'^user/(?P<user_id>[0-9]+)/change-membership/$', views.ChangeMembership.as_view(), name='change-membership'),
 
 

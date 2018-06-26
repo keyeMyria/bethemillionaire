@@ -127,6 +127,47 @@ class AllUser(AdminPermission, View):
 
 
 
+
+
+#user referral
+class UserReferral(AdminPermission, View):
+    template_name = 'administration/user-referral.html'
+
+    def get(self, request, user_id):
+
+        user = get_object_or_404(account_model.UserProfile, pk=user_id)
+
+        referrals = user.referrals.all()
+        referral_count = user.referrals.all().count()
+
+        page = request.GET.get('page', 1)
+        paginator = Paginator(referrals, 100)
+
+        try:
+            referrals = paginator.page(page)
+        except PageNotAnInteger:
+            referrals = paginator.page(1)
+        except EmptyPage:
+            referrals = paginator.page(paginator.num_pages)
+
+
+        variables = {
+            'user': user,
+            'referrals': referrals,
+
+            'referral_count': referral_count,
+        }
+
+        return render(request, self.template_name, variables)
+
+    def post(self, request, user_id):
+        pass
+
+
+
+
+
+
 #user detail
 class UserDetail(AdminPermission, View):
     template_name = 'administration/user-detail_v_1.html'
@@ -147,6 +188,10 @@ class UserDetail(AdminPermission, View):
 
     def post(self, request, user_id):
         pass
+
+
+
+
 
 
 
@@ -298,6 +343,11 @@ class DeleteUser(AdminPermission, View):
         }
 
         return render(request, self.template_name, variables)
+
+
+
+
+
 
 
 

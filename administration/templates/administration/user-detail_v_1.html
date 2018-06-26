@@ -72,7 +72,7 @@
                 <p style="font-size: 18px;">{{ user.username | title }}</p>
                 <p style="font-size: 14px;">@mail : {{ user.email }}</p>
 
-                {% if request.user.phone_number %}
+                {% if user.phone_number %}
                     <p style="font-size: 14px;">@call : {{ user.phone_number }}</p>
                 {% endif %}
 
@@ -87,6 +87,10 @@
                 {% endif %}
 
                 <p>Sponsor : {{ user.sponsor.username | title }}</p>
+
+                <p>
+                    <a href="{% url 'administration:user-referral' user_id=user.id %}">See All Referrals</a>
+                </p>
             </div>
         </div>
     </div>
