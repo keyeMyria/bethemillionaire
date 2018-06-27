@@ -58,6 +58,8 @@ urlpatterns = [
     url(r'^leader-board/create/$', views.CreateLeaderBoard.as_view(), name='create-leader-board'),
     url(r'^leader-board/(?P<campaign_name>[0-9A-Za-z-_]+)/view/$', views.ViewLeaderBoard.as_view(), name='view-leader-board'),
 
+    url(r'^leader-board/referral/$', views.LeaderBoardReferral.as_view(), name='leader-board-referral'),
+
 
 
     #recent update post for dashboard

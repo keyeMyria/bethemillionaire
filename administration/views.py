@@ -989,6 +989,31 @@ class ViewLeaderBoard(AdminPermission, View):
 
 
 
+
+
+#referral leader board
+class LeaderBoardReferral(View):
+    template_name = 'administration/leader-board-referral.html'
+
+    def get(self, request):
+
+        referrals = account_model.UserProfile.objects.annotate(
+            refer_count=Count('referrals')
+        ).order_by('-refer_count')[0:50]
+
+
+        variables = {
+            'referrals': referrals,
+        }
+
+        return render(request, self.template_name, variables)
+
+
+
+
+
+
+
 #recent update home
 class RecentUpdateHome(AdminPermission, View):
     template_name = 'administration/recent-update-home.html'
