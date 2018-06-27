@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0ba751cb-a37f-4638-b597-b9218988ff8c" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/administration/templates/administration/create-leader-board_v_1.html" beforeDir="false" afterPath="$PROJECT_DIR$/administration/templates/administration/create-leader-board_v_1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/administration/templates/administration/leader-board-referral.html" beforeDir="false" afterPath="$PROJECT_DIR$/administration/templates/administration/leader-board-referral.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/administration/templates/administration/view-leader-board_v_1.html" beforeDir="false" afterPath="$PROJECT_DIR$/administration/templates/administration/view-leader-board_v_1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/administration/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/administration/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/administration/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/administration/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -28,11 +23,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/administration/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="342">
-              <caret line="1001" column="31" selection-start-line="1001" selection-start-column="31" selection-end-line="1001" selection-end-column="31" />
+              <caret line="1001" column="39" selection-start-line="1001" selection-start-column="39" selection-end-line="1001" selection-end-column="39" />
               <folding>
                 <element signature="e#0#78#0" expanded="true" />
               </folding>
@@ -43,8 +38,35 @@
       <file leaf-file-name="leader-board-referral.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/administration/templates/administration/leader-board-referral.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="76" column="25" lean-forward="true" selection-start-line="76" selection-start-column="25" selection-end-line="76" selection-end-column="25" />
+            <state relative-caret-position="283">
+              <caret line="41" column="148" selection-start-line="41" selection-start-column="148" selection-end-line="41" selection-end-column="148" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="view-leader-board_v_1.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/administration/templates/administration/view-leader-board_v_1.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="396">
+              <caret line="41" column="137" selection-start-line="41" selection-start-column="137" selection-end-line="41" selection-end-column="137" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="create-leader-board_v_1.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/administration/templates/administration/create-leader-board_v_1.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="291">
+              <caret line="41" column="100" selection-start-line="41" selection-start-column="100" selection-end-line="41" selection-end-column="100" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="manage.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/manage.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="72">
+              <caret line="5" column="70" selection-start-line="5" selection-start-column="70" selection-end-line="5" selection-end-column="70" />
             </state>
           </provider>
         </entry>
@@ -147,12 +169,12 @@
         <option value="$PROJECT_DIR$/administration/templates/admin-base_v_1.html" />
         <option value="$PROJECT_DIR$/administration/templates/administration/user-detail_v_1.html" />
         <option value="$PROJECT_DIR$/administration/templates/administration/user-referral.html" />
-        <option value="$PROJECT_DIR$/manage.py" />
         <option value="$PROJECT_DIR$/administration/urls.py" />
         <option value="$PROJECT_DIR$/administration/templates/administration/create-leader-board_v_1.html" />
+        <option value="$PROJECT_DIR$/administration/views.py" />
+        <option value="$PROJECT_DIR$/manage.py" />
         <option value="$PROJECT_DIR$/administration/templates/administration/leader-board-referral.html" />
         <option value="$PROJECT_DIR$/administration/templates/administration/view-leader-board_v_1.html" />
-        <option value="$PROJECT_DIR$/administration/views.py" />
       </list>
     </option>
   </component>
@@ -723,13 +745,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/manage.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="5" column="70" selection-start-line="5" selection-start-column="70" selection-end-line="5" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/administration/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="407">
@@ -737,34 +752,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/administration/templates/administration/create-leader-board_v_1.html">
+    <entry file="file://$PROJECT_DIR$/administration/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="41" column="100" selection-start-line="41" selection-start-column="100" selection-end-line="41" selection-end-column="100" />
+        <state relative-caret-position="342">
+          <caret line="1001" column="39" selection-start-line="1001" selection-start-column="39" selection-end-line="1001" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#78#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/manage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="5" column="70" selection-start-line="5" selection-start-column="70" selection-end-line="5" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/administration/templates/administration/leader-board-referral.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="41" column="148" selection-start-line="41" selection-start-column="148" selection-end-line="41" selection-end-column="148" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/administration/templates/administration/view-leader-board_v_1.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="396">
-          <caret line="41" column="48" selection-start-line="41" selection-start-column="48" selection-end-line="41" selection-end-column="48" />
+          <caret line="41" column="137" selection-start-line="41" selection-start-column="137" selection-end-line="41" selection-end-column="137" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/administration/templates/administration/leader-board-referral.html">
+    <entry file="file://$PROJECT_DIR$/administration/templates/administration/create-leader-board_v_1.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="76" column="25" lean-forward="true" selection-start-line="76" selection-start-column="25" selection-end-line="76" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/administration/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="1001" column="31" selection-start-line="1001" selection-start-column="31" selection-end-line="1001" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#78#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="291">
+          <caret line="41" column="100" selection-start-line="41" selection-start-column="100" selection-end-line="41" selection-end-column="100" />
         </state>
       </provider>
     </entry>
