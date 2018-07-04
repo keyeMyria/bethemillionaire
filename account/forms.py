@@ -128,7 +128,7 @@ class RegistrationForm(forms.Form):
                     if len(email) < 1:
                         raise forms.ValidationError("Enter email address!")
                     else:
-                        email_correction = re.match('^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$', email)
+                        email_correction = re.match('^[_a-zA-Z0-9-]+(\.[_a-zA-Z0-9-]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.[a-zA-Z]{2,4})$', email)
                         if email_correction == None:
                             raise forms.ValidationError("Email not correct!")
                         else:
