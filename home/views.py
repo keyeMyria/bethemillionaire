@@ -1,10 +1,11 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404, HttpResponse
 from django.views.generic import View
 from django.db.models import Q
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from django.http import JsonResponse
 from django.db.models import Count
+from django.conf import settings
 
 from account.models import UserProfile
 from .models import AffiliateLinkControl
@@ -23,6 +24,7 @@ from administration import models as admin_model
 
 from django.utils.safestring import mark_safe
 import json
+import datetime
 
 
 """
@@ -46,6 +48,7 @@ class Start(View):
 
 
 
+
 class Home(View):
     template_name = 'home/index_v_3.html'
 
@@ -57,6 +60,7 @@ class Home(View):
 
         webinar_registration_link = account_model.WebinarLink.objects.get(id=1)
 
+
         variables = {
             'sponsor_teams': sponsor_teams,
             'total_member': total_member,
@@ -67,6 +71,7 @@ class Home(View):
         }
 
         return render(request, self.template_name, variables)
+
 
     def post(self, request):
         pass

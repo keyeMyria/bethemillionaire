@@ -491,28 +491,28 @@
                 <div class="col l4">
                     <p style="color: #666a65; text-decoration: underline;">Quick Links</p>
 
-                    <a href="#" class="col s12 m12 l12" style="padding: 0px; margin-top: 20px;">5 Steps Quick Start</a><br>
-                    <a href="#" class="" style="">Browse Our Course</a><br>
-                    <a href="#" class="" style="">Affiliate Links</a><br>
-                    <a href="#" class="" style="">Banners</a><br>
-                    <a href="#" class="" style="">Teams</a><br>
-                    <a href="#" class="" style="">Passive Profits</a><br>
-                    <a href="#" class="" style="">Email Swipes</a><br>
-                    <a href="#" class="" style="">Account Settings</a><br>
-                    <a href="#" class="" style="">My Commissions</a><br>
-                    <a href="#" class="" style="">My Autoresponder</a><br>
+                    <a href="{% url 'topic:step_1' %}" class="col s12 m12 l12" style="padding: 0px; margin-top: 20px;">5 Steps Quick Start</a><br>
+                    <a href="{% url 'course:course' %}" class="" style="">Browse Our Course</a><br>
+                    <a href="{% url 'home:affiliate_link' %}" class="" style="">Affiliate Links</a><br>
+                    <a href="{% url 'home:banners' %}" class="" style="">Banners</a><br>
+                    <a href="{% url 'home:manage-team' %}" class="" style="">Teams</a><br>
+                    <a href="{% url 'home:passive-income' %}" class="" style="">Passive Profits</a><br>
+                    <a href="{% url 'home:email_swipes' %}" class="" style="">Email Swipes</a><br>
+                    <a href="{% url 'account:profile' %}" class="" style="">Account Settings</a><br>
+                    <a href="{% url 'home:my-commission' %}" class="" style="">My Commissions</a><br>
+                    <a href="{% url 'account:my-autoresponder-settings' %}" class="" style="">My Autoresponder</a><br>
                 </div>
 
                 <div class="col l4">
                     <p style="color: #666a65; text-decoration: underline;">Social Platform</p>
 
-                    <a href="#" class="col s12 m12 l12" style=" padding: 0px; margin-top: 20px;">Facebook Page</a><br>
-                    <a href="#" class="" style="padding: 0px; ">Facebook Group</a><br>
+                    <a target="_blank" href="https://web.facebook.com/Be-The-Millionaire-2158534220826913/" class="col s12 m12 l12" style=" padding: 0px; margin-top: 20px;">Facebook Page</a><br>
+                    <a target="_blank" href="https://www.facebook.com/groups/336201610190269/" class="" style="padding: 0px; ">Facebook Group</a><br>
                     <a href="#" class="" style="padding: 0px; ">Telegram</a><br>
-                    <a href="#" class="" style="padding: 0px; ">Youtube</a><br>
+                    <a target="_blank" href="https://www.youtube.com/channel/UCjbak3ghZ0zwCK7myZMrIig" class="" style="padding: 0px; ">Youtube</a><br>
                     <a href="#" class="" style="padding: 0px; ">Twitter</a><br>
                     <a href="#" class="" style="padding: 0px; ">Instagram</a><br>
-                    <a href="#" class="" style="padding: 0px; ">Google +</a><br>
+                    <a target="_blank" href="https://plus.google.com/u/0/+MenaRefaat" class="" style="padding: 0px; ">Google +</a><br>
 
                 </div>
 
@@ -520,9 +520,9 @@
                 <div class="col l4">
                     <p style="color: #666a65; text-decoration: underline;">Support</p>
 
-                    <a href="#" class="col s12 m12 l12" style="padding: 0px; margin-top: 20px; ">FAQ</a><br>
-                    <a href="#" style="padding: 0px; ">Recent Updates</a><br>
-                    <a href="#" style="padding: 0px; ">Privacy Policy</a><br>
+                    <a href="{% url 'home:faq' %}" class="col s12 m12 l12" style="padding: 0px; margin-top: 20px; ">FAQ</a><br>
+                    <a href="{% url 'home:recent-update' %}" style="padding: 0px; ">Recent Updates</a><br>
+                    <a href="{% url 'home:privacy-policy' %}" style="padding: 0px; ">Privacy Policy</a><br>
                     <a href="#" style="padding: 0px; ">Terms and Conditions</a><br>
 
                 </div>
