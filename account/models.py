@@ -7,6 +7,10 @@ from django.contrib.auth.models import AbstractBaseUser
 from django.contrib.auth.models import PermissionsMixin
 from django.contrib.auth.models import BaseUserManager
 
+from django.conf import settings
+
+
+
 
 class Preregistration(models.Model):
     email = models.EmailField(max_length=100, null=True, blank=True)
@@ -112,6 +116,34 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
             username = users
         )
         referral.referrals.remove(newReferral)
+
+
+
+
+
+
+class EmailOrUsernameModelBackend(object):
+    def authenticate(self, username=None, password=None):
+        if '@' in username:
+            kwargs = {'email': username}
+        else:
+            kwargs = {'username': username}
+        try:
+            user = UserProfile.objects.get(**kwargs)
+            if user.check_password(password):
+                return user
+        except UserProfile.DoesNotExist:
+            return None
+
+    def get_user(self, user_id):
+        try:
+            return UserProfile.objects.get(pk=user_id)
+        except UserProfile.DoesNotExist:
+            return None
+
+
+
+
 
 
 

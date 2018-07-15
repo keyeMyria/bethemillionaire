@@ -299,6 +299,7 @@ class LoginForm(forms.Form):
     username = forms.CharField(max_length=100, required=False, widget=forms.TextInput(attrs={'class': 'validate', 'id': 'icon_prefix',}))
     password = forms.CharField(max_length=20, required=False, widget=forms.PasswordInput(attrs={'class': 'validate', 'id': 'password'}))
 
+
     def clean(self):
         username = self.cleaned_data.get('username')
         password = self.cleaned_data.get('password')
@@ -309,15 +310,17 @@ class LoginForm(forms.Form):
             if len(password) < 8:
                 raise forms.ValidationError("Password is too short!")
             else:
-                user = authenticate(username=username, password=password)
+                user = models.EmailOrUsernameModelBackend.authenticate(self, username=username, password=password)
+
                 if not user or not user.is_active:
-                    raise forms.ValidationError("Username or Password not matched!")
-        return self.cleaned_data
+                    raise forms.ValidationError("Username/Email or Password not matched!")
+
 
     def login(self, request):
         username = self.cleaned_data.get('username')
         password = self.cleaned_data.get('password')
-        user = authenticate(username=username, password=password)
+
+        user = models.EmailOrUsernameModelBackend.authenticate(self, username=username, password=password)
         return user
 
 
