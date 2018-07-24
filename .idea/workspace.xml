@@ -3,9 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="0ba751cb-a37f-4638-b597-b9218988ff8c" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/administration/templates/administration/all-user_v_1.html" beforeDir="false" afterPath="$PROJECT_DIR$/administration/templates/administration/all-user_v_1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/home/payment-account-setting_v_2.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/home/payment-account-setting_v_2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account/static/account/style/images/membership/bitcoin_background_premium.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/account/static/account/style/images/membership/bitcoin_background_premium11.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/account/templates/account/membership-levels_v_2.html" beforeDir="false" afterPath="$PROJECT_DIR$/account/templates/account/membership-levels_v_2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -16,11 +17,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="all-user_v_1.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/administration/templates/administration/all-user_v_1.html">
+      <file leaf-file-name="index_v_3.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/home/templates/home/index_v_3.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="496">
-              <caret line="133" column="19" lean-forward="true" selection-start-line="62" selection-start-column="12" selection-end-line="133" selection-end-column="19" />
+            <state relative-caret-position="388">
+              <caret line="135" column="38" lean-forward="true" selection-start-line="135" selection-start-column="38" selection-end-line="135" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -78,7 +79,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/home/static/home/fullcalendar/moment.js" />
         <option value="$PROJECT_DIR$/home/templates/home/index_test.html" />
         <option value="$PROJECT_DIR$/home/static/home/js/calendar_events.js" />
         <option value="$PROJECT_DIR$/administration/forms.py" />
@@ -129,6 +129,7 @@
         <option value="$PROJECT_DIR$/manage.py" />
         <option value="$PROJECT_DIR$/home/templates/home/payment-account-setting_v_2.html" />
         <option value="$PROJECT_DIR$/administration/templates/administration/all-user_v_1.html" />
+        <option value="$PROJECT_DIR$/account/templates/account/membership-levels_v_2.html" />
       </list>
     </option>
   </component>
@@ -143,31 +144,12 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Course" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="bethemillionaire" type="b2602c69:ProjectViewProjectNode" />
               <item name="bethemillionaire" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bethemillionaire" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bethemillionaire" type="462c0819:PsiDirectoryNode" />
-              <item name="administration" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bethemillionaire" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bethemillionaire" type="462c0819:PsiDirectoryNode" />
-              <item name="administration" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bethemillionaire" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bethemillionaire" type="462c0819:PsiDirectoryNode" />
-              <item name="administration" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="administration" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="bethemillionaire" type="b2602c69:ProjectViewProjectNode" />
@@ -191,6 +173,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Course" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -403,13 +386,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/administration/templates/administration/course-management-home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="505">
-          <caret line="68" column="12" selection-start-line="68" selection-start-column="12" selection-end-line="68" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/administration/templates/administration/module-control_v_1.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="491">
@@ -675,13 +651,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/home/templates/base_v_2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8622">
-          <caret line="479" column="192" selection-start-line="479" selection-start-column="192" selection-end-line="479" selection-end-column="192" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bethemillionaire/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="294">
@@ -693,13 +662,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/home/templates/home/index_v_3.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="604">
-          <caret line="310" column="22" selection-start-line="310" selection-start-column="22" selection-end-line="310" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -760,8 +722,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/administration/templates/administration/all-user_v_1.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="496">
-          <caret line="133" column="19" lean-forward="true" selection-start-line="62" selection-start-column="12" selection-end-line="133" selection-end-column="19" />
+        <state relative-caret-position="100">
+          <caret line="111" column="14" selection-start-line="111" selection-start-column="14" selection-end-line="111" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/account/templates/account/membership-levels_v_2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" column="104" selection-start-line="10" selection-start-column="104" selection-end-line="10" selection-end-column="104" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/home/templates/base_v_2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="681" column="17" lean-forward="true" selection-start-line="681" selection-start-column="17" selection-end-line="681" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/home/templates/home/index_v_3.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="388">
+          <caret line="135" column="38" lean-forward="true" selection-start-line="135" selection-start-column="38" selection-end-line="135" selection-end-column="38" />
         </state>
       </provider>
     </entry>
